@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.orginialMeta.entity.OrginialBillsProperty" table="CMN_MET_ORGINIAL_BILLSPROPERTY">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!--自身属性 -->
+		<property name="propertyCode" type="java.lang.String" column="propertyCode" length="128" />
+		<property name="propertyName" type="java.lang.String" column="propertyName" length="128" />
+		<!-- <property name="propertyDescription" type="java.lang.String" column="propertyDescription" length="128" /> -->
+		<!-- 单据类型 -->
+		<set name="orginialBillsType" inverse="true">
+			<key column="ORGINIAL_BILLSPROPERTY_ID" />
+			<one-to-many class="com.vix.common.orginialMeta.entity.OrginialBillsType" />
+		</set>
+		<!-- 单据分类 -->
+		<many-to-one name="orginialBillsCategory" class="com.vix.common.orginialMeta.entity.OrginialBillsCategory">
+			<column name="ORGINIAL_BILLSCATEGORY_ID">
+				<comment>分类id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

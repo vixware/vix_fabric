@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.meta.entity.BaseMetaDataDefine" table="CMN_MET_METADATADEFINE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+	<!-- 	<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"/> -->
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+	
+	
+		<property name="propertyName" type="java.lang.String" column="PropertyName" length="512"/>
+		<property name="boType" type="java.lang.String" column="boType" length="512"/>
+		<property name="propertyCode" type="java.lang.String" column="propertyCode" length="512"/>
+		<property name="property" type="java.lang.String" column="property" length="512"/>
+		<property name="propertyType" type="java.lang.String" column="propertyType" length="512"/>
+		<property name="dataType" type="java.lang.String" column="dataType" length="64"/>
+		
+		<property name="isCollectionType" type="java.lang.String" column="IsCollectionType" length="2"/>
+		<property name="isSelectView" type="java.lang.String" column="IsSelectView" length="2"/>
+		
+		<property name="defaultValue" type="java.lang.String" column="defaultValue" length="512"/>
+		<property name="xpos" type="java.lang.String" column="xpos" length="8"/>
+		<property name="ypos" type="java.lang.String" column="ypos" length="8"/>
+		<property name="row" type="java.lang.String" column="row" length="512"/>
+		<property name="columnName" type="java.lang.String" column="columnName" length="512"/>
+		<property name="color" type="java.lang.String" column="color" length="512"/>
+		<property name="style" type="java.lang.String" column="style" length="512"/>
+		<property name="font" type="java.lang.String" column="font" length="512"/>
+		<property name="fontSize" type="java.lang.String" column="fontSize" length="512"/>
+		<property name="industryCode" type="java.lang.String" column="industryCode" length="512"/>
+		
+		<!-- <property name="url" type="java.lang.String" column="url" length="1024"/> -->
+		<property name="dataSelectType" type="java.lang.String" column="DataSelectType" length="2"/>
+		
+		
+		<many-to-one name="baseMetaData" class="com.vix.common.meta.entity.BaseMetaData" lazy="false" update="false">
+			<column name="Metadata_ID">
+				<comment>元数据对象id</comment>
+			</column>
+		</many-to-one>
+		<!-- <property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="200"/> 
+		
+		-->
+  </class>
+</hibernate-mapping>

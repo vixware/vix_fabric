@@ -1,0 +1,236 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--演示-->
+	<package name="eam.config" namespace="/eam" extends="crud-default">
+		 <!-- 设置 -->
+		<action name="eamSettingAction!*" method="{1}" class="eamSettingAction">
+			 <!-- 维护工序设置 -->
+			<result name="whgxsz">/WEB-INF/content/eam/shezhi/whgxsz.jsp</result>
+			 <!-- 工单设置 -->
+			<result name="gdsz">/WEB-INF/content/eam/shezhi/gdsz.jsp</result>
+			 <!-- 工单能力计划设置 -->
+			<result name="gdnljhsz">/WEB-INF/content/eam/shezhi/gdnljhsz.jsp</result>
+			 <!-- 标准工单模板管理 -->
+			<result name="bzgdmbgl">/WEB-INF/content/eam/shezhi/bzgdmbgl.jsp</result>
+			 <!-- 分类 -->
+			<result name="fenlei">/WEB-INF/content/eam/shezhi/fenlei.jsp</result>
+			 <!-- 设备类型定义 -->
+			<result name="sblxdy">/WEB-INF/content/eam/shezhi/sblxdy.jsp</result>
+			 <!-- 设备型号规格定义 -->
+			<result name="sbxhggdy">/WEB-INF/content/eam/shezhi/sbxhggdy.jsp</result>
+			 <!-- 编码设置 -->
+			<result name="bmsz">/WEB-INF/content/eam/shezhi/bmsz.jsp</result>
+			 <!-- 业务流程定义 -->
+			<result name="ywlcdy">/WEB-INF/content/eam/shezhi/ywlcdy.jsp</result>
+		</action>
+		 <!-- 日历管理 -->
+		<action name="eamCalendarAction!*" method="{1}" class="eamCalendarAction">
+			<result name="rlgl">/WEB-INF/content/eam/rili/rlgl.jsp</result><!-- 日历管理 -->
+		</action>
+		 <!-- 设备信息管理 -->
+		<action name="accountManageAction!*" method="{1}" class="accountManageAction">
+	     	<!-- 台帐管理 -->
+			<result name="goList">/WEB-INF/content/eam/asset/eq_equipment_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/eam/asset/eq_equipment_list_content.jsp</result>	
+			<result name="goSaveOrUpdate">/WEB-INF/content/eam/asset/eq_equipment_edit.jsp</result>			
+			<result name="eqJbxx">/WEB-INF/content/eam/asset/eq_edit_jbxx.jsp</result>
+			<result name="eqJscs">/WEB-INF/content/eam/asset/eq_edit_jscs.jsp</result>
+			<result name="eqBjxx">/WEB-INF/content/eam/asset/eq_edit_bjxx.jsp</result>
+			<result name="eqBjxxPager">/WEB-INF/content/eam/asset/eq_edit_bjxx_pager.jsp</result>
+			<result name="eqBjxxEdit">/WEB-INF/content/eam/asset/eq_edit_bjxx_edit.jsp</result>
+			<result name="eqJcxx">/WEB-INF/content/eam/asset/eq_edit_jcxx.jsp</result>
+			<result name="eqJcxxPager">/WEB-INF/content/eam/asset/eq_edit_jcxx_pager.jsp</result>
+			<result name="eqJcxxEdit">/WEB-INF/content/eam/asset/eq_edit_jcxx_edit.jsp</result>
+			<result name="eqBxxx">/WEB-INF/content/eam/asset/eq_edit_bxxx.jsp</result>
+			<result name="eqBxxxPager">/WEB-INF/content/eam/asset/eq_edit_bxxx_pager.jsp</result>
+			<result name="eqBxxxEdit">/WEB-INF/content/eam/asset/eq_edit_bxxx_edit.jsp</result>
+			<result name="eqSbwd">/WEB-INF/content/eam/asset/eq_edit_sbwd.jsp</result>	
+			<result name="eqSbwdPager">/WEB-INF/content/eam/asset/eq_edit_sbwd_pager.jsp</result>	
+			<result name="eqSbwdEdit">/WEB-INF/content/eam/asset/eq_edit_sbwd_edit.jsp</result>
+            <result name="downloadEqDocument" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${oriFileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result> 
+			<result name="eqMove">/WEB-INF/content/eam/asset/eq_move.jsp</result>
+			<result name="eqReplace">/WEB-INF/content/eam/asset/eq_replace.jsp</result>
+			<result name="eqRepair">/WEB-INF/content/eam/asset/eq_repair.jsp</result>
+			<result name="eqRemove">/WEB-INF/content/eam/asset/eq_remove.jsp</result>
+			<result name="eqRepairRecord">/WEB-INF/content/eam/asset/eq_repair_record.jsp</result>
+			<result name="eqMoveRecord">/WEB-INF/content/eam/asset/eq_move_record.jsp</result>
+			 <!-- 档案管理 -->
+			<result name="daArchiveRecordMgr">/WEB-INF/content/eam/asset/daArchiveRecordMgr.jsp</result>
+			<result name="daArchiveRecordMgrList">/WEB-INF/content/eam/asset/daArchiveRecordMgrList.jsp</result>
+			<result name="daArchiveRecordMgrDetail">/WEB-INF/content/eam/asset/daArchiveRecordMgrDetail.jsp</result>
+			 <!-- 活动与变动管理 -->
+			<result name="hdStatusRecordMgr">/WEB-INF/content/eam/asset/hdStatusRecordMgr.jsp</result>
+			<result name="hdStatusRecordMgrList">/WEB-INF/content/eam/asset/hdStatusRecordMgrList.jsp</result>
+			<result name="hdStatusRecordMgrDetail">/WEB-INF/content/eam/asset/hdStatusRecordMgrDetail.jsp</result>
+			 <!-- 状态管理 -->
+			<result name="ztgl">/WEB-INF/content/eam/asset/ztgl.jsp</result>
+			 <!-- 所用备件管理 -->
+			<result name="sybjgl">/WEB-INF/content/eam/asset/sybjgl.jsp</result>
+			 <!-- 维修成本及资产折旧 -->
+			<result name="wxcbjzczj">/WEB-INF/content/eam/asset/wxcbjzczj.jsp</result>
+			 <!-- 关联结构和层次体系 -->
+			<result name="ljLogicTreeMgr">/WEB-INF/content/eam/asset/ljLogicTreeMgr.jsp</result>
+			<result name="ljLogicTreeMgrList">/WEB-INF/content/eam/asset/ljLogicTreeMgrList.jsp</result>
+			<result name="ljLogicTreeMgrDetail">/WEB-INF/content/eam/asset/ljLogicTreeMgrDetail.jsp</result>
+			 <!-- 故障体系结构 -->
+			<result name="gzErrorCodeMgr">/WEB-INF/content/eam/asset/gzErrorCodeMgr.jsp</result>
+			<result name="gzErrorCodeMgrList">/WEB-INF/content/eam/asset/gzErrorCodeMgrList.jsp</result>
+			<result name="gzErrorCodeMgrDetail">/WEB-INF/content/eam/asset/gzErrorCodeMgrDetail.jsp</result>
+			 <!-- 保修服务合同管理 -->
+			<result name="bxServiceInfoMgr">/WEB-INF/content/eam/asset/bxServiceInfoMgr.jsp</result>
+			<result name="bxServiceInfoMgrList">/WEB-INF/content/eam/asset/bxServiceInfoMgrList.jsp</result>
+			<result name="bxServiceInfoMgrDetail">/WEB-INF/content/eam/asset/bxServiceInfoMgrDetail.jsp</result>
+			 <!-- 备件管理 -->
+			<result name="sbRepairPartMgr">/WEB-INF/content/eam/asset/sbRepairPartMgr.jsp</result>
+			<result name="sbRepairPartMgrList">/WEB-INF/content/eam/asset/sbRepairPartMgrList.jsp</result>
+			<result name="sbRepairPartMgrDetail">/WEB-INF/content/eam/asset/sbRepairPartMgrDetail.jsp</result>
+			 <!-- 设备基础数据管理 -->
+			<result name="sjBaseDataMgr">/WEB-INF/content/eam/asset/sjBaseDataMgr.jsp</result>
+			<result name="sjBaseDataMgr_eqLevel">/WEB-INF/content/eam/asset/sjBaseDataMgr_eqLevel.jsp</result>
+			<result name="sjBaseDataMgr_eqType">/WEB-INF/content/eam/asset/sjBaseDataMgr_eqType.jsp</result>
+			<result name="sjBaseDataMgr_eqCategory">/WEB-INF/content/eam/asset/sjBaseDataMgr_eqCategory.jsp</result>
+			<result name="sjBaseDataMgr_eqTechParam">/WEB-INF/content/eam/asset/sjBaseDataMgr_eqTechParam.jsp</result>
+			 <!-- 统计分析 -->
+			<result name="tjStatisticMgr">/WEB-INF/content/eam/asset/tjStatisticMgr.jsp</result>
+		</action>
+		<!-- 设备变动管理-->
+		<action name="eamEquipmentAction!*" method="{1}" class="eamEquipmentAction">
+			<!-- 设备调拨 -->
+			<result name="diaobo">/WEB-INF/content/eam/equipment/diaobo.jsp</result>
+			<!-- 设备停用 -->
+			<result name="tingyong">/WEB-INF/content/eam/equipment/tingyong.jsp</result>
+			<!-- 设备封存 -->
+			<result name="fengcun">/WEB-INF/content/eam/equipment/fengcun.jsp</result>
+			<!-- 设备闲置 -->
+			<result name="xianzhi">/WEB-INF/content/eam/equipment/xianzhi.jsp</result>
+			<!-- 设备报废 -->
+			<result name="baofei">/WEB-INF/content/eam/equipment/baofei.jsp</result>
+			<!-- 设备投用 -->
+			<result name="touyong">/WEB-INF/content/eam/equipment/touyong.jsp</result>
+			<!-- 设备变动清单 -->
+			<result name="bdqd">/WEB-INF/content/eam/equipment/bdqd.jsp</result>
+		</action>
+		
+		<!-- 故障与缺陷管理 -->
+		<action name="faultReportAction!*" method="{1}" class="faultReportAction">
+			<!-- 故障缺陷报告/维修通知单 -->
+			<result name="gzReportMgr">/WEB-INF/content/eam/faultreport/gzReportMgr.jsp</result>
+			<result name="gzReportMgrList">/WEB-INF/content/eam/faultreport/gzReportMgrList.jsp</result>
+			<result name="gzReportMgrDetail">/WEB-INF/content/eam/faultreport/gzReportMgrDetail.jsp</result>
+			<!-- 故障缺陷报告审批 -->
+			<result name="spReview">/WEB-INF/content/eam/faultreport/spReview.jsp</result>
+			<result name="spReviewList">/WEB-INF/content/eam/faultreport/spReviewList.jsp</result>
+			<result name="spReviewDetail">/WEB-INF/content/eam/faultreport/spReviewDetail.jsp</result>
+			<!-- 统计分析 -->
+			<result name="tjStatisticMgr">/WEB-INF/content/eam/faultreport/tjStatisticMgr.jsp</result>
+		</action>
+		
+		<!-- 工单管理 -->
+		<action name="workOrdersAction!*" method="{1}" class="workOrdersAction">
+			<!-- 设置-->
+			<result name="shezhi">/WEB-INF/content/eam/workorders/shezhi.jsp</result>
+			<!-- 工单创建 -->
+			<result name="gdCreateMgr">/WEB-INF/content/eam/workorders/gdCreateMgr.jsp</result>
+			<result name="gdCreate">/WEB-INF/content/eam/workorders/gdCreate.jsp</result>
+			<result name="gdGdxx">/WEB-INF/content/eam/workorders/gd_gdxx.jsp</result>
+			<result name="gdRwmx">/WEB-INF/content/eam/workorders/gd_rwmx.jsp</result>
+			<result name="gdZyry">/WEB-INF/content/eam/workorders/gd_zyry.jsp</result>
+			<result name="gdWlxx">/WEB-INF/content/eam/workorders/gd_wlxx.jsp</result>
+			<result name="gdAqxx">/WEB-INF/content/eam/workorders/gd_aqxx.jsp</result>
+			<result name="gdCbgs">/WEB-INF/content/eam/workorders/gd_cbgs.jsp</result>
+			<result name="gdChooseEQ">/WEB-INF/content/eam/workorders/gdChooseEQ.jsp</result>
+			<result name="gdChooseWL">/WEB-INF/content/eam/workorders/gdChooseWL.jsp</result>
+			<result name="gdChooseRY">/WEB-INF/content/eam/workorders/gdChooseRY.jsp</result>
+			<!-- 工单列表 -->
+			<result name="lbWorkOrderMgr">/WEB-INF/content/eam/workorders/lbWorkOrderMgr.jsp</result>
+			<result name="lbWorkOrderMgrList">/WEB-INF/content/eam/workorders/lbWorkOrderMgrList.jsp</result>
+			<result name="lbWorkOrderMgrDetail">/WEB-INF/content/eam/workorders/lbWorkOrderMgrDetail.jsp</result>
+			<!-- 工单计划 -->
+			<result name="jihua">/WEB-INF/content/eam/workorders/jihua.jsp</result>
+			<!-- 工单调度审批 -->
+			<result name="spReview">/WEB-INF/content/eam/workorders/spReview.jsp</result>
+			<result name="spReviewList">/WEB-INF/content/eam/workorders/spReviewList.jsp</result>
+			<result name="spReviewDetail">/WEB-INF/content/eam/workorders/spReviewDetail.jsp</result>
+			<!-- 工单执行过程管理 -->
+			<result name="gdzxgcgl">/WEB-INF/content/eam/workorders/gdzxgcgl.jsp</result>
+			<!-- 工单完工与报告管理 -->
+			<result name="wgFinalReport">/WEB-INF/content/eam/workorders/wgFinalReport.jsp</result>
+			<!-- 外包服务合同管理 -->
+			<result name="wbfwhtgl">/WEB-INF/content/eam/workorders/wbfwhtgl.jsp</result>
+			<!-- 工单成本管理 -->
+			<result name="gdcbgl">/WEB-INF/content/eam/workorders/gdcbgl.jsp</result>
+			<!-- 工单档案管理 -->
+			<result name="daArchiveRecord">/WEB-INF/content/eam/workorders/daArchiveRecord.jsp</result>
+			<result name="daArchiveRecordList">/WEB-INF/content/eam/workorders/daArchiveRecordList.jsp</result>
+			<result name="daArchiveRecordDetail">/WEB-INF/content/eam/workorders/daArchiveRecordDetail.jsp</result>
+			<!-- 统计分析与报表 -->
+			<result name="tjStatisticMgr">/WEB-INF/content/eam/workorders/tjStatisticMgr.jsp</result>
+		</action>
+		
+		<!-- 预防性维护管理-->
+		<action name="preMaintainAction!*" method="{1}" class="preMaintainAction">
+			<!-- 基础数据管理 -->
+			<result name="jcBaseDataMgr">/WEB-INF/content/eam/maintenance/jcBaseDataMgr.jsp</result>
+			<result name="jcBaseDataMgrList">/WEB-INF/content/eam/maintenance/jcBaseDataMgrList.jsp</result>
+			<result name="jcBaseDataMgrDetail">/WEB-INF/content/eam/maintenance/jcBaseDataMgrDetail.jsp</result>
+			<!-- 预防性维护活动管理 -->
+			<result name="hdgl">/WEB-INF/content/eam/maintenance/hdgl.jsp</result>
+			<!-- 任务清单管理 -->
+			<result name="rwqdgl">/WEB-INF/content/eam/maintenance/rwqdgl.jsp</result>
+			<!-- 预防计划 -->
+			<result name="yfjh">/WEB-INF/content/eam/maintenance/yfjh.jsp</result>
+			<!-- 运行计划 -->
+			<result name="yxjh">/WEB-INF/content/eam/maintenance/yxjh.jsp</result>
+			<!-- 维护任务管理 -->
+			<result name="whWorkMgr">/WEB-INF/content/eam/maintenance/whWorkMgr.jsp</result>
+			<result name="whWorkMgrList">/WEB-INF/content/eam/maintenance/whWorkMgrList.jsp</result>
+			<result name="whWorkMgrDetail">/WEB-INF/content/eam/maintenance/whWorkMgrDetail.jsp</result>
+			<!-- 工作包管理 -->
+			<result name="gzbgl">/WEB-INF/content/eam/maintenance/gzbgl.jsp</result>
+			<!-- 计划监控及调整 -->
+			<result name="jhjkjtz">/WEB-INF/content/eam/maintenance/jhjkjtz.jsp</result>
+		</action>
+		
+		<!-- 项目管理-->
+		<action name="eamProjectAction!*" method="{1}" class="eamProjectAction">
+			<!-- 项目基本信息 -->
+			<result name="jbxx">/WEB-INF/content/eam/pm/jbxx.jsp</result>
+			<!-- 项目结构建立 -->
+			<result name="jgjl">/WEB-INF/content/eam/pm/jgjl.jsp</result>
+			<!-- 项目过程控制和审核 -->
+			<result name="gckzhsh">/WEB-INF/content/eam/pm/gckzhsh.jsp</result>
+			<!-- 项目预算明细查询 -->
+			<result name="ysmxcx">/WEB-INF/content/eam/pm/ysmxcx.jsp</result>
+			<!-- 项目成本管理 -->
+			<result name="xmcbgl">/WEB-INF/content/eam/pm/xmcbgl.jsp</result>
+			<!-- 项目费用台账 -->
+			<result name="fytz">/WEB-INF/content/eam/pm/fytz.jsp</result>
+			<!-- 警戒线项目 -->
+			<result name="jjxxm">/WEB-INF/content/eam/pm/jjxxm.jsp</result>
+			<!-- 项目分析 -->
+			<result name="xmfx">/WEB-INF/content/eam/pm/xmfx.jsp</result>
+			<!-- 项目进度管理 -->
+			<result name="xmjdgl">/WEB-INF/content/eam/pm/xmjdgl.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		<!-- 外包服务合同 -->
+		<action name="outsourceServicesAction!*" method="{1}" class="outsourceServicesAction">
+			<result name="goList">/WEB-INF/content/eam/workorders/work_outsourcservicescontract_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/eam/workorders/work_outsourcservicescontract_list_content.jsp</result>			
+		</action>
+	</package>
+</struts>

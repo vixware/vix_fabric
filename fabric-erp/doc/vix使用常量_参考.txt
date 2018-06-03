@@ -1,0 +1,1 @@
+物料		${vv:varView("vix_mdm_item")}

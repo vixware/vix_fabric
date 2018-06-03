@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.service.entity.RepairOrder" table="CRM_S_REPAIRORDER">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		<property name="status" type="java.lang.String" column="status" length="10"/>
+		
+		<!-- 基础业务对象 -->
+ 		<property name="subject" type="java.lang.String" column="SUBJECT" length="100"/>
+ 		<property name="receiveDate" type="java.util.Date" column="receiveDate"/>
+ 		<property name="repairProduct" type="java.lang.String" column="repairProduct" length="300"/>
+ 		<property name="produceDate" type="java.util.Date" column="produceDate"/>
+ 		<property name="saleDate" type="java.util.Date" column="saleDate"/>
+ 		<property name="isWarranty" type="java.lang.String" column="isWarranty" length="10"/>
+ 		<property name="troubleContent" type="java.lang.String" column="troubleContent" length="300"/>
+ 		<property name="notice" type="java.lang.String" column="notice" length="300"/>
+ 		<property name="money" type="java.lang.Double" column="money"/>
+ 		<property name="backSection" type="java.lang.Double" column="backSection"/>
+ 		<property name="deliveryDate" type="java.util.Date" column="deliveryDate"/>
+ 		<property name="memo" type="java.lang.String" column="MEMO" length="100"/>
+ 		<many-to-one name="employee" column="employee_id"/>
+ 		<many-to-one name="organizationUnit" column="organizationUnit_id"/>
+		<many-to-one name="crmProject" column="crmProject_id"/>
+ 		<many-to-one name="customerAccount" column="customerAccount_id"/>
+ 		<many-to-one name="contactPerson" column="contactPerson_id"/>
+ 		<many-to-one name="repairOrderType" column="repairOrderType_id"/>
+  </class>
+</hibernate-mapping>

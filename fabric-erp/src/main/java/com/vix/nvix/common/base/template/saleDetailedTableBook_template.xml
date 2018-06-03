@@ -1,0 +1,7 @@
+<xls>
+	<area ref="salesDetailedBookVo!A1:N2">
+		<each items="salesDetailedBookVoList" var="salesDetailedBookVo" ref="salesDetailedBookVo!A2:N2">
+			<area ref="salesDetailedBookVo!A2:N2" />
+		</each>
+	</area>
+</xls>

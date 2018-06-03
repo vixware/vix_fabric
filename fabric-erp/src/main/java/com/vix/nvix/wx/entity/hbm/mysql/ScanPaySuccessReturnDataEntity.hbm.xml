@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.ScanPaySuccessReturnDataEntity" table="WX_SCANPAYSUCCESSRETURNDATAENTITY">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creatorCode" type="java.lang.String" column="CREATORCODE" length="150" update="false" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" update="false" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" length="150" />
+
+
+		<property name="return_code" type="java.lang.String" column="return_code" length="150" />
+		<property name="return_msg" type="java.lang.String" column="return_msg" length="150" />
+		<property name="appid" type="java.lang.String" column="appid" length="150" />
+		<property name="mch_id" type="java.lang.String" column="mch_id" length="150" />
+		<property name="nonce_str" type="java.lang.String" column="nonce_str" length="150" />
+		<property name="sign" type="java.lang.String" column="sign" length="150" />
+		<property name="result_code" type="java.lang.String" column="result_code" length="150" />
+		<property name="openid" type="java.lang.String" column="openid" length="150" />
+		<property name="is_subscribe" type="java.lang.String" column="is_subscribe" length="150" />
+		<property name="trade_type" type="java.lang.String" column="trade_type" length="150" />
+		<property name="bank_type" type="java.lang.String" column="bank_type" length="150" />
+		<property name="total_fee" type="java.lang.String" column="total_fee" length="150" />
+		<property name="fee_type" type="java.lang.String" column="fee_type" length="150" />
+		<property name="transaction_id" type="java.lang.String" column="transaction_id" length="150" />
+		<property name="attach" type="java.lang.String" column="attach" length="150" />
+		<property name="out_trade_no" type="java.lang.String" column="out_trade_no" length="150" />
+		<property name="time_end" type="java.lang.String" column="time_end" length="150" />
+		<property name="trade_state" type="java.lang.String" column="trade_state" length="150" />
+		<property name="cash_fee" type="java.lang.String" column="cash_fee" length="150" />
+		<property name="refundStatus" type="java.lang.String" column="refundStatus" length="150" />
+		<property name="coupon_fee" type="java.lang.String" column="coupon_fee" length="150" />
+		<property name="coupon_count" type="java.lang.String" column="coupon_count" length="150" />
+		<property name="coupon_fee_0" type="java.lang.String" column="coupon_fee_0" length="150" />
+		<property name="coupon_fee_1" type="java.lang.String" column="coupon_fee_1" length="150" />
+		<property name="coupon_fee_2" type="java.lang.String" column="coupon_fee_2" length="150" />
+		<property name="coupon_fee_3" type="java.lang.String" column="coupon_fee_3" length="150" />
+		<property name="coupon_fee_4" type="java.lang.String" column="coupon_fee_4" length="150" />
+		<property name="coupon_type_0" type="java.lang.String" column="coupon_type_0" length="150" />
+		<property name="coupon_type_1" type="java.lang.String" column="coupon_type_1" length="150" />
+		<property name="coupon_type_2" type="java.lang.String" column="coupon_type_2" length="150" />
+		<property name="coupon_type_3" type="java.lang.String" column="coupon_type_3" length="150" />
+		<property name="coupon_type_4" type="java.lang.String" column="coupon_type_4" length="150" />
+		<property name="coupon_id_0" type="java.lang.String" column="coupon_id_0" length="150" />
+		<property name="coupon_id_1" type="java.lang.String" column="coupon_id_1" length="150" />
+		<property name="coupon_id_2" type="java.lang.String" column="coupon_id_2" length="150" />
+		<property name="coupon_id_3" type="java.lang.String" column="coupon_id_3" length="150" />
+		<property name="coupon_id_4" type="java.lang.String" column="coupon_id_4" length="150" />
+		<property name="source" type="java.lang.String" column="source" length="150" />
+		<property name="applyTime" type="java.util.Date" column="applyTime" />
+		
+		<many-to-one name="requireGoodsOrder" class="com.vix.mdm.purchase.order.entity.RequireGoodsOrder" lazy="false" fetch="join">
+			<column name="requireGoodsOrder_id">
+				<comment>订单id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="rechargeRecord" class="com.vix.mdm.crm.entity.RechargeRecord" lazy="false" fetch="join">
+			<column name="rechargeRecord_id">
+				<comment>充值记录id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

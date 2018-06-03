@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!-- 
+
+SET FOREIGN_KEY_CHECKS=0;
+delete from CMN_SEC_AUTHORITY_RES;
+delete from CMN_SEC_ROLE_AUTHORITY;
+delete from CMN_SEC_AUTHORITY;
+commit;
+SET FOREIGN_KEY_CHECKS=1;
+
+
+SET FOREIGN_KEY_CHECKS=0;
+INSERT INTO `vix_1111`.`cmn_sec_orginial_auth` (
+  `ID`,`PrimaryKey`, `Name`,  `AuthorityCode`,`DisplayName`,`Memo`,`AuthType`,`MenuHrefUrl`,
+  `SortOrder`,`BizType`,`ViewPos`,`TopParentCode`,`Parent_id`) 
+
+SELECT ca.`ID`, ca.`PrimaryKey`, ca.`Name`, ca.`AuthorityCode`, ca.`DisplayName`,ca.`Memo`,ca.`AuthType`,ca.`MenuHrefUrl`,
+ca.`SortOrder`,ca.`BizType`,ca.`ViewPos`,ca.`TopParentCode`,ca.`Parent_id`
+ FROM  cmn_sec_authority ca;
+SET FOREIGN_KEY_CHECKS=1;
+ -->
+	<!-- 定义查询权限关联角色时的 过滤器 -->
+<class name="com.vix.common.orginialMeta.entity.OrginialAuthority" table="CMN_SEC_ORGINIAL_AUTH">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<property name="name" type="java.lang.String" column="Name" length="50"/>
+		<property name="authorityCode" type="java.lang.String" column="AuthorityCode" length="100"/>
+		<property name="parentAuthorityCode" type="java.lang.String" column="ParentAuthorityCode" length="100"/>
+		
+		<property name="displayName" type="java.lang.String" column="DisplayName" length="50"/>
+		<property name="memo" type="java.lang.String" column="Memo" length="100"/>
+		<property name="authType" type="java.lang.String" column="AuthType" length="2"/>
+		<property name="menuHrefUrl" type="java.lang.String" column="MenuHrefUrl" length="500"/>
+		<property name="sortOrder" type="java.lang.Integer" column="SortOrder"/>
+		
+		<property name="bizType" type="java.lang.String" column="BizType" length="8"/>
+		<property name="viewPos" type="java.lang.String" column="ViewPos" length="8"/>
+		
+		<property name="topParentCode" type="java.lang.String" column="TopParentCode" length="256"/>
+		<property name="iconClass" type="java.lang.String" column="iconClass" length="50"/>
+		
+		<!-- <many-to-one name="parentAuthority" column="Parent_id" lazy="no-proxy" fetch="join"/>
+		<set name="subAuthoritys" inverse="true" fetch="join">
+			<key column="Parent_id"/>
+			<one-to-many class="com.vix.common.orginialMeta.entity.OrginialAuthority"/>
+		</set> -->
+		
+		<set name="resources" table="CMN_SEC_ORGINIAL_AUTH_RES" fetch="join">
+	           <key>
+	               <column name="AUTHORITY_ID"  not-null="true">
+	               		<comment>权限id</comment>
+	               </column>
+	           </key>
+	           <many-to-many class="com.vix.common.orginialMeta.entity.OrginialResource" unique="true">
+	               <column name="Resource_ID" not-null="true" />
+	           </many-to-many>
+	    </set>
+	    
+	    
+       <set name="industryManagementModules" table="CMN_SEC_ORGINIAL_AUTH_IND_MODULE" fetch="join" inverse="true">
+            <key>
+                <column name="AUTHORITY_ID"  not-null="true">
+                	<comment>权限id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.system.industrymanagement.entity.IndustryManagementModule">
+                <column name="IndustryManagementModule_ID" not-null="true" />
+            </many-to-many>
+        </set>
+	 </class>
+</hibernate-mapping>

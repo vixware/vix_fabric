@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.bulletin.entity.AnnouncementNotification" table="CMN_AnnouncementNotification">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" update="false" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100" />
+		<property name="plotSummary" type="java.lang.String" column="PLOTSUMMARY" length="100" />
+		<property name="keywords" type="java.lang.String" column="KEYWORDS" length="100" />
+
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+
+
+		<property name="catalogy" type="java.lang.String" column="CATALOGY" length="200" />
+		<property name="title" type="java.lang.String" column="TITLE" length="200" />
+		<property name="content" type="java.lang.String" column="CONTENT" length="550" />
+
+		<property name="activeStartDate" type="java.util.Date" column="ActiveStartDate" />
+		<property name="activeEndDate" type="java.util.Date" column="ActiveEndDate" />
+		<property name="sendMsg" type="java.lang.Boolean" column="SendMsg" />
+		<property name="onTop" type="java.lang.Boolean" column="OnTop" />
+		<property name="onTopDay" type="java.lang.Integer" column="OnTopDay" />
+		<property name="bulletinType" type="java.lang.Integer" column="BULLETINTYPE" />
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100"></property>
+		<property name="creator" type="java.lang.String" column="creator" length="100"></property>
+		<property name="isNew" type="java.lang.String" column="isNew"></property>
+		<property name="type" type="java.lang.String" column="type"></property>
+		<property name="pointPraiseNums" type="java.lang.Integer" column="pointPraiseNums"></property>
+		<property name="replyNums" type="java.lang.Long" column="replyNums"></property>
+
+		<property name="pubType" type="java.lang.String" column="PubType" length="2" />
+
+		<set name="organizationUnits" table="CMN_AnnouncementNotification_ORGUNIT" fetch="join">
+			<key>
+				<column name="AnnouncementNotification_ID" not-null="true">
+					<comment>公告id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.common.org.entity.OrganizationUnit">
+				<column name="ORGUNIT_ID" not-null="true">
+					<comment>部门id</comment>
+				</column>
+			</many-to-many>
+		</set>
+		<set name="roles" table="CMN_AnnouncementNotification_ROLE" fetch="join">
+			<key>
+				<column name="AnnouncementNotification_ID" not-null="true">
+					<comment>公告id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.common.security.entity.Role">
+				<column name="Role_ID" not-null="true">
+					<comment>角色id</comment>
+				</column>
+			</many-to-many>
+		</set>
+		<set name="employees" table="CMN_AnnouncementNotification_EMP" fetch="join">
+			<key>
+				<column name="AnnouncementNotification_ID" not-null="true">
+					<comment>公告id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.hr.organization.entity.Employee">
+				<column name="Employee_ID" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</many-to-many>
+		</set>
+		<many-to-one name="employee" column="employee_id" />
+		<property name="pubIds" type="java.lang.String" column="pubIds" length="1024" />
+		<property name="pubNames" type="java.lang.String" column="pubNames" length="2048" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="150" />
+		<property name="firstPictureUrl" type="java.lang.String" column="firstPictureUrl" length="300" />
+
+
+
+
+
+		<property name="bulletinStatus" type="java.lang.Integer" column="STATUS" />
+		<property name="readTimes" type="java.lang.Long" column="READTIMES" />
+
+		<property name="isAudit" type="java.lang.Integer" column="IS_AUDIT" />
+		<property name="auditDate" type="java.util.Date" column="AUDIT_DATE" />
+		<property name="isPublish" type="java.lang.Integer" column="IS_PUBLISH" />
+		<property name="isRead" type="java.lang.Integer" column="IS_READ" />
+		<property name="isSendMsg" type="java.lang.Integer" column="isSendMsg" />
+
+
+		<many-to-one name="createUser" class="com.vix.common.security.entity.UserAccount" lazy="false" update="false">
+			<column name="Create_UserAccount_Id">
+				<comment>创建用户id</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="auditUser" class="com.vix.common.security.entity.UserAccount" lazy="false">
+			<column name="Audit_UserAccount_Id">
+				<comment>审核信息id</comment>
+			</column>
+		</many-to-one>
+
+		<set name="accountStatements" inverse="true">
+			<key>
+				<column name="announcementNotification_id" />
+			</key>
+			<one-to-many class="com.vix.oa.bulletin.entity.AccountStatements" />
+		</set>
+		<set name="subWxpQyPicture" inverse="true">
+			<key>
+				<column name="announcementNotification_id" />
+			</key>
+			<one-to-many class="com.vix.wechat.base.entity.WxpQyPicture" />
+		</set>
+
+		<set name="noticeUploader" inverse="true">
+			<key>
+				<column name="announcementNotification_id" />
+			</key>
+			<one-to-many class="com.vix.oa.bulletin.entity.NoticeUploader" />
+		</set>
+		<set name="subEvaluationReviews" inverse="true">
+			<key>
+				<column name="announcementNotification_id" />
+			</key>
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.EvaluationReview" />
+		</set>
+	</class>
+</hibernate-mapping>

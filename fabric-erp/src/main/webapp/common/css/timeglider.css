@@ -1,0 +1,17 @@
+body { font-family: Helvetica, Arial, sans-serif; }
+h2 { margin-left:32px; }
+#p1 { height:500px; }
+#output { font-size:10px; }
+.shadow-years .timeglider-event-title { color:#F0F0F0; }
+.shadow-years .timeglider-event-spanner { background-color:#4C5408; }
+.bibliocene .timeglider-event-title { color:#F0F0F0; }
+.bibliocene .timeglider-event-spanner { background-color:orange; }
+.js-era .timeglider-event-title { color:#323230; }
+.js-era .timeglider-event-spanner { background-color:#f0db4e; }
+.hawt .timeglider-event-title { color:white; }
+.hawt .timeglider-event-spanner { background-color:#CC106B; }
+.browserwars .timeglider-event-title { color:black; }
+.browserwars .timeglider-event-spanner { background-color:#CC0000; }
+.inception .timeglider-event-title { color:green; }
+.inception .timeglider-event-spanner { background-color:white; }
+.tg-timeline-envelope .titleBar { opacity:.2; }

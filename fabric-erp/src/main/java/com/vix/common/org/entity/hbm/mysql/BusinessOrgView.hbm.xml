@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.org.entity.BusinessOrgView" table="V_MDM_ORG_BIZORGVIEW">
+        <id name="id" type="java.lang.String" column="ID">
+        </id>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="name" type="java.lang.String" column="vname" length="512"/>
+		<property name="viewType" type="java.lang.String" column="viewType" length="16"/>
+		<property name="realId" type="java.lang.String" column="realId"/>
+		<property name="parentId" type="java.lang.String" column="v_parent_id"/>
+		
+  </class>
+</hibernate-mapping>

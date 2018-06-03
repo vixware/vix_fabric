@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResRowSystemParams" table="CMN_SEC_DATARESROWSYSTEMPARAMS">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+				
+		<!-- <property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"/> -->
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		
+		
+		<property name="paramType" type="java.lang.String" column="ParamType" length="2"/>
+		<property name="keyProperty" type="java.lang.String" column="KeyProperty" length="256"/>
+		<property name="keyPropertyName" type="java.lang.String" column="KeyPropertyName" length="1024"/>
+		<property name="paramUrl" type="java.lang.String" column="ParamUrl" length="2048"/>
+		<property name="valueType" type="java.lang.String" column="valueType" length="16"/>
+		<property name="isActive" type="java.lang.String" column="isActive" length="2"/>
+		
+		<property name="readFromPreData" type="java.lang.String" column="readFromPreData" length="2"/>
+		
+		
+		<many-to-one name="baseMetaData" class="com.vix.common.meta.entity.BaseMetaData" lazy="false">
+			<column name="Metadata_ID">
+				<comment>元数据对象id</comment>
+			</column>
+		</many-to-one>
+		
+		
+		<set name="roles" table="CMN_SEC_DATARESROWSYSTEMPARAMS_ROLE" fetch="join">
+            <key>
+                <column name="DATARESPARAMS_ID" not-null="true">
+                	<comment>行集权限系统常量配置id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Role">
+                <column name="Role_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        
+        <!-- 
+         <set name="dataResRowPredatas" inverse="true">
+			 <key>
+                <column name="DataResRowSysPamrams_ID"  not-null="true" >
+                </column>
+            </key>
+			<one-to-many class="com.vix.common.security.entity.DataResRowPredata"/>
+		</set> -->
+		
+  </class>
+</hibernate-mapping>

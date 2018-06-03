@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mm.settings.entity.CraftsRoute" table="MM_CRAFTSROUTE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="craftsCode" type="java.lang.String">
+			<column name="CRAFTSCODE" length="254" />
+		</property>
+		<property name="craftsName" type="java.lang.String">
+			<column name="CRAFTSNAME" length="254" />
+		</property>
+		<property name="materialCode" type="java.lang.String">
+			<column name="MATERIALCODE" length="254" />
+		</property>
+		<property name="materialName" type="java.lang.String">
+			<column name="MATERIALNAME" length="254" />
+		</property>
+		<property name="types" type="java.lang.String">
+			<column name="TYPES" length="254" />
+		</property>
+		<property name="specifications" type="java.lang.String">
+			<column name="SPECIFICATIONS" length="254" />
+		</property>
+		<property name="processRules" type="java.lang.String">
+			<column name="PROCESSRULES" length="254" />
+		</property>
+		<property name="fixedLeadTime" type="java.lang.String">
+			<column name="FIXEDLEADTIME" length="254" />
+		</property>
+		<property name="unitsMeasurement" type="java.lang.String">
+			<column name="UNITSMEASUREMENT" length="254" />
+		</property>
+		<property name="versionNumber" type="java.lang.String">
+			<column name="VERSIONNUMBER" length="254" />
+		</property>
+		<property name="versionDescription" type="java.lang.String">
+			<column name="VERSIONDESCRIPTION" length="254" />
+		</property>
+		<property name="changeNumber" type="java.lang.String">
+			<column name="CHANGENUMBER" length="254" />
+		</property>
+		<property name="state" type="java.lang.String">
+			<column name="STATE" length="254" />
+		</property>
+		<property name="craDate" type="java.util.Date">
+			<column name="CRADATE" />
+		</property>
+		
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID"
+			length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME"
+			length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY"
+			length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE"
+			length="150" />
+		<property name="companyInnerCode" type="java.lang.String"
+			column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE"
+			length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET"
+			length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String"
+			column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String"
+			column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT"
+			length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR"
+			length="150" />
+		<property name="status" type="java.lang.String" column="STATUS"
+			length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL"
+			length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID"
+			length="150" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE"
+			length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE"
+			length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String"
+			column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String"
+			column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String"
+			column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION"
+			length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO"
+			length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION"
+			length="150" />
+		<set name="craftsRouteDetails" inverse="true">
+			<key column="craftsRoute_id" />
+			<one-to-many class="com.vix.mm.settings.entity.CraftsRouteDetail" />
+		</set>
+		<set name="processManagements" inverse="true">
+			<key column="craftsRoute_id" />
+			<one-to-many class="com.vix.mm.settings.entity.ProcessManagement" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.fabric.entity.FabricBill" table="FABRIC_FABRICBILL">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creatorCode" type="java.lang.String" column="CREATORCODE" length="150" update="false" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" update="false" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" length="150" />
+
+		<property name="billInfoId" type="java.lang.String" column="billInfoId" length="150" />
+		<property name="billInfoAmt" type="java.lang.String" column="billInfoAmt" length="150" />
+		<property name="billInfoType" type="java.lang.String" column="billInfoType" length="150" />
+		<property name="billInfoIsseDate" type="java.lang.String" column="billInfoIsseDate" length="150" />
+		<property name="billInfoDueDate" type="java.lang.String" column="billInfoDueDate" length="150" />
+		<property name="drwrCmId" type="java.lang.String" column="drwrCmId" length="150" />
+		<property name="drwrAcct" type="java.lang.String" column="drwrAcct" length="150" />
+		<property name="accptrCmId" type="java.lang.String" column="accptrCmId" length="150" />
+		<property name="accptrAcct" type="java.lang.String" column="accptrAcct" length="150" />
+		<property name="pyeeCmId" type="java.lang.String" column="pyeeCmId" length="150" />
+		<property name="pyeeAcct" type="java.lang.String" column="pyeeAcct" length="150" />
+		<property name="hodrCmId" type="java.lang.String" column="hodrCmId" length="150" />
+		<property name="hodrAcct" type="java.lang.String" column="hodrAcct" length="150" />
+		<property name="waitEndorserCmId" type="java.lang.String" column="waitEndorserCmId" length="150" />
+		<property name="waitEndorserAcct" type="java.lang.String" column="waitEndorserAcct" length="150" />
+		<property name="rejectEndorserCmId" type="java.lang.String" column="rejectEndorserCmId" length="150" />
+		<property name="rejectEndorserAcct" type="java.lang.String" column="rejectEndorserAcct" length="150" />
+		<property name="state" type="java.lang.String" column="state" length="150" />
+
+		<set name="subFabricHistoryItems" inverse="true">
+			<key column="parent_id" />
+			<one-to-many class="com.vix.nvix.fabric.entity.FabricHistoryItem" />
+		</set>
+	</class>
+</hibernate-mapping>

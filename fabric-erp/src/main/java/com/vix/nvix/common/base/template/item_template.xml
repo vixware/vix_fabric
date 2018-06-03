@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+	<worksheet name="item">
+		<section startRow="0" endRow="0" />
+		<loop startRow="1" endRow="1" items="itemList" var="item" varType="com.vix.mdm.item.entity.Item">
+			<section startRow="1" endRow="1">
+				<mapping row="1" col="0">item.itemCataCode</mapping>
+				<mapping row="1" col="1">item.code</mapping>
+				<mapping row="1" col="2">item.name</mapping>
+				<mapping row="1" col="3">item.saleUnit</mapping>
+				<mapping row="1" col="4">item.specification</mapping>
+				<mapping row="1" col="5">item.barCode</mapping>
+				<mapping row="1" col="6">item.purchasePrice</mapping>
+				<mapping row="1" col="7">item.price</mapping>
+				<mapping row="1" col="8">item.vipPrice</mapping>
+				<mapping row="1" col="9">item.brand</mapping>
+				<mapping row="1" col="10">item.origin</mapping>
+				<mapping row="1" col="11">item.isplu</mapping>
+				<mapping row="1" col="12">item.plu</mapping>
+				<mapping row="1" col="13">item.pluMode</mapping>
+				<mapping row="1" col="14">item.isDiscount</mapping>
+				<mapping row="1" col="15">item.status</mapping>
+				<mapping row="1" col="16">item.revAccountId</mapping>
+			</section>
+			<loopbreakcondition>
+				<rowcheck offset="0" />
+				<rowcheck offset="1" />
+			</loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.quotes.entity.SalesQuotationItem" table="SALE_SALESQUOTATIONITEM">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        
+        <property name="uuid" type="java.lang.String" column="UUID" length="50"/>
+		<property name="code" type="java.lang.String" column="CODE"/>
+		<property name="name" type="java.lang.String" column="NAME" length="150"/>
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150"/>
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150"/>
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150"/>
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150"/>
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150"/>
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150"/>
+		<property name="status" type="java.lang.String" column="STATUS" length="50"/>
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150"/>
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150"/>
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150"/>
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150"/>
+		<property name="version" type="java.lang.String" column="VERSION" length="150"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150"/>
+		
+		<property name="rowID" type="java.lang.String" column="ROWID" length="150"/>
+		<property name="rowType" type="java.lang.String" column="ROWTYPE" length="150"/>
+		<property name="poCode" type="java.lang.String" column="POCODE" length="150"/>
+		<property name="content" type="java.lang.String" column="CONTENT" length="150"/>
+		<property name="charger" type="java.lang.String" column="CHARGER" length="150"/>
+		<property name="chargeDepartment" type="java.lang.String" column="CHARGEDEPARTMENT" length="150"/>
+		<property name="parentCode" type="java.lang.String" column="PARENTCODE" length="150"/>
+		<many-to-one name="item" column="item_id"/>
+		<property name="isPurchase" type="java.lang.String" column="ISPURCHASE" length="150"/>
+		<property name="supplierCode" type="java.lang.String" column="SUPPLIERCODE" length="150"/>
+		<property name="supplierName" type="java.lang.String" column="SUPPLIERNAME" length="150"/>
+		<property name="amount" type="java.lang.Double" column="AMOUNT"/>
+ 		<property name="assitAmount" type="java.lang.String" column="ASSITAMOUNT" length="150"/>
+		<property name="unit" type="java.lang.String" column="UNIT" length="150"/>
+		<property name="specification" type="java.lang.String" column="SPECIFICATION" length="150"/>
+		<property name="assitUnit" type="java.lang.String" column="ASSITUNIT" length="150"/>
+ 		<property name="unitExchange" type="java.lang.Double" column="UNITEXCHANGE"/>
+ 		<property name="tax" type="java.lang.Double" column="TAX"/>
+		<property name="taxAmount" type="java.lang.Double" column="TAXAMOUNT"/>
+		<property name="price" type="java.lang.Double" column="PRICE"/>
+		<property name="discount" type="java.lang.Double" column="DISCOUNT"/>
+		<property name="netPrice" type="java.lang.Double" column="NETPRICE"/>
+		<property name="taxPrice" type="java.lang.Double" column="TAXPRICE"/>
+		<property name="netTotal" type="java.lang.Double" column="NETTOTAL"/>
+		<property name="taxTotal" type="java.lang.Double" column="TAXTOTAL"/>
+		<property name="sumInventoryAmount" type="java.lang.Double" column="SUMINVENTORYAMOUNT"/>
+		<property name="requireDate" type="java.util.Date" column="REQUIREDATE"/>
+		<property name="project" type="java.lang.String" column="PROJECT" length="150"/>
+		<property name="wareHouse" type="java.lang.String" column="WAREHOUSE" length="150"/>
+		<property name="recieveWareHouse" type="java.lang.String" column="RECIEVEWAREHOUSE" length="150"/>
+		<property name="wareHouseOrg" type="java.lang.String" column="WAREHOUSEORG" length="150"/>
+		<property name="recieveAddress" type="java.lang.String" column="RECIEVEADDRESS" length="150"/>
+		<property name="isUseReplace" type="java.lang.String" column="ISUSEREPLACE" length="150"/>
+		<property name="replaceItemCode" type="java.lang.String" column="REPLACEITEMCODE" length="150"/>
+		<property name="replaceItemName" type="java.lang.String" column="REPLACEITEMNAME" length="150"/>
+		<property name="isGift" type="java.lang.String" column="ISGIFT" length="10"/>
+		<property name="isHasGift" type="java.lang.String" column="ISHASGIFT" length="10"/>
+		<property name="salesQuotationItemId" type="java.lang.Long" column="SALESQUOTATIONITEMID"/>
+		<many-to-one name="salesQuotation" column="salesQuotation_id"/>
+  </class>
+</hibernate-mapping>

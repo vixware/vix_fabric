@@ -1,0 +1,259 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="wechat" namespace="/wechat" extends="crud-default">
+		<action name="wechatAction!*" method="{1}" class="wechatAction">
+			<result name="goIndex">/WEB-INF/wechat/common/wechat_index.jsp</result>
+		</action>
+		<action name="taskMainAction!*" method="{1}" class="taskMainAction">
+			<result name="goTaskMain">/WEB-INF/wechat/taskMain/taskmain_index.jsp</result>
+		</action>
+		<action name="enterpriseWechatAccountAction!*" method="{1}" class="enterpriseWechatAccountAction">
+			<result name="goList">/WEB-INF/wechat/enterpriseWechatAccount/enterpriseWechatAccount_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/wechat/enterpriseWechatAccount/enterpriseWechatAccount_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/enterpriseWechatAccount/enterpriseWechatAccount_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 新闻身份验证 -->
+		<action name="identityVerificationAction!*" method="{1}" class="identityVerificationAction">
+			<result name="goList">/WEB-INF/wechat/news/wechatNews_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/news/wechatNews_update.jsp</result>
+			<result name="goShowNews">/WEB-INF/wechat/news/wechatNews_show.jsp</result>
+			<result name="goEvaluationReviewList">/WEB-INF/wechat/news/evaluationReview_list.jsp</result>
+			<result name="goIsPointPraiseList">/WEB-INF/wechat/news/evaluationReview_isPointPraise.jsp</result>
+		</action>
+		<!-- 知识百科 -->
+		<action name="encyclopediaKnowledgeAction!*" method="{1}" class="encyclopediaKnowledgeAction">
+			<result name="goList">/WEB-INF/wechat/news/news_list.jsp</result>
+			<result name="goShowNews">/WEB-INF/wechat/news/news_show.jsp</result>
+		</action>
+		<!-- 我的消息 -->
+		<action name="wechatMessageAction!*" method="{1}" class="wechatMessageAction">
+			<result name="goList">/WEB-INF/wechat/message/message_list.jsp</result>
+			<result name="goShowNews">/WEB-INF/wechat/message/message_show.jsp</result>
+		</action>
+		<!-- 企业号部门管理 -->
+		<action name="wechatDepartmentAction!*" method="{1}" class="wechatDepartmentAction">
+			<result name="goList">/WEB-INF/wechat/wechatdepartment/wechatDepartment_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/wechat/wechatdepartment/wechatDepartment_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/wechatdepartment/wechatDepartment_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 企业号成员管理 -->
+		<action name="wxpQyContactsAction!*" method="{1}" class="wxpQyContactsAction">
+			<result name="goList">/WEB-INF/wechat/wxpQyContacts/wxpQyContacts_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/wechat/wxpQyContacts/wxpQyContacts_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/wxpQyContacts/wxpQyContacts_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="departmentContactList">/WEB-INF/wechat/wxpQyContacts/Test.jsp</result>
+		</action>
+		<!-- 通讯录管理 -->
+		<action name="contactListAction!*" method="{1}" class="contactListAction">
+			<result name="personlContactList">/WEB-INF/wechat/contact/PersonlaContacts.jsp
+			</result>
+			<result name="enterpriseContactList">/WEB-INF/wechat/contact/QyContacts.jsp
+			</result>
+			<result name="freContactList">/WEB-INF/wechat/contact/freContact.jsp
+			</result>
+		</action>
+		<!-- 公告管理 -->
+		<action name="weChatDynListAction!*" method="{1}" class="weChatDynListAction">
+			<result name="goAnnouncementNotificationList">/WEB-INF/wechat/dynList/announcementNotification_list.jsp
+			</result>
+			<result name="goSaveOrUpdateAnnouncementNotification">/WEB-INF/wechat/dynList/announcementNotification_update.jsp
+			</result>
+			<result name="goShowAnnouncementNotification">/WEB-INF/wechat/dynList/announcementNotification_show.jsp
+			</result>
+			<result name="goIsPointPraiseList">/WEB-INF/wechat/dynList/announcementNotification_isPointPraise.jsp
+			</result>
+			<result name="goCheckPerson">/WEB-INF/wechat/dynList/announcementNotification_person_choose.jsp
+			</result>
+		</action>
+		<!-- 工作日志管理 -->
+		<action name="jobLogAction!*" method="{1}" class="jobLogAction">
+			<result name="goList">/WEB-INF/wechat/log/jobLog_list.jsp
+			</result>
+			<result name="goDraftList">/WEB-INF/wechat/log/jobLog_DraftList.jsp
+			</result>
+			<result name="goSubordinateList">/WEB-INF/wechat/log/jobLog_subordinate_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/log/jobLog_update.jsp
+			</result>
+			<result name="goShowDetails">/WEB-INF/wechat/log/jobLog_details.jsp
+			</result>
+			<result name="goShowPics">/WEB-INF/wechat/log/jobLog_pic.jsp
+			</result>
+			<result name="goJobLogDocList">/WEB-INF/wechat/log/jobLog_docList.jsp
+			</result>
+			<result name="goWorkLogList">/WEB-INF/wechat/log/jobLog_workLogList.jsp
+			</result>
+			<result name="goChooseEmployee">/WEB-INF/wechat/log/jobLog_employee_choose.jsp
+			</result>
+			<result name="goEvaluationReviewList">/WEB-INF/wechat/log/jobLog_evaluationReview_list.jsp</result>
+		</action>
+		<!-- 报销 -->
+		<action name="wechatTravelClaimsAction!*" method="{1}" class="wechatTravelClaimsAction">
+			<result name="goList">/WEB-INF/wechat/wechatTravelClaims/wechatTravelClaims_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/wechatTravelClaims/wechatTravelClaims_update.jsp</result>
+			<result name="goChooseProject">/WEB-INF/wechat/wechatTravelClaims/project_list_choose.jsp</result>
+		</action>
+		<!-- 任务与计划 -->
+		<action name="weChatTaskPlanAction!*" method="{1}" class="weChatTaskPlanAction">
+			<!-- 新增任务 -->
+			<result name="goWechatTask">/WEB-INF/wechat/taskAndPlan/addTask.jsp
+			</result>
+			<!-- 下发的任务列表 -->
+			<result name="goTaskList">/WEB-INF/wechat/taskAndPlan/task_list.jsp
+			</result>
+			<result name="goTaskDetail">/WEB-INF/wechat/taskAndPlan/taskDetails.jsp
+			</result>
+			<!-- 结束的任务列表 -->
+			<result name="goFinishedTaskList">/WEB-INF/wechat/taskAndPlan/task_finished_list.jsp
+			</result>
+			<result name="goFinishedTask">/WEB-INF/wechat/taskAndPlan/task_finished.jsp
+			</result>
+			<!-- 关闭的任务 -->
+			<result name="goCloseedTaskList">/WEB-INF/wechat/taskAndPlan/task_closeed_list.jsp
+			</result>
+			<result name="goCloseedTask">/WEB-INF/wechat/taskAndPlan/task_closeed.jsp
+			</result>
+			<!-- 我的任务列表 -->
+			<result name="goMyTaskList">/WEB-INF/wechat/taskAndPlan/task_myself_list.jsp
+			</result>
+			<result name="goMyTask">/WEB-INF/wechat/taskAndPlan/task_myself.jsp
+			</result>
+			<!-- 草稿 -->
+			<result name="goMyDraftTaskList">/WEB-INF/wechat/taskAndPlan/task_myself_draft_list.jsp
+			</result>
+			<result name="goMyDraftTask">/WEB-INF/wechat/taskAndPlan/task_myself_draft.jsp
+			</result>
+			<!-- 选择负责人 -->
+			<result name="goResponsiblePersonChoose">/WEB-INF/wechat/taskAndPlan/responsibleperson_choose.jsp
+			</result>
+			<result name="goNewPlan">/WEB-INF/wechat/taskAndPlan/addPlan.jsp
+			</result>
+			<!-- 评论内容区切换 -->
+			<result name="goEvaluationReviewList">/WEB-INF/wechat/taskAndPlan/task_evaluationReview_list.jsp</result>
+			<result name="goPlanList">/WEB-INF/wechat/taskAndPlan/planList.jsp
+			</result>
+		</action>
+		<!-- 会议助手 -->
+		<action name="conferenceAssistantAction!*" method="{1}" class="conferenceAssistantAction">
+			<result name="goList">/WEB-INF/wechat/meeting/metting_list.jsp
+			</result>
+			<result name="goMyList">/WEB-INF/wechat/meeting/mymetting_list.jsp</result>
+			<result name="goIssuerHistoryMettingList">/WEB-INF/wechat/meeting/myhistorymetting_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/meeting/metting_update.jsp
+			</result>
+			<!-- 草稿 -->
+			<result name="goMyDraftList">/WEB-INF/wechat/meeting/mymetting_myDraft_list.jsp</result>
+			<result name="goMyDraft">/WEB-INF/wechat/meeting/metting_myDraft_update.jsp
+			</result>
+			<result name="goMeetingSummary">/WEB-INF/wechat/meeting/meeting_summary_update.jsp
+			</result>
+			<result name="goHistoryMettingList">/WEB-INF/wechat/meeting/historymetting_list.jsp
+			</result>
+			<result name="goShowHistoryMetting">/WEB-INF/wechat/meeting/historymetting_update.jsp
+			</result>
+			<result name="goApplicationMg">/WEB-INF/wechat/meeting/metting_show.jsp
+			</result>
+			<result name="goChooseIssuer">/WEB-INF/wechat/meeting/issuer_choose.jsp
+			</result>
+			<result name="goChooseAffiliated">/WEB-INF/wechat/meeting/affiliated_choose.jsp
+			</result>
+		</action>
+		<!-- 群聊 -->
+		<action name="chatAction!*" method="{1}" class="chatAction">
+			<result name="groupChat">/WEB-INF/wechat/chat/chat.jsp
+			</result>
+		</action>
+		<!-- 请假出差 -->
+		<action name="weChatLeaveApproveAction!*" method="{1}" class="weChatLeaveApproveAction">
+			<result name="goList">/WEB-INF/wechat/leaveApprove/leaveapprove_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/leaveApprove/leaveapprove_update.jsp
+			</result>
+			<result name="goExamine">/WEB-INF/wechat/leaveApprove/leaveapprove_examine.jsp
+			</result>
+			<result name="goExamineList">/WEB-INF/wechat/leaveApprove/leaveapprove_examine_list.jsp
+			</result>
+			<result name="goMyExamineList">/WEB-INF/wechat/leaveApprove/leaveapprove_myexamine_list.jsp
+			</result>
+			<result name="goMyExamine">/WEB-INF/wechat/leaveApprove/leaveapprove_myexamine.jsp
+			</result>
+			<result name="goChooseApprovalPerson">/WEB-INF/wechat/leaveApprove/approvalperson_choose.jsp
+			</result>
+		</action>
+		<!-- 活动 -->
+		<action name="wxpActivityAction!*" method="{1}" class="wxpActivityAction">
+			<result name="goList">/WEB-INF/wechat/wxpActivity/wxpActivity_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/wxpActivity/wxpActivity_update.jsp
+			</result>
+			<result name="goShowWxpActivity">/WEB-INF/wechat/wxpActivity/wxpActivity_show.jsp
+			</result>
+			<result name="goShowMap">/WEB-INF/wechat/wxpActivity/wxpActivity_showmap.jsp
+			</result>
+		</action>
+		<!-- 移动CRM -->
+		<action name="webChatCustomerAction!*" method="{1}" class="webChatCustomerAction">
+			<result name="goCustomerAccountList">/WEB-INF/wechat/customer/customerAccount_list.jsp
+			</result>
+			<result name="showCustomerAccount">/WEB-INF/wechat/customer/show_customerAccount.jsp
+			</result>
+			<result name="goContactPersonList">/WEB-INF/wechat/contactPerson/contactPerson_list.jsp
+			</result>
+			<result name="goSaveOrUpdateCustomer">/WEB-INF/wechat/customer/customerAccount_update.jsp
+			</result>
+			<result name="goSaveOrUpdateContactPerson">/WEB-INF/wechat/contactPerson/contactPerson_update.jsp
+			</result>
+			<result name="chooseCustomerAccount">/WEB-INF/wechat/customer/chooseCustomerAccount.jsp
+			</result>
+			<result name="goCustomerTypeList">/WEB-INF/wechat/customer/customerAccountType_list.jsp
+			</result>
+		</action>
+		<!-- 移动销售 -->
+		<action name="webChatSalesAction!*" method="{1}" class="webChatSalesAction">
+			<result name="goSalesList">/WEB-INF/wechat/sales/sales_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/wechat/sales/sales_update.jsp</result>
+			<result name="loadContentPerson">/WEB-INF/wechat/sales/loadContentPerson.jsp</result>
+		</action>
+		<!-- 签到打卡 -->
+		<action name="signPunchAction!*" method="{1}" class="signPunchAction">
+			<result name="goList">/WEB-INF/wechat/oa/signPunch/go_list.jsp</result>
+			<result name="showMyAttendance">/WEB-INF/wechat/oa/signPunch/show_MyAttendance.jsp</result>
+			<result name="myAttendance">/WEB-INF/wechat/oa/signPunch/myAttendance.jsp</result>
+			<result name="doAttendance">/WEB-INF/wechat/oa/signPunch/doAttendance.jsp</result>
+			<result name="doAttendanceOut">/WEB-INF/wechat/oa/signPunch/doAttendanceOut.jsp</result>
+		</action>
+		<!-- 移动外勤 -->
+		<action name="mobileFieldAction!*" method="{1}" class="mobileFieldAction">
+			<result name="goCustomerAccountList">/WEB-INF/wechat/customer/customerAccount_list.jsp
+			</result>
+			<result name="goContactPersonList">/WEB-INF/wechat/contactPerson/ContactPerson_list.jsp
+			</result>
+			<result name="goSaveOrUpdateCustomer">/WEB-INF/wechat/customer/customerAccount_update.jsp
+			</result>
+			<result name="goSaveOrUpdateContactPerson">/WEB-INF/wechat/contactPerson/contactPerson_update.jsp
+			</result>
+			<result name="goCustomerTypeList">/WEB-INF/wechat/customer/customerAccountType_list.jsp
+			</result>
+			<result name="goSaveOrUpdateCustomerType">/WEB-INF/wechat/customer/customerAccountType_update.jsp
+			</result>
+		</action>
+		<!-- 第三方授权 -->
+		<action name="wechatAuthorizeAction!*" method="{1}" class="wechatAuthorizeAction">
+		</action>
+	</package>
+</struts>

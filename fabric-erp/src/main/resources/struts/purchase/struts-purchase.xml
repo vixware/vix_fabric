@@ -1,0 +1,297 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="purchase.config" namespace="/purchase" extends="crud-default">
+		<!-- 采购统计图标 -->
+		<action name="purchaseChartsAction!*" method="{1}" class="purchaseChartsAction">
+			<result name="tjChartsBase">/WEB-INF/content/purchase/charts/tjChartsBase.jsp</result>
+			<result name="tjLoadChartsGrid">/WEB-INF/content/purchase/charts/tjLoadChartsGrid.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 采购主页 -->
+		<action name="purchaseMainAction!*" method="{1}" class="purchaseMainAction">
+			<result name="goMenuContent">/WEB-INF/content/purchase/main/menuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购申请 -->
+		<action name="purchaseApplyAction!*" method="{1}" class="purchaseApplyAction">
+			<result name="goList">/WEB-INF/content/purchase/apply/purchaseapply_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/apply/purchaseapply_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/apply/purchaseapply_update.jsp</result>
+			<result name="goShowPurchaseApply">/WEB-INF/content/purchase/apply/purchaseapply_show.jsp</result>
+			<result name="goPrintPurchaseApply">/WEB-INF/content/purchase/apply/purchaseapply_print.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/purchase/apply/addAttachFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+
+			<result name="goSaveOrUpdatePurchaseApplyItem">/WEB-INF/content/purchase/apply/goSaveOrUpdatePurchaseApplyItem.jsp</result>
+			<result name="downloadAttachment" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="goSearch">/WEB-INF/content/purchase/apply/purchaseapply_search.jsp</result>
+		</action>
+		<!-- 采购询价 -->
+		<action name="purchaseInquireAction!*" method="{1}" class="purchaseInquireAction">
+			<result name="goList">/WEB-INF/content/purchase/inquire/purchaseinquire_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/inquire/purchaseinquire_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/inquire/purchaseinquire_update.jsp</result>
+			<result name="goShowPurchaseInquire">/WEB-INF/content/purchase/inquire/purchaseinquire_show.jsp</result>
+			<result name="goPrintPurchaseInquire">/WEB-INF/content/purchase/inquire/purchaseinquire_print.jsp</result>
+			<result name="goSaveOrUpdatePurchaseInquireItem">/WEB-INF/content/purchase/inquire/purchaseInquireItem_update.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/inquire/purchaseinquire_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购订单 -->
+		<action name="purchaseOrderAction!*" method="{1}" class="purchaseOrderAction">
+			<result name="goList">/WEB-INF/content/purchase/order/purchaseorder_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/order/purchaseorder_list_content.jsp</result>
+			<result name="goOrderInfo">/WEB-INF/content/purchase/order/purchaseorderInfo.jsp</result>
+			<result name="goShowPurchaseOrder">/WEB-INF/content/purchase/order/purchaseorder_show.jsp</result>
+			<result name="goPrintPurchaseOrder">/WEB-INF/content/purchase/order/purchaseorder_print.jsp</result>
+
+			<result name="orderAddressEdit">/WEB-INF/content/purchase/order/orderAddressEdit.jsp</result>
+			<result name="orderDeliveryEdit">/WEB-INF/content/purchase/order/orderDeliveryEdit.jsp</result>
+			<result name="orderInvoiceEdit">/WEB-INF/content/purchase/order/orderInvoiceEdit.jsp</result>
+			<result name="orderConditionsEdit">/WEB-INF/content/purchase/order/orderConditionsEdit.jsp</result>
+			<result name="addPOAttachments">/WEB-INF/content/purchase/order/addPOAttachments.jsp</result>
+			<result name="downloadOrderAttachment" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="orderApprovalOpinionEdit">/WEB-INF/content/purchase/order/orderApprovalOpinionEdit.jsp</result>
+
+			<!-- 普通新增 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/order/purchaseorder_update.jsp</result>
+			<!-- 源自采购计划 -->
+			<result name="goSaveOrUpdatePlan">/WEB-INF/content/purchase/order/purchaseorderPlan_update.jsp</result>
+			<!-- 源自采购申请 -->
+			<result name="goSaveOrUpdateApply">/WEB-INF/content/purchase/order/purchaseorderApply_update.jsp</result>
+			<!-- 源自采购询价 -->
+			<result name="goSaveOrUpdateInquire">/WEB-INF/content/purchase/order/purchaseorderInquire_update.jsp</result>
+			<!-- 附件 -->
+			<result name="addAttachments">/WEB-INF/content/purchase/order/addAttachFile.jsp</result>
+			<!-- 选择供应商 -->
+			<result name="goSubRadioSingleList">/WEB-INF/content/purchase/order/single_sub_radio_supplier_list.jsp</result>
+			<result name="goChooseRadioSupplier">/WEB-INF/content/purchase/order/chooseRadioSupplier.jsp</result>
+			<!-- 取单-采购询价 -->
+			<result name="goChoosePurchaseInquire">/WEB-INF/content/purchase/order/choosepurchaseinquire.jsp</result>
+			<result name="goSubRadioInquireList">/WEB-INF/content/purchase/order/single_sub_radio_inquire_list.jsp</result>
+			<result name="goChooseRadioInquire">/WEB-INF/content/purchase/order/chooseRadioInquire.jsp</result>
+			<!-- 取单-采购计划 -->
+			<result name="goChoosePurchasePlan">/WEB-INF/content/purchase/order/choosepurchaseplan.jsp</result>
+			<result name="goPurchasePlanList">/WEB-INF/content/purchase/order/purchaseplanlist_content.jsp</result>
+			<result name="getPurchasePlanItemList">/WEB-INF/content/purchase/order/purchaseplanitemlist.jsp</result>
+			<!-- 取单-采购申请 -->
+			<result name="goChoosePurchaseApply">/WEB-INF/content/purchase/order/choosepurchaseapply.jsp</result>
+			<result name="goPurchaseApplyList">/WEB-INF/content/purchase/order/purchaseapplylist_content.jsp</result>
+			<result name="getPurchaseApplyItemList">/WEB-INF/content/purchase/order/purchaseapplyitemlist.jsp</result>
+			<!-- 新增明细 -->
+			<result name="goAddPurchaseOrderLineItem">/WEB-INF/content/purchase/order/addPurchaseOrderLineItem.jsp</result>
+			<!-- 快速新增供应商 -->
+			<result name="goAddQuicklySupplier">/WEB-INF/content/purchase/order/addSupplier.jsp</result>
+			<result name="goPurchaseInquireList">/WEB-INF/content/purchase/order/purchaseinquirelist_content.jsp</result>
+			<result name="getPurchaseInquireItemList">/WEB-INF/content/purchase/order/purchaseinquireitemlist.jsp</result>
+			<!-- 选择项目 -->
+			<result name="goChooseRadioProject">/WEB-INF/content/purchase/order/chooseRadioProject.jsp</result>
+			<result name="goSubRadioProjectList">/WEB-INF/content/purchase/order/single_sub_radio_project_list.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/order/purchaseorder_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购计划 -->
+		<action name="purchasePlanAction!*" method="{1}" class="purchasePlanAction">
+			<result name="goList">/WEB-INF/content/purchase/plan/purchaseplan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/plan/purchaseplan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/plan/purchaseplan_update.jsp</result>
+			<result name="goWriteTaskPlan">/WEB-INF/content/purchase/plan/purchaseplantask_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/purchase/plan/addAttachFile.jsp</result>
+			<result name="goSubRadioSingleList">/WEB-INF/content/purchase/plan/single_sub_radio_supplier_list.jsp</result>
+			<result name="goChooseRadioSupplier">/WEB-INF/content/purchase/plan/chooseRadioSupplier.jsp</result>
+			<result name="goChoosePurchasePlanPackage">/WEB-INF/content/purchase/plan/purchaseplanpackage_list.jsp</result>
+			<result name="goPurchasePlanPackageSingleList">/WEB-INF/content/purchase/plan/purchaseplanpackage_list_content.jsp</result>
+			<result name="goSaveOrUpdatePurchasePlanItems">/WEB-INF/content/purchase/plan/purchasePlanItems_update.jsp</result>
+			<result name="goListItemList">/WEB-INF/content/purchase/plan/purchasePlanItems_list_content.jsp</result>
+			<result name="goPurchasePlanDetail">/WEB-INF/content/purchase/plan/purchaseplanDetail_update.jsp</result>
+			<result name="goPurchasePlanDetailList">/WEB-INF/content/purchase/plan/purchaseplanDetail_list_content.jsp</result>
+			<result name="goPurchasePlanPackage">/WEB-INF/content/purchase/plan/purchasepackage_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/plan/purchaseplan_search.jsp</result>
+			<result name="goShowPurchasePlan">/WEB-INF/content/purchase/plan/purchaseplan_show.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 计划审批 -->
+		<action name="purchaseApproveAction!*" method="{1}" class="purchaseApproveAction">
+			<result name="goList">/WEB-INF/content/purchase/plan/purchaseApprove_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/plan/purchaseApprove_list_content.jsp</result>
+			<result name="goShowPurchasePlanPackage">/WEB-INF/content/purchase/plan/purchaseApprove_update.jsp</result>
+			<result name="goListContent">/WEB-INF/content/purchase/plan/purchaseplan_task_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/plan/purchaseplan_task_list_update.jsp</result>
+			<result name="goCollectPurchasePlan">/WEB-INF/content/purchase/plan/purchaseplan_collect.jsp</result>
+			<result name="goChoosePurchasePlanList">/WEB-INF/content/purchase/plan/purchaseplan_choose_list.jsp</result>
+			<result name="goChoosePurchasePlanSingleList">/WEB-INF/content/purchase/plan/purchaseplan_choose_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/plan/purchaseApprove_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购计划任务下达 -->
+		<action name="assignMissionAction!*" method="{1}" class="assignMissionAction">
+			<result name="goList">/WEB-INF/content/purchase/plan/assignMission_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/plan/assignMission_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/plan/assignMission_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购计划定稿 -->
+		<action name="purchasePlanFinalizedAction!*" method="{1}" class="purchasePlanFinalizedAction">
+			<result name="goList">/WEB-INF/content/purchase/plan/purchasePlanFinalized_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/plan/purchasePlanFinalized_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/plan/purchasePlanFinalized_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购申请审批 -->
+		<action name="purchaseRequAppAction!*" method="{1}" class="purchaseRequAppAction">
+			<result name="goList">/WEB-INF/content/purchase/approve/purchaserequapp_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/purchase/approve/purchaserequapp_list_content.jsp</result>
+		</action>
+		<!-- 采购订单审批 -->
+		<action name="purchaseOrderAppAction!*" method="{1}" class="purchaseOrderAppAction">
+			<result name="goList">/WEB-INF/content/purchase/approve/purchaseorderapp_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/purchase/approve/purchaseorderapp_list_content.jsp</result>
+		</action>
+		<!-- 采购入库 -->
+		<action name="purchaseInboundAction!*" method="{1}" class="purchaseInboundAction">
+			<result name="goList">/WEB-INF/content/purchase/inbound/purchaseinbound_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/inbound/purchaseinbound_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/inbound/purchaseinbound_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="goAddPurchaseInboundItems">/WEB-INF/content/purchase/inbound/goAddPurchaseInboundItems.jsp</result>
+			<result name="goChoosePurchaseInbound">/WEB-INF/content/purchase/inbound/goChoosePurchaseInbound.jsp</result>
+			<result name="goPurchaseInboundList">/WEB-INF/content/purchase/inbound/goPurchaseInboundList.jsp</result>
+			<result name="goShowPurchaseInbound">/WEB-INF/content/purchase/inbound/purchaseinbound_show.jsp</result>
+			<result name="goPrintPurchaseInbound">/WEB-INF/content/purchase/inbound/purchaseinbound_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/inbound/purchaseinbound_search.jsp</result>
+		</action>
+		<!-- 采购普通发票 -->
+		<action name="purchaseInvoiceAction!*" method="{1}" class="purchaseInvoiceAction">
+			<result name="goList">/WEB-INF/content/purchase/invoice/purchaseInvoice_list.jsp</result>
+			<result name="goInvoiceList">/WEB-INF/content/purchase/invoice/purchaseInvoice_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/invoice/purchaseInvoice_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购运费发票 -->
+		<action name="freightInvoiceAction!*" method="{1}" class="freightInvoiceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/invoice/freightInvoice_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购结算 -->
+		<action name="purchasingSettlementAction!*" method="{1}" class="purchasingSettlementAction">
+			<result name="goList">/WEB-INF/content/purchase/pursettle/purchasingsettlement_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/purchase/pursettle/purchasingsettlement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/pursettle/purchasingsettlement_update.jsp</result>
+		</action>
+		<!-- 到货管理 -->
+		<action name="purchaseArrivalAction!*" method="{1}" class="purchaseArrivalAction">
+			<result name="goList">/WEB-INF/content/purchase/arrivalmgr/arrivalmanagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/arrivalmgr/arrivalmanagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/arrivalmgr/arrivalmanagement_update.jsp</result>
+			<result name="goChoosePurchaseOrders">/WEB-INF/content/purchase/arrivalmgr/choosepurchaseorders.jsp</result>
+			<result name="goPurchaseOrdersList">/WEB-INF/content/purchase/arrivalmgr/purchaseorderslist_content.jsp</result>
+			<result name="goChoosePurchaseArrival">/WEB-INF/content/purchase/arrivalmgr/goChoosePurchaseArrival.jsp</result>
+			<result name="goPurchaseArrivalList">/WEB-INF/content/purchase/arrivalmgr/goPurchaseArrivalList.jsp</result>
+			<result name="getPurchaseOrdersItemList">/WEB-INF/content/purchase/arrivalmgr/purchaseordersitemlist.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="goAddPurchaseArrivalItems">/WEB-INF/content/purchase/arrivalmgr/goAddPurchaseArrivalItems.jsp</result>
+			<result name="goShowPurchaseArrival">/WEB-INF/content/purchase/arrivalmgr/arrivalmanagement_show.jsp</result>
+			<result name="goPrintPurchaseArrival">/WEB-INF/content/purchase/arrivalmgr/arrivalmanagement_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/arrivalmgr/arrivalmanagement_search.jsp</result>
+		</action>
+		<!-- 采购退货 -->
+		<action name="purchaseReturnAction!*" method="{1}" class="purchaseReturnAction">
+			<result name="goList">/WEB-INF/content/purchase/pursreturn/purchasereturn_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/pursreturn/purchasereturn_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/pursreturn/purchasereturn_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result name="goAddPurchaseReturnItems">/WEB-INF/content/purchase/pursreturn/goAddPurchaseReturnItems.jsp</result>
+			<result name="goShowPurchaseReturn">/WEB-INF/content/purchase/pursreturn/purchasereturn_show.jsp</result>
+			<result name="goPrintPurchaseReturn">/WEB-INF/content/purchase/pursreturn/purchasereturn_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/purchase/pursreturn/purchasereturn_search.jsp</result>
+		</action>
+		<!-- 采购选项 -->
+		<action name="purchasingOptionsAction!*" method="{1}" class="purchasingOptionsAction">
+			<result name="goListContent">/WEB-INF/content/purchase/procurementSet/purchasingOptions_list_content.jsp</result>
+		</action>
+		<!-- 采购单据类型 -->
+		<action name="orderTypeAction!*" method="{1}" class="orderTypeAction">
+			<result name="goList">/WEB-INF/content/purchase/procurementSet/orderType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/procurementSet/orderType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/procurementSet/orderType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 现存量查询 -->
+		<action name="standingCropAction!*" method="{1}" class="standingCropAction">
+			<result name="goList">/WEB-INF/content/purchase/standingCrop/standingCrop_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/purchase/standingCrop/standingCrop_list_content.jsp</result>
+		</action>
+		<!-- 月末结账 -->
+		<action name="checkoutAction!*" method="{1}" class="checkoutAction">
+			<result name="goList">/WEB-INF/content/purchase/checkout/checkout_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/purchase/checkout/checkout_list_content.jsp</result>
+		</action>
+		<!-- 招标列表 -->
+		<action name="purchaseTenderAction!*" method="{1}" class="purchaseTenderAction">
+			<result name="goList">/WEB-INF/content/purchase/tender/tender_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/tender/tender_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/tender/tender_update.jsp</result>
+			<result name="goSaveOrUpdate2">/WEB-INF/content/purchase/tender/tender_update2.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/purchase/order/addAttachFile.jsp</result>
+			<result name="goAddTenderDetails">/WEB-INF/content/purchase/tender/addTenderDetails.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 招标邀请 -->
+		<action name="invitingTenderAction!*" method="{1}" class="invitingTenderAction">
+			<result name="goList">/WEB-INF/content/purchase/tender/invitingTender_list.jsp</result>
+			<result name="goInvitingTenderList">/WEB-INF/content/purchase/tender/invitingTender_list_content.jsp</result>
+			<result name="goSubChkSupplierList">/WEB-INF/content/purchase/tender/single_sub_chk_supplier_list.jsp</result>
+			<result name="goChooseChkSupplier">/WEB-INF/content/purchase/tender/chooseChkSupplier.jsp</result>
+			<result name="goInvitingSuppliers">/WEB-INF/content/purchase/tender/invitingSuppliers.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 报价监控 -->
+		<action name="quoteMonitorAction!*" method="{1}" class="quoteMonitorAction">
+			<result name="goList">/WEB-INF/content/purchase/tender/quoteMonitor_list.jsp</result>
+			<result name="goQuoteMonitorList">/WEB-INF/content/purchase/tender/quoteMonitor_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/tender/quoteMonitor_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购业务类型 -->
+		<action name="bizTypeAction!*" method="{1}" class="bizTypeAction">
+			<result name="goList">/WEB-INF/content/purchase/procurementSet/bizType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/purchase/procurementSet/bizType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/purchase/procurementSet/bizType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 采购管理 -->
+		<action name="purchaseManagementAction!*" method="{1}" class="purchaseManagementAction">
+			<result name="goList">/WEB-INF/content/purchase/purchaseManagement_list.jsp
+			</result>
+		</action>
+	</package>
+</struts>

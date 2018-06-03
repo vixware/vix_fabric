@@ -1,0 +1,185 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mm.config" namespace="/mm" extends="crud-default">
+		<!-- 资源资料 -->
+		<action name="resourceInformationAction!*" method="{1}" class="resourceInformationAction">
+			<result name="goList">/WEB-INF/content/mm/settings/resourceInformation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/resourceInformation_list_content.jsp</result>
+			<result name="goSearchList">/WEB-INF/content/mm/settings/resourceInformation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/resourceInformation_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/mm/settings/chooseTreeGridtraindem.jsp</result>
+			<result name="goAddResourceiIformationDetail">/WEB-INF/content/mm/settings/addesourceiIformationDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<!-- <result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result> -->
+		</action>
+		<!-- 工作中心 -->
+		<action name="workCentersAction!*" method="{1}" class="workCentersAction">
+			<result name="goList">/WEB-INF/content/mm/settings/workCenter_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/workCenter_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/workCenters_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<!-- <result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result> -->
+		</action>
+		<!-- 工序管理 -->
+		<action name="processAction!*" method="{1}" class="processAction">
+			<result name="goList">/WEB-INF/content/mm/settings/process_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/process_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/process_update.jsp</result>
+			<result name="goChooseCourse">/WEB-INF/content/mm/settings/chooseworkcenter.jsp</result>
+			<result name="goSubRadioSingleList">/WEB-INF/content/mm/settings/chooseworkcenter_list.jsp</result>
+			<result name="goAddResourceiIformation">/WEB-INF/content/mm/settings/AddResourceiIformation.jsp</result>
+			<result name="goSubRadioSingleListss">/WEB-INF/content/mm/settings/AddResourceiIformation_list.jsp</result>
+			<result name="goAddProcessManagementDetail">/WEB-INF/content/mm/settings/addProcessManagementDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<!-- <result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result> -->
+		</action>
+		<!-- 工艺路线 -->
+		<action name="craftsAction!*" method="{1}" class="craftsAction">
+			<result name="goList">/WEB-INF/content/mm/settings/crafts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/crafts_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/crafts_update.jsp</result>
+			<result name="goAddProcessManagement">/WEB-INF/content/mm/settings/AddProcessManagement.jsp</result>
+			<result name="goSubRadioSingleListss">/WEB-INF/content/mm/settings/AddProcessManagement_list.jsp</result>
+			<result name="goAddCraftsRouteDetail">/WEB-INF/content/mm/settings/addCraftsRouteDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<!-- <result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result> -->
+		</action>
+		<!-- 配方清单 -->
+		<action name="recipesListAction!*" method="{1}" class="recipesListAction">
+			<result name="goList">/WEB-INF/content/mm/settings/recipesList_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/settings/recipesList_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/recipesList_update.jsp</result>
+		</action>
+		<!-- 母件结构表-单阶 -->
+		<action name="singleStagetructureAction!*" method="{1}" class="singleStagetructureAction">
+			<result name="goList">/WEB-INF/content/mm/settings/singleStagetructure_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/singleStagetructure_list_content.jsp</result>
+		</action>
+		<!-- 子件用途表-单阶 -->
+		<action name="useSinglOrderAction!*" method="{1}" class="useSinglOrderAction">
+			<result name="goList">/WEB-INF/content/mm/settings/useSinglOrder_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/useSinglOrder_list_content.jsp</result>
+		</action>
+		<!-- 母件结构表-多阶 -->
+		<action name="multiLevelStructureAction!*" method="{1}" class="multiLevelStructureAction">
+			<result name="goList">/WEB-INF/content/mm/settings/multiLevelStructure_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/multiLevelStructure_list_content.jsp</result>
+		</action>
+		<!-- 子件用途表-多阶 -->
+		<action name="multiPurposeAction!*" method="{1}" class="multiPurposeAction">
+			<result name="goList">/WEB-INF/content/mm/settings/multiPurpose_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/multiPurpose_list_content.jsp</result>
+		</action>
+		<!-- 物料需求计划 -->
+		<action name="demandPlanningAction!*" method="{1}" class="demandPlanningAction">
+			<result name="goList">/WEB-INF/content/mm/demandPlanning/demandPlanning_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/demandPlanning/demandPlanning_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/demandPlanning/demandPlanning_update.jsp</result>
+		</action>
+		<!-- 生产规划编制 -->
+		<action name="planningAction!*" method="{1}" class="planningAction">
+			<result name="goList">/WEB-INF/content/mm/planning/planning_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/planning/planning_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/planning/planning_update.jsp</result>
+		</action>
+		<!-- 生产订单 -->
+		<action name="pmOrderAction!*" method="{1}" class="pmOrderAction">
+			<result name="goList">/WEB-INF/content/mm/pmOrder/pmOrder_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/pmOrder/pmOrder_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/pmOrder/pmOrder_update.jsp</result>
+		</action>
+		<!-- 生产订单列表x -->
+		<action name="pmordersAction!*" method="{1}" class="pmordersAction">
+			<result name="goList">/WEB-INF/content/mm/settings/pmordersr_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mm/settings/pmordersr_list_content.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/mm/settings/pmordersr_update.jsp</result>
+		</action>
+		<!-- 生产任务管理 -->
+		<action name="productionTaskManagementAction!*" method="{1}" class="productionTaskManagementAction">
+			<result name="goList">/WEB-INF/content/mm/settings/productionTaskManagement_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/settings/productionTaskManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/productionTaskManagement_update.jsp</result>
+		</action>
+		<!-- 车间作业计划 -->
+		<action name="jobShopSchedulingAction!*" method="{1}" class="jobShopSchedulingAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/jobShopScheduling_update.jsp</result>
+		</action>
+		<!-- 资源需求列表 -->
+		<action name="demandListAction!*" method="{1}" class="demandListAction">
+			<result name="goList">/WEB-INF/content/mm/demandList/demandList_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/demandList/demandList_list_content.jsp</result>
+		</action>
+		<!-- 生产预测计划 -->
+		<action name="productForecastPlanAction!*" method="{1}" class="productForecastPlanAction">
+			<result name="goList">/WEB-INF/content/mm/productForecastPlan/productForecastPlan_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/productForecastPlan/productForecastPlan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/productForecastPlan/productForecastPlan_update.jsp</result>
+		</action>
+		<!-- MPS计划来源 -->
+		<action name="planSourceAction!*" method="{1}" class="planSourceAction">
+			<result name="goList">/WEB-INF/content/mm/planSource/planSource_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/planSource/planSource_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/planSource/planSource_update.jsp</result>
+			<result name="goMakeToForecast">/WEB-INF/content/mm/planSource/makeToForecast_update.jsp</result>
+			<result name="goMakeToInsert">/WEB-INF/content/mm/planSource/makeToInsert_update.jsp</result>
+		</action>
+		<!-- MPS计划编制 -->
+		<action name="planFormulationAction!*" method="{1}" class="planFormulationAction">
+			<result name="goList">/WEB-INF/content/mm/planFormulation/planFormulation_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/planFormulation/planFormulation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/planFormulation/planFormulation_update.jsp</result>
+		</action>
+		<!-- MPS计划查询 -->
+		<action name="selectPlanAction!*" method="{1}" class="selectPlanAction">
+			<result name="goList">/WEB-INF/content/mm/selectPlan/selectPlan_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/selectPlan/selectPlan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/selectPlan/selectPlan_update.jsp</result>
+		</action>
+		<!-- MPS计划生成 -->
+		<action name="planGenerateAction!*" method="{1}" class="planGenerateAction">
+			<result name="goList">/WEB-INF/content/mm/planGenerate/planGenerate_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/planGenerate/planGenerate_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/planGenerate/planGenerate_update.jsp</result>
+		</action>
+		<!-- 计划作业 -->
+		<action name="operationalPlanningAction!*" method="{1}" class="operationalPlanningAction">
+			<result name="goList">/WEB-INF/content/mm/operationalPlanning/operationalPlanning_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/operationalPlanning/operationalPlanning_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/operationalPlanning/operationalPlanning_update.jsp</result>
+		</action>
+		<!-- 规划统计 -->
+		<action name="statisticalPlanningAction!*" method="{1}" class="statisticalPlanningAction">
+			<result name="goList">/WEB-INF/content/mm/statisticalPlanning/statisticalPlanning_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/statisticalPlanning/statisticalPlanning_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/statisticalPlanning/statisticalPlanning_update.jsp</result>
+		</action>
+		<!-- 工程物料清单维护 -->
+		<action name="engineeringBOMmaintenanceAction!*" method="{1}" class="engineeringBOMmaintenanceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/engineeringBOMmaintenance_update.jsp</result>
+		</action>
+		<!-- 工程工艺路线维护 -->
+		<action name="engineeringProcessRouteMaintenanceAction!*" method="{1}" class="engineeringProcessRouteMaintenanceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/engineeringProcessRouteMaintenance_update.jsp</result>
+		</action>
+		
+		<!-- 工程变更单维护 -->
+		<action name="engineeringOrderMaintenanceAction!*" method="{1}" class="engineeringOrderMaintenanceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/engineeringOrderMaintenance_update.jsp</result>
+		</action>
+		<!-- 工程变更单处理 -->
+		<action name="engineeringplayMaintenanceAction!*" method="{1}" class="engineeringplayMaintenanceAction">
+			<result name="goList">/WEB-INF/content/mm/settings/engineeringplayMaintenance_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mm/settings/engineeringplayMaintenance_list_content.jsp</result>
+		</action>
+	</package>
+</struts>

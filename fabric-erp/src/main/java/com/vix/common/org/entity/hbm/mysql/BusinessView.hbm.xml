@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.org.entity.BusinessView" table="MDM_ORG_BUSINESSVIEW">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="code" type="java.lang.String" column="CODE" length="64" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		 
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" /> 
+		
+		<property name="startTime" type="java.util.Date" column="StartTime" /> 
+		<property name="endTime" type="java.util.Date" column="EndTime" /> 
+		
+		<property name="bizViewCreateDate" type="java.util.Date" column="BizViewCreateDate" update="false"/> 
+		
+		
+		<property name="name" type="java.lang.String" column="Name" length="200"/>
+		<property name="isMatrixManagement" type="java.lang.String" column="IsMatrixManagement" length="2"/>
+		<property name="bizViewType" type="java.lang.String" column="BizViewType" length="512"/>
+		<property name="pmCode" type="java.lang.String" column="PmCode" length="128"/>
+		<property name="metaDataCode" type="java.lang.String" column="MetaDataCode" length="512"/>
+		
+		
+		<many-to-one name="organization" class="com.vix.common.org.entity.Organization">
+			<column name="Organization_ID">
+				 <comment>公司id</comment>
+			</column>
+		</many-to-one>
+		
+		<!-- 业务组织 -->
+		<set name="businessOrgs" inverse="true">
+			<key column="BusinessView_ID"/>
+			<one-to-many class="com.vix.common.org.entity.BusinessOrg"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

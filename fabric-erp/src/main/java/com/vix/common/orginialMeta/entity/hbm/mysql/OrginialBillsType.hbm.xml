@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.orginialMeta.entity.OrginialBillsType" table="CMN_MET_ORGINIAL_BILLSTYPE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!-- 自身属性 -->
+		<property name="typeCode" type="java.lang.String" column="TYPECODE" length="50" />
+		<property name="typeName" type="java.lang.String" column="TYPENAME" length="50" />
+		<!-- <property name="typeDescription" type="java.lang.String" column="TYPEDESCRIPTION" length="50" /> -->
+
+
+		<!-- 单据性质 -->
+		<many-to-one name="orginialBillsProperty" class="com.vix.common.orginialMeta.entity.OrginialBillsProperty">
+			<column name="ORGINIAL_BILLSPROPERTY_ID">
+				<comment>性质id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

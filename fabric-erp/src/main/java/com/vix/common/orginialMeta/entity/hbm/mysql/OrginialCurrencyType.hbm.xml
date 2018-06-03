@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.orginialMeta.entity.OrginialCurrencyType" table="CMN_MET_ORGINIAL_CURRENCYTYPE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="code" type="java.lang.String" column="CODE" length="50"/>
+		<property name="isBaseCurrency" type="java.lang.String" column="ISBASECURRENCY" length="10"/>
+		
+		
+  </class>
+</hibernate-mapping>

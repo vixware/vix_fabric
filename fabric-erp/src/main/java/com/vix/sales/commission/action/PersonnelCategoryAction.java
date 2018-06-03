@@ -1,0 +1,226 @@
+package com.vix.sales.commission.action;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+
+import com.vix.common.base.action.BaseAction;
+import com.vix.core.constant.SearchCondition;
+import com.vix.core.web.Pager;
+import com.vix.sales.commission.entity.PersonnelCategory;
+
+@Controller
+@Scope("prototype")
+public class PersonnelCategoryAction extends BaseAction {
+
+	private static final long serialVersionUID = 1L;
+
+
+	private String id;
+	private String parentId;
+	private PersonnelCategory personnelCategory;
+	private String pageNo;
+
+	/** 获取列表数据 */
+	public String goListContent() {
+		try {
+			Map<String, Object> params = getParams();
+			if (null != pageNo && !"".equals(pageNo)) {
+				getPager().setPageNo(Integer.parseInt(pageNo));
+			}
+			if (null != parentId && !"".equals(parentId)) {
+				params.put("parentPersonnelCategory.id," + SearchCondition.EQUAL, parentId);
+			} else {
+				params.put("parentPersonnelCategory.id," + SearchCondition.IS,"NULL");
+			}
+			Pager pager = baseHibernateService.findPagerByHqlConditions(getPager(), PersonnelCategory.class, params);
+			setPager(pager);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "goListContent";
+	}
+
+	public String goSubSingleList() {
+		try {
+			Map<String, Object> params = getParams();
+			getPager().setPageSize(6);
+			if (null != pageNo && !"".equals(pageNo)) {
+				getPager().setPageNo(Integer.parseInt(pageNo));
+			}
+			Pager pager = baseHibernateService.findPagerByHqlConditions(
+					getPager(), PersonnelCategory.class, params);
+			setPager(pager);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "goSubListContent";
+	}
+
+	/** 跳转至用户修改页面 */
+	public String goSaveOrUpdate() {
+		try {
+			if (null != id && !"".equals(id) && !"0".equals(id)) {
+				personnelCategory = baseHibernateService.findEntityById(
+						PersonnelCategory.class, id);
+				String pageNo = getRequestParameter("pageNo");
+				getRequest().setAttribute("pageNo", pageNo);
+			} else {
+				if (null != parentId && !"".equals(parentId)) {
+					personnelCategory = new PersonnelCategory();
+					PersonnelCategory ic = baseHibernateService
+							.findEntityById(PersonnelCategory.class, parentId);
+					personnelCategory.setParentPersonnelCategory(ic);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return GO_SAVE_OR_UPDATE;
+	}
+
+	/** 处理修改操作 */
+	public String saveOrUpdate() {
+		boolean isSave = true;
+		try {
+			if (null != personnelCategory.getId()) {
+				isSave = false;
+			} else {
+				personnelCategory.setCreateTime(new Date());
+				loadCommonData(personnelCategory);
+			}
+
+			String[] attrArray = { "parentPersonnelCategory" };
+			checkEntityNullValue(personnelCategory, attrArray);
+
+			personnelCategory = baseHibernateService
+					.merge(personnelCategory);
+			if (isSave) {
+				renderText(SAVE_SUCCESS);
+			} else {
+				renderText(UPDATE_SUCCESS);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (isSave) {
+				renderText(SAVE_FAIL);
+			} else {
+				renderText(UPDATE_FAIL);
+			}
+		}
+		return UPDATE;
+	}
+
+	/** 处理删除操作 */
+	public String deleteById() {
+		try {
+			PersonnelCategory pb = baseHibernateService.findEntityById(
+					PersonnelCategory.class, id);
+			if (null != pb) {
+				baseHibernateService.deleteByEntity(pb);
+				renderText(DELETE_SUCCESS);
+			} else {
+				setMessage(getText("ec_brandNotExist"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			renderText(DELETE_FAIL);
+		}
+		return UPDATE;
+	}
+
+	/** 树形结构JSON */
+	public void findTreeToJson() {
+		try {
+			List<PersonnelCategory> listPersonnelCategory = new ArrayList<PersonnelCategory>();
+			/** 获取查询参数 */
+			Map<String, Object> params = getParams();
+			if (null != id && !"".equals(id)) {
+				listPersonnelCategory = baseHibernateService.findAllSubEntity(PersonnelCategory.class,"parentPersonnelCategory.id", id, params);
+			} else {
+				listPersonnelCategory = baseHibernateService.findAllSubEntity(PersonnelCategory.class,"parentPersonnelCategory.id", null, params);
+			}
+			StringBuilder strSb = new StringBuilder();
+			strSb.append("[");
+			/** 递归方式 **/
+			strSb = loadAllPersonnelCategory(strSb, listPersonnelCategory);
+			strSb.append("]");
+			renderHtml(strSb.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private StringBuilder loadAllPersonnelCategory(StringBuilder strSb,
+			List<PersonnelCategory> listPersonnelCategory) throws Exception {
+		for (int i = 0; i < listPersonnelCategory.size(); i++) {
+			PersonnelCategory ic = listPersonnelCategory.get(i);
+			if (ic.getSubPersonnelCategorys().size() > 0) {
+				strSb.append("{id:\"");
+				strSb.append(ic.getId());
+				strSb.append("\",name:\"");
+				strSb.append(ic.getName());
+				strSb.append("\",open:true,isParent:true,children:[");
+				loadAllPersonnelCategory(
+						strSb,
+						new ArrayList<PersonnelCategory>(ic
+								.getSubPersonnelCategorys()));
+				strSb.append("]}");
+			} else {
+				strSb.append("{id:\"");
+				strSb.append(ic.getId());
+				strSb.append("\",name:\"");
+				strSb.append(ic.getName());
+				strSb.append("\",open:false,isParent:false}");
+			}
+			if (i < listPersonnelCategory.size() - 1) {
+				strSb.append(",");
+			}
+		}
+		return strSb;
+	}
+
+	public String goChoosePersonnelCategory() {
+		return "goChoosePersonnelCategory";
+	}
+
+	public String goChooseMultiPersonnelCategory() {
+		return "goChooseMultiPersonnelCategory";
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(String pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public String getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+
+	public PersonnelCategory getPersonnelCategory() {
+		return personnelCategory;
+	}
+
+	public void setPersonnelCategory(PersonnelCategory personnelCategory) {
+		this.personnelCategory = personnelCategory;
+	}
+}

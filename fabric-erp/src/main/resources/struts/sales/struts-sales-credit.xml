@@ -1,0 +1,37 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.credit.config" namespace="/sales/credit" extends="crud-default">
+		<action name="creditControlAction!*" method="{1}" class="creditControlAction">
+			<result name="goList">/WEB-INF/content/sales/credit/creditControl_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/credit/creditControl_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/credit/updateCreditControl.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="creditControlItemAction!*" method="{1}" class="creditControlItemAction">
+			<result name="goList">/WEB-INF/content/sales/credit/creditControlItem_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/credit/creditControlItem_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/credit/updateCreditControlItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="creditExcuteResultAction!*" method="{1}" class="creditExcuteResultAction">
+			<result name="goList">/WEB-INF/content/sales/credit/creditExcuteResult_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/credit/creditExcuteResult_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/credit/updateCreditExcuteResult.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="customerCreditInfoAction!*" method="{1}" class="customerCreditInfoAction">
+			<result name="goList">/WEB-INF/content/sales/credit/customerCreditInfo_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/credit/customerCreditInfo_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/credit/updateCustomerCreditInfo.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="riskLevelAction!*" method="{1}" class="riskLevelAction">
+			<result name="goList">/WEB-INF/content/sales/credit/riskLevel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/credit/riskLevel_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/credit/updateRiskLevel.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.system.entity.Employee" table="SYSTEM_EMPLOYEE">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">SYSTEM_EMPLOYEE_ID</param>
+			</generator>
+        </id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="createDate" type="java.util.Date" column="CREATEDATE" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LASTMODIFYDATE"/> 
+		<property name="code" type="java.lang.String" column="CODE" length="100"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="birthday" type="java.util.Date" column="BIRTHDAY"/>
+		<property name="gender" type="java.lang.String" column="GENDER" length="10"/>
+		<property name="isMarriage" type="java.lang.String" column="ISMARRIAGE" length="10"/>
+		<property name="graduation" type="java.lang.String" column="GRADUATION" length="200"/>
+		<property name="professional" type="java.lang.String" column="PROFEFFIONAL" length="200"/>
+		<property name="birthplace" type="java.lang.String" column="BIRTHPLACE" length="200"/>
+		<property name="currentResidence" type="java.lang.String" column="CURRENTRESIDENCE" length="200"/>
+		<property name="national" type="java.lang.String" column="NATIONAL" length="100"/>
+		<property name="isDemission" type="java.lang.String" column="ISDEMISSION" length="10"/>
+		<many-to-one name="user" column="USER_ID"/>
+		<many-to-one name="department" column="DEPARTMENT_ID"/>
+  </class>
+</hibernate-mapping>

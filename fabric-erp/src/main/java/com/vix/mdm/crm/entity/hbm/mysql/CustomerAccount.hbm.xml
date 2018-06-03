@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.crm.entity.CustomerAccount" table="CRM_CUSTOMERACCOUNT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creatorCode" type="java.lang.String" column="CREATORCODE" length="150" update="false" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" update="false" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" length="150" />
+
+		<property name="englishName" type="java.lang.String" column="ENGLISHNAME" length="150" />
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100" />
+		<property name="shorterName" type="java.lang.String" column="SHORTERNAME" length="150" />
+		<property name="indexWord" type="java.lang.String" column="INDEXWORD" length="150" />
+		<property name="trademark" type="java.lang.String" column="TRADEMARK" length="150" />
+		<property name="type" type="java.lang.String" column="TYPE" length="20" />
+		<property name="isHighSea" type="java.lang.String" column="ISHIGHSEA" length="20" />
+		<property name="internalUnitId" type="java.lang.String" column="INTERNALUNITID" />
+		<property name="internalUnitType" type="java.lang.String" column="INTERNALUNITTYPE" length="50" />
+		<property name="internalUnitName" type="java.lang.String" column="INTERNALUNITNAME" length="150" />
+		<property name="isHotCustomer" type="java.lang.String" column="ISHOTCUSTOMER" length="150" />
+		<property name="stagnateDay" type="java.lang.Integer" column="stagnateDay" />
+		<many-to-one name="hotLevel" column="hotLevel_id" />
+		<property name="valueAssessment" type="java.lang.String" column="VALUEASSESSMENT" length="150" />
+		<property name="creditLevel" type="java.lang.String" column="CREDITLEVEL" length="150" />
+		<many-to-one name="customerType" column="customerType_id" />
+		<many-to-one name="memberLevel" column="memberLevel_id" />
+		<many-to-one name="relationshipClass" column="relationshipClass_id" />
+		<many-to-one name="staffScale" column="staffScale_id" />
+		<many-to-one name="customerSource" column="customerSource_id" />
+		<many-to-one name="customerStage" column="customerStage_id" />
+		<many-to-one name="accountType" column="accountType_id" />
+		<many-to-one name="industry" column="industry_id" />
+		<many-to-one name="customerAccountCategory" column="customerAccountCategory_id" />
+		<many-to-one name="customerAccountGroup" column="customerAccountGroup_id" />
+		<property name="dateEntered" type="java.util.Date" column="DATEENTERED" />
+		<property name="dateModified" type="java.util.Date" column="DATEMODIFIED" />
+		<property name="modifiedUserId" type="java.lang.String" column="MODIFIEDUSERID" />
+		<property name="createdBy" type="java.lang.String" column="CREATEBY" length="150" />
+		<property name="belongerCode" type="java.lang.String" column="BELONGERCODE" length="150" />
+		<property name="belonger" type="java.lang.String" column="BELONGER" length="150" />
+		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="150" />
+		<property name="assignedUserId" type="java.lang.String" column="ASSIGNEDUSERID" length="150" />
+		<!-- <property name="accountType" type="java.lang.String" column="ACCOUNTTYPE" length="150" /> -->
+		<property name="annualRevenue" type="java.lang.Double" column="ANNUALREVENUE" />
+		<property name="phoneFax" type="java.lang.String" column="PHONEFAX" length="150" />
+		<property name="billingAddressStreet" type="java.lang.String" column="BILLINGADDRESSSTREET" length="150" />
+		<property name="billingAddressCity" type="java.lang.String" column="BILLINGADDRESSCITY" length="150" />
+		<property name="billingAddressState" type="java.lang.String" column="BILLINGADDRESSSTATE" length="150" />
+		<property name="billingAddressPostalcode" type="java.lang.String" column="BILLINGADDRESSPOSTALCODE" length="150" />
+		<property name="billingAddressCountry" type="java.lang.String" column="BILLINGADDRESSCOUNTRY" length="150" />
+		<property name="rating" type="java.lang.String" column="RATING" length="150" />
+		<property name="pointValue" type="java.lang.Long" column="POINTVALUE" />
+		<property name="phoneOffice" type="java.lang.String" column="PHONEOFFICE" length="150" />
+		<property name="phoneAlternate" type="java.lang.String" column="PHONEALTERNATE" length="150" />
+		<property name="website" type="java.lang.String" column="WEBSITE" length="150" />
+		<property name="ownership" type="java.lang.String" column="OWNERSHIP" length="150" />
+		<property name="employees" type="java.lang.String" column="EMPLOYEES" length="150" />
+		<property name="rickerSymbol" type="java.lang.String" column="RICKERSYMBOL" length="150" />
+		<property name="shippingAddressStreet" type="java.lang.String" column="SHIPPINGADDRESSSTREET" length="150" />
+		<property name="shippingAddressCity" type="java.lang.String" column="SHIPPINGADDRESSCITY" length="150" />
+		<property name="shippingAddressState" type="java.lang.String" column="SHIPPINGADDRESSSTATE" length="150" />
+		<property name="shippingAddressPostalcode" type="java.lang.String" column="SHIPPINGADDRESSPOSTALCODE" length="150" />
+		<property name="shippingAddressCountry" type="java.lang.String" column="SHIPPINGADDRESSCOUNTRY" length="150" />
+		<property name="parentId" type="java.lang.String" column="PARENTID" length="150" />
+		<property name="sicCode" type="java.lang.String" column="SICCODE" length="150" />
+		<property name="style" type="java.lang.String" column="STYLE" length="150" />
+		<property name="qqAccount" type="java.lang.String" column="QQACCOUNT" length="150" />
+		<property name="msnAccount" type="java.lang.String" column="MSNACCOUNT" length="150" />
+		<property name="wangAccount" type="java.lang.String" column="WANGACCOUNT" length="150" />
+		<property name="skypeAccount" type="java.lang.String" column="SKYPEACCOUNT" length="150" />
+		<property name="isDownLoad" type="java.lang.String" column="isDownLoad" length="150" />
+		<property name="companyBrief" type="java.lang.String" column="COMPANYBRIEF" length="150" />
+		<property name="uncontactDays" type="java.lang.Integer" column="UNCONTACTDAYS" />
+		<property name="channelCode" type="java.lang.String" column="CHANNELCODE" length="150" />
+		<property name="saleOrgCode" type="java.lang.String" column="SALEORGCODE" length="150" />
+		<property name="productGroup" type="java.lang.String" column="PRODUCTGROUP" length="150" />
+		<property name="campaignId" type="java.lang.String" column="CAMPAIGNID" length="150" />
+		<property name="creditControlMethod" type="java.lang.String" column="CREDITCONTROLMETHOD" length="150" />
+		<property name="afterTax" type="java.lang.Double" column="AFTERTAX" />
+		<property name="currencu" type="java.lang.String" column="CURRENCU" length="150" />
+		<property name="isAlsoSupplier" type="java.lang.String" column="ISALSOSUPPLIER" length="150" />
+		<property name="customerIndustry" type="java.lang.String" column="CUSTOMERINDUSTRY" length="150" />
+		<property name="transArea" type="java.lang.String" column="TRANSAREA" length="150" />
+		<property name="saleArea" type="java.lang.String" column="SALEAREA" length="150" />
+		<property name="priceGroup" type="java.lang.String" column="PRICEGROUP" length="150" />
+		<property name="deliveryPriority" type="java.lang.String" column="DELIVERYPRIORITY" length="150" />
+		<property name="deliveryFactoryCode" type="java.lang.String" column="DELIVERYFACTORYCODE" length="150" />
+		<property name="factoryCode" type="java.lang.String" column="FACTORYCODE" length="150" />
+		<property name="isAllowPartDelivery" type="java.lang.String" column="ISALLOWPARTDELIVERY" length="150" />
+		<property name="maxDeliveryTime" type="java.lang.Integer" column="MAXDELIVERYTIME" />
+		<property name="recievePoint" type="java.lang.String" column="recievepoint" length="150" />
+		<property name="levelId" type="java.lang.String" column="LEVELID" />
+		<property name="pointHistory" type="java.lang.Long" column="POINTHISTORY" />
+		<property name="pointFreeze" type="java.lang.Long" column="POINTFREEZE" />
+		<property name="point" type="java.lang.Double" column="POINT" />
+		<property name="buyNum" type="java.lang.Long" column="buyNum" />
+		<many-to-one name="channelDistributor" column="CHANNELDISTRIBUTOR_ID" />
+		<!-- 新加 -->
+		<property name="customerClipType" type="java.lang.String" column="customerClipType" length="50" />
+		<property name="sex" type="java.lang.String" column="SEX" length="2" />
+		<property name="identityType" type="java.lang.String" column="IDENTITYTYPE" length="50" />
+		<property name="identityId" type="java.lang.String" column="IDENTITYID" length="50" />
+		<property name="mobilePhone" type="java.lang.String" column="MOBILEPHONE" length="50" />
+		<property name="telephone" type="java.lang.String" column="TELEPHONE" length="50" />
+		<property name="address" type="java.lang.String" column="ADDRESS" length="5000" />
+		<property name="email" type="java.lang.String" column="EMAIL" length="50" />
+		<property name="vipChannel" type="java.lang.String" column="vipChannel" length="50" />
+		<many-to-one name="mbtags" column="MEMBERTAG_ID" />
+		<property name="memberTag" type="java.lang.String" column="memberTag" length="3950" />
+		<property name="isCouponing" type="java.lang.String" column="isCouponing" length="500" />
+		<property name="memberSource" type="java.lang.String" column="memberSource" length="500" />
+		<property name="birthday" type="java.util.Date" column="birthday" />
+		<property name="age" type="java.lang.Integer" column="age" />
+		
+		<property name="amountPoint" type="java.lang.Double" column="amountPoint" />
+		<property name="amountMoney" type="java.lang.Double" column="amountMoney" />
+		<property name="money" type="java.lang.Double" column="money" />
+		<property name="workAddress" type="java.lang.String" column="workAddress" length="150" />
+		<property name="referrerPhone" type="java.lang.String" column="referrerPhone" length="150" />
+		<property name="clipNumber" type="java.lang.String" column="clipNumber" length="150" />
+		<property name="headImage" type="java.lang.String" column="headImage" length="150" />
+		<property name="openId" type="java.lang.String" column="openId" length="150" />
+		<property name="isUse" type="java.lang.String" column="isUse" length="150" />
+		<property name="isReport" type="java.lang.String" column="isReport" length="150" />
+		<property name="logo" type="java.lang.String" column="logo" length="150" />
+		<property name="contactPersonIds" type="java.lang.String" column="contactPersonIds" length="500" />
+		<property name="contactPersonNames" type="java.lang.String" column="contactPersonNames" length="500" />
+		<property name="expiryDate" type="java.util.Date" column="expiryDate" length="150" />
+		<many-to-one name="employee" column="employee_ID" />
+		<property name="isReceive" type="java.lang.String" column="isReceive" length="10" />
+		<many-to-one name="province" column="province_ID" />
+		<many-to-one name="city" column="city_ID" />
+		<many-to-one name="district" column="district_ID" />
+		<!-- 新加 -->
+		<set name="contactPersons" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.mdm.crm.entity.ContactPerson" />
+		</set>
+		<set name="saleChances" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.crm.salechance.entity.SaleChance" />
+		</set>
+		<set name="customerCreditInfos" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.sales.credit.entity.CustomerCreditInfo" />
+		</set>
+		<set name="saleLeads" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.crm.lead.entity.SaleLead" />
+		</set>
+		<set name="customerComplaints" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.crm.service.entity.CustomerComplaint" />
+		</set>
+		<set name="customerServices" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.crm.service.entity.CustomerServices" />
+		</set>
+		<set name="subCouponDetails" inverse="true" order-by="id asc" lazy="false">
+			<key column="customerAccount_id" />
+			<one-to-many class="com.vix.crm.business.entity.CouponDetail" />
+		</set>
+
+		<set name="memberTags" table="CRM_B_CUSTOMERACCOUNTANDMEMBERTAG" fetch="join" inverse="false" lazy="false">
+			<key>
+				<column name="CUSTOMERACCOUNT_ID" not-null="true">
+					<comment>客户id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.crm.member.entity.MemberTag">
+				<column name="MEMBERTAG_ID" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

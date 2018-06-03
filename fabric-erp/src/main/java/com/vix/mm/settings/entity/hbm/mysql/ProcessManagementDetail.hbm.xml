@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mm.settings.entity.ProcessManagementDetail" table="MM_PROCESSMANAGEMENTDETAIL">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="lineNumber" type="java.lang.String">
+			<column name="LINENUMBER" length="254" />
+		</property>
+		<property name="resourceCode" type="java.lang.String">
+			<column name="RESOURCECODE" length="254" />
+		</property>
+		<property name="resourceName" type="java.lang.String">
+			<column name="RESOURCENAME" length="254" />
+		</property>
+		<property name="resourceActivities" type="java.lang.String">
+			<column name="RESOURCEACTIVITIES" length="254" />
+		</property>
+		<property name="baTypes" type="java.lang.String">
+			<column name="BATYPES" length="254" />
+		</property>
+		<property name="workingHours" type="java.lang.String">
+			<column name="WORKINGHOURS" length="254" />
+		</property>
+		<property name="manHourMolecules" type="java.lang.String">
+			<column name="MANHOURMOLECULES" length="254" />
+		</property>
+		<property name="workingHoursDenominator" type="java.lang.String">
+			<column name="WORKINGHOURSDENOMINATOR" length="254" />
+		</property>
+		<property name="efficiency" type="java.lang.String">
+			<column name="EFFICIENCY" length="254" />
+		</property>
+		<property name="whetherPlan" type="java.lang.String">
+			<column name="WHETHERPLAN" length="254" />
+		</property>
+		<property name="chargingTypes" type="java.lang.String">
+			<column name="CHARGINGTYPES" length="254" />
+		</property>
+		
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID"
+			length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME"
+			length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY"
+			length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE"
+			length="150" />
+		<property name="companyInnerCode" type="java.lang.String"
+			column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE"
+			length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET"
+			length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String"
+			column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String"
+			column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT"
+			length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR"
+			length="150" />
+		<property name="status" type="java.lang.String" column="STATUS"
+			length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL"
+			length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID"
+			length="150" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE"
+			length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE"
+			length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String"
+			column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String"
+			column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String"
+			column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION"
+			length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO"
+			length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION"
+			length="150" />
+		<many-to-one name="processManagement" column="processManagement_id" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,301 @@
+	<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--合同管理 -->
+	<package name="contract.config" namespace="/contract" extends="crud-default">
+		<!--快速新增 -->
+		<action name="contractMainAction!*" method="{1}" class="contractMainAction">
+			<result name="goMenuContent">/WEB-INF/content/contract/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 初始设置——系统选项 -->
+		<action name="systemOptionsAction!*" method="{1}" class="systemOptionsAction">
+			<result name="goList">/WEB-INF/content/contract/config/systemOptions_list_content.jsp</result>
+		</action>
+		
+		<!-- 所属合同组 -->
+		<action name="contractGroupTypeAction!*" method="{1}" class="contractGroupTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractGroupType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractGroupType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/contractGroupType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 合同类型集合 -->
+		<action name="contractTypeCombineAction!*" method="{1}" class="contractTypeCombineAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractTypeCombine_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractTypeCombine_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/contractTypeCombine_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 合同性质 -->
+		<action name="contractNatureTypeAction!*" method="{1}" class="contractNatureTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractNatureType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractNatureType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/contractNatureType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 所属行业 -->
+		<action name="viewIndustryTypeAction!*" method="{1}" class="viewIndustryTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/viewIndustryType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/viewIndustryType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/viewIndustryType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 合同履行状态-->
+		<action name="modeTypeAction!*" method="{1}" class="modeTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/modeType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/modeType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/modeType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 启用阶段-->
+		<action name="enableStageTypeAction!*" method="{1}" class="enableStageTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/enableStageType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/enableStageType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/enableStageType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 合同阶段组-->
+		<action name="contractStageGroupTypeAction!*" method="{1}" class="contractStageGroupTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractStageGroupType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractStageGroupType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/contractStageGroupType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 合同类型 -->
+		<action name="contractTypeAction!*" method="{1}" class="contractTypeAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractType_list_content.jsp</result>
+			<result name="goSaveOrUpdateEncoding">/WEB-INF/content/contract/config/contractType_update.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/contractType.jsp</result>
+			<result name="goListContent">/WEB-INF/content/contract/config/contractType_content.jsp</result>
+		</action>
+	
+		<!-- 初始设置——合同分类 -->
+		<action name="contractCatalogAction!*" method="{1}" class="contractCatalogAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractCatalog_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractCatalog_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/updateContractCatalog.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/contract/config/chooseContractCatalog.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/contract/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 初始设置——合同条款 -->
+		<action name="contractClauseAction!*" method="{1}" class="contractClauseAction">
+			<result name="goList">/WEB-INF/content/contract/config/contractClause_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/config/contractClause_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/config/contractClause_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		
+		<!-- 合同查询-->
+		<action name="contractInquiryAction!*" method="{1}" class="contractInquiryAction">
+			<result name="goList">/WEB-INF/content/contract/contractInquiry/contractInquiry_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractInquiry/contractInquiry_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/contractInquirySeniorSearch_list.jsp</result>
+			<!-- 采购合同 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractInquiry/contractInquiry_update.jsp</result>
+				<!-- 选择项目名称 -->
+				<result name="goProjectNameList">/WEB-INF/content/contract/contractmgr/project_name_list.jsp</result>
+				<!-- 选择供应商信息 -->
+				<result name="goSubRadioSingleList">/WEB-INF/content/contract/contractmgr/single_sub_radio_supplier_list.jsp</result>
+				<!-- 快速新建供应商 -->
+				<result name="goAddQuicklySupplier">/WEB-INF/content/contract/contractmgr/addSupplier.jsp</result>
+				<!-- 合同子项 -->
+				<result name="goAddContractLine">/WEB-INF/content/contract/contractmgr/addContractLine.jsp</result>
+				<!-- 合同标的 -->
+				<result name="goAddContractSubject">/WEB-INF/content/contract/contractmgr/addContractSubject.jsp</result>
+				<!-- 合同预警 -->
+				<result name="goAddContractWarning">/WEB-INF/content/contract/contractmgr/addContractWarning.jsp</result>
+				<!-- 合同审批 -->
+				<result name="goAddApplicationForm">/WEB-INF/content/contract/contractmgr/addApplicationForm.jsp</result>
+				<!-- 价格条件 -->
+				<result name="goAddPriceConditions">/WEB-INF/content/contract/contractmgr/addPriceConditions.jsp</result>
+			<!-- 采购框架协议 -->
+			<result name="goPurchaseFA">/WEB-INF/content/contract/contractInquiry/purchaseFA_update.jsp</result>
+				<!-- 价格条件 -->
+				<result name="goAddContractPricingConditions">/WEB-INF/content/contract/contractmgr/addPurchaseFA.jsp</result>
+				<result name="fixedPrice">/WEB-INF/content/contract/contractmgr/fixedPrice.jsp</result>
+			<!-- 销售合同 -->
+			<result name="goSalesContract">/WEB-INF/content/contract/contractInquiry/salesContract_update.jsp</result>
+			<!-- 销售框架协议 -->
+			<result name="goContractMarket">/WEB-INF/content/contract/contractInquiry/salesFA_update.jsp</result>
+				<!-- 销售定价条件 -->
+				<result name="goAddContractMarket">/WEB-INF/content/contract/contractmgr/addContractMarket.jsp</result>
+			<!-- 项目合同 -->
+			<result name="goPmContract">/WEB-INF/content/contract/contractInquiry/pmContract_update.jsp</result>
+			<!-- 上传附件 -->
+			<result name="addHrAttachments">/WEB-INF/content/contract/contractmgr/addAttachFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 合同审批-->
+		<action name="contractApprovalAction!*" method="{1}" class="contractApprovalAction">
+			<result name="goList">/WEB-INF/content/contract/contractInquiry/contractApproval_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractInquiry/contractApproval_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/contractInquirySeniorSearch_list.jsp</result>
+			<!-- 采购合同 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractInquiry/contractApproval_update.jsp</result>
+			
+			<!-- 采购框架协议 -->
+			<result name="goPurchaseFA">/WEB-INF/content/contract/contractInquiry/seePurchaseFA_update.jsp</result>
+			<!-- 销售合同 -->
+			<result name="goSalesContract">/WEB-INF/content/contract/contractInquiry/seeSalesContract_update.jsp</result>
+			<!-- 销售框架协议 -->
+			<result name="goContractMarket">/WEB-INF/content/contract/contractInquiry/seeSalesFA_update.jsp</result>
+			<!-- 项目合同 -->
+			<result name="goPmContract">/WEB-INF/content/contract/contractInquiry/seePmContract_update.jsp</result>
+		</action>
+		
+		<!-- 作废 -->
+		<!-- 合同查询 -->
+		<action name="contractDraftingAction!*" method="{1}" class="contractDraftingAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractInquiries_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractInquiries_list_content.jsp</result>
+			<!-- 采购订单 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractmgr/contractDrafting_update.jsp</result>
+			<!-- 新增合同标的 -->
+			<result name="goAddContractSubject">/WEB-INF/content/contract/contractmgr/addContractSubjectDetail.jsp</result>
+			<!-- 起草销售订单 -->
+			<result name="goSaveOrUpdateApply">/WEB-INF/content/contract/contractmgr/salesOrderApply_update.jsp</result>
+			<!-- 采购框架协议 -->
+			<result name="goPurchaseAgreement">/WEB-INF/content/contract/contractmgr/purchaseAgreement_update.jsp</result>
+			<!-- 新增采购定价条件 -->
+			<result name="goAddProcurementPricing">/WEB-INF/content/contract/contractmgr/addProcurementPricing.jsp</result>
+			<result name="fixedPrice">/WEB-INF/content/contract/contractmgr/fixedPrice.jsp</result>
+			<!-- 销售框架协议 -->
+			<result name="goSalesAgreement">/WEB-INF/content/contract/contractmgr/salesAgreement_update.jsp</result>
+			<!-- 新增销售定价条件 -->
+			<result name="goAddSalesPricing">/WEB-INF/content/contract/contractmgr/addSalesPricing.jsp</result>
+			<!-- 项目合同 -->
+		    <result name="goPmContract">/WEB-INF/content/contract/contractmgr/pmContract_update.jsp</result>
+		    <!-- 新增项目合同 -->
+			<result name="goAddPmContract">/WEB-INF/content/contract/contractmgr/addPmContract.jsp</result>
+		    <!-- 选择部门 -->
+			<result name="goChooseOrgUnit">/WEB-INF/content/contractmgr/organizationUnit_choose.jsp</result>
+			<!-- 上传附件 -->
+			<result name="addAttachFile">/WEB-INF/content/contract/contractmgr/addAttachFile.jsp</result>
+			<!-- 选择供应商信息 -->
+			<result name="goSubRadioSingleList">/WEB-INF/content/contract/contractmgr/single_sub_radio_supplier_list.jsp</result>
+			<!-- 选择客户信息 -->
+			<result name="goSubRadioSingleList1">/WEB-INF/content/contract/contractmgr/single_sub_radio_supplier_list1.jsp</result>
+			<!-- 选择项目名称1 -->
+			<result name="goProjectNameList">/WEB-INF/content/contract/contractmgr/project_name_list.jsp</result>
+			<result name="goChooseRadioSupplier">/WEB-INF/content/contract/contractmgr/chooseRadioSupplier.jsp</result>
+			<result name="goChooseRadioSupplier1">/WEB-INF/content/contract/contractmgr/chooseRadioSupplier1.jsp</result>
+			<!-- <result name="goChooseRadioSupplier2">/WEB-INF/content/contract/contractmgr/chooseRadioSupplier2.jsp</result> -->
+			<!-- 快速新建供应商 -->
+			<result name="goAddCustomer">/WEB-INF/content/contract/contractmgr/addCustomer.jsp</result>
+			<!-- 快速新建客户 -->
+			<result name="goAddQuicklySupplier1">/WEB-INF/content/contract/contractmgr/addSupplier1.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 快速新建合同-->
+		<action name="contractFastAction!*" method="{1}" class="contractFastAction">
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractFast_content.jsp</result>
+			<result name="goSaveOrUpdateContractFast">/WEB-INF/content/contract/contractmgr/contractFast_list.jsp</result>
+			<result name="goSaveOrUpdatePurchase">/WEB-INF/content/contract/contractmgr/purchase_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>  
+		
+		<!-- 合同查询 -->
+		<!-- <action name="contractInquiriesAction!*" method="{1}"
+			class="contractInquiriesAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractInquiries_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractInquiries_list_content.jsp</result>	
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> -->
+		<!-- 待办合同 -->
+		<action name="todoContractsAction!*" method="{1}" class="todoContractsAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/todoContracts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/todoContracts_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/contractInquirySeniorSearch_list.jsp</result>
+			<!-- 采购合同 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractInquiry/contractApproval_update.jsp</result>
+			<!-- 采购框架协议 -->
+			<result name="goPurchaseFA">/WEB-INF/content/contract/contractInquiry/seePurchaseFA_update.jsp</result>
+			<!-- 销售合同 -->
+			<result name="goSalesContract">/WEB-INF/content/contract/contractInquiry/seeSalesContract_update.jsp</result>
+			<!-- 销售框架协议 -->
+			<result name="goContractMarket">/WEB-INF/content/contract/contractInquiry/seeSalesFA_update.jsp</result>
+			<!-- 项目合同 -->
+			<result name="goPmContract">/WEB-INF/content/contract/contractInquiry/seePmContract_update.jsp</result>
+		</action>
+		<!-- 合同进度 -->
+		<action name="contractProgressAction!*" method="{1}" class="contractProgressAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractProgress_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractProgress_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/contractInquirySeniorSearch_list.jsp</result>
+			<!-- 采购合同 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractInquiry/contractApproval_update.jsp</result>
+			<!-- 采购框架协议 -->
+			<result name="goPurchaseFA">/WEB-INF/content/contract/contractInquiry/seePurchaseFA_update.jsp</result>
+			<!-- 销售合同 -->
+			<result name="goSalesContract">/WEB-INF/content/contract/contractInquiry/seeSalesContract_update.jsp</result>
+			<!-- 销售框架协议 -->
+			<result name="goContractMarket">/WEB-INF/content/contract/contractInquiry/seeSalesFA_update.jsp</result>
+			<!-- 项目合同 -->
+			<result name="goPmContract">/WEB-INF/content/contract/contractInquiry/seePmContract_update.jsp</result>
+		</action>
+		<!-- 合同预警 -->
+		<action name="contractWarningAction!*" method="{1}" class="contractWarningAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractWarning_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractWarning_list_content.jsp</result>
+		</action>
+		<!-- 合同付款 -->
+		<action name="contractPaymentsAction!*" method="{1}" class="contractPaymentsAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractPayments_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractPayments_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/paymentsSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractmgr/contractPayments_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 合同收款 -->
+		<action name="contractReceivablesAction!*" method="{1}" class="contractReceivablesAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractReceivables_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractReceivables_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/paymentsSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 合同模板管理 -->
+		<action name="contractAssociateTemplateAction!*" method="{1}" class="contractAssociateTemplateAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/contractTemplatemanager_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/contractTemplatemanager_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/contract/contractInquiry/templatemanagerSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractmgr/contractTemplatemanager_update.jsp</result>
+			<result name="addAttachFile2">/WEB-INF/content/contract/contractmgr/addAttachFile2.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 合同协议 -->
+		<action name="protocolTempleteAction!*" method="{1}" class="protocolTempleteAction">
+			<result name="goList">/WEB-INF/content/contract/contractmgr/protocolTemplete_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/contract/contractmgr/protocolTemplete_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/contract/contractmgr/protocolTemplete_update.jsp</result>
+			<result name="addAttachFile1">/WEB-INF/content/contract/contractmgr/addAttachFile1.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

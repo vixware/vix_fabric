@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.quotes.entity.SMSMQuotationTemplate" table="SALE_QUOTATION_TEMPLATE">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">SALE_QUOTATION_TEMPLATE_ID</param>
+			</generator>
+        </id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="createDate" type="java.util.Date" column="CREATEDATE" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LASTMODIFYDATE"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="billDate" type="java.util.Date" column="BILLDATE"/>
+		<property name="type" type="java.lang.String" column="TYPE" length="100"/>
+		<property name="deptCode" type="java.lang.String" column="DEPTCODE" length="100"/>
+		<property name="alePersonCode" type="java.lang.String" column="ALEPERSONCODE" length="100"/>
+		<property name="code" type="java.lang.String" column="CODE" length="100"/>
+		<property name="groupCode" type="java.lang.String" column="GROUPCODE" length="100"/>
+		<property name="bizType" type="java.lang.String" column="BIZTYPE" length="100"/>
+		<property name="formType" type="java.lang.String" column="FORMTYPE" length="100"/>
+		<property name="contract" type="java.lang.String" column="CONTRACT" length="100"/>
+		<property name="salesOrg" type="java.lang.String" column="SALESORG" length="100"/>
+		<property name="salesMan" type="java.lang.String" column="SALESMAN" length="100"/>
+		<property name="orderTime" type="java.util.Date" column="ORDERTIME"/>
+		<property name="requirementContent" type="java.lang.String" column="REQUIREMENTCONTENT" length="500"/>
+		<property name="currency" type="java.lang.String" column="CURRENCY" length="100"/>
+		<property name="tax" type="java.lang.Double" column="TAX" length="100"/>
+		<property name="status" type="java.lang.String" column="STATUS" length="100"/>
+		<many-to-one name="sMCatalog" column="catalog_id"/>
+		<set name="sMSMQuotationTemplateItems" inverse="true">
+			<key column="SMSMQUOTATIONTEMPLATE_ID"/>
+			<one-to-many class="com.vix.sales.quotes.entity.SMSMQuotationTemplateItem"/>
+		</set>
+  </class>
+</hibernate-mapping>

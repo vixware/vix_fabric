@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.eam.entity.EqWorkOrder" table="eam_workorder">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+
+		<property name="wocode" type="java.lang.String" column="wocode"></property>
+		<property name="woname" type="java.lang.String" column="woname"></property>
+		<property name="woApplyNo" type="java.lang.String" column="woApplyNo"></property>
+		<property name="applyDate" type="java.util.Date" column="applyDate"></property>
+		<property name="eqcode" type="java.lang.String" column="eqcode"></property>
+		<property name="priority" type="java.lang.String" column="priority"></property>
+		<property name="wotype" type="java.lang.Integer" column="wotype"></property>
+		<property name="woStatus" type="java.lang.Integer" column="woStatus"></property>
+		<property name="eqname" type="java.lang.String" column="eqname"></property>
+		<property name="memo" type="java.lang.String" column="memo"></property>
+		<property name="reporter" type="java.lang.String" column="reporter"></property>
+		<property name="planMader" type="java.lang.String" column="planMader"></property>
+		<property name="issuer" type="java.lang.String" column="issuer"></property>
+		<property name="department" type="java.lang.String" column="department"></property>
+		<property name="defendCenter" type="java.lang.String" column="defendCenter"></property>
+		<property name="responsiblePerson" type="java.lang.String" column="responsiblePerson"></property>
+		<property name="applicent" type="java.lang.String" column="applicent"></property>
+		<property name="resDepartment" type="java.lang.String" column="resDepartment"></property>
+		<property name="appDepartment" type="java.lang.String" column="appDepartment"></property>
+		<property name="hopeStartTime" type="java.util.Date" column="hopeStartTime"></property>
+		<property name="hopeEndTime" type="java.util.Date" column="hopeEndTime"></property>
+		<property name="planStartTime" type="java.util.Date" column="planStartTime"></property>
+		<property name="planEndTime" type="java.util.Date" column="planEndTime"></property>
+		<property name="actualStartTime" type="java.util.Date" column="actualStartTime"></property>
+		<property name="actualEndTime" type="java.util.Date" column="actualEndTime"></property>
+		<property name="failCode" type="java.lang.String" column="failCode"></property>
+		<property name="modifyBy" type="java.lang.String" column="modifyBy"></property>
+		<property name="modifyDate" type="java.util.Date" column="modifyDate"></property>
+		<property name="budgetCost" type="java.lang.String" column="budgetCost"></property>
+		<property name="actualCost" type="java.lang.String" column="actualCost"></property>
+		<property name="kitCode" type="java.lang.String" column="kitCode"></property>
+		<property name="eqpositionCode" type="java.lang.String" column="eqpositionCode"></property>
+		<property name="superWocode" type="java.lang.String" column="superWocode"></property>
+		<property name="phone" type="java.lang.String" column="phone"></property>
+		<property name="costCenter" type="java.lang.String" column="costCenter"></property>
+		<property name="costScope" type="java.lang.String" column="costScope"></property>
+		<property name="costUpLimit" type="java.lang.Double" column="costUpLimit" />
+		<property name="costDownLimit" type="java.lang.Double" column="costDownLimit" />
+		<property name="profitCenter" type="java.lang.String" column="profitCenter"></property>
+		<property name="factory" type="java.lang.String" column="factory"></property>
+		<property name="settleType" type="java.lang.Integer" column="settleType"></property>
+		<property name="objCode" type="java.lang.String" column="objCode"></property>
+		<property name="percent" type="java.lang.String" column="percent"></property>
+		<property name="settleMode" type="java.lang.Integer" column="settleMode"></property>
+
+		<property name="startTime" type="java.util.Date" column="start_time"/>
+		<property name="endTime" type="java.util.Date" column="end_time"/>
+		
+	</class>
+</hibernate-mapping>

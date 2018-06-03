@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.system.entity.Attachment" table="SYS_ATTACHMENT">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		
+		<property name="name" type="java.lang.String" column="Name" length="100"/>
+		<property name="attType" type="java.lang.String" column="AttType" length="20"/>
+		<property name="path" type="java.lang.String" column="Path" length="200"/>
+		<property name="description" type="java.lang.String" column="Description" length="100"/>
+		<property name="businessTag" type="java.lang.String" column="BusinessTag" length="100"/>
+		<property name="dataId" type="java.lang.String" column="dataId" length="100"/>
+		<property name="attTmpStatus" type="java.lang.Integer" column="attTmpStatus"/>
+		
+		
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<!-- 创建者id -->
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<many-to-one name="customerAccount" column="customerAccount_id" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+#nav_menu li a,.box_news h3,.order dt strong  {font-size:16px;}
+.box_news p,
+#nav_menu li ul li a,
+.sub_menu,
+#c_head div,
+.pop,
+.right_menu,
+.pagelist,
+.c_menu,
+.c_title,
+#mail_list h2,
+.m_box dt,
+.mail_txt_menu,
+.title,
+.txt,
+.m_txt,
+.list,
+.list_check ul li,
+.order dd,
+.voucher,
+input{font-size:14px;}
+
+#c_head li {font-size:13px;}
+#top_bar a:hover small,#top_bar a:hover span,.npcontent{font-size:14px;}

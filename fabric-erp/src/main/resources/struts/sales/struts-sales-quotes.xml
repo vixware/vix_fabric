@@ -1,0 +1,102 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--演示-->
+	<package name="sales.quotes.config" namespace="/sales/quotes" extends="crud-default">
+		<action name="salesQuotationCategoryAction!*" method="{1}" class="salesQuotationCategoryAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/salesQuotationCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/quotes/salesQuotationCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateSalesQuotationCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseSalesQuotationCategory">/WEB-INF/content/sales/quotes/chooseSalesQuotationCategory.jsp</result>
+		</action>
+		<!-- 销售报价单模板 -->
+		<action name="salesQuotationTemplateAction!*" method="{1}" class="salesQuotationTemplateAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/salesQuotationTemplate_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/quotes/salesQuotationTemplate_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateSalesQuotationTemplate.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goSaveOrUpdateSalesQuotationTemplateItem">/WEB-INF/content/sales/quotes/updateSalesQuotationTemplateItem.jsp</result>
+			<result name="goChooseSalesQuotationTemplate">/WEB-INF/content/sales/quotes/chooseSalesQuotationTemplate.jsp</result>
+			<result name="goSubListContent">/WEB-INF/content/sales/quotes/salesQuotationTemplate_sub_list_content.jsp</result>
+		</action>
+		<!-- 销售报价单 -->
+		<action name="salesQuotationAction!*" method="{1}" class="salesQuotationAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/salesQuotation_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/quotes/salesQuotation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateSalesQuotation.jsp</result>
+			<result name="showSalesQuotation">/WEB-INF/content/sales/quotes/showSalesQuotation.jsp</result>
+			<result name="goPrintSalesQuotation">/WEB-INF/content/sales/quotes/salesQuotation_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/sales/quotes/salesQuotation_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goSaveOrUpdateSalesQuotationItem">/WEB-INF/content/sales/quotes/updateSalesQuotationItem.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/sales/quotes/chooseSMCatalog.jsp</result>
+			<result name="goChooseSalesQuotation">/WEB-INF/content/sales/quotes/chooseSalesQuotation.jsp</result>
+			<result name="goSubListContent">/WEB-INF/content/sales/quotes/salesQuotation_sub_list_content.jsp</result>
+			<result name="goRelatedSalesQuotation">/WEB-INF/content/sales/quotes/relatedSalesQuotation.jsp</result>
+			<result name="goRelatedListContent">/WEB-INF/content/sales/quotes/salesQuotation_related_list_content.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/sales/quotes/salesQuotation_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/sales/quotes/updateSalesQuotationForCustomerAccount.jsp</result>
+		</action>
+		<!-- 项目式报价模版 -->
+		<action name="projectQuotationTemplateAction!*" method="{1}" class="projectQuotationTemplateAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/projectQuotationTemplate_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/quotes/projectQuotationTemplate_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateProjectQuotationTemplate.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseProjectQuotationTemplate">/WEB-INF/content/sales/quotes/chooseProjectQuotationTemplate.jsp</result>
+			<result name="goSubListContent">/WEB-INF/content/sales/quotes/projectQuotationTemplate_sub_list_content.jsp</result>
+		</action>
+		<!-- 项目式报价模版明细 -->
+		<action name="projectQuotationTemplateItemAction!*" method="{1}" class="projectQuotationTemplateItemAction">
+			<result name="goListContent">/WEB-INF/content/sales/quotes/projectQuotationTemplateItem_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateProjectQuotationTemplateItem.jsp</result>
+			<result name="pqtiMeasureUnit">/WEB-INF/content/sales/quotes/loadItemMeasureUnit.jsp</result>
+			<result name="pqtiAssitMeasureUnit">/WEB-INF/content/sales/quotes/loadItemAssitMeasureUnit.jsp</result> 
+			<result name="goChooseQuotationTemplateItem">/WEB-INF/content/sales/quotes/chooseProjectQuotationTemplateItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目式报价 -->
+		<action name="projectQuotationSchemeAction!*" method="{1}" class="projectQuotationSchemeAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/projectQuotationScheme_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/quotes/projectQuotationScheme_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateProjectQuotationScheme.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目式报价明细 -->
+		<action name="projectQuotationSchemeItemAction!*" method="{1}" class="projectQuotationSchemeItemAction">
+			<result name="goListContent">/WEB-INF/content/sales/quotes/projectQuotationSchemeItem_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateProjectQuotationSchemeItem.jsp</result>
+			<result name="goChooseQuotationSchemeItem">/WEB-INF/content/sales/quotes/chooseProjectQuotationSchemeItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户定制需求 -->
+		<action name="customerizeProductAction!*" method="{1}" class="customerizeProductAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/customerizeProduct_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/quotes/customerizeProduct_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/quotes/updateCustomerizeProduct.jsp</result>
+			<result name="goSaveOrUpdateCustomerizeProductItem">/WEB-INF/content/sales/quotes/updateCustomerizeProductItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 报价模版 -->
+		<action name="quoteTemplateAction!*" method="{1}" class="quoteTemplateAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/quoteTemplate_list.jsp</result>
+			<result name="goTemplateList">/WEB-INF/content/sales/quotes/quoteTemplate_list_content.jsp</result>
+			<result name="goDetailList">/WEB-INF/content/sales/quotes/quoteTemplateDetail_list.jsp</result>
+			<result name="goDetailTemplateList">/WEB-INF/content/sales/quotes/quoteTemplateDetail_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+		<!-- 报价方案 -->
+		<action name="quoteSchemeAction!*" method="{1}" class="quoteSchemeAction">
+			<result name="goList">/WEB-INF/content/sales/quotes/quoteScheme_list.jsp</result>
+			<result name="goSchemeList">/WEB-INF/content/sales/quotes/quoteScheme_list_content.jsp</result>
+			<result name="goDetailList">/WEB-INF/content/sales/quotes/quoteSchemeDetail_list.jsp</result>
+			<result name="goDetailSchemeList">/WEB-INF/content/sales/quotes/quoteSchemeDetail_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+	</package>
+</struts>

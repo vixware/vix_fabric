@@ -1,0 +1,46 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 会员管理 -->
+	<package name="crm.member" namespace="/crm/member" extends="crud-default">
+		<!-- 等级管理 -->
+		<action name="memberLevelAction!*" method="{1}" class="memberLevelAction">
+			<result name="goList">/WEB-INF/content/crm/member/memberLevel_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/crm/member/memberLevel_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/member/updateMemberLevel.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员等级管理 -->
+		<action name="memberLevelManagementAction!*" method="{1}" class="memberLevelManagementAction">
+			<result name="goList">/WEB-INF/content/crm/member/memberLevelManagement/memberLevelManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/member/memberLevelManagement/memberLevelManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/member/memberLevelManagement/memberLevelManagement_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员标签管理 -->
+		<action name="memberTagManagementAction!*" method="{1}" class="memberTagManagementAction">
+			<result name="goList">/WEB-INF/content/crm/member/memberTagManagement/memberTagManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/member/memberTagManagement/memberTagManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/member/memberTagManagement/memberTagManagement_update.jsp</result>
+			<result name="editMembertags">/WEB-INF/content/crm/member/memberTagManagement/memberTagManagement_editUpdate.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 标签管理 -->
+		<action name="memberTagAction!*" method="{1}" class="memberTagAction">
+			<result name="goList">/WEB-INF/content/crm/member/memberTag_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/crm/member/memberTag_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/member/updateMemberTag.jsp</result>
+			<result name="goSaveOrUpdateMemberTagDetail">/WEB-INF/content/crm/member/updateMemberTagDetail_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="customerBlackListAction!*" method="{1}" class="customerBlackListAction">
+			<result name="goList">/WEB-INF/content/crm/member/customerBlackList_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/crm/member/customerBlackList_list_content.jsp</result>
+			<result name="showMember">/WEB-INF/content/crm/member/showMember.jsp</result>
+			<result name="addReason">/WEB-INF/content/crm/member/addReason.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

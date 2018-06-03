@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.infoCenter.entity.NewsComment" table="OA_NEWSCOMMENT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100" />
+		<property name="code" type="java.lang.String" column="CODE" length="50" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="commentscontent" type="java.lang.String" column="COMMENTS_CONTENT" length="200"/>
+		<property name="uploadPerson" type="java.lang.String" column="UPLOADPERSON" length="200"/>
+		<property name="uploadPersonName" type="java.lang.String" column="UPLOADPERSONNAME" length="200"/>
+		<property name="commentsnumber" type="java.lang.Long" column="COMMENTS_NUMBER"/>
+		<property name="uploadPersonId" type="java.lang.String" column="UPLOADPERSONID"/>
+
+		<many-to-one name="messageManagement" column="messageManagement_id" update="false" />
+
+	</class>
+</hibernate-mapping>

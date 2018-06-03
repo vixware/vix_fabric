@@ -1,0 +1,20 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="/common/page/taglibs.jsp"%>
+<div class="content" style="margin-top: 15px; margin-bottom: -10px; overflow: hidden">
+	<div class="box order_table" style="line-height: normal;">
+		<table class="table-padding020">
+			<tr height="30">
+				<th>单号 :</th>
+				<td><input type="text" name="code" id="code" class="int" /></td>
+				<th>主题:</th>
+				<td><input type="text" name="name" id="name" class="int" /></td>
+			</tr>
+			<tr height="30">
+				<th>商品编码：</th>
+				<td><input id="itemcode" name="itemcode" type="text" /></td>
+				<th>商品名称：</th>
+				<td><input id="itemname" name="itemname" type="text" /></td>
+			</tr>
+		</table>
+	</div>
+</div>

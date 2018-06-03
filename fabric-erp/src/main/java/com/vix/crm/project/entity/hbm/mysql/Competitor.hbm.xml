@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.project.entity.Competitor" table="CRM_P_COMPETITOR">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		 				
+ 		<property name="companyName" type="java.lang.String" column="COMPANYNAME" length="100"/>
+ 		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100"/>
+ 		<property name="price" type="java.lang.Double" column="PRICE"/>
+ 		<property name="competeProduct" type="java.lang.String" column="COMPETEPRODUCT" length="100"/>
+		<property name="superiority" type="java.lang.String" column="SUPERIORITY" length="100"/>
+		<property name="inferior" type="java.lang.String" column="INFERIOR" length="100"/>
+		<property name="copeStrategy" type="java.lang.String" column="COPESTRATEGY" length="100"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="300"/>
+		<property name="address" type="java.lang.String" column="ADDRESS" length="100"/>
+		<property name="website" type="java.lang.String" column="WEBSITE" length="100"/>
+		<property name="contactPerson" type="java.lang.String" column="CONTACTPERSON" length="100"/>
+		<property name="cpPhone" type="java.lang.String" column="CPPHONE" length="100"/>
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="100"/>
+ 		<many-to-one name="crmProject" column="crmProject_id"/>
+ 		<many-to-one name="customerAccount" column="customerAccount_id"/>
+ 		<many-to-one name="saleChance" column="saleChance_id"/>
+ 		<many-to-one name="competitive" column="competitive_id"/>
+ 		<set name="competitorProducts" inverse="true">
+			<key column="competitor_id"/>
+			<one-to-many class="com.vix.crm.project.entity.CompetitorProduct"/>
+		</set>
+  </class>
+</hibernate-mapping>

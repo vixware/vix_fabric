@@ -1,0 +1,138 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+#u-sparks{float: right; list-style: none; padding: 0;}
+.u-sparks-info{ float: left;}
+.u-sparks-info a{padding:6px 9px; width: 196px; height: 47px; background: #FFF; display: inline; float: right; text-align: center; font-size: 18px; color: #000; line-height: 18px; margin-left: 10px;}
+.u-sparks-info a img{float: right;}
+.u-sparks-info a span{display: block; color: #888; font-size: 12px;}
+.u-sparks-line a{line-height: 35px;}
+.u-sparks-text{overflow:hidden;}
+
+.avatars{width: 34px; height: 34px; border-radius: 50%; margin: 0 8px;}
+
+.task-list{ overflow:hidden;}
+.task-item{width:25%; float:left; margin-bottom:25px;}
+.task-wrap{width:90%; margin:0 auto;}
+.task-pic{position:relative; overflow:hidden;}
+.task-pic img{width:100%;}
+.task-mask{position:absolute; left:0; top:0; width:100%; height:100%; overflow:hidden;
+background-color:rgba(0, 0, 0, 0.33);/*ff*/
+filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#50000000', EndColorStr='#50000000');/*ie*/}
+.task-mask .air{position:absolute; left:50%; top:50%; margin:-42px 0 0 -42px;}
+.task-mask .easy-pie-chart .percent{font-size:18px; font-weight:lighter; margin-top:-12px;}
+.task-mask .air canvas{vertical-align:top;}
+.task-title{padding:0 10px; line-height:40px; background:#FFF; box-shadow:1px 1px 2px rgba(0,0,0,0.3)}
+
+.task-detail-list .media{margin-bottom:0; padding:15px 0; border-bottom:#eaeff5 solid 1px;}
+.task-detail-title{border-bottom:#eaeff5 solid 1px; padding-top:15px; padding-bottom:15px;}
+
+.acititiy-wrap{background:#f8fcff; border:#e2e9ee solid 1px; line-height:30px; margin:10px 0; }
+.acitiviy-ref{padding:0 10px; font-size:20px; color:#c3c2c2; border-right:#e7f0f7 solid 1px; border-left:#e7f0f7 solid 1px; box-shadow:-1px 0 0 #FFF;}
+.acititiy-wrap .dropdown{padding:0 10px; margin-left:40px;}
+.acititiy-item{border-bottom:#e8e8e7 solid 1px; margin-bottom:10px;}
+.acititiy-item .media{margin-bottom:10px;}
+
+.time{width: 95px; height: 106px; line-height: 106px; text-align: center; font-size:72px; background: url(../images/time_bg.png) no-repeat; margin:15px auto; padding:0 5px 0 0; position: relative;}
+.time-mask{position: absolute; width: 85px; height: 85px;background: url(../images/time.png) no-repeat; position: absolute; left: 5px; top: 5px; }
+.timelist{padding:0; margin:0; list-style: none; margin-top: 15px;}
+.timelist li{height: 80px; border:#dcdcdc solid 1px; margin-bottom: 15px;}
+.timelist_l{ height: 80px; border-right:#dcdcdc solid 1px; width: 75px; text-align:center; line-height: 57px; color: #777; font-size: 36px;}
+.timelist_t{background: #5a97fc; color: #FFF; font-size: 16px; line-height: 24px;}
+.timelist_body{overflow: hidden;; padding: 10px 0 10px 20px; line-height: 30px; font-size: 14px;}
+
+.file-wrap{ background: #f6f6f6; box-shadow: inset -1px 0 0 #FFF;}
+.list-warp{background: #FFF;}
+.file-toolbar{padding:13px 0 10px;}
+.file-toolbar .checkbox{margin-top:5px;}
+.file-toolbar-buttons a{ font-size: 18px; display: inline-block; padding:0 5px; line-height: 32px; color: #7f7e7e;}
+.file-toolbar-buttons a.active{color: #739e73;}
+.file-list{padding:0; list-style: none;}
+.file-list li{padding:10px 0; border-bottom: #eae8e8 solid 1px;}
+.file-icon{margin-right: 10px; float: left;}
+.file-icon img{width: 38px;}
+.file-line{overflow: hidden;}
+.file-title{font-size: 14px; color: #777;}
+.file-desc{font-size: 12px; color: #a2a1a1;}
+
+
+.file-body{margin:1px;overflow: hidden;}
+.show-layer .file-body{margin:0;border:1px solid #ddd;background:#f8f8f8;}
+.show-buttons {background:#f8f8f8;}
+.file-body .checkbox{margin-top:7px;}
+.file-buttons{display: none;}
+.show-buttons .file-buttons{display:block;}
+.file-buttons a{ display: inline-block; line-height: 38px; font-size: 18px; padding:0 7px; color: #c9c9c9;}
+.file-buttons a.active{color: #fd5357;}
+.file-list .chat-body{height: 200px; display: none;}
+.file-list .chat-body li.message{min-height: 70px;}
+
+.file-large li{height: 127px;}
+.file-large .smart-form,
+.file-large .file-buttons,
+.file-large .file-desc,
+.file-large .chat-body{display: none !important;}
+.file-large .file-body{overflow: inherit;}
+.file-large .file-icon{float: none; margin: 0 auto 15px; text-align: center; position: relative;}
+.file-large .file-icon img{width: 87px;height: 87px;}
+.file-large .file-title{text-align: center; width: 100%; white-space: nowrap; text-overflow:ellipsis; overflow: hidden;}
+.file-large li{width: 16.666666%; float: left; border: 0; margin-bottom: 30px;}
+.file-layer{width:268px;height:66px; position: absolute; top: 90px; background: #FFF; border: #d8d8d8 solid 1px; border-radius: 5px; padding:10px; left: 50%; margin-left: -134px; display: none;}
+.show-layer{ z-index: 10; position: relative;}
+.show-layer .file-layer{display: block; text-align: left; line-height: 24px; color: #a2a1a1;}
+.file-layer:before{content: ''; position: absolute;width: 15px; height: 13px; font-size: 0; background: url(../images/arrow.png) no-repeat; left: 50%; top: -13px; margin-left: -7px;}
+.layer-buttons a{display: inline-block; padding: 0 5px; line-height: 24px; color: #c9c9c9;}
+
+.slidebox{height: 100%;}
+.file-menu-item{box-shadow:inset 0 -1px 0 #FFF; border-bottom: #e4e3e3 solid 1px;}
+.file-menu-link{height: 58px; line-height: 58px; padding: 0 0 0 10px; font-size: 16px; color: #333; display: block;}
+.file-menu-link i.fa{display: inline-block; width: 32px; color: #2a84e9; font-size: 24px; vertical-align: middle;}
+.file-menu-list{list-style: none; padding: 0;}
+.file-menu-list li a{display: block; padding: 0 0 0 32px; height: 40px; line-height: 40px; color: #888;}
+.file-menu-list li.active a{background: #FFF; border-right: #739e73 solid 2px;}
+.file-menu-list li a:hover { text-decoration:underline;}
+.file-menu-list li a i.fa{display: inline-block; width: 27px; color: #7ba47b; font-size: 16px;}
+
+.keywords{box-shadow:inset 0 -1px 0 #FFF; border-bottom: #e4e3e3 solid 1px; margin-top: 10px}
+.keywords dt{line-height: 38px; font-size: 16px; color: #333}
+.keywords dd{line-height: 30px;}
+.keywords dd a{display: inline-block; white-space: nowrap; margin-right: 20px;color: #666}
+.keywords dd a:hover{text-decoration: underline;}
+
+.modal-title {font:16px/1.5 'microsoft yahei';}
+.modal-content input[type=file] {padding:5px;}
+.app-del {position:relative;}
+.app-del span {display:none;cursor:pointer;position:absolute;top:0;right:10px;border:3px solid #fff;padding:1px 3px 3px 2px;background:#c00;color:#fff;text-align:center; border-radius:15px;box-shadow:0px 0px 10px 2px #7f7f7f;-moz-box-shadow:0px 0px 10px 2px #7f7f7f;-webkit-box-shadow:0px 0px 10px 2px #7f7f7f;}
+#alertvalue,#alertname {cursor:pointer;}
+.media-list {height:450px;overflow: auto;}
+.chat-box {border:1px solid #ccc;}
+
+
+.checkbox-inline+.checkbox-inline,.radio-inline+.radio-inline{margin:0 10px 0 0}
+.checkbox-inline,.radio-inline {margin:0 10px 0 0}
+.my-row {padding:14px;}
+.my-row section {width:95%;}
+
+.keywords {list-style-type: none;margin:0;padding:0;}
+.keywords li {float:left;}
+.keywords li.active {font-weight:700;} 
+
+.tree-box {border:1px solid #ccc;background: #fff;}
+.tree-box h2{background: #fafafa;border-bottom:1px solid #ccc;margin:0;padding:0;font:16px/32px 'microsoft yahei';padding:0 10px;border-left:3px solid #ab9cca;}

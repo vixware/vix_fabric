@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.bom.entity.BomNode" table="MDM_BOMNODE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="subject" type="java.lang.String" column="SUBJECT" length="150" />
+		<property name="itemCode" type="java.lang.String" column="ITEMCODE" length="150" />
+		<property name="itemName" type="java.lang.String" column="ITEMNAME" length="150" />
+		<property name="nodeType" type="java.lang.String" column="NODETYPE" length="150" />
+		<property name="parentNodeCode" type="java.lang.String" column="PARENTNODECODE" length="150" />
+		<property name="amount" type="java.lang.Double" column="AMOUNT" />
+		<property name="unit" type="java.lang.String" column="UNIT" length="150" />
+		<property name="commonAmount" type="java.lang.Double" column="COMMONAMOUNT" />
+		<property name="baseAmount" type="java.lang.Double" column="BASEAMOUNT" />
+		<property name="usedAmount" type="java.lang.Double" column="USEDAMOUNT" />
+		<property name="level" type="java.lang.Integer" column="LEVEL" />
+		<property name="rejectRate" type="java.lang.Double" column="REJECTRATE" />
+		<property name="unitPrice" type="java.lang.Double" column="COSTPRICE" />
+		<property name="costOfUnit" type="java.lang.Double" column="COSTOFUNIT" />
+		<property name="prepareHuman" type="java.lang.Double" column="PREPAREHUMAN" />
+		<property name="processHuman" type="java.lang.Double" column="PROCESSHUMAN" />
+		<property name="varProductionFee" type="java.lang.Double" column="VARPRODUCTIONFEE" />
+		<property name="fixedProductionFee" type="java.lang.Double" column="FIXEDPRODUCTIONFEE" />
+		<property name="ourSourcingFee" type="java.lang.Double" column="OURSOURCINGFEE" />
+		<set name="subBomNodes" inverse="true">
+			<key column="parent_id" />
+			<one-to-many class="com.vix.mdm.bom.entity.BomNode" />
+		</set>
+		<set name="productOptionConfigItems" inverse="true">
+			<key column="BOMNODE_ID" />
+			<one-to-many class="com.vix.mdm.bom.entity.ProductOptionConfigItem" />
+		</set>
+		<many-to-one name="parentBomNode" column="parent_id" />
+		<many-to-one name="bomStruct" column="BOMSTRUCT_ID" />
+		<many-to-one name="item" column="item_id" />
+	</class>
+</hibernate-mapping>

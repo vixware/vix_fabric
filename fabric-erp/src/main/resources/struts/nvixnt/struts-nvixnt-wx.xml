@@ -1,0 +1,56 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.wx" namespace="/nvixnt/wx" extends="crud-default">
+		<!-- 自定义菜单 -->
+		<action name="wxCustomizeMenuAction!*" method="{1}" class="wxCustomizeMenuAction">
+			<result name="goList">/WEB-INF/vixnt/wxCustomizeMenu/vixnt_wxCustomizeMenu_list.jsp</result>
+			<result name="wxpMenuListContent">/WEB-INF/vixnt/wxCustomizeMenu/vixnt_wxCustomizeMenu_listContent.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxpWeixinSite/vixnt_wxpweixinsite_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		
+		<!-- 消息自动回复 -->
+		<action name="wxMessageAction!*" method="{1}" class="wxMessageAction">
+			<!-- 关注|消息自动回复 -->
+			<result name="goList">/WEB-INF/vixnt/wxMessage/vixnt_wxMessage_list.jsp</result>
+			<!-- 关键词自动回复 -->
+			<result name="goAntistopList">/WEB-INF/vixnt/wxMessage/vixnt_wxAntistop_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxMessage/vixnt_wxAntistop_update.jsp</result>
+		</action>
+		<!-- 模板消息 -->
+		<action name="wxFormIdAction!*" method="{1}" class="wxFormIdAction">
+			<result name="goList">/WEB-INF/vixnt/wxMessage/vixnt_formId.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxMessage/vixnt_wxAntistop_update.jsp</result>
+		</action>
+		<!-- 粉丝消息 -->
+		<action name="wxFansMessageAction!*" method="{1}" class="wxFansMessageAction">
+			<result name="goList">/WEB-INF/vixnt/wxMessage/vixnt_fansMessage.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxMessage/vixnt_wxAntistop_update.jsp</result>
+		</action>
+		<!-- 粉丝管理 -->
+		<action name="wxFansAction!*" method="{1}" class="wxFansAction">
+			<result name="goList">/WEB-INF/vixnt/wxFans/vixnt_fans_list.jsp</result>
+			<result name="goSynchronousList">/WEB-INF/vixnt/wxFans/vixnt_fans_synchronousWx.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxMessage/vixnt_wxAntistop_update.jsp</result>
+		</action>
+		<!-- 微信标签 -->
+		<action name="wxTagsAction!*" method="{1}" class="wxTagsAction">
+			<result name="goList">/WEB-INF/vixnt/wxFans/vixnt_fans_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxMessage/vixnt_wxAntistop_update.jsp</result>
+		</action>
+		<!-- 微信素材管理 -->
+		<action name="wxMaterialAction!*" method="{1}" class="wxMaterialAction">
+			<result name="goList">/WEB-INF/vixnt/wxMaterial/vixnt_picture.jsp</result>
+			<result name="goImageText">/WEB-INF/vixnt/wxMaterial/vixnt_image_text.jsp</result>
+			<result name="goSynchronousList">/WEB-INF/vixnt/wxMaterial/vixnt_material_synchronousWx.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/wxMaterial/vixnt_image_text_update.jsp</result>
+		</action>
+		<!-- 微信素材管理 -->
+		<action name="wxPaycenterAction!*" method="{1}" class="wxPaycenterAction">
+			<result name="goList">/WEB-INF/vixnt/wxPaycenter/vixnt_paycenter.jsp</result>
+		</action>
+	</package>
+</struts>

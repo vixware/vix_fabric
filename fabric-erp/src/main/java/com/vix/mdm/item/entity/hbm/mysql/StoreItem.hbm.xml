@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.StoreItem" table="MDM_STOREITEM">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<!-- 基础业务对象 -->
+		<property name="barCode" type="java.lang.String" column="BARCODE" length="150" />
+		<property name="approver" type="java.lang.String" column="APPROVER" length="150" />
+		<property name="barCodeTwoDimen" type="java.lang.String" column="BARCODETWODIMEN" length="150" />
+		<property name="searchText1" type="java.lang.String" column="SEARCHTEXT1" length="150" />
+		<property name="searchText2" type="java.lang.String" column="SEARCHTEXT2" length="150" />
+		<property name="ipAddress" type="java.lang.String" column="IPADDRESS" length="150" />
+		<property name="bizflowPhase" type="java.lang.String" column="BIZFLOWPHASE" length="150" />
+		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="150" />
+		<property name="codeRule" type="java.lang.String" column="codeRule" length="150" />
+
+		<property name="oldItemCode" type="java.lang.String" column="OLDITEMCODE" length="150" />
+		<property name="lowerCode" type="java.lang.String" column="LOWERCODE" length="150" />
+		<property name="serviceContent" type="java.lang.String" column="SERVICECONTENT" length="300" />
+		<property name="eanupc" type="java.lang.String" column="EANUPC" length="150" />
+		<property name="chinaShortName" type="java.lang.String" column="CHINASHORTNAME" length="150" />
+		<property name="batchCode" type="java.lang.String" column="BATCHCODE" length="150" />
+		<property name="skuCode" type="java.lang.String" column="SKUCODE" length="150" />
+		<property name="serialCode" type="java.lang.String" column="SERIALCODE" length="150" />
+		<property name="drawingCode" type="java.lang.String" column="DRAWINGCODE" length="150" />
+		<property name="scode" type="java.lang.String" column="SCODE" length="150" />
+		<property name="xcode" type="java.lang.String" column="XCODE" length="150" />
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="150" />
+		<property name="statusCode" type="java.lang.String" column="STATUSCODE" length="150" />
+		<property name="industry" type="java.lang.String" column="INDUSTRY" length="150" />
+		<property name="specification" type="java.lang.String" column="SPECIFICATION" length="150" />
+		<property name="specDescription" type="java.lang.String" column="SPECDESCRIPTION" length="150" />
+		<property name="net" type="java.lang.Double" column="NET" />
+		<property name="composition" type="java.lang.String" column="COMPOSITION" length="150" />
+		<property name="region" type="java.lang.String" column="REGION" length="150" />
+		<property name="size" type="java.lang.String" column="SIZE" length="150" />
+		<property name="color" type="java.lang.String" column="COLOR" length="150" />
+		<property name="tasteType" type="java.lang.String" column="TASTETYPE" length="150" />
+		<property name="price" type="java.lang.Double" column="PRICE" />
+		<property name="firstLevelTradePrice" type="java.lang.Double" column="FIRSTLEVELTRADEPRICE" />
+		<property name="secondLevelTradePrice" type="java.lang.Double" column="SECONDLEVELTRADEPRICE" />
+		<property name="costPrice" type="java.lang.Double" column="COSTPRICE" />
+		<property name="purchasePrice" type="java.lang.Double" column="PURCHASEPRICE" />
+		<property name="wholesalePrice" type="java.lang.Double" column="WHOLESALEPRICE" />
+		<property name="supplierId" type="java.lang.String" column="SUPPLIERID" />
+		<property name="supplierName" type="java.lang.String" column="SUPPLIERNAME" length="150" />
+		<property name="productionDate" type="java.util.Date" column="PRODUCTIONDATE" />
+		<property name="expiryDate" type="java.util.Date" column="EXPIRYDATE" />
+		<property name="produceDate" type="java.util.Date" column="PRODUCEDATE" />
+		<property name="qualityPeriod" type="java.lang.Float" column="QUALITYPERIOD" />
+		<property name="qualityPeriodUnit" type="java.lang.String" column="QUALITYPERIODUNIT" length="50" />
+		<property name="putOnDate" type="java.util.Date" column="PUTONDATE" />
+		<property name="stopSellingDate" type="java.util.Date" column="STOPSELLINGDATE" />
+		<property name="material" type="java.lang.String" column="MATERIAL" length="150" />
+		<property name="gernalName" type="java.lang.String" column="GERNALNAME" length="150" />
+		<property name="englishName" type="java.lang.String" column="ENGLISHNAME" length="150" />
+		<property name="type" type="java.lang.String" column="TYPE" length="150" />
+		<property name="customsCode" type="java.lang.String" column="CUSTOMSCODE" length="150" />
+		<property name="customsUnit" type="java.lang.String" column="CUSTOMSUNIT" length="150" />
+		<property name="customsUnitExchange" type="java.lang.Double" column="CUSTOMSUNITEXCHANGE" length="150" />
+		<property name="weightMensurationGroup" type="java.lang.String" column="WEIGHTMENSURATIONGROUP" length="150" />
+		<property name="weightUnit" type="java.lang.String" column="WEIGHTUNIT" length="150" />
+		<property name="netWeight" type="java.lang.Double" column="NETWEIGHT" />
+		<property name="grossWeight" type="java.lang.Double" column="GROSSWEIGHT" />
+		<property name="volumeMensurationGroup" type="java.lang.String" column="VOLUMEMENSURATIONGROUP" length="150" />
+		<property name="volumeUnit" type="java.lang.String" column="VOLUMEUNIT" length="150" />
+		<property name="length" type="java.lang.Double" column="LENGTH_" />
+		<property name="width" type="java.lang.Double" column="WIDTH_" />
+		<property name="height" type="java.lang.Double" column="HEIGHT_" />
+		<property name="unitVolume" type="java.lang.Double" column="UNITVOLUME" />
+		<property name="catalog" type="java.lang.String" column="CATALOG" length="150" />
+		<property name="isItemGroup" type="java.lang.String" column="ISITEMGROUP" length="150" />
+		<property name="purchaseUnit" type="java.lang.String" column="PURCHASEUNIT" length="150" />
+		<property name="saleUnit" type="java.lang.String" column="SALEUNIT" length="150" />
+		<property name="produceUnit" type="java.lang.String" column="PRODUCEUNIT" length="150" />
+		<property name="saleDefaultUnit" type="java.lang.String" column="SALEDEFAULTUNIT" length="150" />
+		<property name="stockDefaultUnit" type="java.lang.String" column="STOCKDEFAULTUNIT" length="150" />
+		<property name="costDefaultUnit" type="java.lang.String" column="COSTDEFAULTUNIT" length="150" />
+		<property name="inTax" type="java.lang.Double" column="INTAX" />
+		<property name="retailUnit" type="java.lang.String" column="RETAILUNIT" length="150" />
+		<property name="saleTax" type="java.lang.Double" column="SALETAX" />
+		<property name="productCountry" type="java.lang.String" column="PRODUCTCOUNTRY" length="150" />
+		<property name="productEnterprise" type="java.lang.String" column="PRODUCTENTERPRISE" length="150" />
+		<property name="productLine" type="java.lang.String" column="PRODUCTLINE" length="150" />
+		<property name="viceProductLine" type="java.lang.String" column="VICEPRODUCTLINE" length="150" />
+		<property name="productLocation" type="java.lang.String" column="PRODUCTLOCATION" length="150" />
+		<property name="brand" type="java.lang.String" column="BRAND" length="150" />
+		<property name="origin" type="java.lang.String" column="ORIGIN" length="150" />
+		<property name="isVirtual" type="java.lang.String" column="ISVIRTUAL" length="150" />
+		<property name="isMPS" type="java.lang.String" column="ISMPS" length="150" />
+		<property name="isConfig" type="java.lang.String" column="ISCONFIG" length="150" />
+		<property name="isQualityCheck" type="java.lang.String" column="ISQUALITYCHECK" length="10" />
+		<property name="isSaleItem" type="java.lang.String" column="ISSALEITEM" length="10" />
+		<property name="isPurchaseItem" type="java.lang.String" column="ISPURCHASEITEM" length="10" />
+		<property name="isProduceItem" type="java.lang.String" column="ISPRODUCEITEM" length="10" />
+		<property name="isOutSourcingItem" type="java.lang.String" column="ISOUTSOURCINGITEM" length="10" />
+		<property name="isSelfProduce" type="java.lang.String" column="ISSELFPRODUCE" length="10" />
+		<property name="isInProduce" type="java.lang.String" column="ISINPRODUCE" length="10" />
+		<property name="isDomesticMarket" type="java.lang.String" column="ISDOMESTICMARKET" length="10" />
+		<property name="isOverseaMarket" type="java.lang.String" column="ISOVERSEAMARKET" length="10" />
+		<property name="isPurchase" type="java.lang.String" column="ISPURCHASE" length="10" />
+		<property name="isProduceConsumption" type="java.lang.String" column="ISPRODUCECONSUMPTION" length="10" />
+		<property name="isPlanProduct" type="java.lang.String" column="ISPLANPRODUCT" length="10" />
+		<property name="isOptions" type="java.lang.String" column="ISOPTIONS" length="10" />
+		<property name="isSparePart" type="java.lang.String" column="ISSPAREPART" length="10" />
+		<property name="isPTO" type="java.lang.String" column="ISPTO" length="10" />
+		<property name="isATO" type="java.lang.String" column="ISATO" length="10" />
+		<property name="isModel" type="java.lang.String" column="ISMODEL" length="10" />
+		<property name="isAsset" type="java.lang.String" column="ISASSET" length="10" />
+		<property name="isEngineeringItem" type="java.lang.String" column="ISENGINEERINGITEM" length="10" />
+		<property name="isPiecework" type="java.lang.String" column="ISPIECEWORK" length="10" />
+		<property name="isServiceItem" type="java.lang.String" column="ISSERVICEITEM" length="10" />
+		<property name="isServiceParts" type="java.lang.String" column="ISSERVICEPARTS" length="10" />
+		<property name="isServiceProduct" type="java.lang.String" column="ISSERVICEPRODUCT" length="10" />
+		<property name="isDiscount" type="java.lang.String" column="ISDISCOUNT" length="10" />
+		<property name="isConsignmentsale" type="java.lang.String" column="ISCONSIGNMENTSALE" length="10" />
+		<property name="isProductSuite" type="java.lang.String" column="ISPRODUCTSUITE" length="10" />
+		<property name="itemCatalogIds" type="java.lang.String" column="itemCatalogIds" length="100" />
+
+		<property name="referenceNumber" type="java.lang.String" column="REFERENCENUMBER" length="150" />
+		<property name="packageSpecs" type="java.lang.String" column="PACKAGESPECS" length="150" />
+		<property name="certificateOfApprovalNumber" type="java.lang.String" column="CERTIFICATEOFAPPROVALNUMBER" length="150" />
+		<property name="registerBrand" type="java.lang.String" column="REGISTERBRAND" length="150" />
+		<property name="enterCustomsNumber" type="java.lang.String" column="ENTERCUSTOMSNUMBER" length="150" />
+		<property name="licenseNumber" type="java.lang.String" column="LICENSENUMBER" length="150" />
+		<property name="patentName" type="java.lang.String" column="PATENTNAME" length="150" />
+		<property name="nonPatentName" type="java.lang.String" column="NONPATENTNAME" length="150" />
+		<property name="qualityRequirement" type="java.lang.String" column="QUALITYREQUIREMENT" length="150" />
+		<property name="operator" type="java.lang.String" column="OPERATOR" length="150" />
+		<property name="operateTime" type="java.util.Date" column="OPERATETIME" />
+		<property name="isStatics" type="java.lang.String" column="ISSTATICS" length="150" />
+		<property name="isValid" type="java.lang.String" column="ISVALID" length="150" />
+		<property name="goodsClass" type="java.lang.String" column="GOODSCLASS" length="10" />
+		<property name="fastCode" type="java.lang.String" column="FASTCODE" length="100" />
+		<property name="itemClass" type="java.lang.String" column="ITEMCLASS" length="100" />
+		<property name="flag" type="java.lang.String" column="flag" length="100" />
+		<property name="vipPrice" type="java.lang.Double" column="vipPrice" />
+		<property name="pinyin" type="java.lang.String" column="pinyin" length="100" />
+		<property name="isplu" type="java.lang.String" column="isplu" length="100" />
+		<property name="plu" type="java.lang.String" column="plu" length="100" />
+		<property name="pluMode" type="java.lang.String" column="pluMode" length="100" />
+		<property name="revAccountId" type="java.lang.String" column="revAccountId" length="100" />
+		<property name="isCommon" type="java.lang.String" column="isCommon" length="100" />
+		<property name="itemImageFilePath" type="java.lang.String" column="itemImageFilePath" length="100" />
+		<many-to-one name="channelDistributor" column="CHANNELDISTRIBUTOR_ID" />
+		<many-to-one name="measureUnitGroup" column="measureUnitGroup_id" />
+		<many-to-one name="supplier" column="supplier_id" />
+		<many-to-one name="measureUnit" column="measureUnit_id" />
+		<many-to-one name="currencyType" column="currencyType_id" />
+		<many-to-one name="itemCatalog" column="itemCatalog_id" />
+
+		<set name="subChannelDistributors" table="DRP_STOREITEM_CHANNELDISTRIBUTOR" fetch="join">
+			<key>
+				<column name="storeitem_id">
+					<comment>物料ID</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.drp.channel.entity.ChannelDistributor">
+				<column name="CHANNELDISTRIBUTOR_ID">
+					<comment>经销商ID</comment>
+				</column>
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

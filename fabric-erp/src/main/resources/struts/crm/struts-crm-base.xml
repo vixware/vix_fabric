@@ -1,0 +1,203 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 基础模块 -->
+	<package name="crm.base" namespace="/crm/base" extends="crud-default">
+		<!-- 字典信息维护 -->
+		<action name="crmDictionaryAction!*" method="{1}" class="crmDictionaryAction">
+			<result name="dictionaryEdit">/WEB-INF/content/crm/base/dictionaryEdit.jsp</result>
+		</action>
+		<!-- 联系人类型 -->
+		<action name="contactPersonTypeAction!*" method="{1}" class="contactPersonTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/contactPersonType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/contactPersonType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 纪念日类型 -->
+		<action name="memorialDayTypeAction!*" method="{1}" class="memorialDayTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/memorialDayType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/memorialDayType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 证件 -->
+		<action name="credentialAction!*" method="{1}" class="credentialAction">
+			<result name="goList">/WEB-INF/content/crm/base/credential_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/credential_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/base/updateCredential.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 证件类型 -->
+		<action name="credentialTypeAction!*" method="{1}" class="credentialTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/credentialType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/credentialType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 联系人类型 -->
+		<action name="crmContactTypeAction!*" method="{1}" class="crmContactTypeAction" >
+			<result name="goList">/WEB-INF/content/crm/base/crmContactType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/crmContactType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户地址 -->
+		<action name="customerAddressAction!*" method="{1}" class="customerAddressAction">
+			<result name="goList">/WEB-INF/content/crm/base/customerAddress_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/customerAddress_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/base/updateCustomerAddress.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户来源 -->
+		<action name="customerSourceAction!*" method="{1}" class="customerSourceAction">
+			<result name="goList">/WEB-INF/content/crm/base/customerSource_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/customerSource_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户阶段 -->
+		<action name="customerStageAction!*" method="{1}" class="customerStageAction">
+			<result name="goList">/WEB-INF/content/crm/base/customerStage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/customerStage_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户类型 -->
+		<action name="customerTypeAction!*" method="{1}" class="customerTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/customerType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/customerType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户投诉紧急程度分类 -->
+		<action name="emergencyLevelTypeAction!*" method="{1}" class="emergencyLevelTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/emergencyLevelType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/emergencyLevelType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户热度 -->
+		<action name="hotLevelAction!*" method="{1}" class="hotLevelAction">
+			<result name="goList">/WEB-INF/content/crm/base/hotLevel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/hotLevel_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 行业-->
+		<action name="industryAction!*" method="{1}" class="industryAction">
+			<result name="goList">/WEB-INF/content/crm/base/industry_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/industry_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 关系等级-->
+		<action name="relationshipClassAction!*" method="{1}" class="relationshipClassAction">
+			<result name="goList">/WEB-INF/content/crm/base/relationshipClass_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/relationshipClass_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售机会状态 -->
+		<action name="saleChanceStatusAction!*" method="{1}" class="saleChanceStatusAction">
+			<result name="goList">/WEB-INF/content/crm/base/saleChanceStatus_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/saleChanceStatus_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售阶段和销售机会类型-->
+		<action name="saleStageAction!*" method="{1}" class="saleStageAction">
+			<result name="goList">/WEB-INF/content/crm/base/saleStage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/saleStage_list_content.jsp</result>
+			<result name="goSaleTypeList">/WEB-INF/content/crm/base/saleType_list.jsp</result>
+			<result name="goSaleTypeListContent">/WEB-INF/content/crm/base/saleType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售活动类型-->
+		<action name="saleActivityAction!*" method="{1}" class="saleActivityAction">
+			<result name="goList">/WEB-INF/content/crm/base/saleActivity_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/saleActivity_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 人员规模-->
+		<action name="staffScaleAction!*" method="{1}" class="staffScaleAction">
+			<result name="goList">/WEB-INF/content/crm/base/staffScale_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/staffScale_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目协作方类型 -->
+		<action name="collaboratorTypeAction!*" method="{1}" class="collaboratorTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/collaboratorType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/collaboratorType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 竞争力 -->
+		<action name="competitiveAction!*" method="{1}" class="competitiveAction">
+			<result name="goList">/WEB-INF/content/crm/base/competitive_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/competitive_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 投诉类型 -->
+		<action name="complaintTypeAction!*" method="{1}" class="complaintTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/complaintType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/complaintType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 花费时间 -->
+		<action name="consumeTimeAction!*" method="{1}" class="consumeTimeAction">
+			<result name="goList">/WEB-INF/content/crm/base/consumeTime_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/consumeTime_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 处理结果 -->
+		<action name="dealResultAction!*" method="{1}" class="dealResultAction">
+			<result name="goList">/WEB-INF/content/crm/base/dealResult_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/dealResult_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目费用类型 -->
+		<action name="projectCostTypeAction!*" method="{1}" class="projectCostTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/projectCostType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/projectCostType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目需求重要程度类型 -->
+		<action name="projectRequireImportantAction!*" method="{1}" class="projectRequireImportantAction">
+			<result name="goList">/WEB-INF/content/crm/base/projectRequireImportant_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/projectRequireImportant_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目阶段 -->
+		<action name="projectStageAction!*" method="{1}" class="projectStageAction">
+			<result name="goList">/WEB-INF/content/crm/base/projectStage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/projectStage_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目售前阶段 -->
+		<action name="projectSalePreviousStageAction!*" method="{1}" class="projectSalePreviousStageAction">
+			<result name="goList">/WEB-INF/content/crm/base/projectSalePreviousStage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/projectSalePreviousStage_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目状态 -->
+		<action name="projectStatusAction!*" method="{1}" class="projectStatusAction">
+			<result name="goList">/WEB-INF/content/crm/base/projectStatus_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/projectStatus_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 质量分类 -->
+		<action name="qualityCategoryAction!*" method="{1}" class="qualityCategoryAction">
+			<result name="goList">/WEB-INF/content/crm/base/qualityCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/qualityCategory_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 服务方式 -->
+		<action name="serviceModeAction!*" method="{1}" class="serviceModeAction">
+			<result name="goList">/WEB-INF/content/crm/base/serviceMode_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/serviceMode_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 服务类型 -->
+		<action name="serviceTypeAction!*" method="{1}" class="serviceTypeAction">
+			<result name="goList">/WEB-INF/content/crm/base/serviceType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/serviceType_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户服务状态 -->
+		<action name="customerServiceStatusAction!*" method="{1}" class="customerServiceStatusAction">
+			<result name="goList">/WEB-INF/content/crm/base/customerServiceStatus_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/base/customerServiceStatus_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.org.entity.UserApplication" table="MDM_ORG_USERAPPLICATION">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="uuid" type="java.lang.String" column="UUID" length="64" update="false" />
+		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64" />
+		<property name="code" type="java.lang.String" column="CODE" length="64" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128" />
+
+		<property name="createTime" type="java.util.Date" column="CreateTime" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UpdateTime" />
+
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" update="false" />
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false" />
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false" />
+
+
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="orgName" type="java.lang.String" column="orgName" length="128" />
+		<property name="address" type="java.lang.String" column="address" length="128" />
+		<property name="industry" type="java.lang.String" column="industry" length="128" />
+		<property name="companyOrgContact" type="java.lang.String" column="companyOrgContact" length="128" />
+		<property name="telephone" type="java.lang.String" column="telephone" length="128" />
+		<property name="email" type="java.lang.String" column="email" length="128" />
+
+	</class>
+</hibernate-mapping>

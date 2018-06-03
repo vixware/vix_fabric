@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.org.entity.OrganizationChargeOf" table="MDM_ORG_ORG_CHARGEOF">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" /> 
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<!-- 
+		<property name="chargeBeginDate" type="java.util.Date" column="ChargeBeginDate"/>
+		<property name="chargeEndDate" type="java.util.Date" column="ChargeEndDate" />  -->
+		
+		<!-- <many-to-one name="userAccount" class="com.vix.common.security.entity.UserAccount" lazy="false" >
+			<column name="UserAccount_ID">
+				 <comment>账户id</comment>
+			</column>
+		</many-to-one>  -->
+		<many-to-one name="employee" class="com.vix.hr.organization.entity.Employee" lazy="false">
+			<column name="employee_ID">
+				 <comment>职员id</comment>
+			</column>
+		</many-to-one> 
+		
+		<!-- 分管公司 -->
+		<set name="organizations" table="MDM_ORG_ORG_CHARGEOF_ORG" fetch="join" inverse="false">
+            <key>
+                <column name="OrganizationChargeOf_ID" not-null="true">
+                	<comment>分管id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.org.entity.Organization">
+                <column name="ORG_ID" not-null="true">
+                	<comment>公司id</comment>
+                </column>
+            </many-to-many>
+        </set>
+        <!-- 分管部门 -->
+		<set name="organizationUnits" table="MDM_ORG_ORG_CHARGEOF_ORGUNIT" fetch="join" inverse="false">
+            <key>
+                <column name="OrganizationChargeOf_ID" not-null="true">
+                	<comment>分管id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.org.entity.OrganizationUnit">
+                <column name="ORGUNIT_ID" not-null="true">
+                	<comment>部门id</comment>
+                </column>
+            </many-to-many>
+        </set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 市场管理 -->
+	<package name="crm.market" namespace="/crm/market" extends="crud-default">
+		<!-- 印刷品管理 -->
+		<action name="printedMatterAction!*" method="{1}" class="printedMatterAction">
+			<result name="goList">/WEB-INF/content/crm/market/printedMatter_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/market/printedMatter_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/market/updatePrintedMatter.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChoosePrintedMatter">/WEB-INF/content/crm/market/choosePrintedMatter.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/crm/market/printedMatter_list_sub_content.jsp</result>
+		</action>
+		<!-- 印刷品单位 -->
+		<action name="printedMatterUnitAction!*" method="{1}" class="printedMatterUnitAction">
+			<result name="goList">/WEB-INF/content/crm/market/printedMatterUnit_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/market/printedMatterUnit_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 印刷品领用 -->
+		<action name="printedRequisitionAction!*" method="{1}" class="printedRequisitionAction">
+			<result name="goList">/WEB-INF/content/crm/market/printedRequisition_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/market/printedRequisition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/market/updatePrintedRequisition.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 礼品管理 -->
+		<action name="crmGiftAction!*" method="{1}" class="crmGiftAction">
+			<result name="goList">/WEB-INF/content/crm/market/crmGift_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/market/crmGift_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/market/updateCrmGift.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseCrmGift">/WEB-INF/content/crm/market/chooseCrmGift.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/crm/market/crmGift_list_sub_content.jsp</result>
+		</action>
+		<!-- 礼品领用 -->
+		<action name="crmGiftRequisitionAction!*" method="{1}" class="crmGiftRequisitionAction">
+			<result name="goList">/WEB-INF/content/crm/market/crmGiftRequisition_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/market/crmGiftRequisition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/market/updateCrmGiftRequisition.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

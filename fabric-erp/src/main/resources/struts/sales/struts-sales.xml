@@ -1,0 +1,69 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="sales.config" namespace="/sales" extends="crud-default">
+		<action name="salesAction!*" method="{1}" class="salesAction">
+			<result name="goMenuContent">/WEB-INF/content/sales/menuContent.jsp</result>
+		</action> 
+		<action name="newSalePlanAction!*" method="{1}" class="newSalePlanAction">
+			<result name="goList">/WEB-INF/content/sales/plan/plan_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/plan/plan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/plan/marketingplan_update.jsp</result>
+		</action> 
+		<!-- 销售计划树-->
+		<action name="marketingPlanAction!*" method="{1}" class="marketingPlanAction">
+			<result name="goList">/WEB-INF/content/sales/plan/marketingplan_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/plan/marketingplan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/plan/marketingplan_update.jsp</result>
+		</action> 
+		<!-- 销售预测-->
+		<action name="forDefAction!*" method="{1}" class="forDefAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/forecast_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/forecast/forecast_list_content.jsp</result>
+		</action> 
+		<!-- 预测定义-->
+		<action name="predictionDefinitionAction!*" method="{1}" class="predictionDefinitionAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/predictiondefinition_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/forecast/predictiondefinition_list_content.jsp</result>
+		</action> 
+		<!-- 预测对比-->
+		<action name="comparisonPredictedAction!*" method="{1}" class="comparisonPredictedAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/comparisonpredicted_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/forecast/comparisonpredicted_list_content.jsp</result>
+		</action> 
+		<!-- 预测历史-->
+		<action name="predictionHistoryAction!*" method="{1}" class="predictionHistoryAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/predictionHistory_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/forecast/predictionHistory_list_content.jsp</result>
+		</action>
+		<!-- 销售现存量查询-->
+		<action name="stockQueryAction!*" method="{1}" class="stockQueryAction">
+			<result name="goList">/WEB-INF/content/sales/stockquery/stockquery_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/stockquery/stockquery_list_content.jsp</result>
+		</action> 
+		<!-- 月末结账-->
+		<action name="saleMonthEndAction!*" method="{1}" class="saleMonthEndAction">
+			<result name="goList">/WEB-INF/content/sales/monthend/monthend_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/monthend/monthend_list_content.jsp</result>
+		</action> 
+		
+		<!-- 代垫费用 -->
+		<action name="advChargeAction!*" method="{1}" class="advChargeAction">
+			<result name="goList">/WEB-INF/content/sales/advancepay/advancepay_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/advancepay/advancepay_list_content.jsp</result>
+		</action> 
+		<!-- 费用支出-->
+		<action name="charAgaRevAction!*" method="{1}" class="charAgaRevAction">
+			<result name="goList">/WEB-INF/content/sales/salepayment/salepayment_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/salepayment/salepayment_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/salepayment/salepayment_update.jsp</result>		
+		</action> 
+		<!-- 销售费用支出单-->
+		<action name="salescharAgaRevAction!*" method="{1}" class="salescharAgaRevAction">
+			<result name="goList">/WEB-INF/content/sales/salepayment/saleschargarev_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/salepayment/saleschargarev_list_content.jsp</result>
+		</action> 
+	</package>
+</struts>

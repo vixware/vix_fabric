@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.core.persistence.jdbc.dbstruct.Specification" table="SYS_SPECIFICATION">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        
+        <property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+
+		<property name="code" type="java.lang.String" column="CODE" length="100" update="false"/>
+ 		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+ 		<property name="specificationTableName" type="java.lang.String" column="SPECIFICATIONTABLENAME" length="100" update="false"/>
+ 		<property name="isColumnGenerate" type="java.lang.String" column="isColumnGenerate" length="100" update="false"/>
+ 		<property name="orderBy" type="java.lang.Long" column="ORDERBY"/>
+ 		<property name="memo" type="java.lang.String" column="MEMO" length="300"/>
+ 		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10"/>
+        <set name="specificationDetails" inverse="true">
+        	<key column="SPECIFICATION_ID"/>
+			<one-to-many class="com.vix.core.persistence.jdbc.dbstruct.SpecificationDetail"/>
+        </set>
+        <many-to-one name="itemCatalog" column="itemCatalog_id"/>
+  </class>
+</hibernate-mapping>

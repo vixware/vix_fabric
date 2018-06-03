@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.nvix.common.base.entity.AddressInfo" table="SYSTEM_ADDRESSINFO">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+   		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="2" />
+		
+		<property name="code" type="java.lang.String" column="CODE" length="100"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="orderBy" type="java.lang.Long" column="ORDERBY" />
+		<property name="firstLetter" type="java.lang.String" column="FIRSTLETTER" length="10"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		<many-to-one name="parentAddressInfo" column="parent_id" foreign-key="none"/>
+		<set name="subAddressInfos" inverse="true">
+			<key column="parent_id"/>
+			<one-to-many class="com.vix.nvix.common.base.entity.AddressInfo"/>
+		</set>
+  </class>
+</hibernate-mapping>

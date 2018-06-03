@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+	<worksheet name="itemcatalog">
+		<section startRow="0" endRow="0" />
+		<loop startRow="1" endRow="1" items="itemCatalogList" var="itemcatalog" varType="com.vix.mdm.item.entity.ItemCatalog">
+			<section startRow="1" endRow="1">
+				<mapping row="1" col="0">itemcatalog.parentCode</mapping>
+				<mapping row="1" col="1">itemcatalog.codeRule</mapping>
+				<mapping row="1" col="2">itemcatalog.name</mapping>
+			</section>
+			<loopbreakcondition>
+				<rowcheck offset="0" />
+				<rowcheck offset="1" />
+			</loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>

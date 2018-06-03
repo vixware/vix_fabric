@@ -1,0 +1,94 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 销售线索 -->
+	<package name="crm.customer" namespace="/crm/customer" extends="crud-default">
+		<!-- 客户管理 废弃 -->
+		<action name="crmCustomerAccountAction!*" method="{1}" class="crmCustomerAccountAction">
+			<result name="goList">/WEB-INF/content/crm/customer/customerAccount_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/customer/customerAccountShare_list_content.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/customer/crm/customerAccount_list_sub_content.jsp</result>
+			<result name="enterPrise">/WEB-INF/content/crm/customer/enterPriseCustomerAccount_update.jsp</result>
+			<result name="personal">/WEB-INF/content/crm/customer/personalCustomerAccount_update.jsp</result>
+			<result name="enterPriseView">/WEB-INF/content/crm/customer/enterPriseCustomerView.jsp</result>
+			<result name="personalView">/WEB-INF/content/crm/customer/personalCustomerView.jsp</result>
+			<result name="goChooseCustomerAccount">/WEB-INF/content/crm/customer/chooseCustomerAccount.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="reconciliationAction!*" method="{1}" class="reconciliationAction">
+			<result name="goList">/WEB-INF/content/crm/customer/reconciliation.jsp</result>
+			<result name="showReconciliationDetail">/WEB-INF/content/crm/customer/showReconciliationDetail.jsp</result>
+		</action>
+		<action name="customerAccountShareAction!*" method="{1}" class="customerAccountShareAction">
+			<result name="goCustomerAccountShare">/WEB-INF/content/crm/customer/shareCustomerAccount.jsp</result>
+		</action>
+		<action name="crmCustomerAccountAdvanceSearchAction!*" method="{1}" class="crmCustomerAccountAdvanceSearchAction">
+			<result name="goList">/WEB-INF/content/crm/customer/customerAccount_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/customer/customerAccountShare_list_content.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/crm/customer/customerAccountShare_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/customer/customerAccountAdvanceSearch.jsp</result>
+			<result name="goCustomerAccountShare">/WEB-INF/content/crm/customer/customerAccountShare.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="crmCustomerAccountBatchAction!*" method="{1}" class="crmCustomerAccountBatchAction">
+			<result name="goBatchAddList">/WEB-INF/content/crm/customer/customerAccountBatchAdd_list.jsp</result>
+			<result name="goBatchUpdateList">/WEB-INF/content/crm/customer/customerAccountBatchUpdate_list.jsp</result>
+			<result name="goBatchAddContent">/WEB-INF/content/crm/customer/customerAccountBatchAdd_list_content.jsp</result>
+			<result name="goBatchUpdateContent">/WEB-INF/content/crm/customer/customerAccountBatchUpdate_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 联系人 -->
+		<action name="crmContactPersonAction!*" method="{1}" class="crmContactPersonAction">
+			<result name="goList">/WEB-INF/content/crm/customer/contactPerson_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/customer/contactPerson_list_content.jsp</result>
+			<result name="FastListContent">/WEB-INF/content/crm/customer/fastContactPerson_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/customer/updateContactPerson.jsp</result>
+			<result name="goSingleSaveOrUpdate">/WEB-INF/content/crm/customer/updateSingleContactPerson.jsp</result>
+			<result name="goFastList">/WEB-INF/content/crm/customer/contactFastList.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/customer/customerContactPersonAdvancedSearch.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 纪念日 -->
+		<action name="memorialDayAction!*" method="{1}" class="memorialDayAction">
+			<result name="goList">/WEB-INF/content/crm/customer/memorialDay_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/customer/memorialDay_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/customer/updateMemorialDay.jsp</result>
+			<result name="loadCustomerContactPerson">/WEB-INF/content/crm/customer/loadContactPerson.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="crmRemindAction!*" method="{1}" class="crmRemindAction">
+			<result name="goBackSectionPlanRemind">/WEB-INF/content/crm/customer/backSectionPlanRemind_list.jsp</result>
+			<result name="backSectionPlanRemindContent">/WEB-INF/content/crm/customer/backSectionPlanRemind_list_content.jsp</result>
+			<result name="goCustomerComplaintRemind">/WEB-INF/content/crm/customer/customerComplaintRemind_list.jsp</result>
+			<result name="customerComplaintRemindContent">/WEB-INF/content/crm/customer/customerComplaintRemind_list_content.jsp</result>
+		</action>
+		<!-- 客户分类 -->
+		<action name="crmCustomerAccountCategoryAction!*" method="{1}" class="crmCustomerAccountCategoryAction">
+			<result name="goList">/WEB-INF/content/crm/customer/crmCustomerAccountCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/customer/crmCustomerAccountCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/customer/updateCrmCustomerAccountCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseCustomerAccountCategory">/WEB-INF/content/crm/customer/chooseCrmCustomerAccountCategory.jsp</result>
+		</action>
+		<!-- 日程-->
+		<action name="customerAccountScheduleAction!*" method="{1}" class="customerAccountScheduleAction">
+			<result name="goSingleList">/WEB-INF/content/crm/customer/schedule_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/customer/updateSchedule.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 代办任务-->
+		<action name="customerAccountTaskAction!*" method="{1}" class="customerAccountTaskAction">
+			<result name="goSingleList">/WEB-INF/content/crm/customer/customerAccountTask_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/customer/updateCustomerAccountTask.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 行动历史-->
+		<action name="customerAccountActionHistoryAction!*" method="{1}" class="customerAccountActionHistoryAction">
+			<result name="goSingleList">/WEB-INF/content/crm/customer/actionHistory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/customer/updateActionHistory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

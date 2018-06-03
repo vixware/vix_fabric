@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excelFile>
+	<sheet id="sh1" value="采购计划">
+		<square id="sh1_sq1">
+			<col id="sh1_line1" start="1,2" listFunc="user.dataList" listParam="" joinKey="key">
+				<square id="sh1_line1_data">
+					<cell id="sh1_line1_data_itemCode" start="-1,0" alignment="center" dataset="parent:sh1_line1" value="itemCode" />
+					<cell id="sh1_line1_data_itemName" start="0,0" alignment="center" dataset="parent:sh1_line1" value="itemName" />
+					<cell id="sh1_line1_data_amount" start="1,0" alignment="center" type="number" dataset="parent:sh1_line1" value="amount" />
+					<cell id="sh1_line1_data_unitcost" start="2,0" alignment="center" type="number" dataset="parent:sh1_line1" value="unitcost" />
+				</square>
+			</col>
+		</square>
+	</sheet>
+</excelFile>

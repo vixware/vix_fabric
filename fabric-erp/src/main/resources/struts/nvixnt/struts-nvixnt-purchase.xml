@@ -1,0 +1,130 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.purchase" namespace="/nvixnt/purchase" extends="crud-default">
+		<!-- 采购计划 -->
+		<action name="vixntPurchasePlanAction!*" method="{1}" class="vixntPurchasePlanAction">
+			<result name="goList">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_purchasePlan_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_purchasePlan_update.jsp</result>
+			<result name="goSaveOrUpdatePurchasePlanItems">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_purchasePlanItem_update.jsp</result>
+			<result name="show">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_purchasePlan_show.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_purchasePlan_audit.jsp</result>
+			<result name="printPurchasePlan">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_purchase_plan_print.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/purchase/purchasePlan/vixnt_pur_plan_source_list.jsp</result>
+		</action>
+		<!-- 采购询价管理 -->
+		<action name="vixntPurchaseInquireAction!*" method="{1}" class="vixntPurchaseInquireAction">
+			<result name="goList">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseinquire_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseinquire_update.jsp</result>
+			<result name="show">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseinquire_show.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_pur_inquire_source_list.jsp</result>
+			<result name="printPurchaseInquire">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseinquire_print.jsp</result>
+			<result name="goSaveOrUpdatePurchaseInquireDetail">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseinquireDetail_update.jsp</result>
+			<result name="goChoosePurchaseInquire">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseInquire_choose.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/purchase/purchaseinquire/vixnt_purchaseinquire_audit.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购订单 -->
+		<action name="vixntPurchaseOrderAction!*" method="{1}" class="vixntPurchaseOrderAction">
+			<result name="goList">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorder_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorder_update.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorder_audit.jsp</result>
+			<result name="goShowPurchaseOrder">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorderShow.jsp</result>
+			<result name="goSaveOrUpdateByStoreOrder">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorderbystoreorder_update.jsp</result>
+			<result name="goSaveOrUpdatePurchaseOrderLineItem">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorderlineitem_update.jsp</result>
+			<result name="goSaveOrUpdateOrderItem">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_orderitem_update.jsp</result>
+			<result name="goChooseSupplier">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_supplier_choose.jsp</result>
+			<result name="goChooseContract">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_contract_choose.jsp</result>
+			<result name="choosePurchasePlan">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchasePlan_choose.jsp</result>
+			<result name="printPurchaseOrder">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_purchaseorder_print.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/purchase/purchaseorder/vixnt_pur_source_list.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购到货管理 -->
+		<action name="vixntPurchaseArrivalAction!*" method="{1}" class="vixntPurchaseArrivalAction">
+			<result name="goList">/WEB-INF/vixnt/purchase/purchasearrival/vixnt_purchasearrival_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchasearrival/vixnt_purchasearrival_update.jsp</result>
+			<result name="show">/WEB-INF/vixnt/purchase/purchasearrival/vixnt_purchasearrival_show.jsp</result>
+			<result name="printPurchaseArrival">/WEB-INF/vixnt/purchase/purchasearrival/vixnt_pur_arrival_print.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/purchase/purchasearrival/vixnt_pur_arrival_list.jsp</result>
+			<result name="goSaveOrUpdatePurchaseArrivalItem">/WEB-INF/vixnt/purchase/purchasearrival/vixnt_purchasearrivalItems_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购申请管理 -->
+		<action name="vixntPurchaseApplyAction!*" method="{1}" class="vixntPurchaseApplyAction">
+			<result name="goList">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_purchaseapply_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_purchaseapply_update.jsp</result>
+			<result name="goSaveOrUpdatePurchaseApplyDetails">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_purchaseapplydetails_update.jsp</result>
+			<result name="show">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_purchaseapply_show.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_purchaseapply_audit.jsp</result>
+			<result name="printPurchaseApply">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_purchaseapply_print.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/purchase/purchaseApply/vixnt_pur_apply_list.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购退货管理 -->
+		<action name="vixntPurchaseReturnAction!*" method="{1}" class="vixntPurchaseReturnAction">
+			<result name="goList">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseReturn_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseReturn_update.jsp</result>
+			<result name="goSaveOrUpdatePurchaseReturnItem">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseReturnItem_update.jsp</result>
+			<result name="goChoosePurchaseOrder">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseOrder_choose.jsp</result>
+			<result name="goChoosePurchaseArrival">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseArrival_choose.jsp</result>
+			<result name="goChoosePurchaseInBound">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_stockrecords_choose.jsp</result>
+			<result name="goShowPurchaseReturn">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseReturn_show.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_pur_return_list.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchaseReturn_audit.jsp</result>
+			<result name="printPurchaseReturn">/WEB-INF/vixnt/purchase/purchaseReturn/vixnt_purchase_return_print.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购统计 -->
+		<action name="vixntPurchaseStatisticsAction!*" method="{1}" class="vixntPurchaseStatisticsAction">
+			<result name="goStatisticsView">/WEB-INF/vixnt/purchase/purchaseStatistics/vixnt_purchaseStatistics_list.jsp</result>
+			<result name="goSourceView">/WEB-INF/vixnt/purchase/vixnt_purchaseStatistics_list.jsp</result>
+			<result name="goStructureAnalysisView">/WEB-INF/vixnt/purchase/purchaseStatistics/goStructureAnalysisView.jsp</result>
+			<!-- 慢加载统计内容 -->	
+			<result name="slowLoadPurchaseQuantityTrend">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadPurchase/slowLoadPurchaseQuantityTrend.jsp</result>
+			<result name="slowLoadPurchaseMoneyTrend">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadPurchase/slowLoadPurchaseMoneyTrend.jsp</result>
+			<result name="slowLoadPurchaseItemQuantity">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadPurchase/slowLoadPurchaseItemQuantity.jsp</result>
+			<result name="slowLoadPurchaseItemMoney">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadPurchase/slowLoadPurchaseItemMoney.jsp</result>
+			<result name="slowLoadPurOrderSupplierMoney">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadPurchase/slowLoadPurOrderSupplierMoney.jsp</result>
+			<result name="slowLoadPurOrderSupplierQuantity">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadPurchase/slowLoadPurOrderSupplierQuantity.jsp</result>
+		</action>
+		<!-- 采购统计列表 -->
+		<action name="vixntPurchaseDetailedListAction!*" method="{1}" class="vixntPurchaseDetailedListAction">
+			 <result name="goDetailedView">/WEB-INF/vixnt/purchase/purchaseStatistics/goDetailedView.jsp</result>
+			 <result name="goArrivalDetailedView">/WEB-INF/vixnt/purchase/purchaseStatistics/goArrivalDetailedView.jsp</result>
+			 <result name="goStorageDetailedView">/WEB-INF/vixnt/purchase/purchaseStatistics/goStorageDetailedView.jsp</result>
+			 <result name="goCostAnalysisView">/WEB-INF/vixnt/purchase/purchaseStatistics/goCostAnalysisView.jsp</result>
+			 <result name="goProportionAnalysisView">/WEB-INF/vixnt/purchase/purchaseStatistics/goProportionAnalysisView.jsp</result>
+			 <result name="slowLoadSupplierMoneyMomAndAn">/WEB-INF/vixnt/purchase/purchaseStatistics/slowLoadSupplierMoneyMomAndAn.jsp</result>
+		</action>
+		<!-- 采购统计页面数字点击后 -->
+		<action name="vixntPurchaseStatisticsClickAction!*" method="{1}" class="vixntPurchaseStatisticsClickAction">
+			<result name="clickLookPurchaseInquiry">/WEB-INF/vixnt/purchase/purchaseStatistics/clickLook/clickLookPurchaseInquiry.jsp</result>
+			<result name="clickLookPurchasePlan">/WEB-INF/vixnt/purchase/purchaseStatistics/clickLook/clickLookPurchasePlan.jsp</result>
+			<result name="clickLookPurchaseReturn">/WEB-INF/vixnt/purchase/purchaseStatistics/clickLook/clickLookPurchaseReturn.jsp</result>
+			<result name="clickLookPurchaseOrderListShow">/WEB-INF/vixnt/purchase/purchaseStatistics/clickLook/clickLookPurchaseOrderListShow.jsp</result>
+		</action>	
+		<!-- 采购业务类型 -->
+		<action name="vixntPurchaseBizTypeAction!*" method="{1}" class="vixntPurchaseBizTypeAction">
+			 <result name="goList">/WEB-INF/vixnt/purchase/purchaseBizType/vixnt_bizType_list.jsp</result>
+			 <result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/purchaseBizType/vixnt_bizType_update.jsp</result>
+		</action>
+		<!-- 采购单据类型 -->
+		<action name="vixntPurchaseOrderTypeAction!*" method="{1}" class="vixntPurchaseOrderTypeAction">
+			 <result name="goList">/WEB-INF/vixnt/purchase/orderType/vixnt_orderType_list.jsp</result>
+			 <result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/orderType/vixnt_orderType_update.jsp</result>
+		</action>
+		<!-- 误差规则 -->
+		<action name="vixntPurchasePermissibleErrorAction!*" method="{1}" class="vixntPurchasePermissibleErrorAction">
+			 <result name="goList">/WEB-INF/vixnt/purchase/parameterControl/vixnt_permissibleError_list.jsp</result>
+			 <result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/parameterControl/vixnt_permissibleError_update.jsp</result>
+		</action>
+		<!-- 采购设置 -->
+		<action name="vixntPurchaseSetUpAction!*" method="{1}" class="vixntPurchaseSetUpAction">
+			 <result name="goList">/WEB-INF/vixnt/purchase/vixnt_purchaseSetUp.jsp</result>
+			 <result name="goSaveOrUpdate">/WEB-INF/vixnt/purchase/orderType/vixnt_orderType_update.jsp</result>
+		</action>
+	</package>
+</struts>

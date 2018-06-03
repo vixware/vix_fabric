@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.multipart.maxSize" value="1000000000"></constant>
+	<constant name="struts.i18n.reload" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory.spring.autoWire" value="type" />
+
+	<!-- 用于CRUD Action的parent package -->
+	<package name="crud-default" extends="struts-default,json-default">
+		<!-- ,jfreechart-default -->
+		<!-- 基于paramsPrepareParamsStack, 增加store interceptor保证actionMessage在redirect后不会丢失 -->
+		<interceptors>
+			<interceptor name="expInterceptor" class="com.vix.core.struts.interceptor.VixExceptionInterceptor"></interceptor>
+
+			<interceptor-stack name="crudStack">
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="paramsPrepareParamsStack" />
+				<interceptor-ref name="expInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="crudStack" />
+	</package>
+
+	<include file="struts/core/struts-common-select.xml" />
+
+	<include file="struts/core/struts-base.xml" />
+	<include file="struts/core/struts-base-module.xml" />
+	<!-- <include file="struts/core/struts-security.xml" /> -->
+	<include file="struts/core/struts-system.xml" />
+	<include file="struts/template/struts-template.xml" />
+	<include file="struts/workflow/struts-workflow.xml" />
+	<include file="struts/srm/struts-srm.xml" />
+	<include file="struts/purchase/struts-purchase.xml" />
+	<include file="struts/sales/struts-sales.xml" />
+	<include file="struts/sales/struts-sales-config.xml" />
+	<include file="struts/sales/struts-sales-order.xml" />
+	<include file="struts/sales/struts-sales-quotes.xml" />
+	<include file="struts/inventory/struts-inboundwarehouse.xml" />
+	<include file="struts/hr/struts-hr.xml" />
+	<include file="struts/hr/struts-hr-position.xml" />
+	<include file="struts/hr/salary/struts-hr-salary.xml" />
+	<include file="struts/eam/struts-eam.xml" />
+	<include file="struts/crm/struts-crm.xml" />
+	<include file="struts/contract/struts-contractmanage.xml" />
+	<include file="struts/dtbcenter/struts-vehiclemanagement.xml" />
+	<include file="struts/drp/struts-distributionmanagement.xml" />
+	<include file="struts/oa/struts-personaloffice.xml" />
+	<include file="struts/qm/struts-qualitymanagement.xml" />
+	<include file="struts/chain/struts-chainbusinessmanagement.xml" />
+	<include file="struts/outsourcing/struts-outsourcing.xml" />
+	<include file="struts/pm/struts-pm.xml" />
+	<include file="struts/fa/struts-fa.xml" />
+	<include file="struts/core/struts-common.xml" />
+	<include file="struts/core/struts-common-org.xml" />
+	<include file="struts/core/struts-common-security.xml" />
+	<include file="struts/core/struts-common-model.xml" />
+	<include file="struts/core/struts-common-select.xml" />
+	<include file="struts/mm/struts-mm.xml" />
+	<include file="struts/mdm/struts-mdm-bom.xml" />
+	<include file="struts/mdm/struts-mdm-crm.xml" />
+	<include file="struts/mdm/struts-mdm-item.xml" />
+	<include file="struts/mdm/struts-mdm.xml" />
+	<include file="struts/crm/struts-crm-activity.xml" />
+	<include file="struts/crm/struts-crm-agenda.xml" />
+	<include file="struts/crm/struts-crm-base.xml" />
+	<include file="struts/crm/struts-crm-customer.xml" />
+	<include file="struts/crm/struts-crm-lead.xml" />
+	<include file="struts/crm/struts-crm-market.xml" />
+	<include file="struts/crm/struts-crm-project.xml" />
+	<include file="struts/crm/struts-crm-salechance.xml" />
+	<include file="struts/crm/struts-crm-service.xml" />
+	<include file="struts/crm/struts-crm-analyse.xml" />
+	<include file="struts/crm/struts-crm-workbench.xml" />
+	<include file="struts/crm/struts-crm-business.xml" />
+	<include file="struts/ma/struts-ma.xml" />
+	<include file="struts/sales/struts-sales-forecast.xml" />
+	<include file="struts/sales/struts-sales-payment.xml" />
+	<include file="struts/sales/struts-sales-delivery.xml" />
+	<include file="struts/sales/struts-sales-plan.xml" />
+	<include file="struts/sales/struts-sales-commission.xml" />
+	<include file="struts/sales/struts-sales-credit.xml" />
+	<include file="struts/sales/struts-sales-refund.xml" />
+	<include file="struts/sales/struts-sales-forecast.xml" />
+	<include file="struts/sales/struts-sales-invoice.xml" />
+	<!-- 销售字典维护 Blusnow 2015-11-16 -->
+	<include file="struts/sales/struts-sales-common.xml" />
+	<include file="struts/inventoryAccounting/struts-inventoryAccounting.xml" />
+	<include file="struts/E_business/struts-business.xml" />
+	<include file="struts/drpom/struts-distributionoperationsmonitoring.xml" />
+
+
+	<include file="struts/phone/struts-phone.xml" />
+	<include file="struts/pad/struts-pad.xml" />
+
+	<include file="struts/crm/struts-crm-member.xml" />
+
+	<include file="struts/wxp/struts-wxp.xml" />
+	<include file="struts/nvixnt/struts-nvixnt.xml" />
+	<include file="struts/form/struts-form.xml" />
+	<include file="struts/traceability/struts-traceability.xml" />
+	<include file="struts/wechat/struts-wechat.xml" />
+	<include file="struts/beiken/struts-beiken.xml" />
+
+	<!-- 客户管理 -->
+	<include file="struts/nvixnt/struts-nvixnt-customer.xml" />
+	<!-- 商品管理 -->
+	<include file="struts/nvixnt/struts-nvixnt-mdm.xml" />
+	<!-- 系统管理 -->
+	<include file="struts/nvixnt/struts-nvixnt-system.xml" />
+</struts>

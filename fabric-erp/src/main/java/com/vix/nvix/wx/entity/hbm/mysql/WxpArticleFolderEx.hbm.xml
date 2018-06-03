@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpArticleFolderEx" table="wxp_article_folder_ex">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<many-to-one name="articleFolder" column="article_folder_id" insert="true" />
+
+		<property name="column1" type="java.lang.String" column="column_1" />
+		<property name="column2" type="java.lang.String" column="column_2" />
+		<property name="column3" type="java.lang.String" column="column_3" />
+		<property name="column4" type="java.lang.String" column="column_4" />
+		<property name="column5" type="java.lang.String" column="column_5" />
+		<property name="column6" type="java.lang.String" column="column_6" />
+		<property name="column7" type="java.lang.String" column="column_7" />
+		<property name="column8" type="java.lang.String" column="column_8" />
+		<property name="column9" type="java.lang.String" column="column_9" />
+		<property name="column10" type="java.lang.String" column="column_10" />
+		<property name="column11" type="java.lang.String" column="column_11" />
+		<property name="column12" type="java.lang.String" column="column_12" />
+		<property name="column13" type="java.lang.String" column="column_13" />
+		<property name="column14" type="java.lang.String" column="column_14" />
+		<property name="column15" type="java.lang.String" column="column_15" />
+		<property name="column16" type="java.lang.String" column="column_16" />
+		<property name="column17" type="java.lang.String" column="column_17" />
+		<property name="column18" type="java.lang.String" column="column_18" />
+		<property name="column19" type="java.lang.String" column="column_19" />
+		<property name="column20" type="java.lang.String" column="column_20" />
+		<property name="column21" type="java.lang.String" column="column_21" />
+		<property name="column22" type="java.lang.String" column="column_22" />
+		<property name="column23" type="java.lang.String" column="column_23" />
+		<property name="column24" type="java.lang.String" column="column_24" />
+		<property name="column25" type="java.lang.String" column="column_25" />
+		<property name="column26" type="java.lang.String" column="column_26" />
+		<property name="column27" type="java.lang.String" column="column_27" />
+		<property name="column28" type="java.lang.String" column="column_28" />
+		<property name="column29" type="java.lang.String" column="column_29" />
+		<property name="column30" type="java.lang.String" column="column_30" />
+
+	</class>
+</hibernate-mapping>

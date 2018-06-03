@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style-type:none;
+}
+img{
+    border:none;
+    outline:none;
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+input, textarea {
+    outline: none;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0; }
+
+body{font-family:Microsoft Yahei;background: #fff;}
+
+h1,h2,h3,h4,h5,h6,b,strong,em,i{font-weight: normal;font-style: normal;}
+
+/* input[type='submit'],input[type='button']{-webkit-appearance:none;border-radius:0;}
+ */
+.mt_50{margin-top: 50px;}
+.mb15{margin-bottom: 15px;}
+.b-header-text{width: 46px;height: 44px;line-height: 44px;text-align: center;position: absolute;right: 0;top: 0;color: #fff;font-size: 12px;}
+
+
+.input-item{ position: relative; overflow: hidden;}
+.label-item{ height: 44px; line-height: 44px; border-bottom: 1px solid #e2e2e2; position: relative; background: #fff;}
+.label-item a{ display: block; width: 100%; height: 100%;}
+/**
+
+/***登录注册*/
+.log-box{ padding:34px 10px;}
+.log-box .log-icon{ position: absolute; width: 40px; height: 100%;}
+.log-box .log-input{ margin-left: 40px;}
+.log-box .username-lab,.log-box .password-lab{ display: inline-block; width: 20px; height: 25px; background: url(../img/user.png) no-repeat; background-size: 50px 50px; margin:5px 0 0 9px;}
+.log-box .username-lab{ background-position: 0 0;}
+.log-box .password-lab{ background-position: -20px 0;}
+.pwd-show,.pwd-hide{ position: absolute; right: 10px; top: 4px; width: 30px; height: 25px; background: url(../img/pwd_show.png) no-repeat; background-size: 30px 50px;}
+.pwd-show{ background-position: 0 0;}
+.pwd-hide{ background-position: 0 -25px;}
+input.input-common{ width: 100%; height: 32px; padding:0 10px; line-height: 32px; background: #fff; color: #000; border:1px solid #888; box-sizing:border-box; border-radius: 2px; font-family:"Microsoft Yahei","微软雅黑",HelveticaNeue,Helvetica,sans-serif; }
+.btn2_gray{ display: block; text-align: center; width: 100%; height: 32px; line-height: 30px; border:1px solid #888; background: #d6d6d6; border-radius: 2px; box-sizing:border-box; font-family:"Microsoft Yahei","微软雅黑",HelveticaNeue,Helvetica,sans-serif; }
+
+
+
+/* 按钮 */
+.submit-btn{ padding: 15px 0; text-align: center;background: #fff;}
+.submit-btn .filter-reset,.submit-btn .filter-confirm{display: inline-block; width: 74px; height: 28px; line-height: 28px; text-align: center; border-radius: 2px;}
+.submit-btn .filter-reset{ color: #555; border:1px solid #555;}
+.submit-btn .filter-confirm{ color: #dd2727; border:1px solid #dd2727;}
+
+.coin-icon{ display: inline-block; width: 13px; height: 16px; background-position: -24px -30px; margin-right: 2px; vertical-align: middle;}

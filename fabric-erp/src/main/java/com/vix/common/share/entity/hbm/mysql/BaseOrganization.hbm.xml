@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.share.entity.BaseOrganization" table="MDM_ORG_ORGANIZATION">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        
+		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64" />
+		<property name="code" type="java.lang.String" column="CODE" length="64"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		 
+		<property name="createTime" type="java.util.Date" column="CreateTime" update="false"/> 
+		<property name="updateTime" type="java.util.Date" column="UpdateTime"/>
+		
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+
+		<property name="orgName" type="java.lang.String" column="OrgName" length="128" />
+		<property name="briefName" type="java.lang.String" column="BriefName" length="128" />
+		<property name="shortName" type="java.lang.String" column="ShortName" length="128" />
+		<property name="enName" type="java.lang.String" column="EnName" length="512" />
+		<property name="address" type="java.lang.String" column="Address" length="512" />
+		<property name="country" type="java.lang.String" column="Country" length="64" />
+		<property name="area" type="java.lang.String" column="Area" length="512" />
+		<property name="countryLanguage" type="java.lang.String" column="CountryLanguage" length="64" />
+		<property name="companyCreateDate" type="java.util.Date" column="CompanyCreateDate" />
+		<property name="telephone" type="java.lang.String" column="Telephone" length="512"/>
+		<property name="fax" type="java.lang.String" column="Fax" length="512"/>
+		<property name="industry" type="java.lang.String" column="Industry" length="512"/>
+		<property name="corporateRepresentative" type="java.lang.String" column="CorporateRepresentative" length="512"/>
+		<property name="homePage" type="java.lang.String" column="HomePage" length="512"/>
+		<property name="orgSummary" type="java.lang.String" column="OrgSummary" length="512"/>
+		<property name="startUsingDate" type="java.util.Date" column="StartUsingDate"/>
+		<property name="stopUsingDate" type="java.util.Date" column="StopUsingDate" />
+		<property name="memo" type="java.lang.String" column="Memo" length="1024"/>
+		<property name="orgType" type="java.lang.String" column="OrgType" length="8" />
+		<property name="numberOfPeriods" type="java.lang.Integer" column="NumberOfPeriods" />
+		<property name="currentPeriod" type="java.lang.Integer" column="CurrentPeriod" />
+		<property name="beginningOfFiscalYear" type="java.util.Date" column="BeginningOfFiscalYear" />
+		<property name="accountPayableCurrentPeroid" type="java.lang.Integer" column="AcPayableCurrentPeroid" />
+		<property name="accountPaybaleBeginningOfFisaclYear" type="java.util.Date" column="AcPaybaleBegOfFisaclYear" />
+		<property name="accountReceivableCurrentPeriod" type="java.util.Date" column="AcRecCurrentPeriod" />
+		<property name="accountReceivableBeginningOfFiscalYear" type="java.lang.String" column="AcRecBegOfFiscalYear" />
+		<property name="currency" type="java.lang.String" column="Currency" length="64" />
+		<property name="fiscalCalendar" type="java.lang.String" column="FiscalCalendar" length="64" />
+		<property name="isEvaluationOrg" type="java.lang.String" column="IsEvaluationOrg" length="2" />
+		
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		
+		<property name="configUrlCode" type="java.lang.String" column="configUrlCode" length="64" />
+		
+		
+		<property name="industryManagementModuleIds" type="java.lang.String" column="IndustryManagementModuleIds" length="4096"/>
+		<property name="industryManagementModuleNames" type="java.lang.String" column="IndustryManagementModuleNames" length="4096"/>
+		
+		<property name="orgDataFilterType" type="java.lang.String" column="OrgDataFilterType" length="8" />
+		
+		<property name="serviceTypeList" type="java.lang.String" column="ServiceTypeList" length="1024" />
+		
+		<!-- 
+    	<property name="serviceTime" type="java.lang.String" column="serviceTime" length="32" />
+    	 -->
+    	 
+		<property name="matProp" type="java.lang.String" column="matProp" length="1024" />
+		
+		<property name="bizDataAccountAmount" type="java.lang.Integer" column="BizDataAccountAmount" />
+    	<property name="bizDataOrderAmount" type="java.lang.Integer" column="BizDataOrderAmount" />
+    	
+		<property name="companyOrgRegCode" type="java.lang.String" column="CompanyOrgRegCode" length="1024" />
+    	<property name="companyOrgContact" type="java.lang.String" column="CompanyOrgContact" length="512" />
+    	<property name="email" type="java.lang.String" column="email" length="128" />
+    	<property name="mobile" type="java.lang.String" column="Mobile" length="128" />
+	
+		<property name="isOpenWxQy" type="java.lang.String" column="IsOpenWxQy" length="4" />
+		<property name="isAuthWxQy" type="java.lang.String" column="IsAuthWxQy" length="4" />
+		
+		<many-to-one name="parentOrganization">
+			<column name="Parent_id">
+				<comment>父公司ID</comment>
+			</column>
+		</many-to-one>
+		<set name="subOrganizations" inverse="true">
+			<key column="Parent_id" />
+			<one-to-many class="com.vix.common.share.entity.BaseOrganization" />
+		</set>
+
+		<set name="organizationUnits" inverse="true">
+			<key column="Organization_ID" />
+			<one-to-many class="com.vix.common.share.entity.BaseOrganizationUnit" />
+		</set>
+
+		<property name="userAccountId" type="java.lang.String" update="false" insert="false" column="UserAccount_Id"/>
+		
+		<many-to-one name="compSuperAdmin" class="com.vix.common.security.entity.UserAccount" lazy="false" update="false">
+			<column name="UserAccount_Id">
+				 <comment>公司超级管理员id</comment>
+			</column>
+		</many-to-one>
+		
+	</class>
+</hibernate-mapping>

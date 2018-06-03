@@ -1,0 +1,44 @@
+.btn-print {
+	display: none;
+}
+
+div#idContainer {
+	page-break-after: always;
+	position: relative;
+}
+
+div#idContainer img {
+	display: none;
+}
+
+.theDrag {
+	position: absolute;
+}
+
+.noprint {
+	display: none;
+}
+
+#btn_print {
+	display: none;
+}
+
+#addressMsg {
+	display: none;
+}
+
+.copyright {
+	display: none;
+}
+
+.pager {
+	padding: 0;
+}
+
+center {
+	display: none;
+}
+
+#error {
+	display: none;
+}

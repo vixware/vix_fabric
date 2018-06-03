@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.delivery.entity.SaleReturnForm" table="SALE_SALERETURNFORM">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="returnOrderCode" type="java.lang.String" column="RETURNORDERCODE" length="150"/>
+		<!-- <property name="returnOrderType" type="java.lang.String" column="RETURNORDERTYPE" length="150"/> -->
+		<many-to-one name="customerAccount" column="customerAccount_id"/>
+		<property name="groupCode" type="java.lang.String" column="GROUPCODE" length="150" update="false"/>
+		<property name="billingCustomer" type="java.lang.String" column="BILLINGCUSTOMER" length="150"/>
+		<property name="billingCustomerCode" type="java.lang.String" column="BILLINGCUSTOMERCODE" length="150"/>
+		<property name="source" type="java.lang.String" column="SOURCE" length="150"/>
+		<property name="rate" type="java.lang.Double" column="RATE"/>
+		<property name="returnReason" type="java.lang.String" column="RETURNREASON" length="150"/>
+ 		<property name="returnAppTime" type="java.util.Date" column="RETURNAPPTIME"/>
+		<property name="returnTime" type="java.util.Date" column="RETURNTIME"/>
+		<property name="transferStyle" type="java.lang.String" column="TRANSFERSTYLE" length="150"/>
+		<property name="approvalStatus" type="java.lang.String" column="APPROVALSTATUS" length="150"/>
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10" />
+		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="10" />
+		<property name="uuid" type="java.lang.String" column="UUID" length="50"/>
+		<property name="code" type="java.lang.String" column="CODE"/>
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100"/>
+		<property name="name" type="java.lang.String" column="NAME" length="150"/>
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150"/>
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" update="false"/>
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150"/>
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150"/>
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150"/>
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150"/>
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150"/>
+		<property name="status" type="java.lang.String" column="STATUS" length="50"/>
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150"/>
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150"/>
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150"/>
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150"/>
+		<property name="version" type="java.lang.String" column="VERSION" length="150"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150"/>
+		<property name="sourceBillCode" type="java.lang.String" column="sourceBillCode" length="150"/>
+		<property name="sourceClassName" type="java.lang.String" column="sourceClassName" length="150"/>
+		<many-to-one name="returnGoodsType" column="returnGoodsType_id"/>
+		<set name="saleReturnFormItems" inverse="true">
+        	<key column="SALERETURNFORM_ID"/>
+			<one-to-many class="com.vix.sales.delivery.entity.SaleReturnFormItem"/>
+        </set>
+        <set name="approvalRecords">
+        	<key column="SALERETURNFORM_ID"/>
+			<one-to-many class="com.vix.common.share.entity.CMNApprovalRecord"/>
+        </set>
+		<set name="attachments" inverse="true">
+        	<key column="SALERETURNFORM_ID"/>
+			<one-to-many class="com.vix.mdm.srm.share.entity.Attachments"/>
+        </set>
+  </class>
+</hibernate-mapping>

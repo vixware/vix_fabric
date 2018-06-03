@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="crm.config" namespace="/crm" extends="crud-default">
+		<action name="crmAction!*" method="{1}" class="crmAction">
+			<result name="goCrmHome">/WEB-INF/content/crm/common/crmMain.jsp</result>			
+		</action>
+		<!-- 客户整合管理 -->
+		<action name="customerIntegrationAction!*" method="{1}" class="customerIntegrationAction">
+			<result name="integration">/WEB-INF/content/crm/common/crmMain.jsp</result>			
+		</action>
+		<!-- 客户往来数据管理 -->
+		<action name="customerTransactionalAction!*" method="{1}" class="customerTransactionalAction">
+			<result name="transactional">/WEB-INF/content/crm/common/transactional_list.jsp</result>			
+		</action>
+	</package>
+</struts>

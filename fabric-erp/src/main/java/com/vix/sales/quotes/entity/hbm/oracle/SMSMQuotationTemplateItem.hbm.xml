@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.quotes.entity.SMSMQuotationTemplateItem" table="SALE_QUOTATION_TEMPLATEITEM">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">SALE_QUOTATION_TEMPLATEITEM_ID</param>
+			</generator>
+        </id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="createDate" type="java.util.Date" column="CREATEDATE" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LASTMODIFYDATE"/>
+		<property name="idCode" type="java.lang.String" column="IDCODE" length="100"/>
+		<property name="rowTyoe" type="java.lang.String" column="ROWTYPE" length="100"/>
+		<property name="poCode" type="java.lang.String" column="POCODE" length="100"/>
+		<property name="contentItem" type="java.lang.String" column="CONTENTITEM" length="100"/>
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="100"/>
+		<property name="quotationCharger" type="java.lang.String" column="QUOTATIONCHARGER" length="100"/>
+		<property name="quotationDepartment" type="java.lang.String" column="QUOTATIONDEPARTMENT" length="100"/>
+		<property name="parentCode" type="java.lang.String" column="PARENTCODE" length="100"/>
+		<property name="itemCode" type="java.lang.String" column="ITEMCODE" length="100"/>
+		<property name="itemName" type="java.lang.String" column="ITEMNAME" length="100"/>
+		<property name="amount" type="java.lang.Double" column="AMOUNT" length="100"/>
+		<property name="assitAmount" type="java.lang.String" column="ASSITAMOUNT" length="100"/>
+		<property name="unit" type="java.lang.String" column="UNIT" length="100"/>
+		<property name="assitUnit" type="java.lang.String" column="ASSITUNIT" length="100"/>
+		<property name="unitExchange" type="java.lang.Double" column="UNITEXCHANGE" length="100"/>
+		<property name="tax" type="java.lang.Double" column="TAX" length="100"/>
+		<property name="taxAmount" type="java.lang.Double" column="TAXAMOUNT" length="100"/>
+		<property name="price" type="java.lang.Double" column="PRICE" length="100"/>
+		<property name="discount" type="java.lang.Double" column="DISCOUNT" length="100"/>
+		<property name="netPrice" type="java.lang.Double" column="NETPRICE" length="100"/>
+		<property name="taxPrice" type="java.lang.Double" column="TAXPRICE" length="100"/>
+		<property name="netTotal" type="java.lang.Double" column="NETTOTAL" length="100"/>
+		<property name="taxTotal" type="java.lang.Double" column="TAXTOTAL" length="100"/>
+		<property name="stauts" type="java.lang.String" column="STATUS" length="10"/>
+ 		<many-to-one name="sMSMQuotationTemplate" column="SMSMQUOTATIONTEMPLATE_ID"/>
+ 		<many-to-one name="parentSMSMQuotationTemplateItem" column="parent_id"/>
+ 		<set name="subSMSMQuotationTemplateItems" inverse="true">
+			<key column="parent_id"/>
+			<one-to-many class="com.vix.sales.quotes.entity.SMSMQuotationTemplateItem"/>
+		</set>
+  </class>
+</hibernate-mapping>

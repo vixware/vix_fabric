@@ -1,0 +1,47 @@
+/**切换按钮**/
+$(function () {
+    zoom.init();
+});
+var zoom={
+    LEFT:0,//保存ul起始的左边距
+    LIWIDE:0,//保存每个li的宽度
+    moved:0,//保存左移的个数
+    LIS:0,//保存li总个数
+    init:function(){
+        this.LEFT=parseFloat(getComputedStyle($("#icon_list")[0]).left);
+        this.LIWIDE=parseFloat(getComputedStyle($("#icon_list>div:first-child")[0]).width);
+        this.LIS=$("#icon_list>div").length;
+        if(this.LIS<=5){
+            $(".tool-first-tabs>.tab-left>i")[0].className+="_disabled";
+        }
+        $(".tool-first-tabs>.tab-left>i")[0].addEventListener("click",this.moveLeft.bind(this));
+        $(".tool-first-tabs>.tab-right>i")[0].addEventListener("click",this.moveRight.bind(this));
+    },
+    moveLeft:function(e){
+        if(e.target.className.indexOf("_disabled")==-1){
+            this.moved--;
+            $("#icon_list")[0].style.left=-this.moved*this.LIWIDE+this.LEFT+"px";
+            this.checkA();
+        }
+    },
+    checkA:function(e){
+        if(this.LIS-this.moved==5){
+            $(".tool-first-tabs>.tab-right>i")[0].className+="_disabled";
+            $(".tool-first-tabs>.tab-left>i")[0].className="backward";
+        }
+        else if(this.moved==0){
+            $(".tool-first-tabs>.tab-left>i")[0].className+="_disabled";
+            $(".tool-first-tabs>.tab-right>i")[0].className="forward";
+        }
+        else{
+            $(".tool-first-tabs>.tab-left>i")[0].className="backward";
+        }
+    },
+    moveRight:function(e){
+        if(e.target.className.indexOf("_disabled")==-1){
+            this.moved++;
+            $("#icon_list")[0].style.left=-this.moved*this.LIWIDE+this.LEFT+"px";
+            this.checkA();
+        }
+    },
+}

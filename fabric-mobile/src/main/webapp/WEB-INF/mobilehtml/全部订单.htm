@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>农本记</title>
+	<meta name="keywords" content="农本记"/>
+	<meta name="description" content="农本记"/>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+<header>
+    <a href="个人中心.html" class="b-header-code b-header-return"></a>全部订单<a href="#" class="b-header-more"></a>
+</header>
+<section class="myOrder">
+    <div class="tab_menu">
+        <ul>
+            <li class="selected">全部</li>
+            <li>待付款</li>
+            <li>待发货</li>
+            <li>待收货</li>
+            <li>待评价</li>
+            <li>待退款</li>
+        </ul>
+    </div>
+    <div class="tab_con">
+        <!--- 全部-->
+        <div class="common" >
+            <div class="orderlist">
+                <div class="order-item b_b mb10 b_t">
+                    <div class="order-item-title b_b plr10 mui-flex">
+                        <div class="t-shopname cell t_l"><span class="t-name"><a href="#">海瑶食品</a><i class="bnj-sprite-icon arrow"></i></span></div>
+                        <div class="c_red cell t_r">等待付款</div>
+                    </div>
+                    <a href="#">
+                        <ul class="order-item-pro">
+                            <li class="goods-item" id="product1360">
+                                <div class="i-p"><img src="images/demoimg/collect_pic1.jpg" alt=""></div>
+                                <div class="i-t">
+                                    <div class="i-t-title"><h3>越南玉芒5斤装 (8-10个）（广西发货）</h3></div>
+                                    <div class="i-t-price"><span class="price-num c_red"><i class="mui-price-rmb">¥</i>45.00x1</span></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="order-total-price plr10 b_b"><p>合计：<span class="t-price c_red">￥<i>45.00</i></span>(含运费￥<span class="t-freight">0.00</span>共<span class="t-amount">1</span>件商品)</p></div>
+                    </a>
+                    <div class="order-btn plr10"><a href="javascript:;" class="btn1_red order-pay">支付</a></div>
+                </div>
+            </div>
+        </div>
+        <!---待付款-->
+        <div class="common">
+            <div class="bs_nodata"><p class="nodata-img"></p><p><a href="javascript:;">暂无数据</a></p></div>
+        </div>
+        <!--- 待发货-->
+        <div class="common">
+            <div class="bs_nodata"><p class="nodata-img"></p><p><a href="javascript:;">暂无数据</a></p></div>
+        </div>
+        <!---待收货-->
+        <div class="common">
+            <div class="bs_nodata"><p class="nodata-img"></p><p><a href="javascript:;">暂无数据</a></p></div>
+        </div>
+        <!--- 待评价-->
+        <div class="common">
+            <div class="bs_nodata"><p class="nodata-img"></p><p><a href="javascript:;">暂无数据</a></p></div>
+        </div>
+        <!---待退款-->
+        <div class="common">
+            <div class="bs_nodata"><p class="nodata-img"></p><p><a href="javascript:;">暂无数据</a></p></div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/base.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var tab_menu_li = $('.tab_menu li');
+        $('.tab_con .common:gt(0)').hide();
+
+        tab_menu_li.click(function(){
+            var index = $(this).index()+1;
+            $(this).addClass('selected')
+                    .siblings().removeClass('selected');
+            var tab_menu_li_index = tab_menu_li.index(this);
+            $('.tab_con .common').eq(tab_menu_li_index).show()
+                    .siblings().hide();
+        }).click(function(){
+            $(this).addClass('hover');
+        },function(){
+            $(this).removeClass('hover');
+        });
+    });
+</script>

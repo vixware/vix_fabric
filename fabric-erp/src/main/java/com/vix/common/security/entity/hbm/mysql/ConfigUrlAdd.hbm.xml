@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.security.entity.ConfigUrlAdd" table="CMN_SEC_CONFIGURLADD">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+
+		<property name="name" type="java.lang.String" column="Name" length="100"/>
+		<property name="code" type="java.lang.String" column="CODE" length="64"/>
+		
+		<property name="isRedirect" type="java.lang.String" column="isRedirect" length="4"/>
+		<property name="url" type="java.lang.String" column="url" length="1024"/>
+	</class>
+</hibernate-mapping>

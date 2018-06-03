@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.delivery.config" namespace="/sales/delivery" extends="crud-default">
+		<!-- 销售发货单-->
+		<action name="deliveryDocumentAction!*" method="{1}" class="deliveryDocumentAction">
+			<result name="goList">/WEB-INF/content/sales/delivery/deliveryDocument_list.jsp</result>
+			<result name="goDeliveryList">/WEB-INF/content/sales/delivery/deliveryDocument_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/delivery/deliveryDocument_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/sales/delivery/addAttachFile.jsp</result>
+			<result name="showDelivery">/WEB-INF/content/sales/delivery/showDelivery.jsp</result>
+			<result name="goPrintDelivery">/WEB-INF/content/sales/delivery/delivery_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/sales/delivery/deliveryDocument_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+		<!-- 销售发货单明细-->
+		<action name="deliveryDocumentItemAction!*" method="{1}" class="deliveryDocumentItemAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/delivery/deliveryDocumentItem_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+		<!-- 销售发货单审批记录-->
+		<action name="deliveryDocumentApprovalRecordAction!*" method="{1}" class="deliveryDocumentApprovalRecordAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/delivery/deliveryDocumentApprovalRecord_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+		<!-- 销售退货单-->
+		<action name="saleReturnFormAction!*" method="{1}" class="saleReturnFormAction">
+			<result name="goList">/WEB-INF/content/sales/delivery/saleReturnForm_list.jsp</result>
+			<result name="goReturnList">/WEB-INF/content/sales/delivery/saleReturnForm_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/delivery/saleReturnForm_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/sales/delivery/addAttachFile.jsp</result>
+			<result name="goSearch">/WEB-INF/content/sales/delivery/saleReturnForm_Search.jsp</result>
+			<result name="showSaleReturnForm">/WEB-INF/content/sales/delivery/showSaleReturnForm.jsp</result>
+			<result name="goPrintSaleReturnForm">/WEB-INF/content/sales/delivery/saleReturnForm_print.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+		<!-- 销售退货单明細-->
+		<action name="saleReturnFormItemAction!*" method="{1}" class="saleReturnFormItemAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/delivery/saleReturnFormItem_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 销售退货单审批记录-->
+		<action name="saleReturnFormApprovalRecordAction!*" method="{1}" class="saleReturnFormApprovalRecordAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/delivery/saleReturnFormApprovalRecord_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+	</package>
+</struts>

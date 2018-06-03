@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.security.entity.Module" table="CMN_SEC_MODULE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		<!--  
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		  -->
+		 
+		 
+		
+		<!-- <property name="moduleType" type="java.lang.String" column="ModuleType" length="8"/> -->
+		<property name="name" type="java.lang.String" column="Name" length="100"/>
+		<property name="moduleCode" type="java.lang.String" column="ModuleCode" length="128"/>
+		
+		<set name="industryManagementModules" inverse="true">
+			 <key>
+                <column name="Module_ID"  not-null="true" ></column>
+            </key>
+			<one-to-many class="com.vix.system.industrymanagement.entity.IndustryManagementModule"/>
+		</set>
+		
+		
+		
+		
+		<!-- 不再使用
+		<set name="authoritys" table="CMN_SEC_MODULE_AUTHORITY" fetch="join">
+            <key>
+                <column name="Module_ID" not-null="true">
+                	<comment>模块id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Authority">
+                <column name="Authority_ID" not-null="true" />
+            </many-to-many>
+        </set>
+         -->
+        <!-- 不再使用
+        <set name="userAccounts" table="CMN_SEC_MODULE_USERACCOUNT" fetch="join">
+            <key>
+                <column name="Module_ID" not-null="true">
+                	<comment>模块id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.UserAccount">
+                <column name="UserAccount_ID" not-null="true" />
+            </many-to-many>
+        </set> -->
+	</class>
+</hibernate-mapping>

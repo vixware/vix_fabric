@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.eam.entity.EqStructure" table="eam_eq_structure">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="eqCode" type="java.lang.String" column="eqCode" length="100"></property>
+		<property name="eqName" type="java.lang.String" column="eqName" length="100"></property>
+		<property name="memo" type="java.lang.String" column="memo" length="100"></property>
+		<property name="eqType" type="java.lang.String" column="eqType"></property>
+		<property name="startTime" type="java.util.Date" column="start_time" />
+		<property name="endTime" type="java.util.Date" column="end_time" />
+		<set name="subEqStructure" inverse="true">
+			<key column="eqStructureId" />
+			<one-to-many class="com.vix.eam.entity.EqStructure" />
+		</set>
+	</class>
+</hibernate-mapping>

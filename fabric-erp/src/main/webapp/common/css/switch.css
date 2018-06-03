@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+
+#onresizeBox{ font:12px "宋体"; text-align:center; overflow:hidden; height:460px; position:relative;}
+#onresizeBox a{color:#333; text-decoration:none;}
+#onresizeBox h3{ height:35px;line-height:35px;padding:0 20px;text-align:center;}
+
+/*demo css*/
+.ibox{ width:850px; filter-:alpha(opacity=50); position:relative; overflow:hidden; zoom:1; margin:0px; display:block;}
+.ibox .showbox{ position:absolute;left:0;top:0px; width:2650px; }
+
+.ibox .showbox ul li{ float:left;}
+
+/* 左右钮 */
+.pre		{position:absolute;left:0px; top:30%;width:30px;height:100px;display:block;line-height:100px;background-:#3ad; filter:alpha(opacity=30);border-radius:0 30px 30px 0;padding:2px 5px; font-size:20px; cursor:pointer;}
+.pre:hover	{background:#39c; filter:alpha(opacity=60);color:#fff; cursor:pointer;}
+.next		{position:absolute;right:0px;top:30%;width:30px;height:100px;display:block;line-height:100px;background-:#3ad; filter:alpha(opacity=30);border-radius:30px 0 0 30px;padding:2px 5px; font-size:20px; cursor:pointer;}
+.next:hover	{background:#39c; filter:alpha(opacity=60);color:#fff; cursor:pointer;}
+
+/* 搜索 */
+.search {width:480px;height:35px;line-height:35px;margin:0 auto;background:url(../img/tit_01.png) repeat-x 0 50%;border-radius:5px;overflow:hidden;zoom:1;position:relative; }
+.search .logo {width:100px; height:35px;float:left; background:url(../img/search_logo2.png) no-repeat 50% 50%; }
+.search .inner {width:370px;position:relative;height:25px;margin:4px 0 0 100px;border:1px solid #ccc; border-radius:5px; overflow:hidden;text-align:left;padding:0px; }
+.search .inner .text {position:absolute;left:0;top:0; width:295px; height:25px; line-height:25px; padding:0 5px;border:none; border-right:1px solid #ccc; box-shadow:1px 1px 5px rgba(0,0,0,0.1) inset;}
+.search .inner .btn  {position:absolute;right:0px;top:0;width:60px; height:25px; border:0px solid #ccc;background:url(../img/tit_01.png) repeat-x 0 50%;  }
+
+
+/* 三平台 */
+.ibox div.num	{position:absolute; left:120px; bottom:0; padding-left:80px; height:45px; font-size:12px; width:530px;_width:540px;background:url(../img/bg_dock4.png) no-repeat 50% 100%; fil-ter:alpha(opacity=90);}
+.ibox div.num li{float:left; margin:0 8px; width:130px; height:25px; line-height:25px;background:#f6f9fc url(../img/bg_title_1.gif) repeat-x 0 50%; text-align:center;border:1px solid #39c; border-radius:30px; color:#666;box-shadow:0px 2px 5px rgba(0,0,0,0.1);cursor:pointer;}
+.ibox div.num li:hover{background:#6bd; color:#fff; border:1px solid #39c;cursor:pointer;}
+.ibox div.num .numcur{background:#09c url(../img/tit_01.png) repeat-x 0 50%; color:#069; border:2px solid #69c;position:relative;margin-top:-2px; height:26px; font-weight:bold;}
+.ibox div.num .numcur:hover{background:#09c url(../img/tit_01.png) repeat-x 0 0; color:#069; border:2px solid #69c;margin-top:-2px;font-weight:bold;}
+
+/* 其他链接 */
+.ibox .links{position:absolute; left:245px; bottom:50px; height:40px; font-size:12px; }
+.ibox .links li{float:left; margin:0 8px; width:100px; height:24px; line-height:24px;background-:#6bd;text-align:center;border:1px solid #6bd; border-radius:5px; color:#069;}
+.ibox .links li:hover{background:#fff; color:#039; border:1px solid #39c;cursor:pointer;}
+/* 图标 */
+.ibox .links .icon_txl { padding-left:20px; height:24px;display:block; background:url(../img/icon/icon_txl.png) no-repeat 5px 50%; }
+.ibox .links .icon_gzbz { padding-left:20px; height:24px;display:block; background:url(../img/icon/icon_gzbz.png) no-repeat 5px 50%; }
+.ibox .links .icon_gzzd { padding-left:20px; height:24px;display:block; background:url(../img/icon/icon_gzzd.png) no-repeat 5px 50%; }
+
+
+/* 内容 */
+.con_inner		{ background--:#666; }
+.con_inner ul	{ height:350px; padding-left:100px;_margin-left-:30px; background--:green;}
+.con_inner li	{ float:left; margin-right:50px; margin-bottom:20px; border-radius:9px; background:#fff url(../img/bg_b2.png) no-repeat -180px -100px; box-shadow:3px 5px 10px rgba(0,0,0,0.10);}
+.con_inner li a { width:110px; height:70px;line-height:70px; font-size:14px;font-weight:bold;color:#333; padding-left:65px;display:block; border:2px solid #69c; border-radius:8px; position:relative; overflow:hidden;}
+.con_inner li a:hover{ border:2px solid #026; color:#333; }
+.con_inner li:hover	{ border-radius-:8px; filter-:alpha(opacity=90); background:#d0f0fc;}
+.con_inner .nm01 { position:relative; }
+.con_inner .nm01 .nm01_b { background:red;font:bold 12px arial; padding:3px 5px; position:absolute;top:-3px;right:-3px;color:#ff0; border-radius:5px; }
+
+.con_inner .no { background:#eee;}
+.con_inner .no a { color:#999; filter:gray; cursor:default;}
+.con_inner .no a:hover { color:#999;border:2px solid #69c;}
+.con_inner .no:hover { background:#eee; }
+
+/* 图标-平台1 */
+.icon_1_1 { background:url(../img/icon/icon_1_01.png) no-repeat 10px 50%; }
+.icon_1_2 { background:url(../img/icon/icon_1_02.png) no-repeat 10px 50%; }
+.icon_1_3 { background:url(../img/icon/icon_1_03.png) no-repeat 10px 50%; }
+.icon_1_4 { background:url(../img/icon/icon_1_04.png) no-repeat 10px 50%; }
+.icon_1_5 { background:url(../img/icon/icon_1_05.png) no-repeat 10px 50%; }
+.icon_1_6 { background:url(../img/icon/icon_1_06.png) no-repeat 10px 50%; }
+.icon_1_7 { background:url(../img/icon/icon_1_07.png) no-repeat 10px 50%; }
+.icon_1_8 { background:url(../img/icon/icon_1_08.png) no-repeat 10px 50%; }
+.icon_1_9 { background:url(../img/icon/icon_1_09.png) no-repeat 10px 50%; }
+
+/* 图标-平台2 */
+.icon_2_1 { background:url(../img/icon/icon_2_01.png) no-repeat 10px 50%; }
+.icon_2_2 { background:url(../img/icon/icon_2_02.png) no-repeat 10px 50%; }
+.icon_2_3 { background:url(../img/icon/icon_2_03.png) no-repeat 10px 50%; }
+.icon_2_4 { background:url(../img/icon/icon_2_04.png) no-repeat 10px 50%; }
+.icon_2_5 { background:url(../img/icon/icon_2_05.png) no-repeat 10px 50%; }
+.icon_2_6 { background:url(../img/icon/icon_2_06.png) no-repeat 10px 50%; }
+.icon_2_7 { background:url(../img/icon/icon_2_07.png) no-repeat 10px 50%; }
+.icon_2_8 { background:url(../img/icon/icon_2_08.png) no-repeat 10px 50%; }
+.icon_2_9 { background:url(../img/icon/icon_2_09.png) no-repeat 10px 50%; }
+
+/* 图标-平台3 */
+.icon_3_1 { background:url(../img/icon/icon_3_01.png) no-repeat 10px 50%; }
+.icon_3_2 { background:url(../img/icon/icon_3_02.png) no-repeat 10px 50%; }
+.icon_3_3 { background:url(../img/icon/icon_3_03.png) no-repeat 10px 50%; }
+.icon_3_4 { background:url(../img/icon/icon_3_04.png) no-repeat 10px 50%; }
+.icon_3_5 { background:url(../img/icon/icon_3_05.png) no-repeat 10px 50%; }
+.icon_3_6 { background:url(../img/icon/icon_3_06.png) no-repeat 10px 50%; }
+.icon_3_7 { background:url(../img/icon/icon_3_07.png) no-repeat 10px 50%; }
+.icon_3_8 { background:url(../img/icon/icon_3_08.png) no-repeat 10px 50%; }
+.icon_3_9 { background:url(../img/icon/icon_3_09.png) no-repeat 10px 50%; }

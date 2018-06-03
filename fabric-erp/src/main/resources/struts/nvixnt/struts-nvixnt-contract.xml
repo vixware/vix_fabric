@@ -1,0 +1,71 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.contract" namespace="/nvixnt/contract" extends="crud-default">
+		<!-- 合同性质 -->
+		<action name="vixntContractNatureTypeAction!*" method="{1}" class="vixntContractNatureTypeAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractNatureType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractNatureType_update.jsp</result>
+		</action>
+		<!-- 合同阶段组 -->
+		<action name="vixntContractStageGroupTypeAction!*" method="{1}" class="vixntContractStageGroupTypeAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractStageGroupType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractStageGroupType_update.jsp</result>
+		</action>
+		<!-- 所属合同组 -->
+		<action name="vixntContractGroupTypeAction!*" method="{1}" class="vixntContractGroupTypeAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractGroupType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractGroupType_update.jsp</result>
+		</action>
+		<!-- 启用阶段 -->
+		<action name="vixntEnableStageTypeAction!*" method="{1}" class="vixntEnableStageTypeAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_enableStageType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_enableStageType_update.jsp</result>
+		</action>
+		<!-- 履行阶段 -->
+		<action name="vixntModeTypeAction!*" method="{1}" class="vixntModeTypeAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_modeType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_modeType_update.jsp</result>
+		</action>
+		<!-- 所属行业 -->
+		<action name="vixntViewIndustryTypeAction!*" method="{1}" class="vixntViewIndustryTypeAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_viewIndustryType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_viewIndustryType_update.jsp</result>
+		</action>
+		<!-- 合同类型集合 -->
+		<action name="vixntContractTypeCombineAction!*" method="{1}" class="vixntContractTypeCombineAction">
+			<result name="goList">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractTypeCombine_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/srm/contractInquiry/vixnt_contractTypeCombine_update.jsp</result>
+		</action>
+		<!-- 劳动合同 -->
+		<action name="vixntLaborContractAction!*" method="{1}" class="vixntLaborContractAction">
+			<result name="goList">/WEB-INF/vixnt/contract/vixnt_labor_contract.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/contract/vixnt_labor_contract_update.jsp</result>
+			<result name="goSaveOrUpdateContractWarning">/WEB-INF/vixnt/contract/contract_addContractWarning.jsp</result>
+			<result name="goSaveOrUpdateApplicationForm">/WEB-INF/vixnt/contract/contract_addApplicationForm.jsp</result>
+		</action>
+		<!-- 合同列表 -->
+		<action name="vixntContractAction!*" method="{1}" class="vixntContractAction">
+			<result name="goList">/WEB-INF/vixnt/contract/contractList/vixnt_contract_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/contract/contractList/vixnt_contract_update.jsp</result>
+			<result name="goSaveOrUpdatecontractChildItem">/WEB-INF/vixnt/contract/contractList/addContractChildItem_contract.jsp</result>
+			<result name="goSaveOrUpdateContractSubject">/WEB-INF/vixnt/contract/contractList/addContractSubject_contract.jsp</result>
+			<result name="goSaveOrUpdateContractWarning">/WEB-INF/vixnt/contract/contractList/addContractWarning_contract.jsp</result>
+			<result name="goSaveOrUpdatePriceConditions">/WEB-INF/vixnt/contract/contractList/addPriceConditions_contract.jsp</result>
+			<result name="goSaveOrUpdateApplicationForm">/WEB-INF/vixnt/contract/contractList/addApplicationForm_contract.jsp</result>
+			<result name="goSaveOrUpdateBackSectionPlan">/WEB-INF/vixnt/contract/backSectionPlan/contract_backSectionPlan_update.jsp</result>
+			<result name="goChooseCustomer">/WEB-INF/vixnt/contract/contractList/chooseCustomer.jsp</result>
+			<result name="goChooseProject">/WEB-INF/vixnt/contract/contractList/chooseProject.jsp</result>
+		</action>
+		<!-- 合同预警 -->
+		<action name="vixntContractWarningAction!*" method="{1}" class="vixntContractWarningAction">
+			<result name="goList">/WEB-INF/vixnt/contract/contractWarning/vixnt_waringContract_list.jsp</result>
+		</action>
+		<!-- 合同审批 -->
+		<action name="vixntContractWarningAction!*" method="{1}" class="vixntExamineContractAction">
+			<result name="goList">/WEB-INF/vixnt/contract/contractList/vixnt_contract_list.jsp</result>
+		</action>
+	</package>
+</struts>

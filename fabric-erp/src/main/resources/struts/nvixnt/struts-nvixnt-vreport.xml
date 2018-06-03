@@ -1,0 +1,31 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.vreport" namespace="/nvixnt/vreport" extends="crud-default">
+		<!-- 表单绑定 -->
+		<action name="nvixFormBindingAction!*" method="{1}" class="nvixFormBindingAction">
+			<result name="goList">/WEB-INF/vixnt/form/formBinding/nvix_formBinding_list.jsp</result>
+			<result name="goEmp">/WEB-INF/vixnt/form/formBinding/nvix_emp_formBinding_list.jsp</result>
+			<result name="goChooseBusinessFormTemplate">/WEB-INF/vixnt/form/formBinding/nvix_businessFormTemplate_choose.jsp</result>
+		</action>
+		<!-- 待办审批 -->
+		<action name="nvixJobTodoAction!*" method="{1}" class="nvixJobTodoAction">
+			<result name="goList">/WEB-INF/vixnt/jobtodo/vixnt_jobtodo_list.jsp</result>
+			<result name="goBillAudit">/WEB-INF/vixnt/jobtodo/vixnt_jobtodo_audit.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/jobtodo/vixnt_jobtodo_update.jsp</result>
+			<result name="goReject">/WEB-INF/vixnt/jobtodo/vixnt_jobtodo_reject.jsp</result>
+		</action>
+		<action name="nvixFormAction!*" method="{1}" class="nvixFormAction">
+			<result name="goList">/WEB-INF/vixnt/form/todotask/todotask_list.jsp</result>
+		</action>
+		<!-- 行政办公中心 -->
+		<action name="nvixAdministrativeAction!*" method="{1}" class="nvixAdministrativeAction">
+			<result name="goList">/WEB-INF/vixnt/form/administrativeOfficeCenter/nvix_administrativeOfficeCenter.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/form/administrativeOfficeCenter/nvix_applicantInvoicing_update.jsp</result>
+			<result name="goBusinessFormTemplate">/vixntcommon/form/nvix_businessForm_template.jsp</result>
+			<result name="goListBusinessFormData">/WEB-INF/vixnt/form/administrativeOfficeCenter/nvix_businessForm_data_list.jsp</result>
+		</action>
+	</package>
+</struts>

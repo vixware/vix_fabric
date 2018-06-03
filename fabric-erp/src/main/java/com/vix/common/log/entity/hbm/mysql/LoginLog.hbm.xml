@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.log.entity.LoginLog" table="SYSTEM_LOGINLOG">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128"  update="false"/>
+        <property name="loginName" type="java.lang.String" column="LOGINNAME" length="100" update="false"/>
+        <property name="loginIp" type="java.lang.String" column="LOGINIP" length="100" update="false"/>
+        <property name="loginStatus" type="java.lang.String" column="LOGINSTATUS" length="64" update="false"/>
+        <property name="loginFailMsg" type="java.lang.String" column="LOGINFAILMSG" length="2000"/>
+        <property name="loginCounts" type="java.lang.Long" column="LOGINCOUNTS" />
+        <property name="loginTime" type="java.util.Date" column="LOGINTIME" update="false"/>
+        
+        <property name="employeeId" type="java.lang.String" column="EMPLOYEEID" length="64"/>
+		<property name="employeeName" type="java.lang.String" column="EMPLOYEENAME" length="100"/>
+		<property name="employeeIdCard" type="java.lang.String" column="EMPLOYEEIDCARD" length="100"/>
+		
+  </class>
+</hibernate-mapping>

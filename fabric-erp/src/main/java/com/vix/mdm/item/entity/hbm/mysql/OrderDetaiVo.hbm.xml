@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.OrderDetaiVo" table="MDM_ORDERDETAIVO">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="itemcode" type="java.lang.String" column="itemcode" />
+		<property name="itemname" type="java.lang.String" column="itemname" />
+		<property name="salesDate" type="java.lang.String" column="salesDate" />
+		<property name="price" type="java.lang.Double" column="price" />
+		<property name="num" type="java.lang.Double" column="num" />
+		<property name="purchasePrice" type="java.lang.Double" column="purchasePrice" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+	</class>
+</hibernate-mapping>

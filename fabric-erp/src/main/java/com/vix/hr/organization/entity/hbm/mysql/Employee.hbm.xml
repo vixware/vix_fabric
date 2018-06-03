@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.hr.organization.entity.Employee" table="HR_ORG_EMPLOYEE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" update="false" />
+
+		<property name="code" type="java.lang.String" column="Code" length="100" />
+		<property name="name" type="java.lang.String" column="Name" length="100" />
+
+		<property name="oldName" type="java.lang.String" column="OldName" length="128" />
+		<property name="fsName" type="java.lang.String" column="FsName" length="128" />
+		<property name="staffJobNumber" type="java.lang.String" column="StaffJobNumber" length="128" />
+		<property name="idNumber" type="java.lang.String" column="IdNumber" length="128" />
+		<property name="bloodType" type="java.lang.String" column="BloodType" length="2" />
+		<property name="qualificationsCode" type="java.lang.String" column="QualificationsCode" length="128" />
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false" />
+		<property name="residenceAddress" type="java.lang.String" column="ResidenceAddress" length="128" />
+		<property name="userType" type="java.lang.String" column="userType" length="128" />
+		<property name="isViewData" type="java.lang.String" column="isViewData" length="2" />
+
+		<property name="birthday" type="java.util.Date" column="Birthday" />
+		<property name="gender" type="java.lang.Integer" column="GENDER" />
+		<property name="isMarriage" type="java.lang.String" column="IsMarriage" length="10" />
+		<property name="graduation" type="java.lang.String" column="Graduation" length="200" />
+		<property name="professional" type="java.lang.String" column="Professional" length="200" />
+		<property name="birthplace" type="java.lang.String" column="Birthplace" length="200" />
+		<property name="currentResidence" type="java.lang.String" column="CurrentResidence" length="200" />
+		<property name="national" type="java.lang.String" column="National" length="100" />
+		<property name="isDemission" type="java.lang.String" column="IsDDemission" length="10" />
+		<property name="telephone" type="java.lang.String" column="Telephone" length="100" />
+		<property name="employeeType" type="java.lang.String" column="EmployeeType" length="100" />
+		<property name="subordinatePosition" type="java.lang.String" column="SubordinatePosition" length="100" />
+		<property name="subordinateTitle" type="java.lang.String" column="SubordinateTitle" length="100" />
+		<property name="pictureurl" type="java.lang.String" column="pictureurl" length="500" />
+		<property name="qq" type="java.lang.String" column="qq" length="500" />
+		<!-- add by zhang 15/6/4 -->
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" length="100" />
+		<property name="entityTime" type="java.util.Date">
+			<column name="EntityTime" />
+		</property>
+
+		<!-- 职员类型 -->
+		<property name="empType" type="java.lang.String" column="empType" length="8" />
+
+		<set name="userAccounts" inverse="true">
+			<key>
+				<column name="Employee_id" not-null="true">
+				</column>
+			</key>
+			<one-to-many class="com.vix.common.security.entity.UserAccount" />
+		</set>
+
+		<set name="userGroups" table="CMN_SEC_USERGROUP_HR_EMP">
+			<key>
+				<column name="Employee_id" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.common.security.entity.UserGroup">
+				<column name="Usergroup_ID" not-null="true" />
+			</many-to-many>
+		</set>
+
+		<!-- 联系方式 -->
+		<!-- <set name="contactTypes" inverse="true">
+			<key>
+				<column name="Employee_id" not-null="true">
+				</column>
+			</key>
+			<one-to-many class="com.vix.hr.organization.entity.ContactType" />
+		</set> -->
+
+		<!-- 业务组织 <set name="businessOrgs" table="MDM_ORG_BUSINESSORG_EMP"> <key> <column name="Employee_ID" precision="30" scale="0" not-null="true"> <comment>职员id</comment> </column> </key> <many-to-many class="com.vix.common.org.entity.BusinessOrg"> <column name="BusinessOrg_ID" precision="30" scale="0" 
+			not-null="true"/> </many-to-many> </set> -->
+		<many-to-one name="organizationUnit" class="com.vix.common.org.entity.OrganizationUnit" lazy="false">
+			<column name="OrganizationUnit_ID">
+				<comment>部门id</comment>
+			</column>
+		</many-to-one>
+
+		<!-- 工资类别设置关系 -->
+		<!-- <many-to-one name="salaryProjectGrantSet" class="com.vix.mdm.hr.salary.entity.SalaryProjectGrantSet" lazy="false">
+			<column name="SalaryProjectGrantSet_ID">
+				<comment>工资类别设置关系id</comment>
+			</column>
+		</many-to-one> -->
+
+		<!-- 岗位和 职员岗位 关系 table="MDM_ORG_ORGPOSITION_EMP" -->
+		<set name="orgPositions" table="HR_ORG_EMPLOYEE_POSITION" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.common.org.entity.OrgPosition">
+				<column name="OrgPosition_ID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="vixTasks" table="HR_ORG_EMPLOYEE_TASK" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.task.taskDefinition.entity.VixTask">
+				<column name="vixTask_id" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="announcementNotification" table="HR_ANNOUNCEMENT_NOTIFICATION" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.bulletin.entity.AnnouncementNotification">
+				<column name="AnnouncementNotification_ID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="trends" table="HR_TRENDS" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.share.entity.Trends">
+				<column name="Trends_ID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="subTripRecords" table="OA_EMPLOYEE_TRIPRECORD" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>职员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.personaloffice.entity.TripRecord">
+				<column name="TripRecord_ID" not-null="true" />
+			</many-to-many>
+		</set>
+
+
+		<many-to-one name="channelDistributor" class="com.vix.drp.channel.entity.ChannelDistributor">
+			<column name="ChannelDistributor_ID">
+				<comment>分销商/渠道id</comment>
+			</column>
+		</many-to-one>
+
+		<!-- 邮件配置 -->
+		<property name="email" type="java.lang.String" column="Email" length="128" />
+		<property name="emailUserName" type="java.lang.String" column="EmailUserName" length="256" />
+		<property name="emailPassword" type="java.lang.String" column="EmailPassword" length="32" />
+		<many-to-one name="mailServer" class="com.vix.common.mail.entity.MailServer">
+			<column name="MailServer_ID">
+				<comment>email服务器配置id</comment>
+			</column>
+		</many-to-one>
+		<set name="mailInfos" inverse="true">
+			<key column="MailInfos_id" />
+			<one-to-many class="com.vix.common.mail.entity.MailInfo" />
+		</set>
+
+		<!-- 供应商 -->
+		<many-to-one name="supplier" class="com.vix.mdm.srm.share.entity.Supplier">
+			<column name="SUPPLIER_ID">
+				<comment>供应商id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="employeePercentageType" class="com.vix.hr.organization.entity.EmployeeType">
+			<column name="employeePercentageType_ID">
+				<comment>提成类型id</comment>
+			</column>
+		</many-to-one>
+		<set name="subWxpQyPictures" inverse="true">
+			<key column="employee_id" />
+			<one-to-many class="com.vix.wechat.base.entity.WxpQyPicture" />
+		</set>
+		<!-- 微信企业号成员信息 -->
+		<property name="userId" type="java.lang.String" column="userId" length="150" />
+		<property name="position" type="java.lang.String" column="position" length="150" />
+		<property name="mobile" type="java.lang.String" column="mobile" length="150" />
+		<property name="weixinid" type="java.lang.String" column="weixinid" length="150" />
+		<property name="openId" type="java.lang.String" column="openId" length="150" />
+		<property name="headImgUrl" type="java.lang.String" column="headImgUrl" length="150" />
+		<property name="declassified" type="java.lang.Integer" column="declassified" length="150" />
+
+		<set name="issuerApplicationMgs" table="ISSUER_APPLICATIONMG_EMPLOYEE" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.adminMg.conference.entity.ApplicationMg">
+				<column name="applicationMg_id" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="affiliatedApplicationMgs" table="AFFILIATED_APPLICATIONMG_EMPLOYEE" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.adminMg.conference.entity.ApplicationMg">
+				<column name="applicationMg_id" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="subProjects" table="NVIX_PROJECT_EMPLOYEE" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.mdm.pm.common.entity.Project">
+				<column name="project_id" not-null="true" />
+			</many-to-many>
+		</set>
+
+
+		<set name="subWorkLogs" table="HR_ORG_EMPLOYEE_LOG" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true">
+					<comment>人员id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.oa.personaloffice.entity.WorkLog">
+				<column name="workLog_id" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="subProjectRoles" table="HR_ORG_EMPLOYEE_PROJECTROLE" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true"></column>
+			</key>
+			<many-to-many class="com.vix.mdm.pm.common.entity.ProjectRole">
+				<column name="PROJECTROLE_ID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="subUploaders" table="HR_EMPLOYEE_UPLOADER" fetch="join">
+			<key>
+				<column name="Employee_ID" not-null="true"></column>
+			</key>
+			<many-to-many class="com.vix.oa.task.taskDefinition.entity.Uploader">
+				<column name="UPLOADER_ID" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

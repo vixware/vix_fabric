@@ -1,0 +1,43 @@
+html, body {
+	padding: 0;
+	margiin: 0;
+	font: normal 90% "Lucida Grande", Helvetica, Verdana, Arial;
+}
+
+.printbox {
+	position: absolute;
+	left: 50%;
+}
+
+#footer, #footer a {
+	color: #ccc;
+	text-align: center;
+	line-height: 100px;
+}
+
+.printpager {
+	padding: 50px;
+	/* height: 500px; */
+	background: #fff;
+}
+
+.btn-print {
+	background: none repeat scroll 0 0 #336699;
+	border: 2px solid #EFEFEF;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 700;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: auto;
+	padding: 0 20px;
+}
+
+.absent {
+	margin: 30px 100px;
+	padding: 20px 0;
+	text-align: center;
+}

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.adminMg.entity.ProjectManagement" table="OA_PROJECTMANAGEMENT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="proposalTitle" type="java.lang.String" column="proposalTitle" length="150" />
+		<property name="distributionDepartment" type="java.lang.String" column="distributionDepartment" length="150" />
+		<property name="distributionPersonnel" type="java.lang.String" column="distributionPersonnel" length="150" />
+		<property name="participant" type="java.lang.String" column="participant" length="150" />
+		<property name="principal" type="java.lang.String" column="principal" length="150" />
+		<property name="leadershipNotation" type="java.lang.String" column="leadershipNotation" length="150" />
+		<property name="initiateTime" type="java.util.Date" column="INITIATETIME"/>
+		<property name="overTime" type="java.util.Date" column="OVERTIME"/>
+		<property name="accessory" type="java.lang.String" column="accessory" length="150" />
+		<property name="progress" type="java.lang.String" column="PROGRESS" length="150" />
+		<property name="plantype" type="java.lang.String" column="PLANTYPE" length="150" />
+		<property name="plantypecode" type="java.lang.String" column="PLANTYPECODE" length="150" />
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId" length="255"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+		<property name="workPlan" type="java.lang.Integer" column="workPlan"/>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100"></property>
+		<property name="readTimes" type="java.lang.String" column="readTimes" length="100"></property>
+			
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="isPublish" type="java.lang.Integer" column="IS_PUBLISH"/>
+		
+		
+		<!-- <many-to-one name="workPlanType" column="workPlanType_id"/> -->
+		<!-- <many-to-one name="progressLog" column="progressLog_id"/> -->
+		
+		<set name="postil" inverse="true">
+			<key>
+				<column name="projectManagement_id" />
+			</key>
+			<one-to-many
+				class="com.vix.oa.adminMg.entity.Postil" />
+		</set>
+		
+		<property name="enclosure" type="java.lang.String" column="ENCLOSURE" length="150" />
+		<property name="remark" type="java.lang.String" column="REMARK" length="150" />
+		<property name="planContent" type="java.lang.String" column="PLANCONTENT" length="150" />
+		<property name="pubType" type="java.lang.String" column="PubType" length="2"/>
+		<property name="pubType1" type="java.lang.String" column="PubType1" length="2"/>
+		<property name="pubType2" type="java.lang.String" column="PubType2" length="2"/>
+		<property name="pubType3" type="java.lang.String" column="PubType3" length="2"/>
+		<property name="bizOrgNames" type="java.lang.String" column="bizOrgNames" length="1000"/>
+		<property name="bizOrgNames1" type="java.lang.String" column="bizOrgNames1" length="150"/>
+		<property name="bizOrgNames2" type="java.lang.String" column="bizOrgNames2" length="150"/>
+		<property name="bizOrgNames3" type="java.lang.String" column="bizOrgNames3" length="150"/>
+		
+		<set name="organizationUnits" table="OA_ProjectManagement_ORGUNIT" fetch="join">
+            <key>
+                <column name="ProjectManagement_ID" precision="30" scale="0" not-null="true">
+                	<comment>公告id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.org.entity.OrganizationUnit">
+                <column name="ORGUNIT_ID" precision="30" scale="0" not-null="true">
+                	<comment>部门id</comment>
+                </column>
+            </many-to-many>
+        </set>
+        <set name="roles" table="OA_ProjectManagement_ROLE" fetch="join">
+            <key>
+                <column name="ProjectManagement_ID" precision="30" scale="0" not-null="true">
+                	<comment>公告id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Role">
+                <column name="Role_ID" precision="30" scale="0" not-null="true">
+                	<comment>角色id</comment>
+                </column>
+            </many-to-many>
+        </set>
+        <set name="employees" table="OA_ProjectManagement_EMP" fetch="join">
+            <key>
+                <column name="ProjectManagement_ID" precision="30" scale="0" not-null="true">
+                	<comment>计划id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.hr.organization.entity.Employee">
+                <column name="Employee_ID" precision="30" scale="0" not-null="true">
+                	<comment>职员id</comment>
+                </column>
+            </many-to-many>
+        </set>
+        
+        <set name="subEvaluationReviews" inverse="true">
+			<key>
+				<column name="projectManagement_id" />
+			</key>
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.EvaluationReview" />
+		</set>
+		
+		<many-to-one name="employee" column="Employee_id" />
+        
+        <property name="pubIds" type="java.lang.String" column="pubIds" length="1024"/>
+        <property name="pubIds1" type="java.lang.String" column="pubIds1" length="1024"/>
+        <property name="pubIds2" type="java.lang.String" column="pubIds2" length="1024"/>
+        <property name="pubIds3" type="java.lang.String" column="pubIds3" length="1024"/>
+        <property name="pubNames" type="java.lang.String" column="pubNames" length="2048"/>
+	</class>
+</hibernate-mapping>

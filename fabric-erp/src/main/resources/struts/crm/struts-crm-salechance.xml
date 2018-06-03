@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 销售机会 -->
+	<package name="crm.salechance" namespace="/crm/salechance" extends="crud-default">
+		<!-- 销售机会 -->
+		<action name="saleChanceAction!*" method="{1}" class="saleChanceAction">
+			<result name="goList">/WEB-INF/content/crm/salechance/saleChance_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/salechance/saleChance_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/salechance/updateSaleChance.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/salechance/saleChance_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/salechance/updateSaleChanceForCustomerAccount.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/salechance/saleChance_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 回款计划 -->
+		<action name="backSectionPlanAction!*" method="{1}" class="backSectionPlanAction">
+			<result name="goList">/WEB-INF/content/crm/salechance/backSectionPlan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/salechance/backSectionPlan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/salechance/updateBackSectionPlan.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/salechance/backSectionPlan_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/salechance/updateBackSectionPlanForCustomerAccount.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/salechance/backSectionPlan_crmProject_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCrmProject">/WEB-INF/content/crm/salechance/updateBackSectionPlanForCrmProject.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/salechance/backSectionPlan_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 回款记录 -->
+		<action name="backSectionRecordAction!*" method="{1}" class="backSectionRecordAction">
+			<result name="goList">/WEB-INF/content/crm/salechance/backSectionRecord_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/salechance/backSectionRecord_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/salechance/updateBackSectionRecord.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/salechance/backSectionRecord_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/salechance/updateBackSectionRecordForCustomerAccount.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/salechance/backSectionRecord_crmProject_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCrmProject">/WEB-INF/content/crm/salechance/updateBackSectionRecordForCrmProject.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/salechance/backSectionRecord_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

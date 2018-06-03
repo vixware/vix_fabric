@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.log.entity.OperateLog" table="SYS_OPERATELOG">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+
+		<property name="operaterId" type="java.lang.String" column="OPERATERID" length="64"/>
+		<property name="operaterName" type="java.lang.String" column="OPERATERNAME" length="100"/>
+		<property name="methodName" type="java.lang.String" column="METHODNAME" length="100"/>
+		<property name="content" type="java.lang.String" column="CONTENT" length="500"/>
+		<property name="objectId" type="java.lang.String" column="OBJECTID" length="64"/>
+		<property name="objectClass" type="java.lang.String" column="OBJECTCLASS" length="150"/>
+		<property name="objectType" type="java.lang.String" column="OBJECTTYPE" length="50"/>
+		<property name="keyWord" type="java.lang.String" column="KEYWORD" length="150"/>
+		<property name="ipAddress" type="java.lang.String" column="IPADDRESS" length="100"/>
+		<property name="ipCountry" type="java.lang.String" column="IPCOUNTRY" length="100"/>
+		<property name="requestUrl" type="java.lang.String" column="REQUESTURL" length="300"/>
+  </class>
+</hibernate-mapping>

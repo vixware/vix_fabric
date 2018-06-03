@@ -1,0 +1,9 @@
+{"viewType":"w","width":"100%","height":1000,"link":{"link1":{"id":"link1","from":"node1","to":[{"targetId":"node2","condition":""}],
+"isMul":"0","length":50},"link2":{"id":"link2","from":"node2","to":[{"targetId":"node3","condition":""}],"isMul":"0","length":50},
+"link3":{"id":"link3","from":"node3","to":[{"targetId":"node4","condition":""}],"isMul":"0","length":50}},
+"node":{"node1":{"x":36,"icon":"start.png","type":"start","y":99,"text":"节点1","id":"node1",
+"value":"quartz://report?cron=0 45/5 * * * ?&stateful=true","param":"","ext":""},
+"node2":{"x":455,"y":99,"type":"delay","icon":"timer.png","text":"节点2","id":"node2",
+"value":"100000","param":"","ext":""},"node3":{"x":828,"y":99,"type":"process","icon":"human.png","text":"节点3","id":"node3",
+"value":"com.e6soft.vreport.processor.EmailProcessorc","param":"","ext":""},"node4":{"x":1353,"y":99,"type":"process","icon":"email.png",
+"text":"节点4","id":"node4","value":"com.e6soft.vreport.processor.EmailProcessord","param":"","ext":""}}}

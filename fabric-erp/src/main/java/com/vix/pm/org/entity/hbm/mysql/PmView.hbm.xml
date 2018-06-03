@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.pm.org.entity.PmView" table="PM_ORG_PMVIEW">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="native"/>
+        </id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" /> 
+		
+		<property name="startTime" type="java.util.Date" column="StartTime" /> 
+		<property name="endTime" type="java.util.Date" column="EndTime" /> 
+		
+		<property name="bizViewCreateDate" type="java.util.Date" column="BizViewCreateDate" update="false"/> 
+		
+		
+		<property name="name" type="java.lang.String" column="Name" length="200"/>
+		<property name="isMatrixManagement" type="java.lang.String" column="IsMatrixManagement" length="2"/>
+		<property name="bizViewType" type="java.lang.String" column="BizViewType" length="512"/>
+		<property name="pmCode" type="java.lang.String" column="PmCode" length="128"/>
+		<property name="metaDataCode" type="java.lang.String" column="MetaDataCode" length="512"/>
+		
+		<!-- 业务组织 -->
+		<set name="pmOrgs" inverse="true">
+			<key column="PmView_ID"/>
+			<one-to-many class="com.vix.pm.org.entity.PmOrg"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>

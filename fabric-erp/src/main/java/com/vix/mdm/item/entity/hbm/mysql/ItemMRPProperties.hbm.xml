@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemMRPProperties" table="MDM_ITEMMRPPROPERTIES">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="itemCode" type="java.lang.String" column="ITEMCODE" length="150" />
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="150" />
+		<property name="mrpType" type="java.lang.String" column="MRPTYPE" length="150" />
+		<property name="reOrderPoint" type="java.lang.Integer" column="REORDERPOINT" />
+		<property name="produceDepartment" type="java.lang.String" column="PRODUCEDEPARTMENT" length="150" />
+		<property name="planner" type="java.lang.String" column="PLANNER" length="150" />
+		<property name="planMethod" type="java.lang.String" column="PLANMETHOD" length="150" />
+		<property name="planTimeFence" type="java.lang.Double" column="PLANTIMEFENCE" />
+		<property name="planPeroid" type="java.lang.String" column="PLANPEROID" length="150" />
+		<property name="assembleScrapRate" type="java.lang.Double" column="ASSEMBLESCRAPRATE" />
+		<property name="outPutRate" type="java.lang.Double" column="OUTPUTRATE" />
+		<property name="requirementTimefence" type="java.lang.Double" column="REQUIREMENTTIMEFENCE" />
+		<property name="planTimefenceDays" type="java.lang.Double" column="PLANTIMEFENCEDAYS" />
+		<property name="overlapDays" type="java.lang.Double" column="OVERLAPDAYS" />
+		<property name="maxSupplyAmount" type="java.lang.Double" column="MAXSUPPLYAMOUNT" />
+		<property name="minSupplyAmount" type="java.lang.Double" column="MINSUPPLYAMOUNT" />
+		<property name="supplyPolicy" type="java.lang.String" column="SUPPLYPOLICY" length="150" />
+		<property name="supplyPeriod" type="java.lang.Double" column="SUPPLYPERIOD" />
+		<property name="supplyMultiple" type="java.lang.Double" column="SUPPLYMULTIPLE" />
+		<property name="changeBase" type="java.lang.Double" column="CHANGEBASE" />
+		<property name="changeLeadTime" type="java.lang.Double" column="CHANGELEADTIME" />
+		<property name="aTPCheckType" type="java.lang.String" column="ATPCHECKTYPE" length="150" />
+		<property name="supplyType" type="java.lang.String" column="SUPPLYTYPE" length="150" />
+		<property name="projectDrawNumber" type="java.lang.String" column="PROJECTDRAWNUMBER" length="150" />
+		<property name="lowLevelCode" type="java.lang.Integer" column="LOWLEVELCODE" />
+		<property name="planItem" type="java.lang.String" column="PLANITEM" length="150" />
+		<property name="conversionFactor" type="java.lang.Double" column="CONVERSIONFACTOR" />
+		<property name="isCheckATP" type="java.lang.Integer" column="ISCHECKATP" />
+		<property name="aTPRule" type="java.lang.String" column="ATPRULE" length="150" />
+		<property name="replaceDate" type="java.util.Date" column="REPLACEDATE" />
+		<property name="safeStockMethod" type="java.lang.String" column="SAFESTOCKMETHOD" length="150" />
+		<property name="periodType" type="java.lang.String" column="PERIODTYPE" length="150" />
+		<property name="periodAmount" type="java.lang.Double" column="PERIODAMOUNT" />
+		<property name="dynamicSafeStockMethod" type="java.lang.String" column="DYNAMICSAFESTOCKMETHOD" length="150" />
+		<property name="overlayDays" type="java.lang.Double" column="OVERLAYDAYS" />
+		<property name="percent" type="java.lang.Double" column="PERCENT" />
+		<property name="isBelongMPS" type="java.lang.String" column="ISBELONGMPS" length="10" />
+		<property name="bookingPolice" type="java.lang.String" column="BOOKINGPOLICE" length="150" />
+		<property name="routeCode" type="java.lang.String" column="ROUTECODE" length="150" />
+		<property name="isCostRelated" type="java.lang.String" column="ISCOSTRELATED" length="150" />
+		<property name="isRemovalMantissa" type="java.lang.String" column="ISREMOVALMANTISSA" length="150" />
+		<property name="isProductOrderMerge" type="java.lang.String" column="ISPRODUCTORDERMERGE" length="150" />
+		<property name="isRepeatPlan" type="java.lang.String" column="ISREPEATPLAN" length="150" />
+		<property name="isMPSComponent" type="java.lang.String" column="ISMPSCOMPONENT" length="150" />
+		<property name="isPermitBOMParent" type="java.lang.String" column="ISPERMITBOMPARENT" length="150" />
+		<property name="isPermitBOMChild" type="java.lang.String" column="ISPERMITBOMCHILD" length="150" />
+		<property name="isPermitProductOrder" type="java.lang.String" column="ISPERMITPRODUCTORDER" length="150" />
+		<property name="isSaleTrace" type="java.lang.String" column="ISSALETRACE" />
+		<property name="batchMinAmount" type="java.lang.Double" column="BATCHMINAMOUNT" />
+		<property name="batchMaxAmount" type="java.lang.Double" column="BATCHMAXAMOUNT" />
+		<property name="batchFixedAmount" type="java.lang.Double" column="BATCHFIXEDAMOUNT" />
+		<property name="batchMaxInventory2" type="java.lang.Double" column="BATCHMAXINVENTORY2" />
+		<property name="batchOrderCost" type="java.lang.Double" column="BATCHORDERCOST" />
+		<property name="batchAssembleScrap" type="java.lang.Double" column="BATCHASSEMBLESCRAP" />
+		<property name="batchPeriodTime" type="java.lang.Double" column="BATCHPERIODTIME" />
+		<property name="batchRoundedValue" type="java.lang.Double" column="BATCHROUNDEDVALUE" />
+		<property name="batchUnitGroup" type="java.lang.String" column="BATCHUNITGROUP" length="150" />
+		<property name="purType" type="java.lang.String" column="PURTYPE" length="150" />
+		<property name="purRecoil" type="java.lang.String" column="PURRECOIL" length="150" />
+		<property name="purJITDelivery" type="java.lang.String" column="PURJITDELIVERY" length="150" />
+		<property name="planTakeDeliveryTime" type="java.lang.Double" column="PLANTAKEDELIVERYTIME" />
+		<property name="planDeliveryTime" type="java.util.Date" column="PLANDELIVERYTIME" />
+		<property name="planCalendar" type="java.lang.String" column="PLANCALENDAR" length="150" />
+		<many-to-one name="item" class="com.vix.mdm.item.entity.Item">
+			<column name="item_id" unique="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResColConfig" table="CMN_SEC_DATARESCOLCONFIG">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!--
+		<property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128"/> -->
+		
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		
+		
+		<!-- <property name="rangeScope" type="java.lang.String" column="RangeScope" length="32"/> -->
+		<property name="configName" type="java.lang.String" column="CONFIGNAME" length="256"/>
+		<property name="flag" type="java.lang.Integer" column="Flag"/>
+		
+		<set name="dataResColPolicys" inverse="true">
+			 <key>
+                <column name="DataResColConfig_id"  not-null="true" >
+                	<comment>列级权限策略id</comment>
+                </column>
+            </key>
+			<one-to-many class="com.vix.common.security.entity.DataResColPolicy"/>
+		</set>
+		
+		
+		<set name="roles" table="CMN_SEC_DATARESCOLCONFIG_ROLE" inverse="true">
+            <key>
+                <column name="DATARESCOLCONFIG_ID" not-null="true">
+                	<comment>列权限配置id</comment>
+               	</column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Role">
+              	<column name="Role_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+  </class>
+</hibernate-mapping>

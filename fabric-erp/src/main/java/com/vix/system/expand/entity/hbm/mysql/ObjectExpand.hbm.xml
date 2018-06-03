@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.core.persistence.jdbc.dbstruct.ObjectExpand" table="SYS_OBJECTEXPAND">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+
+ 		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+ 		<property name="extendedObjectCode" type="java.lang.String" column="EXTENDEDOBJECTCODE" length="150"/>
+ 		<property name="code" type="java.lang.String" column="CODE" length="100" update="false"/>
+ 		<property name="status" type="java.lang.String" column="STATUS" length="10"/>
+ 		<property name="expandTableName" type="java.lang.String" column="EXPANDTABLENAME" length="100" update="false"/>
+ 		<property name="isGenerateTable" type="java.lang.String" column="ISGENERATETABLE" length="10"/>
+ 		<property name="foreignKey" type="java.lang.String" column="FOREIGNKEY" length="100"/>
+ 		<property name="isReference" type="java.lang.String" column="ISREFERENCE" length="10"/>
+ 		<property name="specTableIsGenerate" type="java.lang.String" column="SPECTABLEISGENERATE" length="10"/>
+ 		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+ 		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10"/>
+		<property name="isDelete" type="java.lang.String" column="ISDELETE" length="10"/>
+		
+        <set name="objectExpandFields" inverse="true">
+        	<key column="OBJECTEXPAND_ID"/>
+			<one-to-many class="com.vix.core.persistence.jdbc.dbstruct.ObjectExpandField"/>
+        </set>
+        <set name="specifications" inverse="true">
+        	<key column="OBJECTEXPAND_ID"/>
+			<one-to-many class="com.vix.core.persistence.jdbc.dbstruct.Specification"/>
+        </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,1214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta content="all" name="robots" />
+<title>VisionX ERP Suite</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css" />
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+<link href="css/toolbar.css" rel="stylesheet" type="text/css" />
+<link href="css/tree.css" rel="stylesheet" type="text/css" />
+<link href="css/base/jquery.ui.all.css" rel="stylesheet">
+	<link href="css/token-input.css" rel="stylesheet" type="text/css" />
+	<link href="css/token-input-facebook.css" type="text/css" id="font" rel="stylesheet">
+		<link href="css/jquery.jnotify.css" type="text/css" id="font" rel="stylesheet">
+			<link href="css/asyncBox/asyncbox.css" type="text/css" rel="stylesheet" />
+			<link href="css/asyncBox/skins/default.css" type="text/css" rel="stylesheet" />
+			<link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+			<link rel="stylesheet" type="text/css" href="css/easyui/themes/gray/easyui.css">
+				<link rel="stylesheet" type="text/css" href="css/easyui/themes/icon.css">
+					<link href="css/newservice.css" type="text/css" rel="stylesheet">
+						<link href="css/skin_01.css" type="text/css" id="skin" rel="stylesheet">
+							<link href="css/font_02.css" type="text/css" id="font" rel="stylesheet">
+								<script src="js/jquery.js" type="text/javascript"></script>
+								<script src="js/json2.js" type="text/javascript"></script>
+								<script src="js/WdatePicker.js" type="text/javascript"></script>
+								<script src="js/jtip.js" type="text/javascript"></script>
+								<script src="js/jquery.jBreadCrumb.1.1.js" type="text/javascript" language="JavaScript"></script>
+								<script src="js/jquery.jcarousel.min.js" type="text/javascript"></script>
+								<script src="js/jquery.easing.1.3.js" type="text/javascript" language="JavaScript"></script>
+								<script src="js/jquery.tokeninput.js" type="text/javascript"></script>
+								<script src="js/jquery.jnotify.js" type="text/javascript"></script>
+								<script src="js/bar.js" type="text/javascript"></script>
+								<script src="js/all.js" type="text/javascript"></script>
+								<script src="js/jquery.tree.js" type="text/javascript"></script>
+								<script src="js/date.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.core.min.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.widget.min.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.mouse.min.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.resizable.min.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.draggable.min.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.dialog.min.js" type="text/javascript"></script>
+								<script src="js/jquery.ui.position.min.js" type="text/javascript"></script>
+								<script src="js/page_06.js" type="text/javascript"></script>
+								<script src="js/asyncbox.v1.5.beta.min.js" type="text/javascript"></script>
+								<script src="js/bundle.js" type="text/javascript"></script>
+								<script charset="utf-8" src="js/kindeditor-min.js"></script>
+								<script charset="utf-8" src="js/lang/zh_CN.js"></script>
+								<script src="js/jquery.easyui.min.js" type="text/javascript"></script>
+								<script src="js/datagrid.js" type="text/javascript"></script>
+
+								<script src="js/jquery/jquery-1.8.2.js"></script>
+								<script src="js/jquery/jquery-ui-1.9.1.custom.min.js"></script>
+								<link href="js/jquery/css/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+									<link href="js/vreport/css/vreport.css" rel="stylesheet">
+										<script src="js/raphael/raphael-min.js"></script>
+										<script src="js/vreport/flowtask.js"></script>
+</head>
+
+<body>
+	<div id="aaaejee" style="display: none;"></div>
+	<div id="top_bar">
+		<span><strong id="dcMenuSugarCube"></strong></span>
+		<ul class="top_btn">
+			<li id="tp_01"><a href="#"><img src="img/none.gif" alt="" /><small>首页</small></a></li>
+			<li id="tp_02"><a href="#"><img src="img/none.gif" alt="" /><small>客户</small></a></li>
+			<li id="tp_03"><a href="#"><img src="img/none.gif" alt="" /><small>销售订单</small></a></li>
+			<li id="tp_04"><a href="#"><img src="img/none.gif" alt="" /><small>销售报价</small></a></li>
+			<li id="tp_05"><a href="#"><img src="img/none.gif" alt="" /><small>邮件</small></a></li>
+			<li id="tp_06"><a href="#"><img src="img/none.gif" alt="" /><small>日程安排</small></a></li>
+			<li id="tp_07"><a href="#"><img src="img/none.gif" alt="" /><small>代办事宜</small></a></li>
+			<li id="tp_08"><a href="#"><img src="img/none.gif" alt="" /><small>通讯录</small></a></li>
+			<li id="tp_09"><a href="#"><img src="img/none.gif" alt="" /><small>电话</small></a></li>
+			<li id="feedback"><a href="#"><img src="img/icon_feedback.png" alt="" /></a></li>
+		</ul>
+		<div id="search">
+			<input name="" type="text" class="sint" /> <input name="" type="button" class="btn" id="search_btn" />
+			<div id="s_select" style="display: none;">
+				<div class="search_txt">
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+					<p>
+						<a href="#">新建选项</a>
+					</p>
+				</div>
+				<div class="search_bot"></div>
+			</div>
+		</div>
+		<div class="skin">
+			<ul>
+				<li id="skin_01" class="this"><a onclick="javascript:changeStyle(1,'skin',6);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="skin_02"><a onclick="javascript:changeStyle(2,'skin',6);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="skin_03"><a onclick="javascript:changeStyle(3,'skin',6);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="skin_04"><a onclick="javascript:changeStyle(4,'skin',6);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="skin_05"><a onclick="javascript:changeStyle(5,'skin',6);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="skin_06"><a onclick="javascript:changeStyle(6,'skin',6);"><img src="img/none.gif" alt="" /></a></li>
+			</ul>
+			<ul>
+				<li id="font_01"><a onclick="javascript:changeStyle(1,'font',3);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="font_02" class="this"><a onclick="javascript:changeStyle(2,'font',3);"><img src="img/none.gif" alt="" /></a></li>
+				<li id="font_03"><a onclick="javascript:changeStyle(3,'font',3);"><img src="img/none.gif" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- top bar -->
+	<div class="head">
+		<div>
+			<h1 id="logo">
+				<img src="img/logo.png" alt="" />
+			</h1>
+			<div class="menu">
+				<strong id="menu"> <i>欢迎,<b>用户名称</b></i> <em>│<a href="#">注销</a></em> <em class="menu_hidd">│<a href="#">员工</a>│<a href="#">支持平台</a>│<a href="#">关于我们</a></em>
+				</strong> <span id="menu_btn"></span>
+			</div>
+			<div id="nav" class="drop_nav">
+				<div id="navHideButton"></div>
+				<ul id="nav_menu">
+					<li class="nav_arrow"><a href="#"><span>首页</span></a>
+						<ul>
+							<li><a href="#"><b>首页</b></a></li>
+							<li class="fly"><a href="#">测试</a>
+								<ul>
+									<li><a href="#">首页</a></li>
+									<li><a href="#">首页</a></li>
+									<li class="fly"><a href="#"><img src="img/icon_demo.gif" alt="" />测试</a>
+										<ul>
+											<li><a href="#"><img src="img/icon_demo.gif" alt="" />首页</a></li>
+											<li><a href="#"><img src="img/icon_demo.gif" alt="" />首页</a></li>
+											<li><a href="#">首页</a></li>
+											<li class="nav_line"><a href="#">首页</a></li>
+											<li><a href="#">首页</a></li>
+											<li class="fly"><a href="#">测试</a>
+												<ul>
+													<li><a href="#">首页</a></li>
+													<li><a href="#">首页</a></li>
+													<li><a href="#">首页</a></li>
+													<li class="nav_line"><a href="#">首页</a></li>
+													<li><a href="#">首页</a></li>
+													<li class="fly"><a href="#">测试</a>
+														<ul>
+															<li class="fly"><a href="#">END</a>
+																<ul>
+																	<li><a href="#">首页</a></li>
+																	<li><a href="#">首页</a></li>
+																	<li><a href="#">首页</a></li>
+																	<li class="nav_line"><a href="#">首页</a></li>
+																	<li><a href="#">首页</a></li>
+																	<li><a href="#">首页</a></li>
+																</ul></li>
+															<li><a href="#">首页</a></li>
+															<li class="nav_line"><a href="#">首页</a></li>
+															<li><a href="#">首页</a></li>
+															<li><a href="#">首页</a></li>
+															<li class="nav_line"><a href="#">首页</a></li>
+															<li><a href="#">首页</a></li>
+														</ul></li>
+													<li><a href="#">首页</a></li>
+												</ul></li>
+											<li><a href="#">首页</a></li>
+										</ul></li>
+									<li><a href="#">首页</a></li>
+									<li class="nav_line"><a href="#">首页</a></li>
+									<li><a href="#">首页</a></li>
+									<li><a href="#">首页</a></li>
+									<li><a href="#">首页</a></li>
+								</ul></li>
+							<li class="nav_line"><a href="#">首页</a></li>
+							<li><a href="#">首页</a></li>
+							<li><a href="#">首页</a></li>
+						</ul></li>
+					<li class="nav_current nav_arrow"><a href="#"><span>供应链</span></a>
+						<ul>
+							<li class="fly"><a href="#">合同管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">日常操作</a></li>
+									<li class="fly_end"><a href="#">分析查询</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">售前分析</a>
+								<ul>
+									<li class="fly_top"><a href="#">ATP模拟</a></li>
+									<li class="fly_end"><a href="#">模拟报价</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">销售管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">设置</a></li>
+									<li><a href="#">销售预测</a></li>
+									<li><a href="#">销售报价</a></li>
+									<li><a href="#">合同管理</a></li>
+									<li><a href="#">销售订单管理</a></li>
+									<li><a href="#">营销与广告管理</a></li>
+									<li><a href="#">分销管理</a></li>
+									<li><a href="#">销售发货与运输管理</a></li>
+									<li><a href="#">销售开票</a></li>
+									<li><a href="#">代垫费用</a></li>
+									<li><a href="#">费用支出</a></li>
+									<li><a href="#">包装的租借</a></li>
+									<li><a href="#">防伪税控</a></li>
+									<li><a href="#">销售计划</a></li>
+									<li><a href="#">销售现存量查询</a></li>
+									<li><a href="#">月末结账</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">采购管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">设置</a></li>
+									<li><a href="#">采购计划</a></li>
+									<li><a href="#">供应商管理</a></li>
+									<li><a href="#">请购</a></li>
+									<li><a href="#">采购询价</a></li>
+									<li><a href="#">招标管理</a></li>
+									<li><a href="#">合同管理</a></li>
+									<li><a href="#">采购订单</a></li>
+									<li><a href="#">采购到货</a></li>
+									<li><a href="#">采购入库</a></li>
+									<li><a href="#">进口管理</a></li>
+									<li><a href="#">采购发票</a></li>
+									<li><a href="#">采购结算</a></li>
+									<li><a href="#">现存量查询</a></li>
+									<li><a href="#">月末结账</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">委外管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">设置</a></li>
+									<li><a href="#">委外商管理</a></li>
+									<li><a href="#">委外期初</a></li>
+									<li><a href="#">委外订货</a></li>
+									<li><a href="#">委外到货</a></li>
+									<li><a href="#">委外发票</a></li>
+									<li><a href="#">委外核销</a></li>
+									<li><a href="#">月末结账</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">质量管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">初始设置</a></li>
+									<li><a href="#">来料检验</a></li>
+									<li><a href="#">产品检验</a></li>
+									<li><a href="#">工序检验</a></li>
+									<li><a href="#">在库检验</a></li>
+									<li><a href="#">发退货检验</a></li>
+									<li><a href="#">其他检验</a></li>
+									<li><a href="#">留样单 </a></li>
+									<li><a href="#">质量文档管理</a></li>
+									<li><a href="#">单据列表</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">库存管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">初始设置</a></li>
+									<li><a href="#">入库业务</a></li>
+									<li><a href="#">出库业务</a></li>
+									<li><a href="#">调拨业务</a></li>
+									<li><a href="#">盘点业务</a></li>
+									<li><a href="#">限额领料</a></li>
+									<li><a href="#">倒冲领料</a></li>
+									<li><a href="#">不合格品 </a></li>
+									<li><a href="#">货位调整</a></li>
+									<li><a href="#">单据列表</a></li>
+									<li><a href="#">条形码管理</a></li>
+									<li><a href="#">RFID管理</a></li>
+									<li><a href="#">其他业务处理</a></li>
+									<li><a href="#">对账</a></li>
+									<li><a href="#">月末结账</a></li>
+									<li><a href="#">ROP再订货点</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">存货核算</a>
+								<ul>
+									<li class="fly_top"><a href="#">初始设置</a></li>
+									<li><a href="#">日常业务</a></li>
+									<li><a href="#">跌价准备</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+						</ul></li>
+					<li class="nav_arrow"><a href="#"><span>生产管理</span></a>
+						<ul>
+							<li class="fly"><a href="#">物料清单</a>
+								<ul>
+									<li class="fly_top"><a href="#">物料清单维护</a></li>
+									<li class="fly_end"><a href="#">物料清单查询报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">主生产计划</a>
+								<ul>
+									<li class="fly_top"><a href="#">基本资料维护</a></li>
+									<li><a href="#">需求来源资料维护</a></li>
+									<li><a href="#">MPS计划前稽核作业</a></li>
+									<li><a href="#">MPS计划作业</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">产能管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基本资料</a></li>
+									<li><a href="#">资源需求计划</a></li>
+									<li><a href="#">粗能力需求计划</a></li>
+									<li class="fly_end"><a href="#">能力需求计划</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">需求规划</a>
+								<ul>
+									<li class="fly_top"><a href="#">基本资料维护</a></li>
+									<li><a href="#">需求来源资料维护</a></li>
+									<li><a href="#">MRP计划前稽核作业</a></li>
+									<li><a href="#">计划作业</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">生产订单</a>
+								<ul>
+									<li class="fly_top"><a href="#">基本资料维护</a></li>
+									<li><a href="#">生产订单生成</a></li>
+									<li><a href="#">生产订单处理</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">车间管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基本资料</a></li>
+									<li><a href="#">生产订单工序计划</a></li>
+									<li><a href="#">交易处理</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">工程变更</a>
+								<ul>
+									<li class="fly_top"><a href="#">基本资料维护</a></li>
+									<li><a href="#">单据资料维护</a></li>
+									<li><a href="#">工程变更资料维护</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">设备管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">设置台账</a></li>
+									<li><a href="#">作业管理</a></li>
+									<li><a href="#">运行管理</a></li>
+									<li><a href="#">备件管理</a></li>
+									<li class="fly_end"><a href="#">报表</a></li>
+								</ul></li>
+						</ul></li>
+					<li class="nav_arrow"><a href="#"><span>人力资源</span></a>
+						<ul>
+							<li class="fly"><a href="#">HR基础设置</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">报表工具</a></li>
+									<li class="fly_end"><a href="#">预警设置</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">人事管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">组织机构</a></li>
+									<li><a href="#">人员管理</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">薪资管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">薪资标准</a></li>
+									<li><a href="#">薪资调整</a></li>
+									<li><a href="#">设置</a></li>
+									<li><a href="#">业务处理</a></li>
+									<li><a href="#">统计分析</a></li>
+									<li class="fly_end"><a href="#">维护</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">保险福利管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">福利业务</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">考勤休假管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">考勤设置</a></li>
+									<li><a href="#">日常管理</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">人事合同管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">日常业务</a></li>
+									<li><a href="#">台账管理</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">招聘管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">招聘业务</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">培训管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">培训资源</a></li>
+									<li><a href="#">培训需求</a></li>
+									<li><a href="#">培训计划</a></li>
+									<li><a href="#">培训活动</a></li>
+									<li><a href="#">培训评估</a></li>
+									<li><a href="#">员工培训档案</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">经理自助</a>
+								<ul>
+									<li class="fly_top"><a href="#">常用查询</a></li>
+									<li><a href="#">固定统计表</a></li>
+									<li><a href="#">动态报表</a></li>
+									<li><a href="#">综合分析</a></li>
+									<li><a href="#">组织机构图</a></li>
+									<li><a href="#">培训需求</a></li>
+									<li class="fly_end"><a href="#">招聘需求</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">绩效管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">绩效计划</a></li>
+									<li><a href="#">考评结果</a></li>
+									<li><a href="#">绩效反馈</a></li>
+									<li><a href="#">Web应用</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">宿舍管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">基础设置</a></li>
+									<li><a href="#">日常业务</a></li>
+									<li class="fly_end"><a href="#">统计分析</a></li>
+								</ul></li>
+						</ul></li>
+					<li class="nav_arrow"><a href="#"><span>协同办公</span></a>
+						<ul>
+							<li class="fly"><a href="#">角色权限</a>
+								<ul>
+									<li class="fly_top"><a href="#">我的办公桌</a></li>
+									<li><a href="#">工作流</a></li>
+									<li><a href="#">公共事务信息交流</a></li>
+									<li><a href="#">信息交流</a></li>
+									<li><a href="#">人力资源</a></li>
+									<li><a href="#">销售管理</a></li>
+									<li class="fly_end"><a href="#">系统管理</a></li>
+								</ul></li>
+						</ul></li>
+					<li class="nav_arrow"><a href="#"><span id="nav_change">企业资产管理</span></a>
+						<ul>
+							<li class="fly"><a href="#">设置</a>
+								<ul>
+									<li class="fly_top"><a href="#">维护工序设置</a>
+										<li><a href="#">工单设置</a></li>
+										<li><a href="#">工单能力计划设置</a></li>
+										<li><a href="#">标准工单模板管理</a></li>
+										<li><a href="#">分类</a></li>
+										<li><a href="#">设备类型定义</a></li>
+										<li><a href="#">设备型号规格定义</a></li>
+										<li><a href="#">编码设置</a></li>
+										<li class="fly_end"><a href="#">业务流程定义</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">设备管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">设备台账管理</a>
+										<li><a href="#">设各档案管理</a></li>
+										<li><a href="#">设备活动管理</a></li>
+										<li><a href="#">设备状态管理</a></li>
+										<li><a href="#">设备所用备件管理</a></li>
+										<li><a href="#">计算设备维修成本及资产折旧</a></li>
+										<li><a href="#">设备的关联结构和层次体系</a></li>
+										<li><a href="#">设备保修服务合同管理</a></li>
+										<li><a href="#">设备故障体系结构</a></li>
+										<li><a href="#">设备评级管理</a></li>
+										<li><a href="#">设备查询</a></li>
+										<li class="fly_end"><a href="#">信息统计</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">工单管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">工单创建申请</a>
+										<li><a href="#">工单审核</a></li>
+										<li><a href="#">初始工单信息设置</a></li>
+										<li><a href="#">工单人力资源安排</a></li>
+										<li><a href="#">工单能力计划安排</a></li>
+										<li><a href="#">工单所需物品及工器具管理</a></li>
+										<li><a href="#">工单工作票挂接管理</a></li>
+										<li><a href="#">工单档案管理</a></li>
+										<li><a href="#">标准工单模板管理</a></li>
+										<li><a href="#">工单优先级管理</a></li>
+										<li><a href="#">多重工单的顺序管理</a></li>
+										<li><a href="#">工单外包服务合同管理</a></li>
+										<li><a href="#">大小修工单管理</a></li>
+										<li><a href="#">工单成本管理</a></li>
+										<li class="fly_end"><a href="#">工单关闭处理</a></li>
+								</ul></li>
+							<li><a href="#">存货管理</a></li>
+							<li><a href="#">采购管理</a></li>
+							<li class="fly"><a href="#">项目管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">项目基本信息</a>
+										<li><a href="#">项目结构建立</a></li>
+										<li><a href="#">项目过程控制和审核</a></li>
+										<li><a href="#">项目预算明细查询</a></li>
+										<li><a href="#">项目成本管理</a></li>
+										<li><a href="#">项目费用台账</a></li>
+										<li><a href="#">警戒线项目</a></li>
+										<li><a href="#">项目分析</a></li>
+										<li class="fly_end"><a href="#">项目进度管理</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">预防性维修（计划维修）</a>
+								<ul>
+									<li class="fly_top"><a href="#">预防性维护基础数据管理</a>
+										<li><a href="#">维护计划</a></li>
+										<li><a href="#">运行计划</a></li>
+										<li class="fly_end"><a href="#">计划监控及调整</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">绩效管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">设备管理的指标体系管理</a>
+										<li><a href="#"> 政策性指标</a></li>
+										<li><a href="#">专业管理指标</a></li>
+										<li><a href="#">设备综合性能指标分析</a></li>
+										<li class="fly_end"><a href="#">平衡积分卡管理</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">预算管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">计划</a>
+										<li><a href="#">执行</a></li>
+										<li><a href="#">监控</a></li>
+										<li class="fly_end"><a href="#">审批</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">设备点巡检</a>
+								<ul>
+									<li class="fly_top"><a href="#">点巡检计划管理</a>
+										<li><a href="#">点巡检计划下载</a></li>
+										<li><a href="#">点巡检数据采集</a></li>
+										<li><a href="#">点巡检数据上报</a></li>
+										<li class="fly_end"><a href="#">点巡检数据分析</a></li>
+								</ul></li>
+							<li><a href="#">日历管理</a></li>
+							<li class="fly"><a href="#">运行管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">工作票管理</a>
+										<li><a href="#">操作票管理</a></li>
+										<li><a href="#">运行日志</a></li>
+										<li><a href="#">定期切换与试验</a></li>
+										<li><a href="#">建立运行管理制度和运行规程标准库</a></li>
+										<li><a href="#">运行人员操作分析</a></li>
+										<li><a href="#">运行事故分析</a></li>
+										<li class="fly_end"><a href="#">非正常工况分析</a></li>
+								</ul></li>
+							<li class="fly"><a href="#">监督管理</a>
+								<ul>
+									<li class="fly_top"><a href="#">节能监督</a>
+										<li><a href="#">电压监督</a></li>
+										<li><a href="#">保护监督</a></li>
+										<li><a href="#">金属监督</a></li>
+										<li><a href="#">热工监督</a></li>
+										<li><a href="#">电测监督</a></li>
+										<li><a href="#">化学监督</a></li>
+										<li><a href="#">环保监督</a></li>
+										<li><a href="#">绝缘监督</a></li>
+										<li class="fly_end"><a href="#">生产所需大宗材料管理</a></li>
+								</ul></li>
+						</ul></li>
+					<li class="nav_arrow"><a href="#"><span>系统管理</span></a>
+						<ul>
+							<li><a href="#">组织机构管理</a></li>
+							<li><a href="#">角色与权限</a></li>
+							<li><a href="#">公共网址</a></li>
+							<li><a href="#">考勤设置</a></li>
+							<li><a href="#">印章管理</a></li>
+							<li><a href="#">界面设置</a></li>
+							<li><a href="#">菜单设置</a></li>
+							<li><a href="#">数据库管理</a></li>
+							<li><a href="#">系统日志</a></li>
+							<li><a href="#">系统资源</a></li>
+							<li><a href="#">系统访问</a></li>
+							<li><a href="#">系统安全</a></li>
+						</ul></li>
+					<li class="nav_arrow btn"><a class="btn_a"></a>
+						<ul>
+							<li><a href="javascript:change('点这里');">点这里</a></li>
+							<li class="fly"><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a>
+								<ul>
+									<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+									<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+									<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+									<li class="fly"><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a>
+										<ul>
+											<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+											<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+											<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+											<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+										</ul></li>
+									<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+								</ul></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+							<li><a href="#"><img src="img/icon_demo.gif" alt="" />新建选项</a></li>
+						</ul></li>
+				</ul>
+				<div id="nav_ico">
+					<span><a href="#"><img src="img/home.png" alt="" /></a></span> <span><a href="#"><img src="img/user.png" alt="" /></a></span> <span><a href="#"><img src="img/address_book.png" alt="" /><small>15</small></a></span> <span><a href="#"><img src="img/mail.png" alt="" /><small>12</small></a></span>
+					<div id="nicemenu">
+						<ul>
+							<li><span class="head_menu"><img src="img/document_music_playlist.png" class="arrow" /></span>
+								<div class="flick_menu">
+									<a href="index.html">Your Photos</a> <a href="index.html">Your Sets</a> <a href="index.html">Your Archives</a> <a href="index.html">Your Tags</a> <a href="index.html">Your Map</a> <a href="index.html">Your Favorites</a> <a href="index.html">Your Stats</a> <a href="index.html" class="item_line">Recent Activity</a> <a href="index.html">Comments
+										You've Made</a> <a href="index.html" class="item_line">Upload Photos</a> <a href="index.html" class="item_line">Your Account</a> <a href="index.html">Your Profile</a> <a href="index.html" class="item_line">FlickrMail</a>
+								</div></li>
+							<li><span class="head_menu"><img src="img/film.png" class="arrow" /></span>
+								<div class="flick_menu">
+									<a href="index.html">Your Photos</a> <a href="index.html">Your Sets</a> <a href="index.html">Your Archives</a> <a href="index.html">Your Tags</a> <a href="index.html">Your Map</a> <a href="index.html">Your Favorites</a> <a href="index.html">Your Stats</a> <a href="index.html" class="item_line">Recent Activity</a> <a href="index.html">Comments
+										You've Made</a> <a href="index.html" class="item_line">Upload Photos</a> <a href="index.html" class="item_line">Your Account</a> <a href="index.html">Your Profile</a> <a href="index.html" class="item_line">FlickrMail</a>
+								</div></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+  function dombind(){
+	   $(".ab_outer .list td input[type='checkbox']").css("margin-left",10);
+	   $(".ab_c .content").css("margin-bottom","0");
+	   $(".drop>ul>li").bind('mouseover',function() // 顶级菜单项的鼠标移入操作 
+	  {
+		  $(this).children('ul').delay(0).slideDown('fast');
+	  }).bind('mouseleave',function() // 顶级菜单项的鼠标移出操作 
+	  {
+		  $(this).children('ul').slideDown('fast').stop(true, true);
+		  $(this).children('ul').slideUp('fast');
+	  }); 
+	  $("#search_btn").click(
+		function () {
+		  $("#search").addClass("show");
+		  $("#s_select").css({ "display": "block"});
+	  });
+	  $(document).click(function(event){ 		
+			  var target = $(event.target);
+			  if (target.parents("#search").length == 0) {
+			  $("#search").removeClass("show");
+			  $("#s_select").css({ "display": "none"});
+			  }
+	  });
+	  $('.ab_c .content').parent().css('position','relative');
+		  $("#switch_box").toggle(
+			function () {
+			  $("#switch_box").addClass("off")
+			  $("#left").addClass("switch")
+			  $("#right").addClass("switch")
+			  $(".left_head").addClass("wid7px")
+			  $(".left_content").addClass("current")
+			  $("#left").css({ "width": "7px"})
+			},
+			function () {
+			  $("#switch_box").removeClass("off")
+			  $("#left").removeClass("switch")
+			  $("#right").removeClass("switch")
+			  $(".left_head").removeClass("wid7px")
+			  $(".left_content").removeClass("current")
+			  $("#left").css({ "width": "252px"})
+			}
+		  );
+
+		  $("#search_advanced").toggle(
+			function () {
+			  $("#c_head").addClass("advanced");
+			  if($("#search_advanced").attr('class') == "zh") $("#search_advanced").text("普通搜索")
+			  else $("#search_advanced").text("Basic Search")
+			},
+			function () {
+			  $("#c_head").removeClass("advanced");
+			  if($("#search_advanced").attr('class') == "zh") $("#search_advanced").text("高级搜索")
+			  else $("#search_advanced").text("Advanced Search")
+			}
+		  )
+		  $("#search_advanced").toggle(function () {
+			  $("#c_head").addClass("advanced");
+			  if($("#search_advanced").attr('class') == "zh") $("#search_advanced").text("普通搜索")
+			  else $("#search_advanced").text("Basic Search")
+			},function () {
+			  $("#c_head").removeClass("advanced");
+			  if($("#search_advanced").attr('class') == "zh") $("#search_advanced").text("高级搜索")
+			  else $("#search_advanced").text("Advanced Search")
+			})
+  }
+  function saveOrUpdate(){
+	  $("#aaaejee").load("aaeeff.htm",function(){
+		  asyncbox.html({
+			   title:"维度",
+			   content:document.getElementById("aaaejee"),
+			   width : 1040,
+			   height : 460,
+			   buttons : [{
+				  　　　　　value : '确定',
+				  　　　　　result : 'ok'
+				  　　　},{
+				  　　　　　value : '取消',
+				  　　　　　result : false
+				  　　　}],
+			   onload : function(){
+				   $("#aaaejee").html("");
+				   jQuery.getScript("js/jquery.tree.js");
+				   jQuery.getScript("js/date.js");
+				   jQuery.getScript("js/loadtree.js");
+					dombind();
+			   }
+		  });
+	  });
+  };
+  function showDataGrid(){
+	  $("#aaaejee").load("datagrid-window.htm",function(){
+		  asyncbox.html({
+			   title:"维度",
+			   content:document.getElementById("aaaejee"),
+			   width : 1040,
+			   height : 460,
+			   buttons : [{
+				  　　　　　value : '确定',
+				  　　　　　result : 'ok'
+				  　　　},{
+				  　　　　　value : '取消',
+				  　　　　　result : false
+				  　　　}],
+			   onload : function(){
+				   $("#aaaejee").html("");
+				   jQuery.getScript("js/jquery.tree.js");
+				   jQuery.getScript("js/date.js");
+				   jQuery.getScript("js/loadtree.js");
+					$('#testTreegrid').datagrid({
+						title:'My DataGrid',
+						iconCls:'icon-save',
+						width:"auto",
+						height:550,
+						nowrap: true,
+						autoRowHeight: false,
+						striped: true,
+						collapsible:true,
+						url:'json_tests/datagrid_data.json',
+						sortName: 'code',
+						sortOrder: 'desc',
+						remoteSort: false,
+						idField:'code',
+						frozenColumns:[[
+							{field:'ck',checkbox:true},
+							{title:'Code',field:'code',width:155,sortable:true}
+						]],
+						columns:[[
+							{title:'Base Information',colspan:3},
+							{field:'opt',title:'Operation',width:100,align:'center', rowspan:2,
+								formatter:function(value,rec){
+									return '<span style="color:red">Edit Delete</span>';
+								}
+							}
+						],[
+							{field:'name',title:'Name',width:120},
+							{field:'addr',title:'Address',width:220,rowspan:2,sortable:true,
+								sorter:function(a,b){
+									return (a>b?1:-1);
+								}
+							},
+							{field:'col4',title:'Col41',width:150,rowspan:2}
+						]],
+						pagination:true,
+						rownumbers:true,
+						toolbar:[{
+							id:'btnadd',
+							text:'Add',
+							iconCls:'icon-add',
+							handler:function(){
+								$('#btnsave').linkbutton('enable');
+								alert('add')
+							}
+						},{
+							id:'btncut',
+							text:'Cut',
+							iconCls:'icon-cut',
+							handler:function(){
+								$('#btnsave').linkbutton('enable');
+								alert('cut')
+							}
+						},'-',{
+							id:'btnsave',
+							text:'Save',
+							disabled:true,
+							iconCls:'icon-save',
+							handler:function(){
+								$('#btnsave').linkbutton('disable');
+								alert('save')
+							}
+						}]
+					});
+					var p = $('#test').datagrid('getPager');
+					$(p).pagination({
+						onBeforeRefresh:function(){
+							alert('before refresh');
+						}
+					});
+					dombind();
+			   }
+		  });
+	  });
+  };
+  function showTreeGrid(){
+	  $("#aaaejee").load("treegrid-window.htm",function(){
+		  asyncbox.html({
+			   title:"维度",
+			   content:document.getElementById("aaaejee"),
+			   width : 1040,
+			   height : 460,
+			   buttons : [{
+				  　　　　　value : '确定',
+				  　　　　　result : 'ok'
+				  　　　},{
+				  　　　　　value : '取消',
+				  　　　　　result : false
+				  　　　}],
+			   onload : function(){
+				   $("#aaaejee").html("");
+				   jQuery.getScript("js/jquery.tree.js");
+				   jQuery.getScript("js/date.js");
+				   jQuery.getScript("js/loadtree.js");
+				   jQuery.getScript("js/jquery.easyui.min.js");
+					dombind();
+			   }
+		  });
+	  });
+  };
+  function openPop(){
+	 asyncbox.open({
+	　　　url : 'gridPop.htm',
+	　　　width : 1000,
+	　　　height : 600
+	　});
+ 
+  }
+</script>
+	<!-- head -->
+	<div class="sub_menu">
+		<h2>
+			<i> <a href="#"><img src="img/icon_14.gif" alt="" />打印</a> <a href="#" id="help"><img src="img/icon_15.gif" alt="" />帮助</a>
+			</i>
+			<div id="breadCrumb" class="breadCrumb module">
+				<ul>
+					<li><a href="#"><img src="img/btn_01.gif" alt="" />供应链</a></li>
+					<li><a href="#">Biocompare Home</a></li>
+					<li><a href="#">中文面包屑</a></li>
+					<li><a href="#">Life Science Products / Laboratory Supplies</a></li>
+					<li><a href="#">Kits and Assays</a></li>
+					<li><a href="#">Mutagenesis Kits</a></li>
+					<li>Mutation Generation System&trade; Kit (MGS&trade; Kit) from Finnzymes Oy. Ok, let's get ridiculously long here, we all know it happens.</li>
+				</ul>
+			</div>
+		</h2>
+	</div>
+	<!-- sub menu -->
+	<div class="content" id="contentDiv"></div>
+	<!-- content -->
+
+	<script>	
+ 	
+	var report = new Rreport({
+		contentDiv:'contentDiv',
+		isEdit:true,
+		saveFun:function(data){
+			document.write(data);
+		}
+	});
+	
+	report.loadData({"viewType":"w","width":1000,"height":1000,"link":{"link1":{"id":"link1","from":"node1","to":[{"targetId":"node2","condition":""}],"length":50},"link2":{"id":"link2","from":"node2","to":[{"targetId":"node3","condition":""}],"length":50},"link3":{"id":"link3","from":"node3","to":[{"targetId":"node4","condition":""}],"length":50}},"node":{"node1":{"x":34,"icon":"start.png","type":"start","y":150,"text":"标题","id":"node1","value":"quartz://report?cron=*/5 * * * * ?&stateful=true","param":"","ext":""},"node2":{"x":180,"y":172,"type":"delay","icon":"timer.png","text":"标题","id":"node2","value":"1000","param":"","ext":""},"node3":{"x":347,"y":180,"type":"process","icon":"human.png","text":"标题","id":"node3","value":"com.e6soft.test.p.AProcesser","param":"","ext":""},"node4":{"x":493,"y":176,"type":"process","icon":"email.png","text":"标题","id":"node4","value":"com.e6soft.test.p.BProcesser","param":"","ext":""}}});
+	
+ </script>
+
+
+	<!-- dialog -->
+	<div id="Notification"></div>
+	<script src="js/menu.js" type="text/javascript"></script>
+	<div id="helpContent" title="Viewing and using brush files">
+		<p>&nbsp;&nbsp;You can view brush files in the Browser just like fonts or other files. This means that you can assign ratings or organize them just like any other file in ACDSee. Because many .abr files are actually groups of images in one file, you need to open them in the Viewer to see the individual images.</p>
+		<p>
+			<img src="img/address_book.png">This icon indicates an .abr brush file in ACDSee. 
+		</p>
+		<p>
+			<strong>To view brush files:</strong>
+		</p>
+		<p>&nbsp;&nbsp;1. In the Browser, navigate to the folder containing your brush files.</p>
+		<p>&nbsp;&nbsp;2. To see just the top image in any .abr file, hover over the thumbnail to activate the pop-up, or click on it to see that image in the Preview pane.</p>
+		<p>&nbsp;&nbsp;3. To view the other images in the .abr file, double-click on it to open it in the Viewer.</p>
+		<p>&nbsp;&nbsp;The file opens in the Viewer showing the individual images in a pane on the left-hand side.</p>
+		<p>&nbsp;&nbsp;4. To see the number of images, and select them by number, click the down-arrow at the top of the sidebar, and then select the number of the image.</p>
+		<p>&nbsp;&nbsp;5. To scroll through the images, click the right and left arrows at the top of the sidebar, or on each image.</p>
+		<p>
+			<strong>To use brush files in Adobe Photoshop:</strong>
+		</p>
+		<p>&nbsp;&nbsp;With both Adobe Photoshop and ACDSee open, drag the file from the File List (in the Browser) onto the Photoshop window.</p>
+		<p>&nbsp;&nbsp;Even though nothing appears to happen, the brush is loaded into the Photoshop brush library. To view the new brushes, open the library and scroll to the bottom of the pane.</p>
+		<p class="helpTd">To make it even easier to use brushes in Photo Shop, you can configure it to be your default editor. Then you can use Ctrl +E to open Photoshop and use the brush right away.</p>
+	</div>
+	<div id="addtodo">
+		<form onsubmit="$('#addtodoid').hide();return false;" method="POST" class="formParam">
+			<div id="addtodoid" class="txtSmall qcdiv w320">
+				<div class="zt">
+					<img border="0" class="zprarrow" src="img/spacer.gif">
+				</div>
+				<table width="100%" class="qulbl">
+					<tbody>
+						<tr>
+							<td valign="top" class="pL10 pb1"><div class="fl pt5 requiredField">型号</div></td>
+						</tr>
+						<tr>
+							<td class="pL10 pb5"><div class="labelbox clearfix">
+									<label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td valign="top" class="pL10 pb1"><div class="fl pt5 requiredField">型号</div></td>
+						</tr>
+						<tr>
+							<td class="pL10 pb5"><div class="labelbox clearfix">
+									<label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td valign="top" class="pL10 pb1"><div class="fl pt5 requiredField">型号</div></td>
+						</tr>
+						<tr>
+							<td class="pL10 pb5"><div class="labelbox clearfix">
+									<label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label> <label> <input name="" type="checkbox" value="" /> 型号1
+									</label>
+								</div></td>
+						</tr>
+						<tr>
+							<td valign="top" class="pL10 pt10 pb1">输入数量</td>
+						</tr>
+						<tr>
+							<td valign="top" class="pL10 pt10 pb1"><div>
+									<div id="xhnum"></div>
+								</div></td>
+						</tr>
+						<tr>
+							<td valign="top" class="pL10 pt10 pb1"><ul id="numBtn" class="btnlist clearfix list6">
+									<li><a href="javascript:;" data-rel="1">1</a></li>
+									<li><a href="javascript:;" data-rel="2">2</a></li>
+									<li><a href="javascript:;" data-rel="3">3</a></li>
+									<li><a href="javascript:;" data-rel="4">4</a></li>
+									<li><a href="javascript:;" data-rel="5">5</a></li>
+									<li><a href="javascript:;" data-rel="6">6</a></li>
+									<li><a href="javascript:;" data-rel="7">7</a></li>
+									<li><a href="javascript:;" data-rel="8">8</a></li>
+									<li><a href="javascript:;" data-rel="9">9</a></li>
+									<li><a href="javascript:;" data-rel="0">0</a></li>
+									<li><a href="javascript:;" data-rel=".">.</a></li>
+									<li><a href="javascript:;" data-rel="-">←</a></li>
+								</ul></td>
+						</tr>
+						<tr>
+							<td valign="top" class="pL10 pt10 pb1 tc"><input type="submit" class="btn" value="添加" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	</div>
+	<div id="addtodo2">
+		<div id="addtodoid2" class="txtSmall qcdiv w320">
+			<div class="zt">
+				<img border="0" class="zprarrow" src="img/spacer.gif">
+			</div>
+			<table width="100%" class="qulbl">
+				<tbody>
+					<tr>
+						<td valign="top" class="pL10 pb1"><div class="fl pt5 requiredField">索引</div></td>
+					</tr>
+					<tr>
+						<td valign="top" class="pL10 pt10 pb1"><ul id="enBtnList" class="btnlist list6 clearfix">
+								<li><a href="javascript:;" data-rel="A">A</a></li>
+								<li><a href="javascript:;" data-rel="B">B</a></li>
+								<li><a href="javascript:;" data-rel="C">C</a></li>
+								<li><a href="javascript:;" data-rel="D">D</a></li>
+								<li><a href="javascript:;" data-rel="E">E</a></li>
+								<li><a href="javascript:;" data-rel="F">F</a></li>
+								<li><a href="javascript:;" data-rel="G">G</a></li>
+								<li><a href="javascript:;" data-rel="H">H</a></li>
+								<li><a href="javascript:;" data-rel="I">I</a></li>
+								<li><a href="javascript:;" data-rel="J">J</a></li>
+								<li><a href="javascript:;" data-rel="K">K</a></li>
+								<li><a href="javascript:;" data-rel="L">L</a></li>
+								<li><a href="javascript:;" data-rel="M">M</a></li>
+								<li><a href="javascript:;" data-rel="N">N</a></li>
+								<li><a href="javascript:;" data-rel="O">O</a></li>
+								<li><a href="javascript:;" data-rel="P">P</a></li>
+								<li><a href="javascript:;" data-rel="Q">Q</a></li>
+								<li><a href="javascript:;" data-rel="R">R</a></li>
+								<li><a href="javascript:;" data-rel="S">S</a></li>
+								<li><a href="javascript:;" data-rel="T">T</a></li>
+								<li><a href="javascript:;" data-rel="U">U</a></li>
+								<li><a href="javascript:;" data-rel="V">V</a></li>
+								<li><a href="javascript:;" data-rel="W">W</a></li>
+								<li><a href="javascript:;" data-rel="X">X</a></li>
+								<li><a href="javascript:;" data-rel="Y">Y</a></li>
+								<li><a href="javascript:;" data-rel="Z">Z</a></li>
+							</ul></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script>
+$(function(){
+	/*$.fn.fix = function(options){
+		var defaults = {
+			'advance' : 0,
+			'top' : 0
+		}
+		options = $.extend(defaults, options);
+		return this.each(function(){
+			var $_this = $(this);
+			$_this.wrap('<div></div>');
+			var wp = $_this.parent('div');
+			wp.height(wp.height());
+			var ofst = wp.offset();
+			
+			if(!$_this.is(':visible') && $(window).scrollTop() + options.advance > $_this.offset().top){
+				$_this.css({'position':'fixed','z-index':9999,'top': options.top,'width':$_this.width()});
+			}
+			$(window).scroll(function(){
+				if(!$_this.is(':visible')){
+					return ;
+				}
+				
+				if($(window).scrollTop() + options.advance > wp.offset().top){
+					$_this.css({'position':'fixed','z-index':9999,'top': options.top,'width':$_this.width()});
+				}else{
+					$_this.css({'position':'static','z-index':'auto','top': 'auto','width':'auto'});
+				}
+			});
+		});
+	}
+	$('#a1 .right_btn,#a3 .right_btn').fix({'advance':68,'top':68});
+	$('#a5 .right_btn').fix({'advance':73,'top':73});*/
+	
+	$('.adddom').click(function(){
+		$('#addtodo').css({'left':$(this).offset().left-320});
+		if($('body').height() - $(this).offset().top+26 > $('#addtodo').height()){
+			$('#addtodo').css('top',$(this).offset().top-56);
+			$('#addtodo .zt').css('top',50);
+		}else{
+			$('#addtodo').css('top',$(this).offset().top-$('#addtodo').height()+56);
+			$('#addtodo .zt').css('top',$('#addtodo').height()-62);
+		}
+		$('#addtodoid').show();
+	});
+	$('#sybtn').click(function(){
+		$('#addtodo2').css({'left':$(this).offset().left-320,'top':$(this).offset().top-50});
+		$('#addtodoid2').show();
+	});
+	$(document).click(function(e){
+		var $_this = $(e.target);
+		if(!($_this.hasClass('adddom') || $_this.is('#addtodo') || $_this.parents('#addtodo').length > 0)){
+			$('#addtodoid').hide();
+		}
+		if(!($_this.attr('id') == 'sybtn' || $_this.is('#addtodo2') || $_this.parents('#addtodo2').length > 0)){
+			$('#addtodoid2').hide();
+		}
+	});
+	
+	$('#numBtn a').click(function(){
+		if($(this).attr('data-rel') != '-'){
+			if($('#xhnum').text().indexOf('.') != -1 && ($(this).attr('data-rel') == '.' || $('#xhnum').text().slice($('#xhnum').text().indexOf('.')).length > 2)){
+				return false;
+			}
+			$('#xhnum').text($('#xhnum').text()+$(this).attr('data-rel'));
+		}else{
+			$('#xhnum').text($('#xhnum').text().slice(0,$('#xhnum').text().length-1));
+		}
+		$('#xhnum').scrollLeft(999999);
+	});
+	
+	$('#enBtnList a').click(function(){
+		console.log($('#sylist ul li').index($('#sylist ul li[data-rel='+$(this).attr('data-rel')+']')));
+		$('#sylist').scrollTop($('#sylist ul li').index($('#sylist ul li[data-rel='+$(this).attr('data-rel')+']'))*20+28);
+	});
+	
+	tabs('#a4 .commont_tab li','#a4 .commont_ct','current');
+	
+	$('.commont_list_more a').click(function(){
+		$('#allCommont').css('height','auto');
+	});
+	$("#show-hide-common").click(function(){
+		$("#addGoods").toggleClass('commont-hide');
+		$(this).toggleClass('off');
+	});
+});
+function tabs(title,content,style){
+	$(title).click(function(){
+		$(title).removeClass(style);
+		$(this).addClass(style);
+		$(content).hide();
+		$(content+':eq('+$(title).index($(this))+')').show();
+	});
+}
+window.onload = function(){
+	$(window).scroll(function(){
+		if($('#orderTieleFixd').parent('dl').offset().top - 43 < $(window).scrollTop()){
+			if(!$('#orderTieleFixd').hasClass('fixed')){
+				$('#orderTieleFixd').addClass('fixed');
+				$('#orderTieleFixd').parent('dl').css('padding-top',30);
+			}
+		}else{
+			$('#orderTieleFixd').removeClass('fixed');
+			$('#orderTieleFixd').parent('dl').css('padding-top',0);
+		}
+	});
+}
+</script>
+</body>
+</html>

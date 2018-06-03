@@ -1,0 +1,118 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="common.model.config" namespace="/common/model" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+		
+		<!-- 公告通知 -->
+		<action name="bulletinAction!*" method="{1}" class="bulletinAction">
+			<result name="goList">/WEB-INF/content/common_model/bulletin/bulletin_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/bulletin/bulletin_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/bulletin/bulletin_update.jsp</result>
+		</action>
+		
+		<!-- 新闻 -->
+		<action name="newsAction!*" method="{1}" class="newsAction">
+			<result name="goList">/WEB-INF/content/common_model/share/news/news_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/news/news_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/news/news_update.jsp</result>
+		</action>
+		
+		<!-- 邮件 -->
+		<action name="mailInfoAction!*" method="{1}" class="mailInfoAction">
+			<result name="goList">/WEB-INF/content/common_model/share/mail/mail_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/mail/mail_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/mail/mail_update.jsp</result>
+		</action>
+		
+		<!-- 附件 -->
+		<action name="fileAction!*" method="{1}" class="fileAction">
+			<result name="fileList">/WEB-INF/content/common_model/share/file/file_list.jsp</result>
+		</action>
+		
+		<!-- 代办任务 -->
+		<action name="jobTodoAction!*" method="{1}" class="jobTodoAction">
+			<result name="goList">/WEB-INF/content/common_model/job/jobTodo_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/job/jobTodo_list_content.jsp</result>
+			<result name="goBillAudit">/WEB-INF/content/common_model/job/billAudit.jsp</result>
+			<result name="goAudit">/WEB-INF/content/common_model/job/jobTodo_update.jsp</result>
+		</action>
+		
+		
+		<!-- 元数据分类 -->
+		<action name="baseMetaDataCategoryAction!*" method="{1}" class="baseMetaDataCategoryAction">
+			<result name="goList">/WEB-INF/content/common_model/meta/metaDataCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/meta/metaDataCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaDataCategory_update.jsp</result>
+		</action>
+		<!-- 元数据 -->
+		<action name="baseMetaDataAction!*" method="{1}" class="baseMetaDataAction">
+			<result name="goList">/WEB-INF/content/common_model/meta/metaData_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/meta/metaData_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update.jsp</result>
+		</action>
+		<!-- 元数据的基本属性 -->
+		<action name="baseMetaDataDefineAction!*" method="{1}" class="baseMetaDataDefineAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update_define.jsp</result>
+			<!-- <result name="goList">/WEB-INF/content/common_model/meta/metaData_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/meta/metaData_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update.jsp</result> -->
+		</action>
+		<!-- 元数据的扩展属性 -->
+		<action name="baseMetaDataExtAction!*" method="{1}" class="baseMetaDataExtAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update_ext.jsp</result>
+			<!-- <result name="goList">/WEB-INF/content/common_model/meta/metaData_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/meta/metaData_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update.jsp</result> -->
+		</action>
+		
+		
+		<!-- 平台的原数据资源 -->
+		<!-- 元数据分类 -->
+		<action name="orginialBaseMetaDataCategoryAction!*" method="{1}" class="orginialBaseMetaDataCategoryAction">
+			<result name="goList">/WEB-INF/content/common_model/orginialMeta/orginialMetaDataCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/orginialMeta/orginialMetaDataCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orginialMeta/orginialMetaDataCategory_update.jsp</result>
+		</action>
+		<!-- 元数据 -->
+		<action name="orginialBaseMetaDataAction!*" method="{1}" class="orginialBaseMetaDataAction">
+			<result name="goList">/WEB-INF/content/common_model/orginialMeta/orginialMetaData_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/orginialMeta/orginialMetaData_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orginialMeta/orginialMetaData_update.jsp</result>
+		</action>
+		<!-- 元数据的基本属性 -->
+		<action name="orginialBaseMetaDataDefineAction!*" method="{1}" class="orginialBaseMetaDataDefineAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orginialMeta/orginialMetaData_update_define.jsp</result>
+			<!-- <result name="goList">/WEB-INF/content/common_model/meta/metaData_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/meta/metaData_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update.jsp</result> -->
+		</action>
+		<!-- 元数据的扩展属性 -->
+		<action name="orginialBaseMetaDataExtAction!*" method="{1}" class="orginialBaseMetaDataExtAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orginialMeta/orginialMetaData_update_ext.jsp</result>
+			<!-- <result name="goList">/WEB-INF/content/common_model/meta/metaData_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/meta/metaData_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/meta/metaData_update.jsp</result> -->
+		</action>
+		<!-- 平台的原数据资源END -->
+		
+		<!-- 系统常量管理 -->
+		<action name="orginialVarAction!*" method="{1}" class="orginialVarAction">
+			<result name="goList">/WEB-INF/content/common_model/orginialMeta/var/orginialVar_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/orginialMeta/var/orginialVar_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orginialMeta/var/orginialVar_update.jsp</result>
+		</action>
+		
+		<!-- 单据分类
+		<action name="orginialBillsCategoryAction!*" method="{1}" class="orginialBillsCategoryAction">
+			<result name="goList">/WEB-INF/content/common_model/orginialMeta/billsCategory/orginialBillsCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/orginialMeta/billsCategory/orginialBillsCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orginialMeta/billsCategory/orginialBillsCategory_update.jsp</result>
+		</action>
+		 -->
+	</package>
+</struts>

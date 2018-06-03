@@ -1,0 +1,34 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.customer.base" namespace="/nvixnt/customer/base" extends="crud-default">
+		<!-- 客户 -->
+		<action name="nvixCustomerAction!*" method="{1}" class="nvixCustomerAction">
+			<result name="goList">/WEB-INF/vixnt/customer/customer/customer.jsp</result>
+			<result name="enterPrise">/WEB-INF/vixnt/customer/customer/customer_update.jsp</result>
+			<result name="internal">/WEB-INF/vixnt/customer/customer/customer_update.jsp</result>
+			<result name="personal">/WEB-INF/vixnt/customer/customer/customer_update.jsp</result>
+			<result name="goChooseCustomerAccount">/WEB-INF/vixnt/customer/customer/chooseCustomerAccount.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- CRM字典管理 -->
+		<action name="nvixCrmDictionaryAction!*" method="{1}" class="nvixCrmDictionaryAction">
+			<result name="dictionaryEdit">/WEB-INF/vixnt/customer/base/dictionaryEdit.jsp</result>
+		</action>
+		<!-- 联系人 -->
+		<action name="nvixContactPersonAction!*" method="{1}" class="nvixContactPersonAction">
+			<result name="goList">/WEB-INF/vixnt/customer/contactPerson/contactPerson.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/contactPerson/contactPerson_update.jsp</result>
+			<result name="loadContactPersonOption">/WEB-INF/vixnt/customer/contactPerson/loadContactPersonOption.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 机会与跟踪 -->
+		<action name="nvixChanceAndTrackingAction!*" method="{1}" class="nvixChanceAndTrackingAction">
+			<result name="goList">/WEB-INF/vixnt/customer/chanceAndTracking/chanceAndTracking.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/chanceAndTracking/chanceAndTracking_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+	</package>
+</struts>

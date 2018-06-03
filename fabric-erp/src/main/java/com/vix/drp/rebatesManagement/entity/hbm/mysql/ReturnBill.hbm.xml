@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.drp.rebatesManagement.entity.ReturnBill" table="DRP_RETURNBILL">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!--自身属性 -->
+		<property name="rbCode" type="java.lang.String" column="rbCode" length="50" />
+		<property name="rbTitle" type="java.lang.String" column="rbTitle" length="50" />
+		<property name="itemCode" type="java.lang.String" column="itemCode" length="50" />
+		<property name="itemName" type="java.lang.String" column="itemName" length="50" />
+		<property name="returnAmount" type="java.lang.Double" column="returnAmount" length="50" />
+		<property name="currency" type="java.lang.String" column="currency" length="50" />
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" length="50" />
+		<property name="rbDate" type="java.util.Date" column="rbDate" />
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<many-to-one name="currencyType" class="com.vix.common.share.entity.CurrencyType">
+			<column name="currencyType_ID">
+				<comment>币种id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="customerAccount" class="com.vix.mdm.crm.entity.CustomerAccount">
+			<column name="CUSTOMERACCOUNT_ID">
+				<comment>客户id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="refundRule" class="com.vix.drp.refundRule.entity.RefundRule">
+			<column name="REFUNDRULE_ID">
+				<comment>规则id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

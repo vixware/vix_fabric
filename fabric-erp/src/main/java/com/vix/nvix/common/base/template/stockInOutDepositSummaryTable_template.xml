@@ -1,0 +1,7 @@
+<xls>
+	<area ref="stockInOutDepositSummaryVo!A1:N2">
+		<each items="stockInOutDepositSummaryVoList" var="stockInOutDepositSummaryVo" ref="stockInOutDepositSummaryVo!A2:N2">
+			<area ref="stockInOutDepositSummaryVo!A2:N2" />
+		</each>
+	</area>
+</xls>

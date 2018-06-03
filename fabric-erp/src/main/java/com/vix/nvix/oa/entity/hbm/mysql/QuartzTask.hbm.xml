@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.oa.entity.QuartzTask" table="SYSTEM_QUARTZTASK">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		
+		<property name="code" type="java.lang.String" column="CODE" length="100"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="enable" type="java.lang.String" column="ENABLE_" length="10"/>
+		<property name="taskClass" type="java.lang.String" column="TASKCLASS" length="200"/>
+		<property name="orderBy" type="java.lang.Long" column="ORDERBY"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="300"/>
+		<set name="scheduleJobs" inverse="true">
+			<key column="quartzTask_id"/>
+			<one-to-many class="com.vix.nvix.oa.entity.ScheduleJob"/>
+		</set>
+	</class>
+</hibernate-mapping>

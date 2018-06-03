@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.org.entity.OrganizationUnit" table="MDM_ORG_ORGANIZATIONUNIT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+
+		<property name="code" type="java.lang.String" column="CODE" length="64" />
+
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128" />
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" update="false" />
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false" />
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false" />
+
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128" />
+
+
+		<property name="isSystem" type="java.lang.Integer" column="IsSystem" />
+		<property name="orgCode" type="java.lang.String" column="OrgCode" length="64" />
+		<property name="fs" type="java.lang.String" column="Fs" length="128" />
+		<property name="unitType" type="java.lang.String" column="UnitType" length="32" />
+		<property name="bizUnitType" type="java.lang.String" column="BizUnitType" length="32" />
+		<property name="fullName" type="java.lang.String" column="FullName" length="512" />
+		<property name="description" type="java.lang.String" column="Description" length="512" />
+		<property name="startUsingDate" type="java.util.Date" column="STARTTIME" />
+		<property name="stopUsingDate" type="java.util.Date" column="ENDTIME" />
+
+		<property name="createUser" type="java.lang.String" column="CreateUser" length="32" />
+		<property name="isAdminOrg" type="java.lang.String" column="IsAdminOrg" length="2" />
+		<property name="isHrOrg" type="java.lang.String" column="IsHrOrg" length="2" />
+		<property name="isSellOrg" type="java.lang.String" column="IsSellOrg" length="2" />
+		<property name="isAdmin" type="java.lang.String" column="IsAdmin" length="2" />
+		<property name="isPurchaseOrg" type="java.lang.String" column="IsPurchaseOrg" length="2" />
+		<property name="isResponCenter" type="java.lang.String" column="IsResponCenter" length="2" />
+		<property name="memo" type="java.lang.String" column="Memo" length="1024" />
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" />
+
+		<property name="isRoot" type="java.lang.Integer" column="isRoot" />
+		<property name="parentId" type="java.lang.String" column="parentId" />
+		<property name="syncId" type="java.lang.Long" column="syncId" />
+		<property name="sortOrder" type="java.lang.Integer" column="sortOrder" />
+
+		<many-to-one name="parentOrganizationUnit" not-null="false">
+			<column name="Parent_id">
+				<comment>父部门ID</comment>
+			</column>
+		</many-to-one>
+		<set name="subOrganizationUnits" inverse="true">
+			<key column="Parent_id" />
+			<one-to-many class="com.vix.common.org.entity.OrganizationUnit" />
+		</set>
+
+		<many-to-one name="organization" class="com.vix.common.org.entity.Organization">
+			<column name="Organization_ID">
+				<comment>公司id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="organizationUnitType" class="com.vix.nvix.common.base.entity.OrganizationUnitType">
+			<column name="organizationUnitType_ID">
+				<comment>部门类型id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="channelDistributor" class="com.vix.drp.channel.entity.ChannelDistributor">
+			<column name="CHANNELDISTRIBUTOR_ID">
+				<comment>经销商id</comment>
+			</column>
+		</many-to-one>
+
+		<set name="orgPositions" inverse="true">
+			<key column="OrganizationUnit_ID" />
+			<one-to-many class="com.vix.common.org.entity.OrgPosition" />
+		</set>
+
+		<!-- 业务组织 <set name="businessOrgs" inverse="true" fetch="join"> <key> <column name="OrganizationUnit_ID" not-null="true"> <comment>部门id</comment> </column> </key> <one-to-many class="com.vix.common.org.entity.BusinessOrg"/> </set> -->
+
+		<!-- 业务组织明细 -->
+		<set name="businessOrgDetails" inverse="true">
+			<key column="OrganizationUnit_ID" />
+			<one-to-many class="com.vix.common.org.entity.BusinessOrgDetail" />
+		</set>
+
+
+
+		<!-- 分销 -->
+		<set name="channelDistributors" inverse="true">
+			<key column="OrganizationUnit_ID" />
+			<one-to-many class="com.vix.drp.channel.entity.ChannelDistributor" />
+		</set>
+
+		<many-to-one name="manager" class="com.vix.hr.organization.entity.Employee" lazy="false" fetch="join" not-null="false">
+			<column name="Manager_ID">
+				<comment>负责职员id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

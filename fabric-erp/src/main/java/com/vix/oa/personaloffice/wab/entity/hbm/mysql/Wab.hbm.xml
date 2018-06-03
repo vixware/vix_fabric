@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.personaloffice.wab.entity.Wab" table="OA_WAB">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		
+		<property name="company" type="java.lang.String" column="COMPANY" length="150" />
+		<property name="position" type="java.lang.String" column="POSITION" length="150" />
+		<property name="wabtype" type="java.lang.String" column="WABTYPE" length="150" />
+		
+		
+		<property name="mobileno" type="java.lang.String" column="MOBILENO" length="150" />
+		<property name="mobileno1" type="java.lang.String" column="MOBILENO1" length="150" />
+		<property name="mobileno2" type="java.lang.String" column="MOBILENO2" length="150" />
+		<property name="mobileno3" type="java.lang.String" column="MOBILENO3" length="150" />
+		<property name="mobileno4" type="java.lang.String" column="MOBILENO4" length="150" />
+		<property name="mobileno5" type="java.lang.String" column="MOBILENO5" length="150" />
+		<property name="calls" type="java.lang.String" column="CALLS" length="150" />
+		<property name="calls1" type="java.lang.String" column="CALLS1" length="150" />
+		<property name="calls2" type="java.lang.String" column="CALLS2" length="150" />
+		<property name="calls3" type="java.lang.String" column="CALLS3" length="150" />
+		<property name="calls4" type="java.lang.String" column="CALLS4" length="150" />
+		<property name="calls5" type="java.lang.String" column="CALLS5" length="150" />
+		<property name="email" type="java.lang.String" column="EMAIL" length="150" />
+		<property name="email1" type="java.lang.String" column="EMAIL1" length="150" />
+		<property name="email2" type="java.lang.String" column="EMAIL2" length="150" />
+		<property name="email3" type="java.lang.String" column="EMAIL3" length="150" />
+		<property name="email4" type="java.lang.String" column="EMAIL4" length="150" />
+		<property name="email5" type="java.lang.String" column="EMAIL5" length="150" />
+		<property name="qq" type="java.lang.String" column="QQ" length="150" />
+		<property name="qq1" type="java.lang.String" column="QQ1" length="150" />
+		<property name="qq2" type="java.lang.String" column="QQ2" length="150" />
+		<property name="qq3" type="java.lang.String" column="QQ3" length="150" />
+		<property name="qq4" type="java.lang.String" column="QQ4" length="150" />
+		<property name="qq5" type="java.lang.String" column="QQ5" length="150" />
+		<property name="custom" type="java.lang.String" column="custom" length="150" />
+		<property name="custom1" type="java.lang.String" column="custom1" length="150" />
+		<property name="custom2" type="java.lang.String" column="custom2" length="150" />
+		<property name="custom3" type="java.lang.String" column="custom3" length="150" />
+		<property name="custom4" type="java.lang.String" column="custom4" length="150" />
+		<property name="custom5" type="java.lang.String" column="custom5" length="150" />
+		<property name="custom6" type="java.lang.String" column="custom6" length="150" />
+		<property name="custom7" type="java.lang.String" column="custom7" length="150" />
+		<property name="custom8" type="java.lang.String" column="custom8" length="150" />
+		<property name="custom9" type="java.lang.String" column="custom9" length="150" />
+		 <property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+        <property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="pubType" type="java.lang.String" column="PUBTYPE" length="150" />
+		<property name="pubIds" type="java.lang.String" column="PUBIDS" length="150" />
+		<property name="pictureurl" type="java.lang.String" column="pictureurl" length="150" />
+		<property name="statuss" type="java.lang.String" column="STATUSS" length="50" />
+
+        <many-to-one name="parentCategory" column="parent_id" />
+        <many-to-one name="employee" column="Employee_id" />
+		<set name="subCategorys" inverse="true">
+			<key column="parent_id" />
+			<one-to-many class="com.vix.oa.personaloffice.wab.entity.Wab" />
+		</set>
+		
+		<set name="phoneNumber" inverse="true">
+			<key>
+				<column name="wab_id" />
+			</key>
+			<one-to-many
+				class="com.vix.oa.personaloffice.wab.entity.PhoneNumber" />
+		</set>
+		
+		<set name="subWxpQyPictures" inverse="true">
+			<key>
+				<column name="wab_id" />
+			</key>
+			<one-to-many class="com.vix.wechat.base.entity.WxpQyPicture" />
+		</set>
+	</class>
+</hibernate-mapping>

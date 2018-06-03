@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.forecast.config" namespace="/sales/forecast" extends="crud-default">
+		<!-- 销售预测 -->
+		<action name="forecastAction!*" method="{1}" class="forecastAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/forecast_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/forecast_list_content.jsp</result>
+		</action>
+		<!-- 销售预测对比 -->
+		<action name="forecastContrastAction!*" method="{1}" class="forecastContrastAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/forecastContrast_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/forecastContrast_list_content.jsp</result>
+		</action>
+		<!-- 销售预测历史 -->
+		<action name="forecastHistoryAction!*" method="{1}" class="forecastHistoryAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/forecastHistory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/forecastHistory_list_content.jsp</result>
+		</action>
+		<!-- 预测模型 -->
+		<action name="forecastModelAction!*" method="{1}" class="forecastModelAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/forecastModel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/forecastModel_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/forecast/updateForecastModel.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- ATP模拟方案定义 -->
+		<action name="simulationSchemeAction!*" method="{1}" class="simulationSchemeAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/simulationScheme_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/simulationScheme_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/forecast/simulationScheme_update.jsp</result>
+		</action>
+		<!-- ATP模拟预算 -->
+		<action name="simulationBudgetsAction!*" method="{1}" class="simulationBudgetsAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/simulationBudgets_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/simulationBudgets_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/forecast/simulationBudgets_update.jsp</result>
+		</action>
+		<!-- 模拟报价方案 -->
+		<action name="biddingSchemeAction!*" method="{1}" class="biddingSchemeAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/biddingScheme_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/biddingScheme_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/forecast/biddingScheme_update.jsp</result>
+		</action>
+		<!-- 模拟报价预算 -->
+		<action name="quotationBudgetAction!*" method="{1}" class="quotationBudgetAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/quotationBudget_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/quotationBudget_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/forecast/quotationBudget_update.jsp</result>
+		</action>
+		<!-- 例外信息 -->
+		<action name="exceptionInformationAction!*" method="{1}" class="exceptionInformationAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/exceptionInformation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/exceptionInformation_list_content.jsp</result>
+		</action>
+		<!-- 报价列表 -->
+		<action name="quotationAction!*" method="{1}" class="quotationAction">
+			<result name="goList">/WEB-INF/content/sales/forecast/quotation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/forecast/quotation_list_content.jsp</result>
+		</action>
+	</package>
+</struts>

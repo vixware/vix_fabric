@@ -1,0 +1,26 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.common.config" namespace="/sales/common" extends="crud-default">
+		<!-- 销售人员类别-->
+		<action name="salePersonCategoryAction!*" method="{1}" class="salePersonCategoryAction">
+			<result name="goList">/WEB-INF/content/sales/common/salePersonCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/common/salePersonCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/common/updateSalePersonCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="salesAction!*" method="{1}" class="salesAction">
+			<result name="goList">/WEB-INF/content/sales/common/salesBusinessType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/common/salesBusinessType_list_content.jsp</result>
+			<result name="dictionaryEdit">/WEB-INF/content/sales/common/dictionaryEdit.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goBillTypeList">/WEB-INF/content/sales/common/salesBillType_list.jsp</result>
+			<result name="goBillTypeListContent">/WEB-INF/content/sales/common/salesBillType_list_content.jsp</result>
+			<result name="goReturnGoodsList">/WEB-INF/content/sales/common/returnGoodsType_list.jsp</result>
+			<result name="returnGoodsTypeListContent">/WEB-INF/content/sales/common/returnGoodsType_list_content.jsp</result>
+			<result name="goSalesPerformanceEvaluationMethodList">/WEB-INF/content/sales/common/salesPerformanceEvaluationMethod_list.jsp</result>
+			<result name="salesPerformanceEvaluationMethodListContent">/WEB-INF/content/sales/common/salesPerformanceEvaluationMethod_list_content.jsp</result>
+		</action>
+	</package>
+</struts>

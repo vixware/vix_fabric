@@ -1,0 +1,162 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.mdm" namespace="/nvixnt/mdm" extends="crud-default">
+		<!-- 快速新增物料 -->
+		<action name="nvixntItemAction!*" method="{1}" class="nvixntItemAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/item/industryItem_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/item/item_update.jsp</result>
+			<result name="goSaveOrUpdateImage">/WEB-INF/vixnt/mdm/item/item_image.jsp</result>
+			<result name="goSaveOrUpdateService">/WEB-INF/vixnt/mdm/item/service_update.jsp</result>
+			<result name="dynamicItem">/WEB-INF/vixnt/mdm/item/updateDynamicItem.jsp</result>
+			<result name="generateSpecificationTable">/WEB-INF/vixnt/mdm/item/generateSpecificationTable.jsp</result>
+			<result name="loadSpecificationDetail">/WEB-INF/vixnt/mdm/item/loadSpecificationDetail.jsp</result>
+			<result name="loadMeasureUnit">/WEB-INF/vixnt/mdm/item/itemAssitMeasureUnitOption.jsp</result>
+			<result name="goChooseMultiItemCatalog">/WEB-INF/vixnt/mdm/item/chooseItemCatagory.jsp</result>
+			<result name="itemMeasureUnit">/WEB-INF/vixnt/mdm/item/measureUnitOption.jsp</result>
+			<result name="purBaseUnit">/WEB-INF/vixnt/mdm/item/purBaseUnitOption.jsp</result>
+			<result name="purAssitUnit">/WEB-INF/vixnt/mdm/item/purAssitUnitOption.jsp</result>
+			<result name="poUnit">/WEB-INF/vixnt/mdm/item/poUnitOption.jsp</result>
+			<result name="itemAssitMeasureUnit">/WEB-INF/vixnt/mdm/item/itemAssitMeasureUnitOption.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+			<result name="downloadTemplate" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+		<!-- 物料价格 -->
+		<action name="nvixntItemPriceAction!*" method="{1}" class="nvixntItemPriceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/itemPrice/itemPrice_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 商品分类管理 -->
+		<action name="nvixntItemCatalogAction!*" method="{1}" class="nvixntItemCatalogAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/itemCatalog/itemCatalog_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/itemCatalog/itemCatalog_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+			<result name="downloadTemplate" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+		<!-- 商品品牌管理 -->
+		<action name="nvixntItemBrandAction!*" method="{1}" class="nvixntItemBrandAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/itemBrand/itemBrand_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/itemBrand/itemBrand_update.jsp</result>
+			<result name="goChooseItemBrand">/WEB-INF/vixnt/mdm/itemBrand/choose_itemBrand.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 商品组管理 -->
+		<action name="nvixntItemGroupAction!*" method="{1}" class="nvixntItemGroupAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/itemGroup/itemGroup_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/itemGroup/itemGroup_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 维度管理 -->
+		<action name="nvixDimensionAction!*" method="{1}" class="nvixDimensionAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/dimension/dimension_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/dimension/updateDimension.jsp</result>
+			<result name="goSaveOrUpdateDimensionDetail">/WEB-INF/vixnt/mdm/dimension/updateDimensionDetail.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 商品包管理 -->
+		<action name="nvixEcproductPackageAction!*" method="{1}" class="nvixEcproductPackageAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/productPackage/ecProductPackage_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/productPackage/updateEcProductPackage.jsp</result>
+			<result name="goChooseEcProduct">/WEB-INF/vixnt/mdm/productPackage/chooseProduct.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		
+		<!-- 采购物料定价 -->
+		<action name="nvixntPurchasePriceAction!*" method="{1}" class="nvixntPurchasePriceAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/purchasePrice_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/purchasePrice_update.jsp</result>
+			<result name="goSaveOrUpdatePriceConditionCountArea">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/priceCountAreaDetail_update.jsp</result>
+			<result name="goSaveOrUpdatePriceConditionPriceArea">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/pricePriceAreaDetail_update.jsp</result>
+			<result name="goSaveOrUpdateDetail">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/purchasePriceDetail_update.jsp</result>
+			<result name="goChooseSupplier">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/supplier_choose.jsp</result>
+			<result name="goChooseItem">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/item_choose.jsp</result>
+			<result name="goChooseRegional">/WEB-INF/vixnt/mdm/item/itmePrice/purchase/regional_choose.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购价格区间 -->
+		<action name="nvixntPurchasePriceAreaAction!*" method="{1}" class="nvixntPurchasePriceAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceConditionPriceArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceConditionPriceArea.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购数量区间 -->
+		<action name="nvixntPurchaseCountAreaAction!*" method="{1}" class="nvixntPurchaseCountAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceConditionCountArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceConditionCountArea.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 采购赠品管理 -->
+		<action name="nvixntPurchaseConditionGiftAction!*" method="{1}" class="nvixntPurchaseConditionGiftAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceConditionGift_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceConditionGift.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		
+		<!-- 销售物料定价 -->
+		<action name="nvixntSalePriceAction!*" method="{1}" class="nvixntSalePriceAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/item/itmePrice/sale/salePrice_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/item/itmePrice/sale/salePrice_update.jsp</result>
+			<result name="goSaveOrUpdatePriceConditionCountArea">/WEB-INF/vixnt/mdm/item/itmePrice/sale/priceCountAreaDetail_update.jsp</result>
+			<result name="goSaveOrUpdatePriceConditionPriceArea">/WEB-INF/vixnt/mdm/item/itmePrice/sale/pricePriceAreaDetail_update.jsp</result>
+			<result name="goSaveOrUpdateDetail">/WEB-INF/vixnt/mdm/item/itmePrice/sale/salePriceDetail_update.jsp</result>
+			<result name="goChooseItem">/WEB-INF/vixnt/mdm/item/itmePrice/sale/item_choose.jsp</result>
+			<result name="goChooseChannelDistributor">/WEB-INF/vixnt/mdm/item/itmePrice/sale/channel_choose.jsp</result>
+			<result name="goChooseChannelItem">/WEB-INF/vixnt/mdm/item/itmePrice/sale/channelItem_choose.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售价格区间 -->
+		<action name="nvixntSalePriceAreaAction!*" method="{1}" class="nvixntSalePriceAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceConditionPriceArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceConditionPriceArea.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售数量区间 -->
+		<action name="nvixntSaleCountAreaAction!*" method="{1}" class="nvixntSaleCountAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceConditionCountArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceConditionCountArea.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售赠品管理 -->
+		<action name="nvixntSaleConditionGiftAction!*" method="{1}" class="nvixntSaleConditionGiftAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceConditionGift_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceConditionGift.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		
+		<!-- 物料管理 -->
+		<action name="nvixntMaterialAction!*" method="{1}" class="nvixntMaterialAction">
+			<result name="goList">/WEB-INF/vixnt/mdm/material/industryItem_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/mdm/material/item_update.jsp</result>
+			<result name="dynamicItem">/WEB-INF/vixnt/mdm/material/updateDynamicItem.jsp</result>
+			<result name="generateSpecificationTable">/WEB-INF/vixnt/mdm/material/generateSpecificationTable.jsp</result>
+			<result name="loadSpecificationDetail">/WEB-INF/vixnt/mdm/material/loadSpecificationDetail.jsp</result>
+			<result name="loadMeasureUnit">/WEB-INF/vixnt/mdm/item/itemAssitMeasureUnitOption.jsp</result>
+			<result name="goChooseMultiItemCatalog">/WEB-INF/vixnt/mdm/material/chooseItemCatagory.jsp</result>
+			<result name="itemMeasureUnit">/WEB-INF/vixnt/mdm/material/measureUnitOption.jsp</result>
+			<result name="purBaseUnit">/WEB-INF/vixnt/mdm/material/purBaseUnitOption.jsp</result>
+			<result name="purAssitUnit">/WEB-INF/vixnt/mdm/material/purAssitUnitOption.jsp</result>
+			<result name="poUnit">/WEB-INF/vixnt/mdm/material/poUnitOption.jsp</result>
+			<result name="itemAssitMeasureUnit">/WEB-INF/vixnt/mdm/material/itemAssitMeasureUnitOption.jsp</result>
+			<result name="chooseItem">/WEB-INF/vixnt/mdm/material/chooseItem.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+			<result name="downloadTemplate" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+	</package>
+</struts>

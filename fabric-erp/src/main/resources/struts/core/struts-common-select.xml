@@ -1,0 +1,104 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--公用数据的选择-->
+	<package name="common.select" namespace="/common/select" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+		
+		<!-- 部门选择 -->
+		<action name="commonSelectOrgUnitAction!*" method="{1}" class="commonSelectOrgUnitAction">
+			<result name="goChooseOrgUnit">/WEB-INF/content/common_select/orgUnit/orgUnit_choose.jsp</result>
+		</action>
+		<!-- 选择部门    根节点为所在公司 -->
+		<action name="commonSelectOrgUnit4OwnCompAction!*" method="{1}" class="commonSelectOrgUnit4OwnCompAction">
+			<result name="goChooseOrgUnit4OwnComp">/WEB-INF/content/common_select/orgUnit/orgUnit4OwnComp_choose.jsp</result>
+		</action>
+		<!-- 选择公司、部门、分销    根节点为所在公司 -->
+		<action name="commonSelectOrgUnitDrpAction!*" method="{1}" class="commonSelectOrgUnitDrpAction">
+			<result name="goChooseOrgUnitDrp">/WEB-INF/content/common_select/orgUnit/orgUnitDrp_choose.jsp</result>
+		</action>
+		
+		<!-- 职员选择 -->
+		<action name="commonSelectEmpAction!*" method="{1}" class="commonSelectEmpAction">
+			<result name="goList">/WEB-INF/content/common_select/emp/employee_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/emp/employee_choose_content.jsp</result>
+		</action>
+		<action name="commonSelectEmpByOrgAction!*" method="{1}" class="commonSelectEmpByOrgAction">
+			<result name="goList">/WEB-INF/content/common_select/emp/employee_orgUnit_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/emp/employee_orgUnit_choose_content.jsp</result>
+		</action>
+			<!-- 部门 和  drp部门的职员选择 -->
+		<action name="commonSelectEmpDrpAction!*" method="{1}" class="commonSelectEmpDrpAction">
+			<result name="goList">/WEB-INF/content/common_select/emp/employee_orgDrpUnit_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/emp/employee_orgDrpUnit_choose_content.jsp</result>
+		</action>
+		
+		<action name="commonSelectEmpByBizOrgAction!*" method="{1}" class="commonSelectEmpByBizOrgAction">
+			<result name="goChooseEmp">/WEB-INF/content/common_select/bizOrg/emp_bizOrg_choose.jsp</result>
+		</action>
+		
+		
+		
+		<!-- 公司架构树展示URL -->
+		<action name="commonSelectOrgAction!*" method="{1}" class="commonSelectOrgAction">
+			<result name="goChooseOrg">/WEB-INF/content/common_select/orgUnit/org_choose.jsp</result>
+		</action>
+		
+		
+		<!-- 岗位选择   固定部门下 -->
+		<action name="commonSelectPosListAction!*" method="{1}" class="commonSelectPosListAction">
+			<result name="goList">/WEB-INF/content/common_select/emp/posList.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/emp/posList_content.jsp</result>
+		</action>
+		<!-- 岗位选择  组织树 -->
+		<action name="commonSelectPosAction!*" method="{1}" class="commonSelectPosAction">
+			<result name="goList">/WEB-INF/content/common_select/emp/orgPos_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/emp/orgPos_choose_content.jsp</result>
+		</action>
+		
+		
+		<!-- 角色选择 -->
+		<action name="commonSelectRoleAction!*" method="{1}" class="commonSelectRoleAction">
+			<result name="goList">/WEB-INF/content/common_select/role/role_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/role/role_choose_content.jsp</result>
+		</action>
+		
+		<!-- 系统元数据资源选择 -->
+		<action name="commonSelectOrginialMetaDataAction!*" method="{1}" class="commonSelectOrginialMetaDataAction">
+			<result name="goChooseMetaData">/WEB-INF/content/common_select/orginialmetaData/chooseOrginialMetaData.jsp</result>
+			<result name="goChooseMetaDataList">/WEB-INF/content/common_select/orginialmetaData/chooseOrginialMetaData_content.jsp</result>
+		
+			<result name="goChooseMetaData2">/WEB-INF/content/common_select/orginialmetaData/chooseOrginialMetaData2.jsp</result>
+			<result name="goChooseMetaDataList2">/WEB-INF/content/common_select/orginialmetaData/chooseOrginialMetaData2_content.jsp</result>
+		</action>
+		
+		<!-- 元数据选择 -->
+		<action name="commonSelectMetaDataAction!*" method="{1}" class="commonSelectMetaDataAction">
+			<result name="goChooseMetaData">/WEB-INF/content/common_select/metaData/chooseMetaData.jsp</result>
+			<result name="goChooseMetaDataList">/WEB-INF/content/common_select/metaData/chooseMetaData_content.jsp</result>
+		
+			<result name="goChooseMetaData2">/WEB-INF/content/common_select/metaData/chooseMetaData2.jsp</result>
+			<result name="goChooseMetaDataList2">/WEB-INF/content/common_select/metaData/chooseMetaData2_content.jsp</result>
+		</action>
+		
+		<!-- 模块选择 -->
+		<action name="commonSelectModuleAction!*" method="{1}" class="commonSelectModuleAction">
+			<result name="goList">/WEB-INF/content/common_select/base/module/module_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/base/module/module_choose_content.jsp</result>
+			
+			<!-- 行业模块选择 -->
+			<result name="goChooseIndustryModule">/WEB-INF/content/common_select/base/module/industryModule_choose_content.jsp</result>
+		</action>
+		
+		<!-- 个性化首页配置选择 -->
+		<action name="commonSelectIndexPdcAction!*" method="{1}" class="commonSelectIndexPdcAction">
+			<result name="goList">/WEB-INF/content/common_select/base/indexPdc/indexPdc_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_select/base/indexPdc/indexPdc_choose_content.jsp</result>
+		</action>
+		
+	</package>
+</struts>

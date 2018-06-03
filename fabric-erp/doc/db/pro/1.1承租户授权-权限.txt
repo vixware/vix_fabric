@@ -1,0 +1,162 @@
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `vix_pro_sys_comp_im_auth_res`;
+
+CREATE PROCEDURE `vix_pro_sys_comp_im_auth_res`(IN p_hasInsertAuthority_id VARCHAR(64),IN p_orginial_Authority_id VARCHAR(64),IN p_tenant_id TEXT)
+BEGIN
+	DECLARE done2 INT DEFAULT 0;
+		
+	DECLARE dup_count BIGINT;
+	DECLARE temp_res_id VARCHAR(64);
+	DECLARE cur2 CURSOR FOR (SELECT DISTINCT oar.Resource_ID aid FROM cmn_sec_orginial_auth_res oar WHERE oar.Authority_ID = p_orginial_Authority_id);
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done2 = 1;  
+	
+	SET FOREIGN_KEY_CHECKS=0;
+		
+	OPEN cur2;
+		-- SELECT CONCAT('begin:',done); 
+	FETCH cur2 INTO temp_res_id; 
+	WHILE done2 <> 1 DO
+		SELECT UUID() INTO @tt_res_last_id;
+		-- 1 插入 从数据源中加载 权限菜单有关系的url资源
+		INSERT INTO cmn_sec_resource(
+			`ID`, `Url`,  `ResourceCode`,  	`Priority`,  `ResType`,  `Name`,  	`DisplayName`,  `Memo`,  `TENANTID`
+		)
+		SELECT 
+			@tt_res_last_id, cor.`Url`,cor.`ResourceCode`, cor.`Priority`, cor.`ResType`,cor.`Name`,cor.`DisplayName`,cor.`Memo`, p_tenant_id
+		FROM  cmn_sec_orginial_res cor WHERE  cor.ID = temp_res_id;
+	
+		
+		
+		
+		-- 2 插入权限菜单 和 资源的关系表 
+		SELECT COUNT(*) FROM CMN_SEC_AUTHORITY_RES WHERE Resource_ID = @tt_res_last_id AND AUTHORITY_ID = p_hasInsertAuthority_id INTO dup_count;
+		IF (dup_count=0 )THEN
+			INSERT INTO 
+			CMN_SEC_AUTHORITY_RES( `Resource_ID`, `AUTHORITY_ID`) VALUES (@tt_res_last_id,p_hasInsertAuthority_id);
+		END IF;		
+			
+		FETCH cur2 INTO temp_res_id;
+	END WHILE;
+	
+	-- select CONCAT('end:',done); 
+	CLOSE cur2;	
+	
+	SET FOREIGN_KEY_CHECKS=1;
+END;
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS `vix_pro_sys_comp_im_auth`;
+
+CREATE  PROCEDURE `vix_pro_sys_comp_im_auth`(IN p_role_id VARCHAR(64),IN p_tenant_id TEXT,IN p_industry_module_ids TEXT)
+BEGIN
+	DECLARE done INT DEFAULT 0;
+	-- PREPARE SQLSA FROM 'select Authority_ID from CMN_SEC_MODULE_AUTHORITY where Module_ID=?';
+	-- DECLARE temp_module_id INT;
+	DECLARE dup_count BIGINT;
+	DECLARE temp_authority_id VARCHAR(64);
+	DECLARE cur CURSOR FOR( SELECT aid FROM temp_industry_module_authority_view);
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;  
+	
+	SET FOREIGN_KEY_CHECKS=0;
+	
+	-- SELECT CONCAT('begin:',done); 
+	
+	-- 1 删除 
+	-- 	1.1 删除承租户的菜单和资源的关系
+	DELETE FROM CMN_SEC_AUTHORITY_RES WHERE RESOURCE_ID IN (SELECT ID FROM CMN_SEC_RESOURCE WHERE TENANTID = p_tenant_id);
+	--	1.2 删除该承租户下的所有 角色和菜单的授权关系  注意会清除所有的授权关系
+	DELETE FROM CMN_SEC_ROLE_AUTHORITY WHERE Authority_ID IN (SELECT ID FROM CMN_SEC_AUTHORITY WHERE TENANTID = p_tenant_id);
+	
+	-- 	1.3 删除承租户资源
+	DELETE FROM CMN_SEC_RESOURCE WHERE TENANTID = p_tenant_id;
+	--	1.4 删除承租户权限菜单	
+	DELETE FROM CMN_SEC_AUTHORITY WHERE TENANTID = p_tenant_id;
+	
+	
+	
+	-- 2 插入 从数据源中加载 没有和权限菜单有关系的url资源   可选	
+	INSERT INTO cmn_sec_resource(
+		`ID`, `Url`,  `ResourceCode`,  	`Priority`,  `ResType`,  `Name`,  	`DisplayName`,  `Memo`,  `TENANTID`
+	)
+	SELECT 
+		UUID(), cor.`Url`,cor.`ResourceCode`, cor.`Priority`, cor.`ResType`,cor.`Name`,cor.`DisplayName`,cor.`Memo`, p_tenant_id
+	FROM  cmn_sec_orginial_res cor
+		LEFT JOIN cmn_sec_orginial_auth_res cor_r ON cor_r.Resource_ID = cor.id 
+	WHERE  cor_r.AUTHORITY_ID IS NULL;
+	
+	-- SELECT CONCAT('begin:循环',done); 
+	IF LENGTH(TRIM(p_industry_module_ids))>0 THEN
+		-- select substr(@temp_module_id_all_str,1,LENGTH(@temp_module_id_all_str)-1);
+		-- SET @temp_module_id_all_str = SUBSTR(@temp_module_id_all_str,1,LENGTH(@temp_module_id_all_str)-1);
+		
+		DROP VIEW IF EXISTS temp_industry_module_authority_view; 
+				
+		SET @sqlstr = "CREATE VIEW temp_industry_module_authority_view as "; 
+		SET @sqlstr = CONCAT(@sqlstr,
+			"select distinct aim.Authority_ID aid from CMN_SEC_ORGINIAL_AUTH_IND_MODULE aim inner join CMN_SEC_ORGINIAL_AUTH ca on ca.id = aim.Authority_ID where aim.IndustryManagementModule_ID in (",
+			p_industry_module_ids,") ");
+			-- ") and ca.bizType=","'",p_module_type,"'");
+		PREPARE stmt FROM @sqlstr;
+		EXECUTE stmt;
+		DEALLOCATE PREPARE stmt; 
+		
+		
+		OPEN cur;
+			-- SELECT CONCAT('begin:',done); 
+		FETCH cur INTO temp_authority_id; -- 原始的菜单id
+		WHILE done <> 1 DO
+			
+			-- SELECT CONCAT('cur:1',done); 
+			-- 3.1 插入权限菜单 
+			SELECT UUID() INTO @tt_au_last_id;
+			
+			INSERT INTO 
+			CMN_SEC_AUTHORITY( `ID`, `PrimaryKey`, `Name`,  `AuthorityCode`, `ParentAuthorityCode`, `DisplayName`,`Memo`,`AuthType`,`MenuHrefUrl`,
+				`SortOrder`,`BizType`,`ViewPos`,	`TopParentCode`,	`TENANTID`,	`iconClass`
+			)	       
+			SELECT  @tt_au_last_id, oa.`PrimaryKey`, oa.`Name`,oa.`AuthorityCode`, oa.`ParentAuthorityCode`, oa.`DisplayName`,oa.`Memo`,oa.`AuthType`,oa.`MenuHrefUrl`,
+				oa.`SortOrder`,oa.`BizType`,oa.`ViewPos`,oa.`TopParentCode`,	 p_tenant_id,oa.`iconClass`
+				FROM cmn_sec_orginial_auth oa WHERE oa.`ID` = temp_authority_id;
+			
+			-- SELECT CONCAT('cur:2',done); 
+			-- SELECT LAST_INSERT_ID() INTO @tt_au_last_id;-- 已经插入承租户实例化的菜单id
+			
+			-- 3.2 原始权限菜单的相关资源查找  并插入到实例化的资源中（以及和实例化菜单的关系）
+			CALL vix_pro_sys_comp_im_auth_res(@tt_au_last_id, temp_authority_id,p_tenant_id);
+				
+			INSERT INTO CMN_SEC_ROLE_AUTHORITY(ROLE_ID,Authority_ID) VALUES (p_role_id,@tt_au_last_id);
+			-- SELECT CONCAT(done,'---',@i,'-----',temp_module_id,'-----',temp_authority_id);
+			-- select concat(p_role_id,temp_authority_id);
+			-- INSERT INTO CMN_SEC_ROLE_AUTHORITY(ROLE_ID,Authority_ID) VALUES (p_role_id,temp_authority_id);
+			-- SELECT CONCAT(temp_authority_id,'---',dup_count);
+			
+			FETCH cur INTO temp_authority_id;
+		END WHILE;
+		
+		-- select CONCAT('end:',done); 
+		CLOSE cur;
+		
+		DROP VIEW IF EXISTS temp_industry_module_authority_view; 
+	END IF;
+	-- SELECT CONCAT('end:循环',done); 
+	
+	
+	SET FOREIGN_KEY_CHECKS=1;
+END;
+
+DELIMITER ;

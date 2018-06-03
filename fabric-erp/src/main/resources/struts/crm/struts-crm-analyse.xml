@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 工作台 -->
+	<package name="crm.analyse" namespace="/crm/analyse" extends="crud-default">
+		<!-- 内部公告分类 -->
+		<action name="rfmAnalyseAction!*" method="{1}" class="rfmAnalyseAction">
+			<result name="showAnalyseData">/WEB-INF/content/crm/analyse/cfmAnalyseData.jsp</result>
+		</action>
+	</package>
+</struts>

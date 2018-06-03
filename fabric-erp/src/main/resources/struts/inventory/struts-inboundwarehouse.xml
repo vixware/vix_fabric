@@ -1,0 +1,490 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--库存管理 -->
+	<package name="inventory.config" namespace="/inventory" extends="crud-default">
+		<action name="inventoryMainAction!*" method="{1}" class="inventoryMainAction">
+			<result name="goMenuContent">/WEB-INF/content/inventory/main/menuContent.jsp</result>
+		</action>
+		<!-- 入库业务 -->
+		<action name="inboundWarehouseAction!*" method="{1}" class="inboundWarehouseAction">
+			<result name="goList">/WEB-INF/content/inventory/inbound/inboundWarehouse_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/inbound/inboundWarehouse_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/inbound/saveOrUpdateInboundWarehouse.jsp
+			</result>
+			<result name="goShowInboundWarehouse">/WEB-INF/content/inventory/inbound/showInboundWarehouse.jsp
+			</result>
+			<result name="goScarletLetterInbound">/WEB-INF/content/inventory/inbound/scarletLetterInbound_update.jsp
+			</result>
+			<result name="goShowScarletLetterInbound">/WEB-INF/content/inventory/inbound/showScarletLetterInbound_update.jsp
+			</result>
+			<result name="goAddFinishedGoodsInbound">/WEB-INF/content/inventory/inbound/saveOrUpdateFinishedInboundWarehouse.jsp
+			</result>
+			<result name="goShowFinishedGoodsInbound">/WEB-INF/content/inventory/inbound/showFinishedInboundWarehouse.jsp
+			</result>
+			<result name="goAddOtherInbound">/WEB-INF/content/inventory/inbound/saveOrUpdateOtherInboundWarehouse.jsp
+			</result>
+			<result name="goAdjustmentInbound">/WEB-INF/content/inventory/inbound/saveOrUpdateAdjustmentInboundWarehouse.jsp
+			</result>
+			<result name="goShowOtherInbound">/WEB-INF/content/inventory/inbound/showOtherInboundWarehouse.jsp
+			</result>
+			<result name="goAudit">/WEB-INF/content/inventory/inbound/inboundwarehouse_audit.jsp
+			</result>
+			<result name="goShowAdjustmentInbound">/WEB-INF/content/inventory/inbound/adjustmentInbound_show.jsp
+			</result>
+			<result name="goAddWimStockRecordLines">/WEB-INF/content/inventory/inbound/addWimStockRecordLines.jsp
+			</result>
+			<result name="goChooseSupplier">/WEB-INF/content/inventory/inbound/chooseSupplier.jsp
+			</result>
+			<result name="goChoosePurchaseOrder">/WEB-INF/content/inventory/inbound/choosepurchaseorder.jsp
+			</result>
+			<result name="goPurchaseOrderList">/WEB-INF/content/inventory/inbound/purchaseorderlist_content.jsp
+			</result>
+			<result name="goSubRadioSingleList">/WEB-INF/content/inventory/inbound/supplier_list.jsp
+			</result>
+			<result name="goAddSaleOrderItem">/WEB-INF/content/inventory/inbound/chooseItemForStockRecordLines.jsp
+			</result>
+			<result name="goChooseWarehouse">/WEB-INF/content/inventory/inbound/chooseWarehouse.jsp
+			</result>
+			<result name="getPurchaseOrderItemList">/WEB-INF/content/inventory/inbound/purchaseorderitemlist.jsp
+			</result>
+			<result name="goShowPurchaseOrder">/WEB-INF/content/inventory/inbound/purchaseorder_show.jsp
+			</result>
+			<result name="goChooseItem">/WEB-INF/content/inventory/inbound/chooseitem_list.jsp
+			</result>
+			<result name="goChooseListContent">/WEB-INF/content/inventory/inbound/chooseitem_list_content.jsp
+			</result>
+			<result name="chooseSpecification">/WEB-INF/content/inventory/inbound/itemSpecification.jsp
+			</result>
+			<result name="goListOrderBatchContent">/WEB-INF/content/inventory/inbound/purchaseorder_show_content.jsp</result>
+			<result name="goPrintStockRecordLines">/WEB-INF/content/inventory/inbound/inboundWarehouse_print.jsp
+			</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/content/inventory/inbound/stockrecordlines.jsp</result>
+			<result name="goListItemList">/WEB-INF/content/inventory/inbound/item_list_content.jsp</result>
+			<result name="goAddStoreEnquiryRequest">/WEB-INF/content/inventory/inbound/saveOrUpdateStoreEnquiryRequest.jsp</result>
+			<result name="goListStoreEnquiryRequest">/WEB-INF/content/inventory/inbound/storeEnquiryRequest_list.jsp</result>
+			<result name="goListSalesOrderContent">/WEB-INF/content/inventory/inbound/salesOrder_list_content.jsp</result>
+			<result name="goListStoreEnquiryRequestContent">/WEB-INF/content/inventory/inbound/storeEnquiryRequest_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/inventory/inbound/inboundWarehouse_search.jsp</result>
+			<result name="goModifiedLeaveMark">/WEB-INF/content/inventory/inbound/objectModifyRecord_show.jsp
+			</result>
+			<result name="goListModifiedLeaveMarkContent">/WEB-INF/content/inventory/inbound/objectModifyRecord_show_content.jsp
+			</result>
+
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/inventory/top/dynamicMenuContent.jsp</result>
+			<result name="gohelp">/WEB-INF/content/helps/all.html</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 出库单 -->
+		<action name="outBoundAction!*" method="{1}" class="outBoundAction">
+			<result name="goList">/WEB-INF/content/inventory/outbound/ounBound_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/outbound/ounBound_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/outbound/addSellOutBound.jsp
+			</result>
+			<result name="goOtherOutBound">/WEB-INF/content/inventory/outbound/addOtherOutBound.jsp
+			</result>
+			<result name="goBusinessOrder">/WEB-INF/content/inventory/outbound/addBusinessOrder.jsp
+			</result>
+			<result name="goMaterialOutBound">/WEB-INF/content/inventory/outbound/addMaterialOutBound.jsp
+			</result>
+			<result name="goAddSaleOrderItem">/WEB-INF/content/inventory/outbound/chooseItemForStockRecordLines.jsp
+			</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/inventory/outbound/salesorder_list_choose.jsp
+			</result>
+			<result name="goSalesOrderList">/WEB-INF/content/inventory/outbound/salesorder_list_content_choose.jsp
+			</result>
+			<result name="getSalesOrderItemList">/WEB-INF/content/inventory/outbound/salesorderitemlist.jsp
+			</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/content/inventory/outbound/out_stockrecordlines_list.jsp</result>
+			<result name="goListItemList">/WEB-INF/content/inventory/outbound/out_stockrecordlines_list_content.jsp</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/inventory/outbound/inventorycurrentstock_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockListContent">/WEB-INF/content/inventory/outbound/inventorycurrentstock_list_content.jsp
+			</result>
+			<result name="goPrintStockRecords">/WEB-INF/content/inventory/outbound/ounBound_print.jsp
+			</result>
+			<result name="goShowSalesOrder">/WEB-INF/content/inventory/outbound/salesorder_show.jsp
+			</result>
+			<result name="goListSalesOrderContent">/WEB-INF/content/inventory/outbound/salesorder_show_content.jsp
+			</result>
+			<!-- 跳转到查看页面 -->
+			<result name="goShowOutBound">/WEB-INF/content/inventory/outbound/showOutBound.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/outbound/ounBound_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 调拨业务 -->
+		<action name="allocateTransferAction!*" method="{1}" class="allocateTransferAction">
+			<result name="goList">/WEB-INF/content/inventory/transfer/allocateandtransfer_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/transfer/allocateandtransfer_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/transfer/allocateandtransfer_update.jsp
+			</result>
+			<result name="goInventoryList">/WEB-INF/content/inventory/transfer/transfer_item_list.jsp</result>
+			<result name="goInventoryListContent">/WEB-INF/content/inventory/transfer/transfer_item_list_content.jsp</result>
+			<result name="goShowAllocateTransfer">/WEB-INF/content/inventory/transfer/allocateandtransfer_show.jsp</result>
+			<result name="goPrintAllocateTransfer">/WEB-INF/content/inventory/transfer/allocateandtransfer_print.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/transfer/allocateandtransfer_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 台帐业务 -->
+		<action name="standingBookAction!*" method="{1}" class="standingBookAction">
+			<result name="goList">/WEB-INF/content/inventory/standingbook/standingBook_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/standingbook/standingBook_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/standingbook/standingBook_search.jsp</result>
+		</action>
+		<!-- 盘点 -->
+		<action name="takeStockAction!*" method="{1}" class="takeStockAction">
+			<result name="goList">/WEB-INF/content/inventory/takestock/takeStock_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/takestock/takeStock_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/takestock/takeStock_update.jsp
+			</result>
+			<result name="goSaveOrUpdateStockTakingItem">/WEB-INF/content/inventory/takestock/takeStockItem_update.jsp
+			</result>
+			<result name="goAddSaleOrderItem">/WEB-INF/content/inventory/takestock/chooseItemForTakeStock.jsp
+			</result>
+			<result name="goTakeStock">/WEB-INF/content/inventory/takestock/takestock.jsp
+			</result>
+			<result name="goShowTakeStock">/WEB-INF/content/inventory/takestock/takeStock_show.jsp</result>
+			<result name="goPrintStockTaking">/WEB-INF/content/inventory/takestock/takeStock_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/inventory/takestock/takeStock_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--货位调整 -->
+		<action name="positionAdjustmentAction!*" method="{1}" class="positionAdjustmentAction">
+			<result name="goList">/WEB-INF/content/inventory/positionadjustment/positionAdjustment_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/positionadjustment/positionAdjustment_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/positionadjustment/positionAdjustment_update.jsp
+			</result>
+			<result name="goShowPositionAdjustment">/WEB-INF/content/inventory/positionadjustment/positionAdjustment_show.jsp</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/inventory/positionadjustment/inventorycurrentStock_list_choose.jsp</result>
+			<result name="goInventoryCurrentStockListContent">/WEB-INF/content/inventory/positionadjustment/inventorycurrentstock_list_content_choose.jsp</result>
+			<result name="goSearch">/WEB-INF/content/inventory/positionadjustment/positionAdjustment_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--不合格品 -->
+		<action name="unAcceptedProductAction!*" method="{1}" class="unAcceptedProductAction">
+			<result name="goList">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_update.jsp
+			</result>
+			<result name="goShowUnAcceptedProduct">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_show.jsp</result>
+			<result name="goListItem">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_item.jsp</result>
+			<result name="goSingleListItem">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_item_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/inventory/unacceptedproduct/unacceptedproduct_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 限额领料 ,未实现修改留痕 -->
+		<action name="limitsTakeAction!*" method="{1}" class="limitsTakeAction">
+			<result name="goList">/WEB-INF/content/inventory/limitstake/limitstake_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/limitstake/limitstake_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/limitstake/limitstake_update.jsp
+			</result>
+			<result name="goListItem">/WEB-INF/content/inventory/limitstake/limitstake_item_list.jsp</result>
+			<result name="goSingleListItem">/WEB-INF/content/inventory/limitstake/limitstake_item_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 倒冲领料 ,未实现修改留痕 -->
+		<action name="reverseFlushingMaterialAction!*" method="{1}" class="reverseFlushingMaterialAction">
+			<result name="goList">/WEB-INF/content/inventory/reverseflushingmaterial/reverseflushingmaterial_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/reverseflushingmaterial/reverseflushingmaterial_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/reverseflushingmaterial/reverseflushingmaterial_update.jsp
+			</result>
+			<result name="goSaveOrUpdateReverseFlushingMaterialItem">/WEB-INF/content/inventory/reverseflushingmaterial/reverseflushingmaterialItem_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 仓库管理 -->
+		<action name="warehouseAction!*" method="{1}" class="warehouseAction">
+			<result name="goList">/WEB-INF/content/inventory/warehouse/warehouse_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/warehouse/warehouse_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/warehouse/updateWarehouse.jsp
+			</result>
+			<result name="goSaveOrUpdateGoodsArea">/WEB-INF/content/inventory/warehouse/updateWarehouseArea.jsp
+			</result>
+			<result name="goSaveOrUpdateShelf">/WEB-INF/content/inventory/warehouse/updateWarehouseShelf.jsp
+			</result>
+			<result name="goSaveOrUpdateCargoSpace">/WEB-INF/content/inventory/warehouse/updateWarehouseCargoSpace.jsp
+			</result>
+			<result name="goChooseWarehouse">/WEB-INF/content/inventory/warehouse/choose_warehouse.jsp
+			</result>
+			<result name="goChooseShelf">/WEB-INF/content/inventory/warehouse/choose_shelf.jsp
+			</result>
+			<result name="goChooseOrganization">/WEB-INF/content/inventory/warehouse/choose_organization.jsp
+			</result>
+			<result name="goChooseProvinces">/WEB-INF/content/inventory/warehouse/provinces_list.jsp</result>
+			<result name="goSaveOrUpdateWarehouse">/WEB-INF/content/inventory/warehouse/warehouse_update.jsp</result>
+			<result name="goSearch">/WEB-INF/content/inventory/warehouse/warehouse_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 选项,字典管理 -->
+		<action name="optionAction!*" method="{1}" class="optionAction">
+			<result name="goList">/WEB-INF/content/inventory/option/option_list_content.jsp</result>
+			<result name="goSetting">/WEB-INF/content/inventory/setting/inventory_setting.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 入库类别 -->
+		<action name="inventoryTypeAction!*" method="{1}" class="inventoryTypeAction">
+			<result name="goList">/WEB-INF/content/inventory/setting/inventorytype_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/setting/inventorytype_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 期初录入 -->
+		<action name="initInventoryAction!*" method="{1}" class="initInventoryAction">
+			<result name="goList">/WEB-INF/content/inventory/initialinventory/initInventory_list.jsp
+			</result>
+			<result name="specificationDetail">/WEB-INF/content/inventory/initialinventory/specificationDetail.jsp
+			</result>
+			<result name="goUpdateSpecification">/WEB-INF/content/inventory/initialinventory/updateSpecification.jsp
+			</result>
+			<result name="goItem">/WEB-INF/content/inventory/initialinventory/item_list.jsp
+			</result>
+			<result name="goItemList">/WEB-INF/content/inventory/initialinventory/item_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 期初不合格品 -->
+		<action name="beginDefectiveItemAction!*" method="{1}" class="beginDefectiveItemAction">
+			<result name="goList">/WEB-INF/content/inventory/beginDefectiveItem/beginDefectiveItem_list.jsp
+			</result>
+			<result name="specificationDetail">/WEB-INF/content/inventory/beginDefectiveItem/specificationDetail.jsp
+			</result>
+			<result name="goUpdateSpecification">/WEB-INF/content/inventory/beginDefectiveItem/updateSpecification.jsp
+			</result>
+			<result name="goItem">/WEB-INF/content/inventory/beginDefectiveItem/item_list.jsp
+			</result>
+			<result name="goItemList">/WEB-INF/content/inventory/beginDefectiveItem/item_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 保质期查询 -->
+		<action name="shelfLifeAction!*" method="{1}" class="shelfLifeAction">
+			<result name="goList">/WEB-INF/content/inventory/shelfLife/shelfLife_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/shelfLife/shelfLife_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/shelfLife/shelfLife_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 过期库存管理 -->
+		<action name="expiredInventoryAction!*" method="{1}" class="expiredInventoryAction">
+			<result name="goList">/WEB-INF/content/inventory/expiredInventory/expiredInventory_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/expiredInventory/expiredInventory_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 保质期预警 -->
+		<action name="shelfLifeEarlyWarningAction!*" method="{1}" class="shelfLifeEarlyWarningAction">
+			<result name="goList">/WEB-INF/content/inventory/shelflifeearlywarning/shelfLifeEarlyWarning_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/shelflifeearlywarning/shelfLifeEarlyWarning_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 对账 -->
+		<action name="accountCheckingAction!*" method="{1}" class="accountCheckingAction">
+			<result name="goList">/WEB-INF/content/inventory/accountChecking/accountChecking_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/accountChecking/accountChecking_list_content.jsp
+			</result>
+		</action>
+		<!-- 月末结账 -->
+		<action name="monthEndingClosingAction!*" method="{1}" class="monthEndingClosingAction">
+			<result name="goList">/WEB-INF/content/inventory/monthEndingClosing/monthEndingClosing_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/monthEndingClosing/monthEndingClosing_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/monthEndingClosing/monthEndingClosing_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- ROP再订货点 -->
+		<action name="reorderPointAction!*" method="{1}" class="reorderPointAction">
+			<result name="goList">/WEB-INF/content/inventory/reorderPoint/reorderPoint_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/reorderPoint/reorderPoint_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 商品组装 ,待处理删除 -->
+		<action name="productAssemblyAction!*" method="{1}" class="productAssemblyAction">
+			<result name="goList">/WEB-INF/content/inventory/productAssembly/productAssembly_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/productAssembly/productAssembly_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/productAssembly/productAssembly_update.jsp
+			</result>
+			<result name="goItemList">/WEB-INF/content/inventory/productAssembly/item_list.jsp
+			</result>
+			<result name="goItemListContent">/WEB-INF/content/inventory/productAssembly/item_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/productAssembly/productAssembly_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--虚拟商品组合管理 -->
+		<action name="groupInventoryCurrentStockAction!*" method="{1}" class="groupInventoryCurrentStockAction">
+			<result name="goList">/WEB-INF/content/inventory/groupInventoryCurrentStock/groupInventoryCurrentStock_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/groupInventoryCurrentStock/groupInventoryCurrentStock_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/groupInventoryCurrentStock/groupInventoryCurrentStock_update.jsp
+			</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/inventory/groupInventoryCurrentStock/groupInventoryCurrentStock_item_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockListContent">/WEB-INF/content/inventory/groupInventoryCurrentStock/groupInventoryCurrentStock_item_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/groupInventoryCurrentStock/groupInventoryCurrentStock_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 商品拆装 -->
+		<action name="productDisassemblyAction!*" method="{1}" class="productDisassemblyAction">
+			<result name="goList">/WEB-INF/content/inventory/productDisassembly/productDisassembly_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/productDisassembly/productDisassembly_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/productDisassembly/productDisassembly_update.jsp
+			</result>
+			<result name="goInventoryCurrentStock">/WEB-INF/content/inventory/productDisassembly/inventoryCurrentStock_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/inventory/productDisassembly/inventoryCurrentStock_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/productDisassembly/productDisassembly_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单预留 -->
+		<action name="orderReservationAction!*" method="{1}" class="orderReservationAction">
+			<result name="goList">/WEB-INF/content/inventory/orderReservation/orderReservation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/orderReservation/orderReservation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/orderReservation/orderReservation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 在库品待检表 -->
+		<action name="itemsInTheLibraryDetectedMeterAction!*" method="{1}" class="itemsInTheLibraryDetectedMeterAction">
+			<result name="goList">/WEB-INF/content/inventory/itemsInTheLibraryDetectedMeter/itemsInTheLibraryDetectedMeter_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/itemsInTheLibraryDetectedMeter/itemsInTheLibraryDetectedMeter_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/itemsInTheLibraryDetectedMeter/itemsInTheLibraryDetectedMeter_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 整理现存量 -->
+		<action name="collateExistingQuantityAction!*" method="{1}" class="collateExistingQuantityAction">
+			<result name="goList">/WEB-INF/content/inventory/collateExistingQuantity/collateExistingQuantity_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/collateExistingQuantity/collateExistingQuantity_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/collateExistingQuantity/collateExistingQuantity_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 条形码管理 -->
+		<action name="barCodeManagementAction!*" method="{1}" class="barCodeManagementAction">
+			<result name="goList">/WEB-INF/content/inventory/barCodeManagement/barCodeManagement_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/barCodeManagement/barCodeManagement_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 产成品条形码设置 -->
+		<action name="itemBarCodeAction!*" method="{1}" class="itemBarCodeAction">
+			<result name="goList">/WEB-INF/content/inventory/itemBarCode/itemBarCode_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/itemBarCode/itemBarCode_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/itemBarCode/itemBarCode_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 批次号规则设置 -->
+		<action name="batchAction!*" method="{1}" class="batchAction">
+			<result name="goList">/WEB-INF/content/inventory/batch/batch_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/batch/batch_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 产成品批次号设置 -->
+		<action name="itemBatchAction!*" method="{1}" class="itemBatchAction">
+			<result name="goList">/WEB-INF/content/inventory/itemBatch/itemBatch_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/itemBatch/itemBatch_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/itemBatch/itemBatch_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 批次台账 -->
+		<action name="batchStandingBookAction!*" method="{1}" class="batchStandingBookAction">
+			<result name="goList">/WEB-INF/content/inventory/batchStandingBook/batchStandingBook_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/batchStandingBook/batchStandingBook_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/batchStandingBook/batchStandingBook_update.jsp
+			</result>
+			<result name="goChooseInvStockRecordLines">/WEB-INF/content/inventory/batchStandingBook/invStockRecordLines_list.jsp
+			</result>
+			<result name="goInvStockRecordLinesList">/WEB-INF/content/inventory/batchStandingBook/invStockRecordLines_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/inventory/batchStandingBook/batchStandingBook_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 库存管理 -->
+		<action name="inventoryManagementAction!*" method="{1}" class="inventoryManagementAction">
+			<result name="goList">/WEB-INF/content/inventory/inventoryManagement/inventoryManagement_list.jsp
+			</result>
+		</action>
+		<!-- 现存量查询 -->
+		<action name="guaranteePeriodAction!*" method="{1}" class="guaranteePeriodAction">
+			<result name="goList">/WEB-INF/content/inventory/report/guaranteePeriod_list.jsp</result>
+		</action>
+		<!-- 库存字典管理 -->
+		<action name="inventoryManagementDictionaryAction!*" method="{1}" class="inventoryManagementDictionaryAction">
+			<result name="goList">/WEB-INF/content/inventory/inventoryManagementDictionary/inventoryManagementDictionary_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/inventoryManagementDictionary/inventoryManagementDictionary_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/inventory/inventoryManagementDictionary/inventoryManagementDictionary_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 出入库报表 -->
+		<action name="stockReportAction!*" method="{1}" class="stockReportAction">
+			<result name="goList">/WEB-INF/content/inventory/report/stockreport_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/inventory/report/stockreport_list_content.jsp
+			</result>
+		</action>
+		<!-- 销售统计表 -->
+		<action name="salesReportAction!*" method="{1}" class="salesReportAction">
+			<result name="goList">/WEB-INF/content/chain/report/salesreport_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/report/salesreport_list_content.jsp
+			</result>
+		</action>
+	</package>
+</struts>

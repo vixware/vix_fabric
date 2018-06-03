@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.quotes.entity.ProjectQuotationTemplateItem" table="SALE_PROJECTQUO_TEMPLATEITEM">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+ 		<property name="uuid" type="java.lang.String" column="UUID" length="50"/>
+		<property name="code" type="java.lang.String" column="CODE"/>
+		<property name="name" type="java.lang.String" column="NAME" length="150"/>
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150"/>
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150"/>
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150"/>
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150"/>
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150"/>
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150"/>
+		<property name="status" type="java.lang.String" column="STATUS" length="50"/>
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150"/>
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150"/>
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150"/>
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150"/>
+		<property name="version" type="java.lang.String" column="VERSION" length="150"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150"/>
+ 		
+		<property name="contentItem" type="java.lang.String" column="CONTENTITEM" length="100"/>
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="100"/>
+		<many-to-one name="item" column="item_ID"/>
+		<property name="amount" type="java.lang.Double" column="AMOUNT" length="100"/>
+		<property name="assitAmount" type="java.lang.String" column="ASSITAMOUNT" length="100"/>
+		<property name="unit" type="java.lang.String" column="UNIT" length="100"/>
+		<property name="assitUnit" type="java.lang.String" column="ASSITUNIT" length="100"/>
+		<property name="unitExchange" type="java.lang.Double" column="UNITEXCHANGE" length="100"/>
+		<property name="tax" type="java.lang.Double" column="TAX" length="100"/>
+		<property name="taxAmount" type="java.lang.Double" column="TAXAMOUNT" length="100"/>
+		<property name="price" type="java.lang.Double" column="PRICE" length="100"/>
+		<property name="discount" type="java.lang.Double" column="DISCOUNT" length="100"/>
+ 		<many-to-one name="projectQuotationTemplate" column="projectQuotationTemplate_ID"/>
+ 		<many-to-one name="parentProjectQuotationTemplateItem" column="parent_id"/>
+ 		<many-to-one name="measureUnitGroup" column="measureUnitGroup_id" />
+		<many-to-one name="measureUnit" column="measureUnit_id" />
+		<many-to-one name="assitMeasureUnit" column="assitMeasureUnit_id" />	
+ 		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10"/>
+ 		<set name="subProjectQuotationTemplateItems" inverse="true">
+			<key column="parent_id"/>
+			<one-to-many class="com.vix.sales.quotes.entity.ProjectQuotationTemplateItem"/>
+		</set>
+  </class>
+</hibernate-mapping>

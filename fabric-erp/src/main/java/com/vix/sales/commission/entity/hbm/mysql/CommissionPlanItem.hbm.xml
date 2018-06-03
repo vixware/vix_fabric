@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.commission.entity.CommissionPlanItem" table="CRM_C_COMMISSIONPLANITEM">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+		<property name="uuid" type="java.lang.String" column="UUID" length="50"/>
+		<property name="code" type="java.lang.String" column="CODE"/>
+		<property name="name" type="java.lang.String" column="NAME" length="150"/>
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150"/>
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150"/>
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150"/>
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150"/>
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150"/>
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150"/>
+		<property name="status" type="java.lang.String" column="STATUS" length="50"/>
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150"/>
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150"/>
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150"/>
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150"/>
+		<property name="version" type="java.lang.String" column="VERSION" length="150"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150"/>
+	
+		<many-to-one name="performanceEvaluationMethod" column="salesPerformanceEvaluationMethod_id"/>
+		<many-to-one name="commissionPlan" column="commissionPlan_id"/>
+		<property name="cpiCode" type="java.lang.String" column="CPICODE" length="100"/>
+		<property name="bizType" type="java.lang.String" column="BIZTYPE" length="100"/>
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="2500"/>
+		<property name="itemTypeName" type="java.lang.String" column="itemTypeName" length="2500"/>
+		<property name="computeBaseTarget" type="java.lang.String" column="COMPUTEBASETARGET" length="100"/>
+		<!-- <property name="performanceEvaluationMethod" type="java.lang.String" column="PERFORMANCEEVALUATIONMETHOD" length="100"/> -->
+		<property name="adjustCoefficient" type="java.lang.String" column="ADJUSTCOEFFICIENT" length="100"/>
+		<property name="computeStyle" type="java.lang.String" column="COMPUTESTYLE" length="100"/>
+		<property name="isGrandTotal" type="java.lang.String" column="ISGRANDTOTAL" length="100"/>
+		<property name="fixedCommissionTerm" type="java.lang.Double" column="FIXEDCOMMISSIONTERM" length="100"/>
+		<property name="fixedCommission" type="java.lang.Double" column="FIXEDCOMMISSION" length="100"/>
+		<set name="commissionTerms" inverse="true">
+        	<key column="commissionTerm_id"/>
+			<one-to-many class="com.vix.sales.commission.entity.CommissionTerm"/>
+        </set>
+  </class>
+</hibernate-mapping>

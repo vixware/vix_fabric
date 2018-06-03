@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemTagGroup" table="MDM_ITEMTAGGROUP">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="createTime" type="java.util.Date" column="createTime" update="false" />
+		<property name="updateTime" type="java.util.Date" column="updateTime" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="100" update="false" />
+		<many-to-one name="dataCreater" column="dataCreater_id" foreign-key="none" update="false" />
+
+		<property name="code" type="java.lang.String" column="CODE" length="100" />
+		<property name="name" type="java.lang.String" column="NAME" length="100" />
+		<property name="enable" type="java.lang.String" column="ENABLE" length="10" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<set name="subItemTags" inverse="true" lazy="false" order-by="orderBy">
+			<key column="itemTagGroup_id" />
+			<one-to-many class="com.vix.mdm.item.entity.ItemTag" />
+		</set>
+	</class>
+</hibernate-mapping>

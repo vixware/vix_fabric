@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.orginialMeta.entity.OrginialVar" table="CMN_MET_ORGINIAL_VAR">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!-- 自身属性 -->
+		<property name="varCode" type="java.lang.String" column="VARCODE" length="128" />
+		<property name="defaultValue" type="java.lang.String" column="DEFAULTVALUE" length="128" />
+		
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="256" />
+	</class>
+</hibernate-mapping>

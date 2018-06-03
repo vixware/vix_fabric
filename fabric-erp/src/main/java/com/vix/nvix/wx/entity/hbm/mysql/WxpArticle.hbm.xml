@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpArticle" table="wxp_article">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="shopId" type="java.lang.String" column="shop_id" update="false" />
+
+		<property name="title" type="java.lang.String" column="title" />
+		<property name="author" type="java.lang.String" column="author" />
+		<property name="source" type="java.lang.String" column="source" />
+		<property name="uuid" type="java.lang.String" column="uuid" />
+		<property name="summary" type="java.lang.String" column="summary" length="1000" />
+		<property name="content" type="java.lang.String" column="content" />
+		<property name="image" type="java.lang.String" column="image" />
+		<property name="imageSmall" type="java.lang.String" column="image_small" />
+		<property name="thumbMediaId" type="java.lang.String" column="thumb_media_id" />
+		<property name="thumbUploadTime" type="java.util.Date" column="thumb_upload_time" />
+		<property name="thumbExpireTime" type="java.util.Date" column="thumb_expire_time" />
+		<property name="isDisable" type="java.lang.Integer" column="is_disable" />
+		<property name="sortOrder" type="java.lang.Integer" column="sort_order" />
+
+		<property name="vaildStart" type="java.util.Date" column="vaild_start" />
+		<property name="vaildEnd" type="java.util.Date" column="valid_end" />
+
+		<many-to-one name="folder" column="folder_id" insert="true" update="true" />
+
+		<many-to-one name="extData" column="ext_data_id" insert="true" />
+
+	</class>
+</hibernate-mapping>

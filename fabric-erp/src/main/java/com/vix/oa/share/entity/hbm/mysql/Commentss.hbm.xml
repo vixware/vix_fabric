@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.share.entity.Commentss" table="OA_COMMENTSS">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100" />
+		<property name="code" type="java.lang.String" column="CODE" length="50" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="commentscontent" type="java.lang.String" column="COMMENTS_CONTENT" length="2000"/>
+		<property name="commentsnumber" type="java.lang.Long" column="COMMENTSNUMBER"/>
+		<property name="likes" type="java.lang.Long" column="LIKES"/>
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+
+		<many-to-one name="comments" column="comments_id" />
+	</class>
+</hibernate-mapping>

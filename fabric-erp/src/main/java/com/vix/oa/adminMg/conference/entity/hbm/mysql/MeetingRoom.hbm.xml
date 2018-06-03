@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.adminMg.conference.entity.MeetingRoom" table="OA_MEETINGROOM">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="startTime" type="java.util.Date" column="startTime" />
+		<property name="endTime" type="java.util.Date" column="endTime" />
+		<property name="name" type="java.lang.String" column="NAME" length="200" />
+		<property name="meetingName" type="java.lang.String" column="meetingName" length="200" />
+		<property name="content" type="java.lang.String" column="content" length="2000" />
+		<property name="startDay" type="java.util.Date" column="startDay" />
+		<property name="startHour" type="java.lang.Integer" column="startHour" />
+		<property name="startMinute" type="java.lang.Integer" column="startMinute" />
+		<property name="endDay" type="java.util.Date" column="endDay" />
+		<property name="endHour" type="java.lang.Integer" column="endHour" />
+		<property name="endMinute" type="java.lang.Integer" column="endMinute" />
+		<property name="remindStartTime" type="java.util.Date" column="remindStartTime" />
+		<property name="remindEndTime" type="java.util.Date" column="remindEndTime" />
+		<property name="remindTime" type="java.util.Date" column="remindTime" />
+		<property name="isRemind" type="java.lang.String" column="isRemind" />
+		<property name="isRepeat" type="java.lang.String" column="ISREPEAT" />
+		<property name="status" type="java.lang.Integer" column="STATUS" />
+		<property name="allDay" type="java.lang.Boolean" column="ALLDAY" />
+		<property name="taskType" type="java.lang.String" column="TASKTYPE" />
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100"></property>
+		<property name="bookingSituation" type="java.lang.Integer" column="bookingSituation"/>
+	</class>
+</hibernate-mapping>

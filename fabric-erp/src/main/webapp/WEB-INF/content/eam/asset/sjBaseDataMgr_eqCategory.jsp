@@ -1,0 +1,1 @@
+sjBaseDataMgr_eqCategory.jsp

@@ -1,0 +1,248 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--连锁经营管理 -->
+	<package name="chain.config" namespace="/chain" extends="crud-default">
+		<!-- 连锁二级页面 -->
+		<action name="chainAction!*" method="{1}" class="chainAction">
+			<result name="goList">/WEB-INF/content/chain/chain_list.jsp
+			</result>
+		</action>
+		<!-- 设备报修 -->
+		<action name="mmxEquipmentAction!*" method="{1}" class="mmxEquipmentAction">
+			<result name="repairMgr">/WEB-INF/content/chain/equipment/repairMgr.jsp</result>
+			<result name="repairMgrEdit">/WEB-INF/content/chain/equipment/repairMgrEdit.jsp</result>
+			<result name="repairMgrListContent">/WEB-INF/content/chain/equipment/repairMgrListContent.jsp</result>
+			<result name="repairRecordCreate">/WEB-INF/content/chain/equipment/repairRecordCreate.jsp</result>
+			<result name="downloadRepairDoc" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="repairMgrFeedbackList">/WEB-INF/content/chain/equipment/repairMgrFeedbackList.jsp</result>
+			<!-- 维修反馈 -->
+			<result name="repairFeedBackMgr">/WEB-INF/content/chain/equipment/repairMgr.jsp</result>
+			<result name="repairFeedBackMgrListContent">/WEB-INF/content/chain/equipment/repairMgrListContent.jsp</result>
+			<result name="repairFeedBackMgrEdit">/WEB-INF/content/chain/equipment/repairFeedBackMgrEdit.jsp</result>
+			<result name="downloadRepairFeedbackDoc" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<!-- 归档记录 -->
+			<result name="repairArchiveMgr">/WEB-INF/content/chain/equipment/repairMgr.jsp</result>
+			<result name="repairArchiveMgrList">/WEB-INF/content/chain/equipment/repairMgrListContent.jsp</result>
+			<result name="repairArchiveMgrHistoryList">/WEB-INF/content/chain/equipment/repairMgrListContent.jsp</result>
+		</action>
+		<!--设置 -->
+		<action name="chainConfigAction!*" method="{1}" class="chainConfigAction">
+			<result name="goConfig">/WEB-INF/content/chain/config.jsp
+			</result>
+		</action>
+		<!-- 门店销售记录 -->
+		<action name="storeSalesrecordAction!*" method="{1}" class="storeSalesrecordAction">
+			<result name="goList">/WEB-INF/content/chain/storeSalesrecord_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/storeSalesrecord_list_content.jsp
+			</result>
+		</action>
+		<!-- 会员门店退货 -->
+		<action name="memberStorereturnAction!*" method="{1}" class="memberStorereturnAction">
+			<result name="goList">/WEB-INF/content/chain/memberStorereturn_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/memberStorereturn_list_content.jsp
+			</result>
+		</action>
+		<!-- 门店收货记录 -->
+		<action name="storeReceivingrecordsAction!*" method="{1}" class="storeReceivingrecordsAction">
+			<result name="goList">/WEB-INF/content/chain/storeReceivingrecords_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/storeReceivingrecords_list_content.jsp
+			</result>
+		</action>
+		<!-- 门店退货记录 -->
+		<action name="storeReturnRecordsAction!*" method="{1}" class="storeReturnRecordsAction">
+			<result name="goList">/WEB-INF/content/chain/returnRecordstores_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/returnRecordstores_list_content.jsp
+			</result>
+		</action>
+		<!-- 政策反馈 -->
+		<action name="policyFeedbackAction!*" method="{1}" class="policyFeedbackAction">
+			<result name="goList">/WEB-INF/content/chain/policyFeedback_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/policyFeedback_list_content.jsp
+			</result>
+		</action>
+		<!-- 门店拜访及评分 -->
+		<action name="storeVisitscoreAction!*" method="{1}" class="storeVisitscoreAction">
+			<result name="goList">/WEB-INF/content/chain/storeVisitscore_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/storeVisitscore_list_content.jsp
+			</result>
+		</action>
+		<!-- 会员管理——列表 -->
+		<action name="memberManagelistsAction!*" method="{1}" class="memberManagelistsAction">
+			<result name="goList">/WEB-INF/content/chain/memberManagelists_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/memberManagelists_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/addmemberManage.jsp
+			</result>
+		</action>
+		<!-- 会员卡管理 -->
+		<action name="cardManagementAction!*" method="{1}" class="cardManagementAction">
+			<result name="goList">/WEB-INF/content/chain/cardManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/cardManagement_list_content.jsp
+			</result>
+		</action>
+		<!-- 积分明细 -->
+		<action name="pointsDetailAction!*" method="{1}" class="pointsDetailAction">
+			<result name="goList">/WEB-INF/content/chain/pointsDetail_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/pointsDetail_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/addpointsDetail.jsp
+			</result>
+		</action>
+		<!-- 积分兑换 -->
+		<action name="integrationExchangeAction!*" method="{1}" class="integrationExchangeAction">
+			<result name="goList">/WEB-INF/content/chain/integrationExchange_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/integrationExchange_list_content.jsp
+			</result>
+		</action>
+		<!-- 促销活动列表 -->
+		<action name="promotionalActivitieslistAction!*" method="{1}" class="promotionalActivitieslistAction">
+			<result name="goList">/WEB-INF/content/chain/promotionalActivitieslist_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/promotionalActivitieslist_list_content.jsp
+			</result>
+		</action>
+		<!-- 商品视图 -->
+		<action name="productViewAction!*" method="{1}" class="productViewAction">
+			<result name="goList">/WEB-INF/content/chain/productview/productView_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/productview/productView_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/productview/productView_update.jsp
+			</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/chain/productview/chooseSalesOrder.jsp
+			</result>
+			<result name="goSalesOrderList">/WEB-INF/content/chain/productview/salesOrder_list.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 优惠劵管理 -->
+		<action name="couponManagementAction!*" method="{1}" class="couponManagementAction">
+			<result name="goList">/WEB-INF/content/chain/couponManagement/couponManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/couponManagement/couponManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/couponManagement/couponManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 优惠券发放 -->
+		<action name="couponSendAction!*" method="{1}" class="couponSendAction">
+			<result name="goList">/WEB-INF/content/chain/couponsend/couponsend_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/couponsend/couponsend_list_content.jsp
+			</result>
+			<result name="goChooseCustomerAccount">/WEB-INF/content/chain/couponsend/customeraccount_choose_list.jsp
+			</result>
+			<result name="goCustomerAccountList">/WEB-INF/content/chain/couponsend/customeraccount_choose_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 自动订货管理 -->
+		<action name="automaticOrderManagementAction!*" method="{1}" class="automaticOrderManagementAction">
+			<result name="goList">/WEB-INF/content/chain/automaticordermanagement/automaticOrdermanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/automaticordermanagement/automaticOrdermanagement_list_content.jsp
+			</result>
+		</action>
+		<!-- 会员积分兑换 -->
+		<action name="memberPointsforAction!*" method="{1}" class="memberPointsforAction">
+			<result name="goList">/WEB-INF/content/chain/memberPointsfor_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/memberPointsfor_list_content.jsp
+			</result>
+		</action>
+		<!-- 会员积分明细 -->
+		<action name="membershipPointsdetailsAction!*" method="{1}" class="membershipPointsdetailsAction">
+			<result name="goList">/WEB-INF/content/chain/membershipPointsdetails_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/membershipPointsdetails_list_content.jsp
+			</result>
+		</action>
+		<!-- 会员积分登记 -->
+		<action name="membershipPointsregistrationAction!*" method="{1}" class="membershipPointsregistrationAction">
+			<result name="goList">/WEB-INF/content/chain/membershipPointsregistration_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/membershipPointsregistration_list_content.jsp
+			</result>
+		</action>
+		<!-- 过期积分登记 -->
+		<action name="registrationExpiredpointsAction!*" method="{1}" class="registrationExpiredpointsAction">
+			<result name="goList">/WEB-INF/content/chain/registrationExpiredpoints_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/registrationExpiredpoints_list_content.jsp
+			</result>
+		</action>
+		<!-- 过期积分历史 -->
+		<action name="expiredPointshistoryAction!*" method="{1}" class="expiredPointshistoryAction">
+			<result name="goList">/WEB-INF/content/chain/expiredPointshistory_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/expiredPointshistory_list_content.jsp
+			</result>
+		</action>
+		<!-- 游乐场运营管理统计 -->
+		<action name="playgroundManagementStatisticsAction!*" method="{1}" class="playgroundManagementStatisticsAction">
+			<result name="goList">/WEB-INF/content/chain/playgroundManagementStatistics/playgroundManagementStatistics_list.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 会员日账 -->
+		<action name="customerLogAction!*" method="{1}" class="customerLogAction">
+			<result name="goList">/WEB-INF/content/chain/customerLog/customerLog_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/customerLog/customerLog_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/customerLog/customerLog_update.jsp
+			</result>
+		</action>
+		<!-- 机台消费记录 -->
+		<action name="tranLogAction!*" method="{1}" class="tranLogAction">
+			<result name="goList">/WEB-INF/content/chain/tranLog/tranLog_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/tranLog/tranLog_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/tranLog/tranLog_update.jsp
+			</result>
+		</action>
+		<!-- 吧台消费记录 -->
+		<action name="counterSalesRecordsAction!*" method="{1}" class="counterSalesRecordsAction">
+			<result name="goList">/WEB-INF/content/chain/countersalesrecords/counterSalesRecords_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/countersalesrecords/counterSalesRecords_list_content.jsp
+			</result>
+		</action>
+		<!-- 供应商视图 -->
+		<action name="suppliersViewAction!*" method="{1}" class="suppliersViewAction">
+			<result name="goList">/WEB-INF/content/chain/suppliersView/suppliersView_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/chain/suppliersView/suppliersView_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/chain/suppliersView/suppliersView_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

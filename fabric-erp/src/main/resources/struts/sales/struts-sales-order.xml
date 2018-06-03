@@ -1,0 +1,44 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.order.config" namespace="/sales/order" extends="crud-default">
+		<!-- 订单管理 -->
+		<action name="salesOrderAction!*" method="{1}" class="salesOrderAction">
+			<result name="goList">/WEB-INF/content/sales/order/salesOrder_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/order/salesOrder_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/order/updateSalesOrder.jsp</result>
+			<result name="showOrder">/WEB-INF/content/sales/order/showSalesOrder.jsp</result>
+			<result name="loadCustomerContactPerson">/WEB-INF/content/sales/order/loadContactPerson.jsp</result>
+			<result name="goSaveOrUpdateSaleOrderItem">/WEB-INF/content/sales/order/updateSaleOrderItem.jsp</result>
+			<result name="goChooseSalesOrderItem">/WEB-INF/content/sales/order/chooseSalesOrderItem.jsp</result>
+			<result name="goPrintSalesOrder">/WEB-INF/content/sales/order/salesOrder_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/sales/order/salesOrder_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goRelatedSalesOrder">/WEB-INF/content/sales/order/relatedSalesOrder.jsp</result>
+			<result name="goRelatedListContent">/WEB-INF/content/sales/order/salesOrder_related_list_content.jsp</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/sales/order/chooseSalesOrder.jsp</result>
+			<result name="goSubListContent">/WEB-INF/content/sales/order/salesOrder_sub_list_content.jsp</result>
+		</action>
+		<action name="salesDeliveryPlanAction!*" method="{1}" class="salesDeliveryPlanAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/order/updateSalesDeliveryPlan.jsp</result>
+			<result name="goSaveOrUpdateDetail">/WEB-INF/content/sales/order/updateSalesDeliveryPlanDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="salesTicketAction!*" method="{1}" class="salesTicketAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/order/updateSalesTicket.jsp</result>
+			<result name="goSaveOrUpdateDetail">/WEB-INF/content/sales/order/updateSalesTicketDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="salesAttachFileAction!*" method="{1}" class="salesAttachFileAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/order/updateSalesAttachFile.jsp</result>
+			<result name="downloadAttachedFile" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${salesAttachFile.fileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

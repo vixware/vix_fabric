@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpUser" table="wxp_user">
+		<id name="openId" type="java.lang.String" column="open_id">
+			<generator class="assigned" />
+		</id>
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="subscribe" type="java.lang.Integer" column="subscribe" />
+		<property name="subscribeTime" type="java.util.Date" column="subscribe_time" />
+		<property name="unSubscribeTime" type="java.util.Date" column="unsubscribe_time" />
+
+		<property name="msgCount" type="java.lang.Integer" column="msg_count" />
+		<property name="replyCount" type="java.lang.Integer" column="reply_count" />
+		<property name="directReplyCount" type="java.lang.Integer" column="direct_reply_count" />
+		<property name="viewCount" type="java.lang.Integer" column="view_count" />
+
+		<property name="note" type="java.lang.String" column="note" length="1000" />
+		<property name="markStar" type="java.lang.Integer" column="mark_star" />
+
+		<property name="nickName" type="java.lang.String" column="nickname" length="200" />
+		<property name="sex" type="java.lang.Integer" column="sex" />
+		<property name="city" type="java.lang.String" column="city" length="50" />
+		<property name="country" type="java.lang.String" column="country" length="50" />
+		<property name="province" type="java.lang.String" column="province" length="50" />
+		<property name="language" type="java.lang.String" column="language" length="20" />
+		<property name="headImgUrl" type="java.lang.String" column="headimgurl" length="300" />
+
+		<property name="lastMessageTime" type="java.util.Date" column="last_message_time" />
+
+		<property name="oauthAccessToken" type="java.lang.String" column="oauth_access_token" length="600" />
+		<property name="oauthTokenExpireTime" type="java.util.Date" column="oauth_token_expire_time" />
+		<property name="oauthRefreshToken" type="java.lang.String" column="oauth_refresh_token" length="600" />
+
+		<property name="remarkName" type="java.lang.String" column="remark_name" length="300" />
+		<property name="isStar" type="java.lang.Integer" column="is_star" />
+
+		<property name="groupSendCount" type="java.lang.Integer" column="group_send_count" />
+		<property name="groupSendMonth" type="java.lang.String" column="group_send_month" length="10" />
+		<set name="userTags" table="wxp_user_tag_rel" fetch="join" inverse="false">
+			<key>
+				<column name="open_id" not-null="true">
+					<comment>帐号id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.nvix.wx.entity.WxpUserTag">
+				<column name="tag_id" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.fabric" namespace="/nvixnt" extends="crud-default">
+		<action name="vixntFabricAction!*" method="{1}" class="vixntFabricAction">
+			<result name="goList">/WEB-INF/vixnt/fabric/login/vixnt_fabric_update.jsp</result>
+		</action>
+		<action name="vixntFabricBillAction!*" method="{1}" class="vixntFabricBillAction">
+			<result name="goList">/WEB-INF/vixnt/fabric/issue/fabric_bill_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/fabric/issue/fabric_bill_update.jsp</result>
+			<result name="goShowFabricBill">/WEB-INF/vixnt/fabric/issue/fabric_bill_show.jsp</result>
+			<result name="goEndorseFabricBill">/WEB-INF/vixnt/fabric/issue/fabric_bill_endorse.jsp</result>
+		</action>
+		<!-- 用户管理 -->
+		<action name="nvixntMockupUsersAction!*" method="{1}" class="nvixntMockupUsersAction">
+			<result name="goList">/WEB-INF/vixnt/fabric/mockupUsers/vixnt_mockupUsers_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/fabric/mockupUsers/vixnt_mockupUsers_update.jsp</result>
+		</action>
+	</package>
+</struts>

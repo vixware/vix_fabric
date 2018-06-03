@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.operHistory.entity.OperHistory" table="CMN_OPERHISTORY">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">CMN_OPERHISTORY_ID</param>
+			</generator>
+        </id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="createDate" type="java.util.Date" column="CREATE_DATE" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LASTMODIFY_DATE"/>
+		
+		<property name="operEmployeeId" type="java.lang.String" column="OPER_EMPLOYEE_ID" length="200"/>
+		<property name="operModelName" type="java.lang.String" column="OPER_MODEL_NAME" length="200"/>
+		<property name="operUrl" type="java.lang.String" column="OPER_URL" length="200"/>
+		
+	</class>
+</hibernate-mapping>

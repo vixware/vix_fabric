@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.UserAccount" table="CMN_SEC_USERACCOUNT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        
+        <property name="uuid" type="java.lang.String" column="UUID" length="64"  update="false"/>
+		<property name="code" type="java.lang.String" column="CODE" length="64"/>
+		<property name="name" type="java.lang.String" column="NAME" length="256"/>
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="128"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128"  update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128" update="false"/>
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="128"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+        
+        
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<property name="createTime" type="java.util.Date" column="CreateTime" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UpdateTime"/>
+
+		<property name="regUserName" type="java.lang.String" column="regUserName" length="100"/>
+
+		<property name="account" type="java.lang.String" column="Account" length="100"/>
+		<property name="password" type="java.lang.String" column="Password" length="100"/>
+		<property name="initpassword" type="java.lang.String" column="initpassword" length="100"/>
+		<property name="wxAccount" type="java.lang.String" column="WxAccount" length="100"/>
+		
+		<property name="mobile" type="java.lang.String" column="Mobile" length="100"/>
+		<property name="telephone" type="java.lang.String" column="Telephone" length="100"/>
+		<property name="email" type="java.lang.String" column="Email" length="100"/>
+		<property name="backupEmail" type="java.lang.String" column="backupEmail" length="100"/>
+		<property name="qqNumber" type="java.lang.String" column="QqNumber" length="100"/>
+		<property name="isSet" type="java.lang.String" column="isSet" not-null="true" length="8"/>
+		
+		<property name="enable" type="java.lang.String" column="Enable" length="10"/>
+		<property name="accountBizType" type="java.lang.String" column="AccountBizType" length="10" update="false"/>
+		<property name="loginPage" type="java.lang.String" column="loginPage" length="256"/>
+		
+		<property name="userResourceReadType" type="java.lang.String" column="UserResourceReadType" length="10"/>
+		
+		<property name="createUserAccountId" type="java.lang.String" column="createUserAccountId" length="64"/>
+		<property name="activeEndTime" type="java.lang.Long" column="ActiveEndTime"/>
+		
+		<many-to-one name="employee" class="com.vix.common.share.entity.BaseEmployee" lazy="false" fetch="join">
+			<column name="Employee_ID">
+				 <comment>职员id</comment>
+			</column>
+		</many-to-one>
+		
+		<many-to-one name="customerAccount" class="com.vix.mdm.crm.entity.CustomerAccount" lazy="false" fetch="join">
+			<column name="customerAccount_ID">
+				 <comment>会员id</comment>
+			</column>
+		</many-to-one>
+		
+		<set name="roles" table="CMN_SEC_USERACCOUNT_ROLE" fetch="join" inverse="false">
+            <key>
+                <column name="UserAccount_ID" not-null="true">
+                	<comment>帐号id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Role">
+                <column name="Role_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        
+        <set name="modules" table="CMN_SEC_MODULE_USERACCOUNT" fetch="join">
+            <key>
+                <column name="UserAccount_ID"  not-null="true">
+                	<comment>权限id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Module">
+                <column name="Module_ID" not-null="true" />
+            </many-to-many>
+        </set>
+  </class>
+</hibernate-mapping>

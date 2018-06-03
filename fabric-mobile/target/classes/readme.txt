@@ -1,0 +1,5 @@
+hibernate.hbm2ddl参数的含义
+create：表示启动的时候先drop，再create
+create-drop: 也表示创建，只不过再系统关闭前执行一下drop 
+update: 这个操作启动的时候会去检查schema是否一致，如果不一致会做scheme更新
+validate: 启动时验证现有schema与你配置的hibernate是否一致，如果不一致就抛出异常，并不做更新

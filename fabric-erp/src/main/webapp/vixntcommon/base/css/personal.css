@@ -1,0 +1,8 @@
+/** 列表菜单右对齐 */
+.listMenu-float-right {
+	float: right;
+}
+
+table.dataTable tbody tr.selected {
+	background-color: #d9edf7;
+}

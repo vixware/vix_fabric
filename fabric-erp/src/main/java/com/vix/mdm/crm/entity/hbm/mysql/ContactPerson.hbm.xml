@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.crm.entity.ContactPerson" table="CRM_CONTACTPERSON">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="primaryContact" type="java.lang.String" column="PRIMARYCONTACT" length="150" />
+
+		<many-to-one name="customerAccount" column="customerAccount_id" />
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="150" />
+		<property name="lastName" type="java.lang.String" column="LASTNAME" length="150" />
+		<property name="firstName" type="java.lang.String" column="FIRSTNAME" length="150" />
+		<property name="presideBusiness" type="java.lang.String" column="PRESIDEBUSINESS" length="150" />
+		<property name="engFirstName" type="java.lang.String" column="ENGFIRSTNAME" length="150" />
+		<property name="engLastName" type="java.lang.String" column="ENGLASTNAME" length="150" />
+		<property name="sex" type="java.lang.String" column="SEX" length="150" />
+		<property name="company" type="java.lang.String" column="COMPANY" length="150" />
+		<property name="callTitle" type="java.lang.String" column="CALLTITLE" length="150" />
+		<property name="title" type="java.lang.String" column="TITLE" length="150" />
+		<property name="position" type="java.lang.String" column="POSITION" length="150" />
+		<property name="level" type="java.lang.String" column="LEVEL" length="150" />
+		<property name="influence" type="java.lang.String" column="INFLUENCE" length="150" />
+		<property name="chargeBusiness" type="java.lang.String" column="CHARGEBUSINESS" length="150" />
+		<property name="email" type="java.lang.String" column="EMAIL" length="150" />
+		<property name="birthday" type="java.util.Date" column="BIRTHDAY" length="150" />
+		<property name="hobby" type="java.lang.String" column="HOBBY" length="150" />
+		<property name="credentialCode" type="java.lang.String" column="CREDENTIALCODE" length="150" />
+		<many-to-one name="credentialType" column="credentialType_id" />
+		<many-to-one name="contactPersonType" column="contactPersonType_id" />
+		<property name="pointValue" type="java.lang.Long" column="POINTVALUE" />
+		<property name="dateEntered" type="java.util.Date" column="DATEENTERED" />
+		<property name="dateModified" type="java.util.Date" column="DATEMODIFIED" />
+		<property name="modifiedUserId" type="java.lang.String" column="MODIFIEDUSERID" length="150" />
+		<property name="createdBy" type="java.lang.String" column="CREATEDBY" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="150" />
+		<property name="assignedUserId" type="java.lang.String" column="ASSIGNEDUSERID" length="150" />
+		<property name="accountType" type="java.lang.String" column="ACCOUNTTYPE" length="150" />
+		<property name="industry" type="java.lang.String" column="INDUSTRY" length="150" />
+		<property name="annualRevenue" type="java.lang.Double" column="ANNUALREVENUE" />
+		<property name="directPhone" type="java.lang.String" column="DIRECTPHONE" length="150" />
+		<property name="fax" type="java.lang.String" column="FAX" length="150" />
+		<property name="bank" type="java.lang.String" column="BANK" length="150" />
+		<property name="bankAccount" type="java.lang.String" column="BANKACCOUNT" length="150" />
+		<property name="billingAddressStreet" type="java.lang.String" column="BILLINGADDRESSSTREET" length="150" />
+		<property name="billingAddressState" type="java.lang.String" column="BILLINGADDRESSSTATE" length="150" />
+		<property name="billingAddressPostalcode" type="java.lang.String" column="BILLADDRESSPOSTALCODE" length="150" />
+		<property name="billingAddressCountry" type="java.lang.String" column="BILLINGADDRESSCOUNTRY" length="150" />
+		<property name="rating" type="java.lang.String" column="TATING" length="150" />
+		<property name="mobile" type="java.lang.String" column="MOBILE" length="150" />
+		<property name="phone" type="java.lang.String" column="phone" length="150" />
+		<property name="phoneOffice" type="java.lang.String" column="PHONEOFFICE" length="150" />
+		<property name="phoneHome" type="java.lang.String" column="PHONEHOME" length="150" />
+		<property name="phoneAlternate" type="java.lang.String" column="PHONEALTERNATE" length="150" />
+		<property name="officeEmail" type="java.lang.String" column="OFFICEEMAIL" length="150" />
+		<property name="privateEmail" type="java.lang.String" column="PRIVATEEMAIL" length="150" />
+		<property name="website" type="java.lang.String" column="WEBSITE" length="150" />
+		<property name="ownership" type="java.lang.String" column="OWNERSHIP" length="150" />
+		<property name="employees" type="java.lang.String" column="EMPLOYEES" length="150" />
+		<property name="shippingAddressStreet" type="java.lang.String" column="SHIPPINGADDRESSSTREET" length="150" />
+		<property name="shippingAddressCity" type="java.lang.String" column="SHIPPINGADDRESSCITY" length="150" />
+		<property name="shippingAddressState" type="java.lang.String" column="SHIPPINGADDRESSSTATE" length="150" />
+		<property name="shippingAddressPostalcode" type="java.lang.String" column="SHIPPINGADDRESSPOSTALCODE" length="150" />
+		<property name="shippingAddressCountry" type="java.lang.String" column="SHIPPINGADDRESSCOUNTRY" length="150" />
+		<property name="parentId" type="java.lang.String" column="PARENTID" length="150" />
+		<property name="sicCode" type="java.lang.String" column="SICCODE" length="150" />
+		<property name="campaignId" type="java.lang.String" column="CAMPAIGNID" length="150" />
+		<property name="qqAccount" type="java.lang.String" column="QQACCOUNT" length="150" />
+		<property name="msnAccount" type="java.lang.String" column="MSNACCOUNT" length="150" />
+		<property name="wangAccount" type="java.lang.String" column="WANGACCOUNT" length="150" />
+		<property name="skypeAccount" type="java.lang.String" column="SKYPEACCOUNT" length="150" />
+		<property name="uncontactDays" type="java.lang.String" column="UNCONTACTDAYS" length="150" />
+		<property name="isSyncOutlook" type="java.lang.String" column="ISSYNCOUTLOOK" length="150" />
+		<property name="isPhoneCall" type="java.lang.String" column="ISPHONECALL" length="150" />
+		<property name="address" type="java.lang.String" column="address" length="150" />
+		<many-to-one name="crmContactType" column="crmContactType_id" />
+
+		<!-- 会员属性 -->
+		<property name="tag" type="java.lang.String" column="Tag" length="50" />
+		<property name="nameAllSpelling" type="java.lang.String" column="NAMEALLSPELLING" length="150" />
+		<property name="outNumber" type="java.lang.String" column="OUTNUMBER" length="50" />
+		<property name="isMarriage" type="java.lang.String" column="ISMARRIAGE" length="50" />
+		<property name="isAllowConnect" type="java.lang.String" column="ISALLOWCONNECT" length="50" />
+		<property name="integratePassword" type="java.lang.String" column="INTEGRATEPASSWORD" length="50" />
+		<property name="education" type="java.lang.String" column="EDUCATION" length="50" />
+		<property name="incomeLevel" type="java.lang.String" column="INCOMELEVEL" length="50" />
+		<property name="identity" type="java.lang.String" column="IDENTITY" length="50" />
+		<property name="isBlack" type="java.lang.String" column="ISBLACK" length="50" />
+		<property name="blackReason" type="java.lang.String" column="BLACKREASON" length="300" />
+		<property name="removeBlackReason" type="java.lang.String" column="REMOVEBLACKREASON" length="300" />
+	</class>
+</hibernate-mapping>

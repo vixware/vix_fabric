@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.sales.quotes.entity.SMCatalog" table="SALE_SMCATALOG">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">SALE_SMCATALOG_ID</param>
+			</generator>
+        </id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="createDate" type="java.util.Date" column="CREATEDATE" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LASTMODIFYDATE"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="sname" type="java.lang.String" column="SNAME" length="50"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		<many-to-one name="parentSMCatalog" column="parent_id"/>
+		<set name="subSMCatalogs" inverse="true">
+			<key column="parent_id"/>
+			<one-to-many class="com.vix.sales.quotes.entity.SMCatalog"/>
+		</set>
+		<set name="sMCatalogSMSMQuotationTemplates" inverse="true">
+			<key column="catalog_id"/>
+			<one-to-many class="com.vix.sales.quotes.entity.SMSMQuotationTemplate"/>
+		</set>
+  </class>
+</hibernate-mapping>

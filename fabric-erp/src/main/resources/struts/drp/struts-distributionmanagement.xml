@@ -1,0 +1,1307 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--分销管理 -->
+	<package name="drp.config" namespace="/drp" extends="crud-default">
+		<!-- 分销二级页面 -->
+		<action name="drpAction!*" method="{1}" class="drpAction">
+			<result name="goList">/WEB-INF/content/drp/main/drpmain_list.jsp
+			</result>
+		</action>
+		<action name="drpMainAction!*" method="{1}" class="drpMainAction">
+			<result name="goMenuContent">/WEB-INF/content/drp/main/menuContent.jsp</result>
+		</action>
+		<!-- 活动计划 -->
+		<action name="activityPlanAction!*" method="{1}" class="activityPlanAction">
+			<result name="goList">/WEB-INF/content/drp/activityplan/activityPlan_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/activityplan/activityPlan_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/activityplan/activityPlan_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 活动预算 -->
+		<action name="activityBudgetAction!*" method="{1}" class="activityBudgetAction">
+			<result name="goList">/WEB-INF/content/drp/activitybudget/activityBudget_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/activitybudget/activityBudget_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/activitybudget/activityBudget_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 基础信息,未处理删除 -->
+		<action name="basicInformationAction!*" method="{1}" class="basicInformationAction">
+			<result name="goList">/WEB-INF/content/drp/basicInformation/basicInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/basicInformation/basicInformation_list_content.jsp
+			</result>
+		</action>
+		<!-- 竞争产品 -->
+		<action name="competitiveProductsAction!*" method="{1}" class="competitiveProductsAction">
+			<result name="goList">/WEB-INF/content/drp/competitiveproducts/competitiveProducts_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/competitiveproducts/competitiveProducts_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/competitiveproducts/competitiveProducts_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 竞争者信息 -->
+		<action name="competitorInformationAction!*" method="{1}" class="competitorInformationAction">
+			<result name="goList">/WEB-INF/content/drp/competitorInformation/competitorInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/competitorInformation/competitorInformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/competitorInformation/competitorInformation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 竞争渠道 -->
+		<action name="competitionChannelAction!*" method="{1}" class="competitionChannelAction">
+			<result name="goList">/WEB-INF/content/drp/competitionchannel/competitionChannel_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/competitionchannel/competitionChannel_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/competitionchannel/competitionChannel_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 促销活动 -->
+		<action name="promotionActitityAction!*" method="{1}" class="promotionActitityAction">
+			<result name="goList">/WEB-INF/content/drp/promotionactitity/promotionActitity_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/promotionactitity/promotionActitity_list_content.jsp
+			</result>
+		</action>
+		<!-- 渠道管理 -->
+		<action name="channelAction!*" method="{1}" class="channelAction">
+			<result name="goList">/WEB-INF/content/drp/channel/channel_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/channel/channel_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/channel/channel_update.jsp
+			</result>
+			<result name="goChooseOrganization">/WEB-INF/content/drp/channel/organization_choose.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/channel/channel_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 渠道价格 -->
+		<action name="channelPriceAction!*" method="{1}" class="channelPriceAction">
+			<result name="goList">/WEB-INF/content/drp/channelprice/channelPrice_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/channelprice/channelPrice_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/channelprice/channelPrice_update.jsp
+			</result>
+			<result name="goChooseItem">/WEB-INF/content/drp/channelprice/chooseitem.jsp
+			</result>
+			<result name="goItemList">/WEB-INF/content/drp/channelprice/chooseitem_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/channelprice/channelPrice_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 渠道价格区间 -->
+		<action name="channelPriceConditionPriceAreaAction!*" method="{1}" class="channelPriceConditionPriceAreaAction">
+			<result name="goListContent">/WEB-INF/content/drp/channelprice/channelPriceConditionPriceArea_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/channelprice/channelPriceConditionPriceArea_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 渠道数量区间 -->
+		<action name="channelPriceConditionCountAreaAction!*" method="{1}" class="channelPriceConditionCountAreaAction">
+			<result name="goListContent">/WEB-INF/content/drp/channelprice/channelPriceConditionCountArea_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/channelprice/channelPriceConditionCountArea_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 经销商管理 -->
+		<action name="distributerManagementAction!*" method="{1}" class="distributerManagementAction">
+			<result name="goList">/WEB-INF/content/drp/distributermanagement/distributerManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/distributermanagement/distributerManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/distributermanagement/distributerManagement_update.jsp
+			</result>
+			<result name="goChooseOrganization">/WEB-INF/content/drp/distributermanagement/organization_choose.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/distributermanagement/distributerManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 分销体系管理 -->
+		<action name="distributionSystemRelationShipAction!*" method="{1}" class="distributionSystemRelationShipAction">
+			<result name="goList">/WEB-INF/content/drp/distributionsystemrelationship/distributionsystemrelationship_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/distributionsystemrelationship/distributionsystemrelationship_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/distributionsystemrelationship/distributionsystemrelationship_update.jsp
+			</result>
+			<result name="goChooseOrganization">/WEB-INF/content/drp/distributionsystemrelationship/organization_choose.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/distributionsystemrelationship/distributionsystemrelationship_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 级别管理 -->
+		<action name="distributerLevelAction!*" method="{1}" class="distributerLevelAction">
+			<result name="goList">/WEB-INF/content/drp/distributerlevel/distributerLevel_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/distributerlevel/distributerLevel_list_content.jsp
+			</result>
+		</action>
+		<!-- 要货计划 -->
+		<action name="tocargoPlanAction!*" method="{1}" class="tocargoPlanAction">
+			<result name="goList">/WEB-INF/content/drp/tocargoplan/tocargoPlan_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/tocargoplan/tocargoPlan_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/tocargoplan/tocargoPlan_update.jsp
+			</result>
+			<result name="goInventoryList">/WEB-INF/content/drp/tocargoplan/inventory_list.jsp</result>
+			<result name="goInventoryListContent">/WEB-INF/content/drp/tocargoplan/inventory_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/drp/tocargoplan/tocargoPlan_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 要货单 -->
+		<action name="demandOrderAction!*" method="{1}" class="demandOrderAction">
+			<result name="goList">/WEB-INF/content/drp/demandOrder/demandOrder_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/demandOrder/demandOrder_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/demandOrder/demandOrder_update.jsp
+			</result>
+			<result name="goPurchaseOrderLineItem">/WEB-INF/content/drp/demandOrder/purchaseorderlineitem_update.jsp</result>
+			<result name="goPurchaseOrderLineItemListContent">/WEB-INF/content/drp/demandOrder/purchaseorderlineitem_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/demandOrder/demandOrder_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单管理 -->
+		<action name="distributororderManagementAction!*" method="{1}" class="distributororderManagementAction">
+			<result name="goList">/WEB-INF/content/drp/distributorordermanagement/distributororderManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/distributorordermanagement/distributororderManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/distributorordermanagement/distributororderManagement_update.jsp
+			</result>
+		</action>
+		<!-- 门店信息 -->
+		<action name="storeInformationAction!*" method="{1}" class="storeInformationAction">
+			<result name="goList">/WEB-INF/content/drp/store/storeInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/store/storeInformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/store/storeInformation_update.jsp
+			</result>
+			<result name="goChooseOrganization">/WEB-INF/content/drp/store/organization_choose.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/store/storeInformation_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 门店人员信息 -->
+		<action name="storePersonnelinformationAction!*" method="{1}" class="storePersonnelinformationAction">
+			<result name="goList">/WEB-INF/content/drp/storepersonnelinformation/storePersonnelinformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storepersonnelinformation/storePersonnelinformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storepersonnelinformation/storePersonnelinformation_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/storepersonnelinformation/storePersonnelinformation_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 门店要货请求 -->
+		<action name="storeEnquiryrequestAction!*" method="{1}" class="storeEnquiryrequestAction">
+			<result name="goList">/WEB-INF/content/drp/storeenquiryrequest/storeEnquiryrequest_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storeenquiryrequest/storeEnquiryrequest_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storeenquiryrequest/storeEnquiryrequest_update.jsp
+			</result>
+			<result name="goInventoryList">/WEB-INF/content/drp/storeenquiryrequest/inventory_list.jsp</result>
+			<result name="goInventoryListContent">/WEB-INF/content/drp/storeenquiryrequest/inventory_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/drp/storeenquiryrequest/storeEnquiryrequest_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 门店销售记录 -->
+		<action name="storeSalesrecordAction!*" method="{1}" class="storeSalesrecordAction">
+			<result name="goList">/WEB-INF/content/drp/storesalesrecord/storeSalesrecord_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storesalesrecord/storeSalesrecord_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storesalesrecord/storeSalesrecord_update.jsp
+			</result>
+			<result name="goSaveSaleOrderItem">/WEB-INF/content/drp/storesalesrecord/chooseItemForSaleOrderItem.jsp
+			</result>
+			<result name="goInventoryCurrentStock">/WEB-INF/content/drp/storesalesrecord/inventoryCurrentStock_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/drp/storesalesrecord/inventoryCurrentStock_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/storesalesrecord/storeSalesrecord_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员门店退货 -->
+		<action name="memberStorereturnAction!*" method="{1}" class="memberStorereturnAction">
+			<result name="goList">/WEB-INF/content/drp/memberstorereturn/memberStorereturn_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/memberstorereturn/memberStorereturn_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/memberstorereturn/memberStorereturn_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 门店收货记录,未做排序 -->
+		<action name="storeReceivingrecordsAction!*" method="{1}" class="storeReceivingrecordsAction">
+			<result name="goList">/WEB-INF/content/drp/storereceivingrecords/storeReceivingrecords_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storereceivingrecords/storeReceivingrecords_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storereceivingrecords/storeReceivingrecords_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/storereceivingrecords/storeReceivingrecords_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 门店退货记录 ,未做排序 -->
+		<action name="storeReturnRecordsAction!*" method="{1}" class="storeReturnRecordsAction">
+			<result name="goList">/WEB-INF/content/drp/storereturnrecords/storereturnRecords_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storereturnrecords/storereturnRecords_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storereturnrecords/storereturnRecords_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/storereturnrecords/storereturnRecords_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 政策下达 -->
+		<action name="policyFeedbackAction!*" method="{1}" class="policyFeedbackAction">
+			<result name="goList">/WEB-INF/content/drp/policyfeedback/policyFeedback_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/policyfeedback/policyFeedback_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/policyfeedback/policyFeedback_update.jsp
+			</result>
+			<result name="goPoliciesIssued">/WEB-INF/content/drp/policyfeedback/policiesIssued.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/policyfeedback/policyFeedback_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 政策反馈 -->
+		<action name="storesFeedbackAction!*" method="{1}" class="storesFeedbackAction">
+			<result name="goList">/WEB-INF/content/drp/storesFeedback/storesFeedback_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storesFeedback/storesFeedback_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storesFeedback/storesFeedback_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/storesFeedback/storesFeedback_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 门店拜访及评分 ,未排序 -->
+		<action name="storeVisitscoreAction!*" method="{1}" class="storeVisitscoreAction">
+			<result name="goList">/WEB-INF/content/drp/storevisitscore/storeVisitscore_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storevisitscore/storeVisitscore_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storevisitscore/storeVisitscore_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员信息 -->
+		<action name="membershipInformationAction!*" method="{1}" class="membershipInformationAction">
+			<result name="goList">/WEB-INF/content/drp/membershipInformation/membershipInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/membershipInformation/membershipInformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/membershipInformation/membershipInformation_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/membershipInformation/membershipInformation_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员积分兑换,未排序 -->
+		<action name="memberPointsforAction!*" method="{1}" class="memberPointsforAction">
+			<result name="goList">/WEB-INF/content/drp/memberpointsfor/memberPointsfor_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/memberpointsfor/memberPointsfor_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/memberpointsfor/memberPointsfor_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/memberpointsfor/memberPointsfor_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员积分明细,未排序 -->
+		<action name="membershipPointsdetailsAction!*" method="{1}" class="membershipPointsdetailsAction">
+			<result name="goList">/WEB-INF/content/drp/membershippointsdetails/membershipPointsdetails_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/membershippointsdetails/membershipPointsdetails_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/membershippointsdetails/membershipPointsdetails_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/membershippointsdetails/membershipPointsdetails_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 积分明细管理,未排序 -->
+		<action name="integralManagementsubsidiaryAction!*" method="{1}" class="integralManagementsubsidiaryAction">
+			<result name="goList">/WEB-INF/content/drp/integralmanagementsubsidiary/integralManagementsubsidiary_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/integralmanagementsubsidiary/integralManagementsubsidiary_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/integralmanagementsubsidiary/integralManagementsubsidiary_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/integralmanagementsubsidiary/integralManagementsubsidiary_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 积分记录 -->
+		<action name="pointRecordAction!*" method="{1}" class="pointRecordAction">
+			<result name="goList">/WEB-INF/content/drp/pointRecord/pointRecord_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/pointRecord/pointRecord_list_content.jsp
+			</result>
+		</action>
+		<!-- 客户反馈管理,未排序 -->
+		<action name="customerFeedbackmanagementAction!*" method="{1}" class="customerFeedbackmanagementAction">
+			<result name="goList">/WEB-INF/content/drp/customerfeedbackmanagement/customerFeedbackmanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customerfeedbackmanagement/customerFeedbackmanagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customerfeedbackmanagement/customerFeedbackmanagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/customerfeedbackmanagement/customerFeedbackmanagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 知识库管理,未排序 -->
+		<action name="knowledgeBasemanagementAction!*" method="{1}" class="knowledgeBasemanagementAction">
+			<result name="goList">/WEB-INF/content/drp/knowledgebasemanagement/knowledgeBasemanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/knowledgebasemanagement/knowledgeBasemanagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/knowledgebasemanagement/knowledgeBasemanagement_update.jsp
+			</result>
+			<result name="goSaveOrUpdateKnowledgeBaseCategory">/WEB-INF/content/drp/knowledgebasemanagement/knowledgeBaseCategory_update.jsp
+			</result>
+			<result name="goKnowledgeBaseCategory">/WEB-INF/content/drp/knowledgebasemanagement/knowledgeBaseCategory_choose.jsp
+			</result>
+			<result name="downloadAttachment" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户调查管理,未排序 -->
+		<action name="customerSurveyAction!*" method="{1}" class="customerSurveyAction">
+			<result name="goList">/WEB-INF/content/drp/customersurveymanagement/customerSurveymanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customersurveymanagement/customerSurveymanagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customersurveymanagement/customerSurveymanagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户关怀提醒,未排序 -->
+		<action name="customerCareremindAction!*" method="{1}" class="customerCareremindAction">
+			<result name="goList">/WEB-INF/content/drp/customercareremind/customerCareremind_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customercareremind/customerCareremind_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customercareremind/customerCareremind_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 服务日历管理 -->
+		<action name="serviceCalendarmanagementAction!*" method="{1}" class="serviceCalendarmanagementAction">
+			<result name="goCanlendar">/WEB-INF/content/drp/servicecalendarmanagement/serviceCalendarmanagement.jsp
+			</result>
+		</action>
+		<!-- 竞争基础信息,未排序 -->
+		<action name="competitorBasicinformationAction!*" method="{1}" class="competitorBasicinformationAction">
+			<result name="goList">/WEB-INF/content/drp/competitorbasicinformation/competitorBasicinformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/competitorbasicinformation/competitorBasicinformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/competitorbasicinformation/competitorBasicinformation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 积分兑换 -->
+		<action name="reDeemAction!*" method="{1}" class="reDeemAction">
+			<result name="goList">/WEB-INF/content/drp/redeem/reDeem_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/redeem/reDeem_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/redeem/reDeem_update.jsp
+			</result>
+			<result name="goChooseInventoryCurrentStock">/WEB-INF/content/drp/redeem/item_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/drp/redeem/item_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员卡管理 -->
+		<action name="membershipCardmanagementAction!*" method="{1}" class="membershipCardmanagementAction">
+			<result name="goList">/WEB-INF/content/drp/membershipcardmanagement/membershipCardmanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/membershipcardmanagement/membershipCardmanagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/membershipcardmanagement/membershipCardmanagement_update.jsp
+			</result>
+			<result name="goBatchSaveOrUpdate">/WEB-INF/content/drp/membershipcardmanagement/membershipCardmanagement_batchupdate.jsp
+			</result>
+			<result name="goChangeCard">/WEB-INF/content/drp/membershipcardmanagement/changecard_update.jsp
+			</result>
+			<result name="goChooseCustomerAccount">/WEB-INF/content/drp/membershipcardmanagement/customerAccount_list.jsp
+			</result>
+			<result name="goCustomerAccountList">/WEB-INF/content/drp/membershipcardmanagement/customerAccount_list_content.jsp
+			</result>
+			<result name="goMemberShipCardFeesForRenewal">/WEB-INF/content/drp/membershipcardmanagement/memberShipCardFeesForRenewal.jsp
+			</result>
+			<result name="goMemberShipCardTransfers">/WEB-INF/content/drp/membershipcardmanagement/memberShipcardTransfers.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单录入 -->
+		<action name="orderEntryAction!*" method="{1}" class="orderEntryAction">
+			<result name="goList">/WEB-INF/content/drp/orderentry/orderEntry_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/orderentry/orderEntry_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/orderentry/orderEntry_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单审核 -->
+		<action name="ordersAuditAction!*" method="{1}" class="ordersAuditAction">
+			<result name="goList">/WEB-INF/content/drp/ordersaudit/ordersAudit_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/ordersaudit/ordersAudit_list_content.jsp
+			</result>
+		</action>
+		<!-- 订单发货 -->
+		<action name="ordersShippedAction!*" method="{1}" class="ordersShippedAction">
+			<result name="goList">/WEB-INF/content/drp/ordersshipped/ordersShipped_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/ordersshipped/ordersShipped_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/ordersshipped/ordersShipped_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 欠款协议 -->
+		<action name="arrearsAgreementAction!*" method="{1}" class="arrearsAgreementAction">
+			<result name="goList">/WEB-INF/content/drp/arrearsagreement/arrearsAgreement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/arrearsagreement/arrearsAgreement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/arrearsagreement/arrearsAgreement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员积分记录 -->
+		<action name="membershipPointsregistrationAction!*" method="{1}" class="membershipPointsregistrationAction">
+			<result name="goList">/WEB-INF/content/drp/membershippointsregistration/membershipPointsregistration_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/membershippointsregistration/membershipPointsregistration_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/membershippointsregistration/membershipPointsregistration_update.jsp
+			</result>
+			<result name="goChooseMemberShipCard">/WEB-INF/content/drp/membershippointsregistration/memberShipCard_list.jsp
+			</result>
+			<result name="goMemberShipCardList">/WEB-INF/content/drp/membershippointsregistration/memberShipCard_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 过期积分记录 -->
+		<action name="expiredIntegralAction!*" method="{1}" class="expiredIntegralAction">
+			<result name="goList">/WEB-INF/content/drp/registrationexpiredpoints/registrationExpiredpoints_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/registrationexpiredpoints/registrationExpiredpoints_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/registrationexpiredpoints/registrationExpiredpoints_update.jsp
+			</result>
+			<result name="goChooseMemberShipCard">/WEB-INF/content/drp/registrationexpiredpoints/memberShipCard_list.jsp
+			</result>
+			<result name="goMemberShipCardList">/WEB-INF/content/drp/registrationexpiredpoints/memberShipCard_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 过期积分历史 -->
+		<action name="expiredPointshistoryAction!*" method="{1}" class="expiredPointshistoryAction">
+			<result name="goList">/WEB-INF/content/drp/expiredpointshistory/expiredPointshistory_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/expiredpointshistory/expiredPointshistory_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/expiredpointshistory/expiredPointshistory_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 分销选项 -->
+		<action name="distributionOptionsAction!*" method="{1}" class="distributionOptionsAction">
+			<result name="goList">/WEB-INF/content/drp/distributionoptions/distributionoptions_list_content.jsp
+			</result>
+		</action>
+		<!-- 对账单 -->
+		<action name="bankstatementAction!*" method="{1}" class="bankstatementAction">
+			<result name="goList">/WEB-INF/content/drp/bankstatement/bankstatement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/bankstatement/bankstatement_list_content.jsp
+			</result>
+		</action>
+		<!--培训管理 -->
+		<action name="trainingManagementAction!*" method="{1}" class="trainingManagementAction">
+			<result name="goList">/WEB-INF/content/drp/trainingManagement/trainingManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/trainingManagement/trainingManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/trainingManagement/trainingManagement_update.jsp
+			</result>
+			<result name="addAttachments">/WEB-INF/content/drp/trainingManagement/addAttachFile.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/trainingManagement/trainingManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 市场信息管理 -->
+		<action name="marketInformationManagementAction!*" method="{1}" class="marketInformationManagementAction">
+			<result name="goList">/WEB-INF/content/drp/marketInformationManagement/marketInformationManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/marketInformationManagement/marketInformationManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/marketInformationManagement/marketInformationManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 广告管理,未处理 -->
+		<action name="advertisingManagementAction!*" method="{1}" class="advertisingManagementAction">
+			<result name="goList">/WEB-INF/content/drp/advertisingManagement/advertisingManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/advertisingManagement/advertisingManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/advertisingManagement/advertisingManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 市场调查,未处理 -->
+		<action name="marketResearchAction!*" method="{1}" class="marketResearchAction">
+			<result name="goList">/WEB-INF/content/drp/marketResearch/marketResearch_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/marketResearch/marketResearch_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/marketResearch/marketResearch_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 分销点管理 ,未处理 -->
+		<action name="swaohAction!*" method="{1}" class="swaohAction">
+			<result name="goList">/WEB-INF/content/drp/swaoh/swaoh_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/swaoh/swaoh_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/swaoh/swaoh_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 返款单 -->
+		<action name="rebatesManagementAction!*" method="{1}" class="rebatesManagementAction">
+			<result name="goList">/WEB-INF/content/drp/rebatesManagement/rebatesManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/rebatesManagement/rebatesManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/rebatesManagement/rebatesManagement_update.jsp
+			</result>
+			<result name="goRefundRule">/WEB-INF/content/drp/rebatesManagement/refundrule_list.jsp
+			</result>
+			<result name="goRefundRuleList">/WEB-INF/content/drp/rebatesManagement/refundrule_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/rebatesManagement/rebatesManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 收款管理,待处理 -->
+		<action name="collectManagementAction!*" method="{1}" class="collectManagementAction">
+			<result name="goList">/WEB-INF/content/drp/collectManagement/collectManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/collectManagement/collectManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/collectManagement/collectManagement_update.jsp
+			</result>
+			<result name="goSalesOrder">/WEB-INF/content/drp/collectManagement/salesOrder_list.jsp
+			</result>
+			<result name="goSalesOrderList">/WEB-INF/content/drp/collectManagement/salesOrder_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 返款规则设定 -->
+		<action name="refundRuleAction!*" method="{1}" class="refundRuleAction">
+			<result name="goList">/WEB-INF/content/drp/refundRule/refundRule_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/refundRule/refundRule_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/refundRule/refundRule_update.jsp
+			</result>
+			<result name="goChooseInventoryCurrentStock">/WEB-INF/content/drp/refundRule/inventoryCurrentStock_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/drp/refundRule/inventoryCurrentStock_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 分销产品管理 -->
+		<action name="salwableProductAction!*" method="{1}" class="salwableProductAction">
+			<result name="goList">/WEB-INF/content/drp/salwableProduct/salwableProduct_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/salwableProduct/salwableProduct_list_content.jsp
+			</result>
+			<result name="goChooseItem">/WEB-INF/content/drp/salwableProduct/chooseProduct.jsp
+			</result>
+			<result name="goItemList">/WEB-INF/content/drp/salwableProduct/product_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/salwableProduct/salwableProduct_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 账号信息,未处理修改留痕 -->
+		<action name="accountManagementAction!*" method="{1}" class="accountManagementAction">
+			<result name="goList">/WEB-INF/content/drp/accountmanagement/accountmanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/accountmanagement/accountmanagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/accountmanagement/accountmanagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 员工信息 -->
+		<action name="employeeManagementAction!*" method="{1}" class="employeeManagementAction">
+			<result name="goList">/WEB-INF/content/drp/employeeManagement/employeeManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/employeeManagement/employeeManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/employeeManagement/employeeManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/employeeManagement/employeeManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 积分规则设置 -->
+		<action name="integralRulesSetAction!*" method="{1}" class="integralRulesSetAction">
+			<result name="goList">/WEB-INF/content/drp/integralRulesSet/integralRulesSet_list.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/integralRulesSet/integralRulesSet_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 经营指标 -->
+		<action name="operationalIndicatorAction!*" method="{1}" class="operationalIndicatorAction">
+			<result name="goList">/WEB-INF/content/drp/operationalIndicator/operationalIndicator_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/operationalIndicator/operationalIndicator_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/operationalIndicator/operationalIndicator_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 经营计划 -->
+		<action name="operatingPlanAction!*" method="{1}" class="operatingPlanAction">
+			<result name="goList">/WEB-INF/content/drp/operatingPlan/operatingPlan_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/operatingPlan/operatingPlan_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/operatingPlan/operatingPlan_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--项目备案管理 -->
+		<action name="projectFilingManagementAction!*" method="{1}" class="projectFilingManagementAction">
+			<result name="goList">/WEB-INF/content/drp/projectFilingManagement/projectFilingManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/projectFilingManagement/projectFilingManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/projectFilingManagement/projectFilingManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/projectFilingManagement/projectFilingManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--应收管理 -->
+		<action name="receivableAction!*" method="{1}" class="receivableAction">
+			<result name="goList">/WEB-INF/content/drp/receivable/receivable_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/receivable/receivable_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/receivable/receivable_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--代垫费用 -->
+		<action name="reimbursedExpensesAction!*" method="{1}" class="reimbursedExpensesAction">
+			<result name="goList">/WEB-INF/content/drp/reimbursedExpenses/reimbursedExpenses_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/reimbursedExpenses/reimbursedExpenses_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/reimbursedExpenses/reimbursedExpenses_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--门店积分管理 -->
+		<action name="storesIntegralAction!*" method="{1}" class="storesIntegralAction">
+			<result name="goList">/WEB-INF/content/drp/storesIntegral/storesIntegral_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storesIntegral/storesIntegral_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storesIntegral/storesIntegral_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--文商需求 -->
+		<action name="businessNeedsAction!*" method="{1}" class="businessNeedsAction">
+			<result name="goList">/WEB-INF/content/drp/businessNeeds/businessNeeds_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/businessNeeds/businessNeeds_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/businessNeeds/businessNeeds_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--门店短信需求 -->
+		<action name="storesTextDemandAction!*" method="{1}" class="storesTextDemandAction">
+			<result name="goList">/WEB-INF/content/drp/storesTextDemand/storesTextDemand_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/storesTextDemand/storesTextDemand_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/storesTextDemand/storesTextDemand_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--本品竞品采集 -->
+		<action name="productAcquisitionAction!*" method="{1}" class="productAcquisitionAction">
+			<result name="goList">/WEB-INF/content/drp/productAcquisition/productAcquisition_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/productAcquisition/productAcquisition_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/productAcquisition/productAcquisition_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--折扣信息 -->
+		<action name="discountInformationAction!*" method="{1}" class="discountInformationAction">
+			<result name="goList">/WEB-INF/content/drp/discountInformation/discountInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/discountInformation/discountInformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/discountInformation/discountInformation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--应付管理 -->
+		<action name="apManagementAction!*" method="{1}" class="apManagementAction">
+			<result name="goList">/WEB-INF/content/drp/apManagement/apManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/apManagement/apManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/apManagement/apManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--营销活动列表,待处理 -->
+		<action name="marketingCampaignAction!*" method="{1}" class="marketingCampaignAction">
+			<result name="goList">/WEB-INF/content/drp/marketingCampaign/marketingCampaign_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/marketingCampaign/marketingCampaign_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/marketingCampaign/marketingCampaign_update.jsp
+			</result>
+			<result name="goMarketingCampaign">/WEB-INF/content/drp/marketingCampaign/marketingCampaignIssued.jsp
+			</result>
+			<result name="goChooseChannelDistributor">/WEB-INF/content/drp/marketingCampaign/channeldistributor_choose.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--营销执行管理 -->
+		<action name="marketingExecutiveAction!*" method="{1}" class="marketingExecutiveAction">
+			<result name="goList">/WEB-INF/content/drp/marketingExecutive/marketingExecutive_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/marketingExecutive/marketingExecutive_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/marketingExecutive/marketingExecutive_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--营销活动跟踪 ,待处理删除 -->
+		<action name="marketingCampaignTrackingAction!*" method="{1}" class="marketingCampaignTrackingAction">
+			<result name="goList">/WEB-INF/content/drp/marketingCampaignTracking/marketingCampaignTracking_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/marketingCampaignTracking/marketingCampaignTracking_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/marketingCampaignTracking/marketingCampaignTracking_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--统计分析 -->
+		<action name="statisticAnalysisAction!*" method="{1}" class="statisticAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/statisticAnalysis/statisticAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/statisticAnalysis/statisticAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/statisticAnalysis/statisticAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--客户消费分析 -->
+		<action name="customerConsumptionAnalysisAction!*" method="{1}" class="customerConsumptionAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/customerConsumptionAnalysis/customerConsumptionAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customerConsumptionAnalysis/customerConsumptionAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customerConsumptionAnalysis/customerConsumptionAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--客户价值分析 -->
+		<action name="customerValueAnalysisAction!*" method="{1}" class="customerValueAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/customerValueAnalysis/customerValueAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customerValueAnalysis/customerValueAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customerValueAnalysis/customerValueAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--客户偏好分析 -->
+		<action name="customerPreferenceAnalysisAction!*" method="{1}" class="customerPreferenceAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/customerPreferenceAnalysis/customerPreferenceAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customerPreferenceAnalysis/customerPreferenceAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customerPreferenceAnalysis/customerPreferenceAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--渠道门店分析 -->
+		<action name="channelStoresAnalysisAction!*" method="{1}" class="channelStoresAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/customerPreferenceAnalysis/customerPreferenceAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customerPreferenceAnalysis/customerPreferenceAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customerPreferenceAnalysis/customerPreferenceAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--产品系列分析 -->
+		<action name="productSeriesAnalysisAction!*" method="{1}" class="productSeriesAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/productSeriesAnalysis/productSeriesAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/productSeriesAnalysis/productSeriesAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/productSeriesAnalysis/productSeriesAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--业务运营分析 -->
+		<action name="businessAnalysisAction!*" method="{1}" class="businessAnalysisAction">
+			<result name="goList">/WEB-INF/content/drp/businessAnalysis/businessAnalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/businessAnalysis/businessAnalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/businessAnalysis/businessAnalysis_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--安装管理 -->
+		<action name="installationAction!*" method="{1}" class="installationAction">
+			<result name="goList">/WEB-INF/content/drp/installation/installation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/installation/installation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/installation/installation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--维修管理 -->
+		<action name="maintenanceAction!*" method="{1}" class="maintenanceAction">
+			<result name="goList">/WEB-INF/content/drp/maintenance/maintenance_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/maintenance/maintenance_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/maintenance/maintenance_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--配件管理 -->
+		<action name="sparePartsAction!*" method="{1}" class="sparePartsAction">
+			<result name="goList">/WEB-INF/content/drp/spareParts/spareParts_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/spareParts/spareParts_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/spareParts/spareParts_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--渠道分布 -->
+		<action name="distributionChannelsAction!*" method="{1}" class="distributionChannelsAction">
+			<result name="goList">/WEB-INF/content/drp/distributionChannels/distributionChannels_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/distributionChannels/distributionChannels_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/distributionChannels/distributionChannels_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--产品投放信息采集 -->
+		<action name="productInformationAction!*" method="{1}" class="productInformationAction">
+			<result name="goList">/WEB-INF/content/drp/newProductLaunchInformation/newProductLaunchInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/newProductLaunchInformation/newProductLaunchInformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/newProductLaunchInformation/newProductLaunchInformation_update.jsp
+			</result>
+			<result name="goSaveOrUpdateProductInformation">/WEB-INF/content/drp/newProductLaunchInformation/productInformation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--代销订单 -->
+		<action name="consignmentOrderAction!*" method="{1}" class="consignmentOrderAction">
+			<result name="goList">/WEB-INF/content/drp/consignmentOrder/consignmentOrder_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/consignmentOrder/consignmentOrder_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/consignmentOrder/consignmentOrder_update.jsp
+			</result>
+			<result name="goSaveOrUpdateConsignmentOrderItem">/WEB-INF/content/drp/consignmentOrder/chooseItemForConsignmentOrder.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--代销订单发货 -->
+		<action name="consignmentOrderDeliveryAction!*" method="{1}" class="consignmentOrderDeliveryAction">
+			<result name="goList">/WEB-INF/content/drp/consignmentOrderDelivery/consignmentOrderDelivery_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/consignmentOrderDelivery/consignmentOrderDelivery_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/consignmentOrderDelivery/consignmentOrderDelivery_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--生成代销销售订单 -->
+		<action name="generationConsignmentSalesOrderAction!*" method="{1}" class="generationConsignmentSalesOrderAction">
+			<result name="goList">/WEB-INF/content/drp/generationConsignmentSalesOrder/generationConsignmentSalesOrder_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/generationConsignmentSalesOrder/generationConsignmentSalesOrder_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/generationConsignmentSalesOrder/generationConsignmentSalesOrder_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--每月代销商品结算单 -->
+		<action name="monthlyMerchandiseConsignmentStatementAction!*" method="{1}" class="monthlyMerchandiseConsignmentStatementAction">
+			<result name="goList">/WEB-INF/content/drp/monthlyMerchandiseConsignmentStatement/monthlyMerchandiseConsignmentStatement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/monthlyMerchandiseConsignmentStatement/monthlyMerchandiseConsignmentStatement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/monthlyMerchandiseConsignmentStatement/monthlyMerchandiseConsignmentStatement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--代销销售商品入库 -->
+		<action name="salesGoodsConsignmentWarehouseAction!*" method="{1}" class="salesGoodsConsignmentWarehouseAction">
+			<result name="goList">/WEB-INF/content/drp/salesGoodsConsignmentWarehouse/salesGoodsConsignmentWarehouse_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/salesGoodsConsignmentWarehouse/salesGoodsConsignmentWarehouse_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/salesGoodsConsignmentWarehouse/salesGoodsConsignmentWarehouse_update.jsp
+			</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/content/drp/salesGoodsConsignmentWarehouse/chooseItemForStockRecordLines.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--代销退货 -->
+		<action name="consignmentReturnsAction!*" method="{1}" class="consignmentReturnsAction">
+			<result name="goList">/WEB-INF/content/drp/consignmentReturns/consignmentReturns_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/consignmentReturns/consignmentReturns_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/consignmentReturns/consignmentReturns_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--代销商销售结算 -->
+		<action name="affiliateSalesSettlementAction!*" method="{1}" class="affiliateSalesSettlementAction">
+			<result name="goList">/WEB-INF/content/drp/affiliateSalesSettlement/affiliateSalesSettlement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/affiliateSalesSettlement/affiliateSalesSettlement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/affiliateSalesSettlement/affiliateSalesSettlement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--日配销售订单 -->
+		<action name="dayWithSalesOrderAction!*" method="{1}" class="dayWithSalesOrderAction">
+			<result name="goList">/WEB-INF/content/drp/dayWithSalesOrder/dayWithSalesOrder_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/dayWithSalesOrder/dayWithSalesOrder_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/dayWithSalesOrder/dayWithSalesOrder_update.jsp
+			</result>
+			<result name="goSaveOrUpdateSaleOrderItem">/WEB-INF/content/drp/dayWithSalesOrder/chooseItemForSalesOrder.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--日配销售配送单 -->
+		<action name="singleDaySalesDistributionAction!*" method="{1}" class="singleDaySalesDistributionAction">
+			<result name="goList">/WEB-INF/content/drp/singleDaySalesDistribution/singleDaySalesDistribution_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/singleDaySalesDistribution/singleDaySalesDistribution_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/singleDaySalesDistribution/singleDaySalesDistribution_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--日配销售生产计划单 -->
+		<action name="salesProductionPlanningAction!*" method="{1}" class="salesProductionPlanningAction">
+			<result name="goList">/WEB-INF/content/drp/salesProductionPlanning/salesProductionPlanning_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/salesProductionPlanning/salesProductionPlanning_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/salesProductionPlanning/salesProductionPlanning_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--修改日配订单实收数 -->
+		<action name="modifyOrdersReceivedNumberAction!*" method="{1}" class="modifyOrdersReceivedNumberAction">
+			<result name="goList">/WEB-INF/content/drp/modifyOrdersReceivedNumber/modifyOrdersReceivedNumber_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/modifyOrdersReceivedNumber/modifyOrdersReceivedNumber_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/modifyOrdersReceivedNumber/modifyOrdersReceivedNumber_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--日配销售出库 -->
+		<action name="dayWithSalesAction!*" method="{1}" class="dayWithSalesAction">
+			<result name="goList">/WEB-INF/content/drp/dayWithSales/dayWithSales_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/dayWithSales/dayWithSales_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/dayWithSales/dayWithSales_update.jsp
+			</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/content/drp/dayWithSales/chooseItemForStockRecordLines.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--日配销售入库 -->
+		<action name="salesStorageAction!*" method="{1}" class="salesStorageAction">
+			<result name="goList">/WEB-INF/content/drp/salesStorage/salesStorage_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/salesStorage/salesStorage_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/salesStorage/salesStorage_update.jsp
+			</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/content/drp/salesStorage/chooseItemForStockRecordLines.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--日配销售结算 -->
+		<action name="salesSettlementAction!*" method="{1}" class="salesSettlementAction">
+			<result name="goList">/WEB-INF/content/drp/salesSettlement/salesSettlement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/salesSettlement/salesSettlement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/salesSettlement/salesSettlement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--WebPOS -->
+		<action name="webPOSAction!*" method="{1}" class="webPOSAction">
+			<result name="goList">/WEB-INF/content/drp/webPOS/webPOS_list.jsp
+			</result>
+			<result name="goItemList">/WEB-INF/content/drp/webPOS/item_List_content.jsp
+			</result>
+			<result name="goItemCatalogList">/WEB-INF/content/drp/webPOS/itemCatalog_List_content.jsp
+			</result>
+			<result name="goPrintSalesOrder">/WEB-INF/content/drp/webPOS/webPOS_print.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--零售价格调查 -->
+		<action name="retailPriceSurveyAction!*" method="{1}" class="retailPriceSurveyAction">
+			<result name="goList">/WEB-INF/content/drp/retailPriceSurvey/retailPriceSurvey_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/retailPriceSurvey/retailPriceSurvey_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/retailPriceSurvey/retailPriceSurvey_update.jsp
+			</result>
+			<result name="goSaveOrUpdateRetailPriceSurveyDetail">/WEB-INF/content/drp/retailPriceSurvey/retailPriceSurveyDetail_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--渠道价格调查 -->
+		<action name="channelPriceSurveyAction!*" method="{1}" class="channelPriceSurveyAction">
+			<result name="goList">/WEB-INF/content/drp/channelPriceSurvey/channelPriceSurvey_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/channelPriceSurvey/channelPriceSurvey_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/channelPriceSurvey/channelPriceSurvey_update.jsp
+			</result>
+			<result name="goSaveOrUpdateChannelPrice">/WEB-INF/content/drp/channelPriceSurvey/channelPrice_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--分支机构性质与规模 -->
+		<action name="branchOrganizationAction!*" method="{1}" class="branchOrganizationAction">
+			<result name="goList">/WEB-INF/content/drp/natureAndScaleBranch/natureAndScaleBranch_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/natureAndScaleBranch/natureAndScaleBranch_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/natureAndScaleBranch/natureAndScaleBranch_update.jsp
+			</result>
+			<result name="goSaveOrUpdateOperatingConditions">/WEB-INF/content/drp/natureAndScaleBranch/operatingConditions_update.jsp
+			</result>
+			<result name="goSaveOrUpdatePropertiesScale">/WEB-INF/content/drp/natureAndScaleBranch/propertiesScale_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--分支机构经营状况 -->
+		<action name="operationsBranchAction!*" method="{1}" class="operationsBranchAction">
+			<result name="goList">/WEB-INF/content/drp/operationsBranch/operationsBranch_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/operationsBranch/operationsBranch_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/operationsBranch/operationsBranch_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--客户与销售分布 -->
+		<action name="customerAndSalesDistributionAction!*" method="{1}" class="customerAndSalesDistributionAction">
+			<result name="goList">/WEB-INF/content/drp/customerAndSalesDistribution/customerAndSalesDistribution_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/customerAndSalesDistribution/customerAndSalesDistribution_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/customerAndSalesDistribution/customerAndSalesDistribution_update.jsp
+			</result>
+			<result name="goSaveOrUpdateCustomer">/WEB-INF/content/drp/customerAndSalesDistribution/customer_update.jsp
+			</result>
+			<result name="goSaveOrUpdateSalesDistribution">/WEB-INF/content/drp/customerAndSalesDistribution/salesDistribution_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--市场活动信息采集 -->
+		<action name="marketingActivityAction!*" method="{1}" class="marketingActivityAction">
+			<result name="goList">/WEB-INF/content/drp/marketingActivity/marketingActivity_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/marketingActivity/marketingActivity_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/marketingActivity/marketingActivity_update.jsp
+			</result>
+			<result name="goSaveOrUpdateMarketActivity">/WEB-INF/content/drp/marketingActivity/marketActivity_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--广告活动信息采集 -->
+		<action name="advertisingCampaignAction!*" method="{1}" class="advertisingCampaignAction">
+			<result name="goList">/WEB-INF/content/drp/advertisingCampaign/advertisingCampaign_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/advertisingCampaign/advertisingCampaign_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/advertisingCampaign/advertisingCampaign_update.jsp
+			</result>
+			<result name="goSaveOrUpdateAdvertisingCampaign">/WEB-INF/content/drp/advertisingCampaign/advertisingc_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--媒体组合投放计划 -->
+		<action name="mediaDeliveryPlanAction!*" method="{1}" class="mediaDeliveryPlanAction">
+			<result name="goList">/WEB-INF/content/drp/mediaDeliveryPlan/mediaDeliveryPlan_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/mediaDeliveryPlan/mediaDeliveryPlan_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/mediaDeliveryPlan/mediaDeliveryPlan_update.jsp
+			</result>
+			<result name="goSaveOrUpdateTelevisionMedia">/WEB-INF/content/drp/mediaDeliveryPlan/televisionMedia_update.jsp
+			</result>
+			<result name="goSaveOrUpdateNewsPaperMedia">/WEB-INF/content/drp/mediaDeliveryPlan/newsPaperMedia_update.jsp
+			</result>
+			<result name="goSaveOrUpdateRadioMedia">/WEB-INF/content/drp/mediaDeliveryPlan/radioMedia_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--电视媒体管理 -->
+		<action name="tvMediaManagementAction!*" method="{1}" class="tvMediaManagementAction">
+			<result name="goList">/WEB-INF/content/drp/tvMediaManagement/tvMediaManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/tvMediaManagement/tvMediaManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/tvMediaManagement/tvMediaManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--平面媒体管理 -->
+		<action name="printMediaManagementAction!*" method="{1}" class="printMediaManagementAction">
+			<result name="goList">/WEB-INF/content/drp/printMediaManagement/printMediaManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/printMediaManagement/printMediaManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/printMediaManagement/printMediaManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--投放效果跟踪 -->
+		<action name="putInEffectAction!*" method="{1}" class="putInEffectAction">
+			<result name="goList">/WEB-INF/content/drp/putInEffect/putInEffect_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/putInEffect/putInEffect_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/putInEffect/putInEffect_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--新产品投放 -->
+		<action name="newProductLaunchAction!*" method="{1}" class="newProductLaunchAction">
+			<result name="goList">/WEB-INF/content/drp/newProductLaunch/newProductLaunch_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/newProductLaunch/newProductLaunch_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/newProductLaunch/newProductLaunch_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--新媒体管理 -->
+		<action name="newMediaManagementAction!*" method="{1}" class="newMediaManagementAction">
+			<result name="goList">/WEB-INF/content/drp/newMediaManagement/newMediaManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/newMediaManagement/newMediaManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/newMediaManagement/newMediaManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 设置可积分兑换商品 -->
+		<action name="setRedeemGoodsAction!*" method="{1}" class="setRedeemGoodsAction">
+			<result name="goList">/WEB-INF/content/drp/setRedeemGoods/setRedeemGoods_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/setRedeemGoods/setRedeemGoods_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/setRedeemGoods/setRedeemGoods_update.jsp
+			</result>
+			<result name="goChooseInventoryCurrentStock">/WEB-INF/content/drp/setRedeemGoods/inventoryCurrentStock_list.jsp
+			</result>
+			<result name="goInventoryCurrentStockList">/WEB-INF/content/drp/setRedeemGoods/inventoryCurrentStock_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 游乐设施管理 -->
+		<action name="ridesAction!*" method="{1}" class="ridesAction">
+			<result name="goList">/WEB-INF/content/drp/rides/rides_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/rides/rides_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/rides/rides_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 渠道 ,分销商 ,经销商,门店 仓库管理 -->
+		<action name="drpWarehouseAction!*" method="{1}" class="drpWarehouseAction">
+			<result name="goList">/WEB-INF/content/drp/drpwarehouse/drpwarehouse_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/drp/drpwarehouse/drpwarehouse_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/drp/drpwarehouse/drpwarehouse_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/drp/drpwarehouse/drpwarehouse_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

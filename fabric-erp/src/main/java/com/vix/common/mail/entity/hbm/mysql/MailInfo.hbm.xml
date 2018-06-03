@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.mail.entity.MailInfo" table="CMN_MAIL_MAILINFO">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="mailSendDate" type="java.util.Date" column="MailSendDate" />
+		<property name="mailReceiveDate" type="java.util.Date" column="MailReceiveDate" />
+		<property name="mailType" type="java.lang.Integer" column="MailType" />
+		<property name="mailStatus" type="java.lang.Integer" column="MailStatus" />
+		<property name="fromMail" type="java.lang.String" column="FromMail" length="128" />
+		<property name="toMail" type="java.lang.String" column="ToMail" length="4096" />
+		<property name="toMailCs" type="java.lang.String" column="ToMailCs" length="4096" />
+		<property name="toMailMc" type="java.lang.String" column="ToMailMc" length="4096" />
+		<property name="subject" type="java.lang.String" column="subject" length="1024" />
+		<property name="htmlMsg" type="java.lang.String" column="HtmlMsg" length="16777216" />
+		<property name="textMsg" type="java.lang.String" column="TextMsg" length="16777216" />
+		<property name="path" type="java.lang.String" column="path" length="128" />
+		<property name="attachmentName" type="java.lang.String" column="attachmentName" length="128" />
+		<many-to-one name="personalEmail" class="com.vix.common.mail.entity.PersonalEmail">
+			<column name="personalEmail_id">
+				<comment>邮箱id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

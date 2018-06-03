@@ -1,0 +1,88 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--演示 -->
+	<package name="common.config" namespace="/common" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+
+		<!-- 代办任务 -->
+		<action name="taskAction!*" method="{1}" class="taskAction">
+			<result name="goList">/WEB-INF/content/common_model/share/task/task_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/task/task_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/task/task_update.jsp</result>
+		</action>
+		<!-- 日程 -->
+		<action name="scheduleAction!*" method="{1}" class="scheduleAction">
+			<result name="goList">/WEB-INF/content/common_model/share/schedule/schedule_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/schedule/schedule_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/schedule/schedule_update.jsp</result>
+		</action>
+		<!-- 币种 -->
+		<action name="currencyTypeAction!*" method="{1}" class="currencyTypeAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/currencyType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/currencyType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/currencyType_update.jsp</result>
+		</action>
+		<!-- 汇率 -->
+		<action name="exchangeRateAction!*" method="{1}" class="exchangeRateAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/exchangeRate_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/exchangeRate_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/exchangeRate_update.jsp</result>
+		</action>
+		<!-- 计量单位类型设置 -->
+		<!-- <action name="measureUnitTypeAction!*" method="{1}" class="measureUnitTypeAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/measureUnitType/measureUnitType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/measureUnitType/measureUnitType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/measureUnitType/measureUnitType_update.jsp</result>
+		</action> -->
+		<!-- 计量单位 -->
+		<!-- <action name="measureUnitAction!*" method="{1}" class="measureUnitAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/measureUnit_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/measureUnit_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/measureUnit_update.jsp</result>
+			<result name="goSaveOrUpdateUnitType">/WEB-INF/content/common_model/share/currency/measureUnitType_update.jsp</result>
+		</action> -->
+		<!-- 计量单位组 -->
+		<action name="measureUnitGroupAction!*" method="{1}" class="measureUnitGroupAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/measureUnitGroup_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/measureUnitGroup_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/measureUnitGroup_update.jsp</result>
+			<result name="goSaveOrUpdateMeasureUnitGroupDetail">/WEB-INF/content/common_model/share/currency/measureUnitGroupDetail_update.jsp
+			</result>
+		</action>
+		<!-- 计量单位管理(全局) -->
+		<action name="orginialMeasureUnitAction!*" method="{1}" class="orginialMeasureUnitAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/orginialMeasureUnit/orginialMeasureUnitGroup_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/orginialMeasureUnit/orginialMeasureUnitGroup_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/orginialMeasureUnit/orginialMeasureUnitGroup_update.jsp</result>
+			<result name="goSaveOrUpdateOrginialMeasureUnit">/WEB-INF/content/common_model/share/currency/orginialMeasureUnit/orginialMeasureUnit_update.jsp
+			</result>
+		</action>
+		<!-- 币种(全局) -->
+		<action name="orginialCurrencyTypeAction!*" method="{1}" class="orginialCurrencyTypeAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/orginialCurrencyType/orginialCurrencyType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/orginialCurrencyType/orginialCurrencyType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/orginialCurrencyType/orginialCurrencyType_update.jsp</result>
+		</action>
+		<action name="vixLogAction!*" method="{1}" class="vixLogAction">
+			<result name="goList">/WEB-INF/content/system/vixLog/vixLog_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/vixLog/vixLog_list_content.jsp
+			</result>
+		</action>
+		
+		<!-- 地域 -->
+		<action name="regionalAction!*" method="{1}" class="regionalAction">
+			<result name="goList">/WEB-INF/content/common_model/share/currency/regional_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/share/currency/regional_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/share/currency/updateRegional.jsp</result>
+			<result name="goChooseRegional">/WEB-INF/content/common_model/share/currency/chooseRegional.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/common_model/share/currency/regional_list_sub_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

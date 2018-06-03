@@ -1,0 +1,51 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.document" namespace="/nvixnt/document" extends="crud-default">
+		<!-- 公文管理start -->
+		<!-- 字典类维护start  -->
+		<!-- 收文类型 -->
+		<action name="nvixReceiveTypeAction!*" method="{1}" class="nvixReceiveTypeAction">
+			<result name="goList">/WEB-INF/vixnt/oa/document/base/receiveType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/oa/document/base/receiveType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 发文类型 -->
+		<action name="nvixSendTypeAction!*" method="{1}" class="nvixSendTypeAction">
+			<result name="goList">/WEB-INF/vixnt/oa/document/base/sendType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/oa/document/base/sendType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 秘密等级 -->
+		<action name="nvixSecretGradeAction!*" method="{1}" class="nvixSecretGradeAction">
+			<result name="goList">/WEB-INF/vixnt/oa/document/base/secretGrade_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/oa/document/base/secretGrade_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 紧急程度 -->
+		<action name="nvixUrgentDegreeAction!*" method="{1}" class="nvixUrgentDegreeAction">
+			<result name="goList">/WEB-INF/vixnt/oa/document/base/urgentDegree_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/oa/document/base/urgentDegree_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 字典类维护end  -->
+		<!-- 收文管理 -->
+		<action name="nvixReceiveDocumentAction!*" method="{1}" class="nvixReceiveDocumentAction">
+			<result name="goList">/WEB-INF/vixnt/oa/document/receive/receiveDocument_list.jsp</result>
+			<result name="goCheckList">/WEB-INF/vixnt/oa/document/receive/receiveDocument_check_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/oa/document/receive/receiveDocument_update.jsp</result>
+			<result name="goCheck">/WEB-INF/vixnt/oa/document/receive/receiveDocument_check_update.jsp</result>
+			<!-- 下载附件 -->
+			<result name="downloadUploader" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 公文管理end -->
+	</package>
+</struts>

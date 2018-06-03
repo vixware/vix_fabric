@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResRowPolicy" table="CMN_SEC_DATARESROWPOLICY">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+				
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		
+		
+		<property name="policyName" type="java.lang.String" column="PolicyName" length="64"/>
+		<property name="policyStatus" type="java.lang.String" column="PolicyStatus" length="2"/>
+
+		<!-- <many-to-one name="dataResRowOwner" class="com.vix.common.security.entity.DataResRowOwner" lazy="false">
+			<column name="DataResRowOwner_ID">
+				 <comment>行集权限主体id</comment>
+			</column>
+		</many-to-one> -->
+		 <set name="dataResRowOwners" inverse="true">
+			 <key>
+                <column name="DataResRowPolicy_ID"  not-null="true" >
+                </column>
+            </key>
+			<one-to-many class="com.vix.common.security.entity.DataResRowOwner"/>
+		</set>
+		
+		
+		<!-- <set name="dataResRowPolicyObjs" inverse="true">
+			 <key>
+                <column name="DataResRowPolicy_ID"  not-null="true" >
+                </column>
+            </key>
+			<one-to-many class="com.vix.common.security.entity.DataResRowPolicyObj"/>
+		</set> -->
+		
+		<set name="dataResRowPolicyObjs" table="CMN_SEC_DATARESROWPOLICY_OBJ" inverse="false">
+            <key>
+                <column name="DataResRowPolicy_ID" not-null="true">
+                	<comment>策略id</comment>
+               	</column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.DataResRowPolicyObj">
+              	<column name="DataResRowPolicyObj_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+  </class>
+</hibernate-mapping>

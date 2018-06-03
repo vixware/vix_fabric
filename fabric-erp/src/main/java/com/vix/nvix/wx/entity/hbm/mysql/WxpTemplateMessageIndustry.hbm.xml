@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpTemplateMessageIndustry" table="wxp_template_message_industry">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="code" type="java.lang.String" column="code" />
+		<property name="hostIndustry" type="java.lang.String" column="host_industry" />
+		<property name="deputyIndustry" type="java.lang.String" column="deputy_industry" />
+	</class>
+</hibernate-mapping>

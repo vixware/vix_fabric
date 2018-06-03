@@ -1,0 +1,251 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="srm.config" namespace="/srm" extends="crud-default">
+		<!-- 供应商主页 -->
+		<action name="supplierMainAction!*" method="{1}" class="supplierMainAction">
+			<result name="goMenuContent">/WEB-INF/content/srm/main/menuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 产品目录管理-->
+		<action name="directoryManagementAction!*" method="{1}" class="directoryManagementAction">
+			<result name="goList">/WEB-INF/content/srm/config/directorymanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/config/directorymanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/config/directorymanage_update.jsp</result>
+		</action>
+		<!-- 合同模板-->
+		<action name="contractTemplatesAction!*" method="{1}" class="contractTemplatesAction">
+			<result name="goList">/WEB-INF/content/srm/config/contracttemplates_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/config/contracttemplates_list_content.jsp</result>
+		</action>
+		<!-- 招标设置-->
+		<action name="tenderSetAction!*" method="{1}" class="tenderSetAction">
+			<result name="goListContent">/WEB-INF/content/srm/config/tenderSet_list_content.jsp</result>
+		</action>
+		<!-- 参数设置-->
+		<action name="parameterSetAction!*" method="{1}" class="parameterSetAction">
+			<result name="goListContent">/WEB-INF/content/srm/config/parameterSet_list_content.jsp</result>
+		</action>
+		<!-- 供应商清单-->
+		<action name="managementBusinessPartnerAction!*" method="{1}" class="managementBusinessPartnerAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/srm/suppliermgr/addAttachFile.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/srm/suppliermgr/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			
+			<result name="supplierAptitudeInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAptitudeInfoEdit.jsp</result>
+			<result name="supplierAddressEdit">/WEB-INF/content/srm/suppliermgr/supplierAddressEdit.jsp</result>
+			<result name="supplierBankInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierBankInfoEdit.jsp</result>
+			<result name="supplierAccountingInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAccountingInfoEdit.jsp</result>
+			<result name="supplierCreditInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierCreditInfoEdit.jsp</result>
+			<result name="supplierIndicatorsEdit">/WEB-INF/content/srm/suppliermgr/supplierIndicatorsEdit.jsp</result>
+            <result name="downloadSupplierAttachment" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${oriFileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result>
+			
+		</action>
+		<!-- 寻源-->
+		<action name="searchSupplierAction!*" method="{1}" class="searchSupplierAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/srm/suppliermgr/addAttachFile.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/srm/suppliermgr/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			
+			<result name="supplierAptitudeInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAptitudeInfoEdit.jsp</result>
+			<result name="supplierAddressEdit">/WEB-INF/content/srm/suppliermgr/supplierAddressEdit.jsp</result>
+			<result name="supplierBankInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierBankInfoEdit.jsp</result>
+			<result name="supplierAccountingInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAccountingInfoEdit.jsp</result>
+			<result name="supplierCreditInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierCreditInfoEdit.jsp</result>
+			<result name="supplierIndicatorsEdit">/WEB-INF/content/srm/suppliermgr/supplierIndicatorsEdit.jsp</result>
+            <result name="downloadSupplierAttachment" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${oriFileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result>
+		</action>
+		<!-- 建档-->
+		<action name="supplierFileAction!*" method="{1}" class="supplierFileAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/srm/suppliermgr/addAttachFile.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/srm/suppliermgr/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			
+			<result name="supplierAptitudeInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAptitudeInfoEdit.jsp</result>
+			<result name="supplierAddressEdit">/WEB-INF/content/srm/suppliermgr/supplierAddressEdit.jsp</result>
+			<result name="supplierBankInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierBankInfoEdit.jsp</result>
+			<result name="supplierAccountingInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAccountingInfoEdit.jsp</result>
+			<result name="supplierCreditInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierCreditInfoEdit.jsp</result>
+			<result name="supplierIndicatorsEdit">/WEB-INF/content/srm/suppliermgr/supplierIndicatorsEdit.jsp</result>
+            <result name="downloadSupplierAttachment" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${oriFileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result>
+		</action>
+		<!-- 供应商预选与评估-->
+		<action name="supplierEvaluationAction!*" method="{1}" class="supplierEvaluationAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/suppliermgr/managementbusinesspartner_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/srm/suppliermgr/addAttachFile.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/srm/suppliermgr/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			
+			<result name="supplierAptitudeInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAptitudeInfoEdit.jsp</result>
+			<result name="supplierAddressEdit">/WEB-INF/content/srm/suppliermgr/supplierAddressEdit.jsp</result>
+			<result name="supplierBankInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierBankInfoEdit.jsp</result>
+			<result name="supplierAccountingInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierAccountingInfoEdit.jsp</result>
+			<result name="supplierCreditInfoEdit">/WEB-INF/content/srm/suppliermgr/supplierCreditInfoEdit.jsp</result>
+			<result name="supplierIndicatorsEdit">/WEB-INF/content/srm/suppliermgr/supplierIndicatorsEdit.jsp</result>
+            <result name="downloadSupplierAttachment" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${oriFileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result>
+		</action>
+		<!-- 查询-->
+		<action name="querySupplierAction!*" method="{1}" class="querySupplierAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/querySupplier_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/suppliermgr/querySupplier_list_content.jsp</result>
+		</action>
+		<!-- 招标管理-->
+		<action name="biddingManagementAction!*" method="{1}" class="biddingManagementAction">
+			<result name="goList">/WEB-INF/content/srm/bidmgr/biddingmanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/bidmgr/biddingmanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/bidmgr/biddingmanage_update.jsp</result>
+		</action>
+		<!-- 发布招标邀请-->
+		<action name="issuedATenderInvitationAction!*" method="{1}" class="issuedATenderInvitationAction">
+			<result name="goList">/WEB-INF/content/srm/bidmgr/issuedtenderinvitation_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/bidmgr/issuedtenderinvitation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/bidmgr/issuedtenderinvitation_update.jsp</result>
+		</action>
+		<!-- 供应商实时报价监控-->
+		<action name="offerMonitoringAction!*" method="{1}" class="offerMonitoringAction">
+			<result name="goList">/WEB-INF/content/srm/bidmgr/offermonitoring_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/bidmgr/offermonitoring_list_content.jsp</result>
+		</action>
+		<!-- 供应商管理库存-->
+		<action name="supplierVMIAction!*" method="{1}" class="supplierVMIAction">
+			<result name="goList">/WEB-INF/content/srm/portal/vendormanagedinventory_list.jsp</result>
+			<result name="goVMIList">/WEB-INF/content/srm/portal/vendormanagedinventory_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 目录管理——产品管理-->
+		<action name="productManagementAction!*" method="{1}" class="productManagementAction">
+			<result name="goList">/WEB-INF/content/srm/portal/productmanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/portal/productmanage_list_content.jsp</result>
+		</action>
+		<!-- 内部员工采购-->
+		<action name="proInternalStaffAction!*" method="{1}" class="proInternalStaffAction">
+			<result name="goList">/WEB-INF/content/srm/slefpurchase/prointernalstaff_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/srm/slefpurchase/prointernalstaff_list_content.jsp</result>
+		</action>
+		<!-- 订单管理-->
+		<action name="purchaseOrderManagementAction!*" method="{1}" class="purchaseOrderManagementAction">
+			<result name="goList">/WEB-INF/content/srm/slefpurchase/ordermanagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/slefpurchase/ordermanagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/slefpurchase/ordermanagement_update.jsp
+			</result>
+		</action>
+		<!-- 供应商注册向导页-->
+		<action name="registeredSupplierAction!*" method="{1}" class="registeredSupplierAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/portal/registeredSupplier.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 供应商投标-->
+		<action name="supplierTenderAction!*" method="{1}" class="supplierTenderAction">
+			<result name="goList">/WEB-INF/content/srm/bidmgr/supplierTender_list.jsp</result>
+			<result name="goSrmTenderList">/WEB-INF/content/srm/bidmgr/supplierTender_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/bidmgr/supplierTender_update.jsp</result>
+			<result name="addAttachments">/WEB-INF/content/srm/bidmgr/addAttachFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 评标管理-->
+		<action name="reviewTenderAction!*" method="{1}" class="reviewTenderAction">
+			<result name="goList">/WEB-INF/content/srm/bidmgr/reviewTender_list.jsp</result>
+			<result name="goSrmTenderList">/WEB-INF/content/srm/bidmgr/reviewTender_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/bidmgr/reviewTender_update.jsp</result>
+			<result name="goResultList">/WEB-INF/content/srm/bidmgr/resultList_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 专家管理-->
+		<action name="expertAction!*" method="{1}" class="expertAction">
+			<result name="goList">/WEB-INF/content/srm/bidmgr/expert_list.jsp</result>
+			<result name="goSrmTenderList">/WEB-INF/content/srm/bidmgr/expert_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/bidmgr/expert_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 临时假页面 -->
+		<action name="tempAction!*" method="{1}" class="tempAction">
+			<!-- 分类设置 -->
+			<result name="goCatalogManagement">/WEB-INF/content/srm/temp/catalogManagement_list_content.jsp</result>
+			<!-- 评估项管理 -->
+			<result name="goAssessmentManagement">/WEB-INF/content/srm/temp/assessmentManagement_list_content.jsp</result>
+			<!-- 框架合作协议 -->
+			<result name="goCooperativeAgreementsList">/WEB-INF/content/srm/temp/cooperativeAgreements_list.jsp</result>
+			<result name="goCooperativeAgreementsContent">/WEB-INF/content/srm/temp/cooperativeAgreements_list_content.jsp</result>
+			<!-- 采购期初设置 -->
+			<result name="goBeginSetting">/WEB-INF/content/srm/temp/beginSetting_list_content.jsp</result>
+			<!-- 采购业务对象设置 -->
+			<result name="goBizObject">/WEB-INF/content/srm/temp/bizObject_list_content.jsp</result>
+			<!-- 采购流程设置 -->
+			<result name="goProcedures">/WEB-INF/content/srm/temp/procedures_list_content.jsp</result>
+			<!-- 采购审批 -->
+			<result name="goApprovalList">/WEB-INF/content/srm/temp/approval_list.jsp</result>
+			<result name="goApprovalContent">/WEB-INF/content/srm/temp/approval_list_content.jsp</result>
+			<!-- 采购进口管理 -->
+			<result name="goImportList">/WEB-INF/content/srm/temp/import_list.jsp</result>
+			<result name="goImportContent">/WEB-INF/content/srm/temp/import_list_content.jsp</result>
+		</action>
+		<!-- 供应商分类 -->
+		<action name="supplierCategoryAction!*" method="{1}" class="supplierCategoryAction">
+			<result name="goList">/WEB-INF/content/srm/config/supplierCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/config/supplierCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/config/supplierCategory_update.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/srm/suppliermgr/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 供应商员工 -->
+		<action name="supplierEmployeeAction!*" method="{1}" class="supplierEmployeeAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/supplierEmployee_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/suppliermgr/supplierEmployee_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/suppliermgr/supplierEmployee_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 供应商帐号 -->
+		<action name="supplierAccountAction!*" method="{1}" class="supplierAccountAction">
+			<result name="goList">/WEB-INF/content/srm/suppliermgr/supplierAccount_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/srm/suppliermgr/supplierAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/srm/suppliermgr/supplierAccount_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.job.entity.JobTodo" table="CMN_JOBTODO">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">CMN_JOBTODO_ID</param>
+			</generator>
+        </id>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		<property name="createDate" type="java.util.Date" column="CREATE_DATE" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LASTMODIFY_DATE"/>
+		
+		<property name="startTime" type="java.util.Date" column="START_DATE"/>
+		<property name="endTime" type="java.util.Date" column="END_DATE"/>
+		
+		
+		<property name="jobName" type="java.lang.String" column="JOB_NAME" length="200"/>
+		<property name="jobContent" type="java.lang.String" column="JOB_CONTENT" length="2000"/>
+		<property name="flowName" type="java.lang.String" column="FLOW_NAME" length="200"/>
+		<property name="flowInstanceId" type="java.lang.Long" column="FLOW_INSTANCEID"/>
+		<property name="resultState" type="java.lang.String" column="RESULT_STATE" length="500"/>
+		<property name="finishStandard" type="java.lang.String" column="FINISH_STANDARD" length="500"/>
+		
+		<property name="status" type="java.lang.Integer" column="STATUS"/>
+		
+		<property name="sourceClass" type="java.lang.String" column="SOURCE_CLASS" length="200"/>
+		<property name="sourceClassPk" type="java.lang.String" column="SOURCE_CLASS_PK" length="200"/>
+		
+		<many-to-one name="sender" class="com.vix.security.entity.User" lazy="false" >
+			<column name="SENDER_User_ID">
+				 <comment>用户信息id</comment>
+			</column>
+		</many-to-one>
+		
+		<set name="jobExecutor" table="CMN_JOBTODO_User">
+            <key>
+                <column name="JOBTODO_ID" precision="30" scale="0" not-null="true" />
+            </key>
+            <many-to-many class="com.vix.security.entity.User">
+                <column name="USER_ID" precision="30" scale="0" not-null="true" />
+            </many-to-many>
+        </set>
+	</class>
+</hibernate-mapping>

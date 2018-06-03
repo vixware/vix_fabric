@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.core.persistence.jdbc.dbstruct.SpecificationDetail" table="SYS_SPECIFICATION_DETAIL">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="code" type="java.lang.String" column="CODE" length="100" update="false"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+ 		<property name="memo" type="java.lang.String" column="MEMO" length="300"/>
+		<property name="imageFileName" type="java.lang.String" column="imageFileName" length="128"  update="false"/>
+		<property name="imageFileRealName" type="java.lang.String" column="imageFileRealName" length="128"  update="false"/>
+		<property name="imageFilePath" type="java.lang.String" column="imageFilePath" length="128"  update="false"/>
+        <many-to-one name="specification" column="SPECIFICATION_ID"/>
+  </class>
+</hibernate-mapping>

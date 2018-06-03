@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.config.config" namespace="/sales/config" extends="crud-default">
+		<!-- 发运点 -->
+		<action name="shippingPointAction!*" method="{1}" class="shippingPointAction">
+			<result name="goList">/WEB-INF/content/sales/config/shippingPoint_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/shippingPoint_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/config/updateShippingPoint.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 装载点 -->
+		<action name="mountPointAction!*" method="{1}" class="mountPointAction">
+			<result name="goList">/WEB-INF/content/sales/config/mountPoint_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/mountPoint_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/config/updateMountPoint.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 运输条件 -->
+		<action name="transportationConditionAction!*" method="{1}" class="transportationConditionAction">
+			<result name="goList">/WEB-INF/content/sales/config/transportationCondition_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/transportationCondition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/config/updateTransportationCondition.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 装载组 -->
+		<action name="loadingGroupAction!*" method="{1}" class="loadingGroupAction">
+			<result name="goList">/WEB-INF/content/sales/config/loadingGroup_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/loadingGroup_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/config/updateLoadingGroup.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售选项 -->
+		<action name="saleConfigAction!*" method="{1}" class="saleConfigAction">
+			<result name="goSaleConfig">/WEB-INF/content/sales/config/saleConfig.jsp</result>
+		</action>
+		<!-- 销售组织 -->
+		<action name="saleOrgAction!*" method="{1}" class="saleOrgAction">
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/sales/config/dynamicMenuContent.jsp</result>
+			<result name="goList">/WEB-INF/content/sales/config/saleOrg_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/saleOrg_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/config/saleOrg_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 产品组 -->
+		<action name="productGroupAction!*" method="{1}" class="productGroupAction">
+			<result name="goList">/WEB-INF/content/sales/config/productGroup_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/productGroup_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/config/updateProductGroup.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售单据类型管理 -->
+		<action name="saleBillTypeAction!*" method="{1}" class="saleBillTypeAction">
+			<result name="goList">/WEB-INF/content/sales/config/billTypeManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/config/billTypeManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdateBillType">/WEB-INF/content/sales/config/billType_update.jsp</result>
+			<result name="goSaveOrUpdateBillsCategory">/WEB-INF/content/sales/config/billsCategory_update.jsp</result>
+			<result name="goChooseBillsCategory">/WEB-INF/content/sales/config/category_choose.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

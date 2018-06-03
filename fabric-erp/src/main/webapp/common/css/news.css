@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:#e6edf9;}
+.main{width:650px; padding:0 30px; overflow:hidden; background:#FFF; border:#B5B5B5 solid 1px; margin:10px auto;}
+.main h1{font-size:26px; line-height:60px; color:#003CC8; text-align:center; border-bottom:#cecece solid 1px;}
+.source{font-size:12px; text-align:center; background:#EEE; line-height:20px; text-align:center; border-top:#FFF solid 1px;}
+.source span{ margin:0 10px;}
+.fonts{font-size:12px; text-align:center; height:38px; overflow:hidden; line-height:38px; border-bottom:#cecece solid 1px;}
+.fonts input{ margin:0 0 0 10px;height:20px; font-size:10px; line-height:150%;}
+
+#content{padding:30px 0 15px; line-height:180%; border-bottom:#CECECE solid 1px;}
+#content p{padding:10px 0;}
+
+.related{padding:20px 0;}
+.related ul{list-style:disc inside none;}
+.related ul li{line-height:20px; border-bottom:1px dotted #CECECE; font-size:14px;}
+.editor{padding-bottom:20px; font-size:12px; text-align:center; color:#003CC8;}
+.editor form{display:inline; vertical-align:middle;}
+.editor form .ipt{height:14px; padding:0; margin:0; width:60px;}
+.editor .btn{height:20px; font-size:10px; line-height:150%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

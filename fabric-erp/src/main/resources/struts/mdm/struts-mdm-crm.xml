@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mdm.crm.config" namespace="/mdm/crm" extends="crud-default">
+		<!-- 客户管理 -->
+		<action name="customerAccountAction!*" method="{1}" class="customerAccountAction">
+			<result name="goList">/WEB-INF/content/mdm/crm/customerAccount_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mdm/crm/customerAccount_list_content.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/mdm/crm/customerAccount_list_sub_content.jsp</result>
+			<result name="enterPrise">/WEB-INF/content/mdm/crm/enterPriseCustomerAccount_update.jsp</result>
+			<result name="internal">/WEB-INF/content/mdm/crm/enterPriseCustomerAccount_update.jsp</result>
+			<result name="personal">/WEB-INF/content/mdm/crm/personalCustomerAccount_update.jsp</result>
+			<result name="member">/WEB-INF/content/mdm/crm/personalCustomerAccount_update.jsp</result>
+			<result name="enterPriseView">/WEB-INF/content/mdm/crm/enterPriseCustomerView.jsp</result>
+			<result name="goMemberView">/WEB-INF/content/mdm/crm/enterPriseMemberView.jsp</result>
+			<result name="personalView">/WEB-INF/content/mdm/crm/personalCustomerView.jsp</result>
+			<result name="goChooseCustomerAccount">/WEB-INF/content/mdm/crm/chooseCustomerAccount.jsp</result>
+			<result name="goFastAddCustomerAccount">/WEB-INF/content/mdm/crm/fastAddCustomerAccount.jsp</result>
+			<result name="chooseCustomerAccountFile">/WEB-INF/content/mdm/crm/chooseCustomerAccountFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 联系人 -->
+		<action name="contactPersonAction!*" method="{1}" class="contactPersonAction">
+			<result name="goList">/WEB-INF/content/mdm/crm/contactPerson_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/mdm/crm/contactPerson_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/crm/updateContactPerson.jsp</result>
+			<result name="goFastList">/WEB-INF/content/mdm/crm/contactFastList.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户组 -->
+		<action name="customerAccountGroupAction!*" method="{1}" class="customerAccountGroupAction">
+			<result name="goList">/WEB-INF/content/mdm/crm/customerAccountGroup_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/crm/customerAccountGroup_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/crm/updateCustomerAccountGroup.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

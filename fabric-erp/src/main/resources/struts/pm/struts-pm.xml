@@ -1,0 +1,164 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--项目管理 -->
+	<package name="pm.config" namespace="/pm" extends="crud-default">
+		<!-- 项目仪表盘 -->
+		<action name="projectDashboardAction!*" method="{1}" class="projectDashboardAction">
+			<result name="goList">/WEB-INF/content/pm/dashboard/project_dashboard.jsp</result>
+		</action>
+		
+		<!-- 项目管理 -->
+		<action name="projectAction!*" method="{1}" class="projectAction">
+			<result name="goList">/WEB-INF/content/pm/dashboard/project_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/dashboard/project_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/dashboard/project_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 项目列表 -->
+		<action name="pmListAction!*" method="{1}" class="pmListAction">
+			<result name="goList">/WEB-INF/content/pm/dashboard/pmList_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/pm/dashboard/pmList_list_content.jsp</result>
+		</action>
+		
+		<!-- 文档管理 -->
+		<action name="documentationAction!*" method="{1}" class="documentationAction">
+			<result name="goList">/WEB-INF/content/pm/taskManagement/documentation_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/pm//taskManagement/documentation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/taskManagement/documentation_update.jsp</result>
+		</action>
+		
+		<!-- 文档管理 ——文件夹-->
+		<action name="newFolderAction!*" method="{1}" class="newFolderAction">
+			<result name="goList">/WEB-INF/content/pm/taskManagement/newFolder_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/pm//taskManagement/newFolder_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/taskManagement/newFolder_update.jsp</result>
+		</action>
+		
+		<!-- 任务 -->
+		<action name="taskManagementAction!*" method="{1}" class="taskManagementAction">
+			<result name="goList">/WEB-INF/content/pm/taskManagement/task_list.jsp</result>
+			<result name="mgrTaskList">/WEB-INF/content/pm/taskManagement/mgrTaskList.jsp</result>		
+			<result name="mgrTaskListContent">/WEB-INF/content/pm/taskManagement/mgrTaskListContent.jsp</result>		
+			<result name="mgrTaskLEdit">/WEB-INF/content/pm/taskManagement/mgrTaskLEdit.jsp</result>
+			<result name="mgrTaskList_old">/WEB-INF/content/pm/taskManagement/mgr_task_list.jsp</result>
+		</action>
+		
+		<!-- 项目任务——里程碑 -->
+		<action name="pmMilestoneAction!*" method="{1}" class="pmMilestoneAction">
+			<result name="goList">/WEB-INF/content/pm/taskManagement/pmMilestone_list.jsp</result>
+		</action>
+		
+		
+		<!-- 追踪管理——问题报告 -->
+		<action name="problemReportAction!*" method="{1}" class="problemReportAction">
+			<result name="goList">/WEB-INF/content/pm/taskManagement/problemReport_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 追踪管理——里程碑报告 -->
+		<action name="milestoneReportAction!*" method="{1}" class="milestoneReportAction">
+			<result name="goList">/WEB-INF/content/pm/milestoneReport/milestoneReport_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 变更管理 -->
+		<action name="changeManageAction!*" method="{1}" class="changeManageAction">
+			<result name="goList">/WEB-INF/content/pm/changeManagement/changeManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/pm/changeManagement/changeManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/changeManagement/changeManagement_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 甘特图 -->
+		<action name="ganttChartAction!*" method="{1}" class="ganntAction">
+			<result name="goList">/WEB-INF/content/pm/taskManagement/grid_gannt.jsp</result>
+		</action>
+		
+		<!-- 需求管理 -->
+		<action name="demandManagementAction!*" method="{1}" class="demandManagementAction">
+			<result name="goList">/WEB-INF/content/pm/demandManagement/demandManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/demandManagement/demandManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/demandManagement/demandManagement_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/pm/demandManagement/demandManagementCatalog.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		
+		<!-- 设备资源管理 -->
+		<action name="equipmentResourceAction!*" method="{1}" class="equipmentResourceAction">
+			<result name="goList">/WEB-INF/content/pm/resourceManagement/equipmentResource_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/resourceManagement/equipmentResource_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/resourceManagement/equipmentResource_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/pm/resourceManagement/equipmentResourceCatalog.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		
+		<!-- 项目组织管理视图 -->
+		<action name="pmViewAction!*" method="{1}" class="pmViewAction">
+			<result name="goList">/WEB-INF/content/pm/pmView/pmView_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/pmView/pmView_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/pmView/pmView_update.jsp</result>
+		</action>
+		
+		<!-- 沟通与反馈 -->
+		<action name="communicationFeedbackAction!*" method="{1}" class="communicationFeedbackAction">
+			<result name="gridGanntNew">/WEB-INF/content/pm/communicationAndFeedback/grid_gannt_new.jsp</result>
+			<result name="projectDashboardNew">/WEB-INF/content/pm/communicationAndFeedback/project_dashboard_new.jsp</result>
+			<result name="timeline">/WEB-INF/content/pm/communicationAndFeedback/communicationFeedback.jsp</result>
+		</action>
+		
+		<!-- 会议管理 -->
+		<action name="meetingManagementAction!*" method="{1}" class="meetingManagementAction">
+			<result name="goList">/WEB-INF/content/pm/meetingManagement/meetingManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/meetingManagement/meetingManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/meetingManagement/meetingManagement_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/pm/meetingManagement/meetingManagementCatalog.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<!-- <result name="goList">/WEB-INF/content/pm/dashboard/conferenceManagement_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/pm/dashboard/conferenceManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/dashboard/conferenceManagement_update.jsp</result> -->
+		</action>
+		
+		<!-- 项目文件管理 -->
+		<action name="projectFileAction!*" method="{1}" class="projectFileAction">
+			<result name="goList">/WEB-INF/content/pm/projectfile/projectFile_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/projectfile/projectFile_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/projectfile/projectFile_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/pm/projectfile/projectFileCatalog.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		
+		<!-- 项目日历管理 -->
+		<action name="projectCanlendarAction!*" method="{1}" class="projectCanlendarAction">
+			<result name="goCanlendar">/WEB-INF/content/pm/projectCanlendar/projectCanlendar.jsp</result>
+		</action>
+		
+		<!-- 项目组织用户管理 -->
+		<action name="pmOrgAction!*" method="{1}" class="pmOrgAction">
+			<result name="goList">/WEB-INF/content/pm/pmOrg/pmOrg_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/pm/pmOrg/pmOrg_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/pm/pmOrg/pmOrg_update.jsp</result>
+			<result name="goChooseBusinessOrg">/WEB-INF/content/pm/pmOrg/pmOrg_choose.jsp</result>
+		</action>
+		
+		<!-- 项目一览——资金一览 -->
+		<action name="capitalListAction!*" method="{1}" class="capitalListAction">
+			<result name="goList">/WEB-INF/content/pm/projectusers/capital_List.jsp</result>
+		</action>
+		
+		<!-- 项目一览——进度一览 -->
+		<action name="progressListAction!*" method="{1}" class="progressListAction">
+			<result name="goList">/WEB-INF/content/pm/projectusers/progress_List.jsp</result>
+		</action>
+		
+		<!--项目一览——人员一览 -->
+		<action name="pmStaffListAction!*" method="{1}" class="pmStaffListAction">
+			<result name="goList">/WEB-INF/content/pm/projectusers/pmStaff_list.jsp</result>
+		</action>
+	</package>
+</struts>

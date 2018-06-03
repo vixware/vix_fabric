@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.drp.KnowledgeBasemanagement.entity.KnowledgeBaseToAttachment" table="DRP_KNOWLEDGEBASETOATTACHMENT">
+		<id name="id" type="java.lang.Long" column="ID">
+			<generator class="native" />
+		</id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<many-to-one name="knowledgeBase" class="com.vix.drp.KnowledgeBasemanagement.entity.KnowledgeBase">
+			<column name="knowledgeBase_id">
+				<comment>知识库id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="attachments" class="com.vix.system.entity.Attachment">
+			<column name="attachment_id">
+				<comment>附件id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

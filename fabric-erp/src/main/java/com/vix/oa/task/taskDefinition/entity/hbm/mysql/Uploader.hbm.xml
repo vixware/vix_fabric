@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.task.taskDefinition.entity.Uploader" table="OA_UPLOADER">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="creator" type="java.lang.String" column="creator" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="fileName" type="java.lang.String" column="fileName" length="300"></property>
+		<property name="filePath" type="java.lang.String" column="filePath" length="400"></property>
+		<property name="createTime" type="java.util.Date" column="createTime" />
+		<property name="uploadTime" type="java.util.Date" column="uploadTime" />
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+		<property name="note" type="java.lang.String" column="note"></property>
+		<property name="title" type="java.lang.String" column="title" length="200"></property>
+		<property name="fileType" type="java.lang.String" column="fileType" length="150" />
+		<property name="filesize" type="java.lang.String" column="filesize" length="150" />
+		<property name="downloadNum" type="java.lang.Integer" column="downloadNum" length="150" />
+		<property name="declassified" type="java.lang.Integer" column="declassified" length="150" />
+
+		<many-to-one name="taskDefinition" column="vixTask_id" />
+		<many-to-one name="executionFeedback" column="executionFeedback_id" />
+		<many-to-one name="project" column="project_id" />
+		<many-to-one name="crmProject" column="crmProject_id" />
+		<many-to-one name="projectRequirement" column="projectRequirement_id" />
+		<many-to-one name="projectSolution" column="projectSolution_id" />
+		<many-to-one name="workLog" column="workLog_id" />
+		<many-to-one name="uploaderType" column="uploaderType_id" />
+		<many-to-one name="uploaderTypeKeyWord" column="uploaderTypeKeyWord_id" />
+		<many-to-one name="applicationMg" column="applicationMg_id" />
+		<many-to-one name="travelExpense" column="TRAVELEXPENSE_ID" />
+		<many-to-one name="employee" column="employee_ID" />
+		<many-to-one name="communication" column="communication_ID" />
+
+		<set name="subEmployees" table="HR_EMPLOYEE_UPLOADER" fetch="join">
+			<key>
+				<column name="UPLOADER_ID" />
+			</key>
+			<many-to-many class="com.vix.hr.organization.entity.Employee">
+				<column name="Employee_ID" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

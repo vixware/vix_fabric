@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResColPolicy" table="CMN_SEC_DATARESCOLPOLICY">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		 		
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+
+		<!-- <property name="rangeScope" type="java.lang.String" column="RangeScope" length="32"/>
+		 -->
+		<property name="viewListStatus" type="java.lang.String" column="ViewListStatus" length="2"/>
+		<property name="viewDetailStatus" type="java.lang.String" column="ViewDetailStatus" length="2"/>
+		<property name="orgSysType" type="java.lang.String" column="OrgSysType" length="2"/>
+		<property name="compCode" type="java.lang.String" column="CompCode" length="64"/>
+		<property name="orgCode" type="java.lang.String" column="OrgCode" length="64"/>
+		<property name="orgViewConfig" type="java.lang.String" column="OrgViewConfig" length="2"/>
+		
+		<many-to-one name="dataResColConfig" class="com.vix.common.security.entity.DataResColConfig" lazy="false">
+			<column name="DataResColConfig_ID">
+				<comment>列级权限系统配置id</comment>
+			</column>
+		</many-to-one>
+		
+		<many-to-one name="baseMetaData" class="com.vix.common.meta.entity.BaseMetaData" lazy="false">
+			<column name="BaseMetaData_ID">
+				<comment>元数据对象id</comment>
+			</column>
+		</many-to-one>
+		
+		
+		<many-to-one name="baseMetaDataDefine" class="com.vix.common.meta.entity.BaseMetaDataDefine" lazy="false">
+			<column name="BaseMetaDataDefine_ID">
+				<comment>元数据属性对象id</comment>
+			</column>
+		</many-to-one>
+		
+		<many-to-one name="baseMetaDataExtend" class="com.vix.common.meta.entity.BaseMetaDataExtend" lazy="false">
+			<column name="BaseMetaDataExtend_ID">
+				<comment>元数据扩展属性对象id</comment>
+			</column>
+		</many-to-one>
+		
+		
+		
+	 </class>
+</hibernate-mapping>

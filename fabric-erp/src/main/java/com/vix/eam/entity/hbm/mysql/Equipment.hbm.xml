@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.eam.entity.Equipment" table="eam_equipment">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+        <property name="eqCode" type="java.lang.String" column="eqCode" length="100"/>
+		<property name="eqSerialNo" type="java.lang.String" column="eqSerialNo" />
+		<property name="eqPartSn" type="java.lang.String" column="eqPartSn" />
+		<property name="codeType" type="java.lang.String" column="codeType" />
+		<property name="eqName" type="java.lang.String" column="eqName" />
+		<property name="capitalAssetCode" type="java.lang.String" column="capitalAssetCode" />
+		<property name="eqLabel" type="java.lang.String" column="eqLabel" />
+		<property name="eqRoomCode" type="java.lang.String" column="eqRoomCode" />
+		<property name="eqPlaceCode" type="java.lang.String" column="eqPlaceCode" />
+		<property name="modelnum" type="java.lang.String" column="modelnum" />
+		<property name="eqType" type="java.lang.String" column="eqType" />
+		<property name="eqCategory" type="java.lang.String" column="eqCategory" />
+		<property name="eqGroupCode" type="java.lang.String" column="eqGroupCode" />
+		<property name="eqGroupName" type="java.lang.String" column="eqGroupName" />
+		<property name="eqLevel" type="java.lang.String" column="eqLevel" />
+		<property name="parentEquipment" type="java.lang.String" column="parentEquipment" />
+		<property name="parentEqname" type="java.lang.String" column="parentEqname" />
+		<property name="isVirtualEquipment" type="java.lang.String" column="isVirtualEquipment" />
+		<property name="eqSatus" type="java.lang.String" column="eqSatus" />
+		<property name="address" type="java.lang.String" column="address" />
+		<property name="purchDate" type="java.util.Date" column="purchDate" />
+		<property name="putinDate" type="java.util.Date" column="putinDate" />
+		<property name="installDate" type="java.util.Date" column="installDate" />
+		<property name="warrantyDate" type="java.util.Date" column="warrantyDate" />
+		<property name="eqAccount" type="java.lang.String" column="eqAccount" />
+		<property name="totalCost" type="java.lang.String" column="totalCost" />
+		<property name="weight" type="java.lang.Double" column="weight" />
+		<property name="wunit" type="java.lang.String" column="wunit" />
+		<property name="measureUnit" type="java.lang.String" column="measureUnit" />
+		<property name="eqSize" type="java.lang.String" column="eqSize" />
+		<property name="upLimit" type="java.lang.Double" column="upLimit" />
+		<property name="downLimit" type="java.lang.Double" column="downLimit" />
+		<property name="kehuMingcheng" type="java.lang.String" column="kehuMingcheng" />
+		<property name="caigouDanhao" type="java.lang.String" column="caigouDanhao" />
+		<property name="caigouDanwei" type="java.lang.String" column="caigouDanwei" />
+		<property name="caigouJiage" type="java.lang.Double" column="caigouJiage" />
+		<property name="caigouRiqi" type="java.util.Date" column="caigouRiqi" />
+		<property name="kucunDanwei" type="java.lang.String" column="kucunDanwei" />
+		<property name="outFactoryDate" type="java.util.Date" column="outFactoryDate" />
+		<property name="responsiblePerson" type="java.lang.String" column="responsiblePerson" />
+		<property name="subType" type="java.lang.String" column="subType" />
+		<property name="chuchangBianhao" type="java.lang.String" column="chuchangBianhao" />
+		<property name="zichanBianhao" type="java.lang.String" column="zichanBianhao" />
+		<property name="madeCode" type="java.lang.String" column="madeCode" />
+		<property name="madeName" type="java.lang.String" column="madeName" />
+		<property name="supplyCode" type="java.lang.String" column="supplyCode" />
+		<property name="supplyName" type="java.lang.String" column="supplyName" />
+		<property name="sparesCode" type="java.lang.String" column="sparesCode" />
+		<property name="contractCode" type="java.lang.String" column="contractCode" />
+		<property name="costCenter" type="java.lang.String" column="costCenter" />
+		<property name="priority" type="java.lang.Integer" column="priority" />
+		<property name="criticality" type="java.lang.Integer" column="criticality" />
+		<property name="hasSub" type="java.lang.Integer" column="hasSub" />
+		<property name="isConnected" type="java.lang.Integer" column="isConnected" />
+		<property name="connectionType" type="java.lang.Integer" column="connectionType" />
+		<property name="techClass" type="java.lang.String" column="techClass" />
+		<property name="techParam" type="java.lang.String" column="techParam" />
+		<property name="maintainOrg" type="java.lang.String" column="maintainOrg" />
+		<property name="isMove" type="java.lang.Integer" column="isMove" />
+		<property name="intactStatus" type="java.lang.Integer" column="intactStatus" />
+		<property name="belongSite" type="java.lang.String" column="belongSite" />
+		<property name="belongEquipment" type="java.lang.String" column="belongEquipment" />
+		<property name="description" type="java.lang.String" column="description" />
+		<property name="startTime" type="java.util.Date" column="start_time"/>
+		<property name="endTime" type="java.util.Date" column="end_time"/>
+  </class>
+</hibernate-mapping>

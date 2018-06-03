@@ -1,0 +1,59 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.commission.config" namespace="/sales/commission" extends="crud-default">
+		<!-- 人员类别 -->
+		<action name="personnelCategoryAction!*" method="{1}" class="personnelCategoryAction">
+			<result name="goList">/WEB-INF/content/sales/commission/personnelCategory_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/sales/commission/personnelCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/commission/updatePersonnelCategory.jsp</result>
+			<result name="goChoosePersonnelCategory">/WEB-INF/content/sales/commission/choosePersonnelCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> 
+		<!-- 销售定额 -->
+		<action name="saleAmountAction!*" method="{1}" class="saleAmountAction">
+			<result name="goList">/WEB-INF/content/sales/commission/saleAmount_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/commission/saleAmount_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/commission/updateSaleAmount.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 销售定额明细 -->
+		<action name="saleAmountItemAction!*" method="{1}" class="saleAmountItemAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/commission/updateSaleAmountItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action> 
+		<!-- 佣金管理 -->
+		<action name="commissionPlanAction!*" method="{1}" class="commissionPlanAction">
+			<result name="goList">/WEB-INF/content/sales/commission/commissionPlan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/commission/commissionPlan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/commission/commissionPlan_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="commissionPlanItemAction!*" method="{1}" class="commissionPlanItemAction">
+			<result name="goList">/WEB-INF/content/sales/commission/commissionPlanItem_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/commission/commissionPlanItem_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/commission/commissionPlanItem_update.jsp</result>
+			<result name="chooseCommissionPlanItem">/WEB-INF/content/sales/commission/chooseCommissionPlanItem.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/sales/commission/commissionPlanItem_sub_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 佣金条件 -->
+		<action name="commissionTermAction!*" method="{1}" class="commissionTermAction">
+			<result name="goList">/WEB-INF/content/sales/commission/commissionTerm_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/commission/commissionTerm_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/commission/commissionTerm_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 佣金计算 -->
+		<action name="commissionResultAction!*" method="{1}" class="commissionResultAction">
+			<result name="chooseCondition">/WEB-INF/content/sales/commission/chooseConditionForCommission.jsp</result>
+			<result name="goList">/WEB-INF/content/sales/commission/commissionResult_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/commission/commissionResult_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+	</package>
+</struts>

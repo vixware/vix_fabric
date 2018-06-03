@@ -1,0 +1,52 @@
+/* added by wulei, included in resource_add_01.jsp */
+
+/* for tab */
+.right_menu li.sub{position:relative;}
+.right_menu li.sub .sub_close{display:block;width:12px;height:12px;position:absolute;top:3px;right:3px;background: url("../img/tabs_icons.png") no-repeat -34px -2px;padding:0px;margin:0px;}
+.right_menu li.sub .sub_close:hover{background-color:#F5A89A;}
+.right_menu_tab{display:table;}
+.right_menu.nav_tabs{padding:0px 24px;}
+.right_menu .nav_tab{height:36px;width:100%;position:relative;}
+.right_menu .right_menu_tab{height:36px;width:100%;overflow:hidden;}
+.right_menu.nav_tabs .tab_nav{position:absolute;height:31px;width:22px;top:5px;background:url("../img/tab_more.gif") no-repeat 0px -61px;}
+.right_menu.nav_tabs .tab_nav.l{left:-24px;}
+.right_menu.nav_tabs .tab_nav.l.on{background-position:0px 0px;cursor:pointer;}
+.right_menu.nav_tabs .tab_nav.l.on.over{background-position:0px -30px;}
+.right_menu.nav_tabs .tab_nav.r{right:-23px;}
+.right_menu.nav_tabs .tab_nav.r.on{background-position:-21px 0px;cursor:pointer;}
+.right_menu.nav_tabs .tab_nav.r.on.over{background-position:-21px -30px;}
+.tabbable .right_content{min-height:460px;}
+.right_menu li a{text-align:center;}
+
+/* for tab new */
+ul.right_menu li{margin-top:5px;}
+
+/* 右侧列表上方区域操作按键(tab左侧) */
+.right_menu.with_btn.nav_tabs{padding:0px 24px 0px 220px;}
+.right_menu.with_btn .right_content_btn{height:31px;line-height:26px;position:absolute;top:5px;left:-216px;width:190px;overflow:hidden;}
+.right_menu.with_btn .right_content_btn a.abtn{margin-right:0px;}
+
+/* change input placeholder color */
+::-webkit-input-placeholder {color:#999;}	/* WebKit browsers */
+:-moz-placeholder {color:#999;}			/* Mozilla Firefox 4 to 18 */
+::-moz-placeholder {color:#999;}		/* Mozilla Firefox 19+ */
+:-ms-input-placeholder {color:#999;}	/* Internet Explorer 10+ */
+/* for search input */
+#c_head div input.int.more{width:180px;}
+/* for .pagelist.drop */
+.pagelist.drop{border-style:none;}
+/* grid.css里的[action]属性造成form中的内容指针都为手 */
+form[action]{cursor:default;}
+#c_head.advanced div.search_advanced{width:95%;}
+
+.order dl dd .order_table{border-style:none;}
+
+/* grid 排序的图标 */
+table.list a.sort-link {color:#205AA7;text-decoration:none;padding-right:9px;background:url("../../img/arrow.gif") no-repeat right center;}
+table.list a.sort-link.asc {background:url("../../img/arrow_up.gif") no-repeat right center;}
+table.list a.sort-link.desc {background:url("../../img/arrow_down.gif") no-repeat right center;}
+
+/* 编辑页面功能按键默认不显示 */
+#orderTitleFixd .no_line .f_btn{display:none;}
+#orderTitleFixd .no_line .f_btn.ms{display:none;}
+#orderTitleFixd .no_line .f_btn.ms.show{display:inline;}

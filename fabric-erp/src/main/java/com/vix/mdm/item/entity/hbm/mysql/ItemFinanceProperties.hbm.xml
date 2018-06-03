@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemFinanceProperties" table="MDM_ITEMFINANCEPROPERTIES">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="150" />
+		<property name="gernalCatalog" type="java.lang.String" column="GERNALCATALOG" length="150" />
+		<property name="priceUnit" type="java.lang.String" column="PRICEUNIT" length="150" />
+		<property name="stockOrg" type="java.lang.String" column="STOCKORG" length="150" />
+		<property name="warehouseCode" type="java.lang.String" column="WAREHOUSECODE" length="150" />
+		<property name="inStockPricingStyle" type="java.lang.String" column="INSTOCKPRICINGSTYLE" length="150" />
+		<property name="outStockPricingStyle" type="java.lang.String" column="OUTSTOCKPRICINGSTYLE" length="150" />
+		<property name="movingAveragePrice" type="java.lang.Double" column="MOVINGAVERAGEPRICE" />
+		<property name="fifoPrice" type="java.lang.Double" column="FIFOPRICE" />
+		<property name="lifoPrice" type="java.lang.Double" column="LIFOPRICE" />
+		<property name="weightedAveragePrice" type="java.lang.Double" column="WEIGHTEDAVERAGEPRICE" />
+		<property name="standardCost" type="java.lang.Double" column="STANDARDCOST" />
+		<many-to-one name="item" class="com.vix.mdm.item.entity.Item">
+			<column name="item_id" unique="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.orginialMeta.entity.OrginialResource" table="CMN_SEC_ORGINIAL_RES">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		
+		<property name="url" type="java.lang.String" column="Url" length="300"/>
+		<property name="resourceCode" type="java.lang.String" column="ResourceCode" length="128"/>
+		
+		<property name="priority" type="java.lang.Integer" column="Priority"/>
+		<property name="resType" type="java.lang.Integer" column="ResType"/>
+		<property name="name" type="java.lang.String" column="Name" length="50"/>
+		<property name="displayName" type="java.lang.String" column="DisplayName" length="50"/>
+		<property name="memo" type="java.lang.String" column="Memo" length="100"/>
+		
+		<join table="CMN_SEC_ORGINIAL_AUTH_RES" inverse="true" optional="true">
+			<key>
+				 <column name="Resource_ID" not-null="true">
+	               	<comment>资源id</comment>
+	              </column>
+			</key>
+			<many-to-one name="authority" column="AUTHORITY_ID" not-null="true"></many-to-one>
+		</join>
+  </class>
+</hibernate-mapping>

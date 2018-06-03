@@ -1,0 +1,189 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ include file="/common/page/taglibs.jsp"%>
+<script type="text/javascript">
+_pad_page_refresh_main_content = true;
+
+$(function(){
+	//载入tab数据
+	_load_tab_page_content();
+
+	loadMenuContent('${vix}/purchase/purchaseMainAction!goMenuContent.action');
+});
+
+
+function saveOrUpdate(id,parentId,purchaseType){
+	var url = '${vix}/purchase/purchaseReturnAction!goSaveOrUpdate.action';
+	var data = {};
+	if(id != null){
+		data.id=id;
+	}
+	if(parentId!=null){
+		data.parentId=parentId;
+	}
+	
+	if(purchaseType && purchaseType!=''){
+		var copyUrl = '';
+		if(purchaseType=='order'){
+			copyUrl = '${vix}/purchase/purchaseArrivalAction!goChoosePurchaseOrders.action';
+		}else if(purchaseType=='arrival'){
+			copyUrl = '${vix}/purchase/purchaseArrivalAction!goChoosePurchaseArrival.action';
+		}else if(purchaseType=='inbound'){
+			copyUrl = '${vix}/purchase/purchaseInboundAction!goChoosePurchaseInbound.action';
+		}
+		
+		$.ajax ({
+			url : copyUrl,
+			cache : false ,
+			success : function (html){
+				asyncbox.open ({
+					modal : true ,
+					width : 900 ,
+					height : 690 ,
+					title : "选择复制单据" ,
+					html : html ,
+					callback : function (action , returnValue){
+						if (action == 'ok'){
+							if (returnValue != ''){
+								data.purchaseType = purchaseType;
+								data.purchaseId = returnValue;
+								
+								var itemdetails = '';
+								$('#item_detail_'+returnValue+' .item_check:checked').each(function(){
+									var itemId = $(this).val();
+									var amount = $('#amount_'+itemId).val();
+									if(amount && !isNaN(amount) && amount>0)
+										itemdetails = itemdetails + ',' + itemId + '_' + amount;
+								});
+								
+								if(itemdetails!=''){
+									itemdetails = itemdetails.substring(1);
+									data.itemDetails = itemdetails;
+								}
+								
+								_pad_page_view_push(url,data);
+							}else{
+								asyncbox.success ("请选择订单!" , "<s:text name='vix_message'/>");
+								return false;
+							}
+						}
+					} ,
+					btnsbar : $.btn.OKCANCEL
+				});
+			}
+		});
+	}else{
+		_pad_page_view_push(url,data);
+	}
+}
+
+function goShowPurchaseReturn(id) {
+	$.ajax({
+	url : '${vix}/purchase/purchaseReturnAction!goShowPurchaseReturn.action?id=' + id ,
+	cache : false,
+	success : function(html) {
+		$("#mainContent").html(html);
+	}
+	});
+}
+
+function goPrintPurchaseReturn(id) {
+	$.ajax({
+	url : '${vix}/purchase/purchaseReturnAction!goPrintPurchaseReturn.action?id=' + id,
+	cache : false,
+	success : function(html) {
+		LODOP = getLodop();
+		LODOP.ADD_PRINT_HTM(0, 0, "100%", "100%", html);
+		LODOP.SET_PRINT_MODE("PRINT_PAGE_PERCENT", "Auto-Width");
+		LODOP.SET_PRINT_MODE("AUTO_CLOSE_PREWINDOW", 1);// 打印后自动关闭预览窗口
+		LODOP.SET_SHOW_MODE("HIDE_PAPER_BOARD", 1);
+		// LODOP.SET_PRINT_PAGESIZE(3,"240mm","45mm","");//这里3表示纵向打印且纸高“按内容的高度”；1385表示纸宽138.5mm；45表示页底空白4.5mm
+		LODOP.SET_PREVIEW_WINDOW(1, 0, 0, 1024, 550, ""); // 2上下打印工具条都显示
+		/* LODOP.PRINT(); */
+		LODOP.PREVIEW();
+	}
+	});
+};
+function goSearch() {
+	$.ajax({
+	url : '${vix}/purchase/purchaseReturnAction!goSearch.action',
+	cache : false,
+	success : function(html) {
+		asyncbox.open({
+		modal : true,
+		width : 650,
+		height : 300,
+		title : "查询条件",
+		html : html,
+		callback : function(action) {
+			if (action == 'ok') {
+				pager("start","${vix}/purchase/purchaseReturnAction!goSingleList.action?code="+$('#code').val()+"&name="+$('#name').val()+"&supplierName="+$('#supplierName').val()+"&requireDepartment="+$('#requireDepartment').val()+"&postingDate="+$('#postingDate').val()+"&deliveryDate="+$('#deliveryDate').val()+"&purchasePerson="+$('#purchasePerson').val()+"&contactPerson="+$('#contactPerson').val(),'purchase_return_grid');
+			}
+		},
+		btnsbar : $.btn.OKCANCEL
+		});
+	}
+	});
+};
+</script>
+
+<div class="sub_menu">
+	<h2>
+		<i> <a href="#"><img alt="" src="img/icon_14.gif"> <s:text name="cmn_print" /></a> <a href="#"><img alt="" src="img/icon_15.gif"> <s:text name="cmn_help" /></a>
+		</i>
+		<div id="breadCrumb" class="breadCrumb module"></div>
+	</h2>
+	<div class="drop">
+		<p>
+		<ul>
+			<li><a href="#" onclick="saveOrUpdate(0,$('#selectId').val());"><span>新增采购退货单</span></a>
+				<ul>
+					<li><a href="#" onclick="saveOrUpdate(0,$('#selectId').val(),'order');">来源自采购订单</a></li>
+					<li><a href="#" onclick="saveOrUpdate(0,$('#selectId').val(),'arrival');">来源自采购到货单</a></li>
+					<li><a href="#" onclick="saveOrUpdate(0,$('#selectId').val(),'inbound');">来源自采购入库单</a></li>
+				</ul></li>
+		</ul>
+		</p>
+	</div>
+</div>
+
+<div class="content">
+	<div class="drop" id="c_head">
+		<span class="left_bg"></span> <span class="right_bg"></span>
+		<ul>
+			<li><a href="#" id="numBtn"><img src="img/icon_10.png" alt="" /> <s:text name="cmn_index" /></a></li>
+		</ul>
+		<div search_page_id="tab_home" class="grid_search search_simple">
+			<label><input type="text" name="code" class="int more" placeholder="编码"></label> <input type="button" class="btn search" value="<s:text name='cmn_search'/>" /> <label> <input type="button" value="高级搜索" class="btn" onclick="goSearch();" /></label>
+		</div>
+		<%-- <div class="grid_search search_advanced">
+			<label> 单号 <input name="code" type="text" class="int" />
+			</label> <label> 主题 <input name="name" type="text" class="int" />
+			</label> <label> <input type="button" class="btn search" value="<s:text name='cmn_search'/>" /> <input type="button" class="btn reset" value="<s:text name='cmn_reset'/>" />
+			</label>
+		</div> --%>
+	</div>
+	<div id="number">
+		<span class="num_left_bg"></span> <span class="num_right_bg"></span>
+		<ul id="numBox" class="numBox">
+			<s:iterator value="indexEntityList" var="index">
+				<li><a href="#" onclick="saveOrUpdate(${index.id});"><span style="display: none;">${index.chineseCharacter}</span>${index.name}</a></li>
+			</s:iterator>
+		</ul>
+	</div>
+	<div class="box">
+		<div id="right">
+			<div id="tab_content" class="tabbable addable_tab">
+				<ul id="myTab" class="right_menu nav nav-tabs">
+					<li pageId="tab_home" class="current"><a href="#tab_home" page="${vix}/purchase/purchaseReturnAction!goSingleList.action"> <img src="img/mail.png" alt="" /> 采购退货单
+					</a></li>
+				</ul>
+				<div id="tab_content_page" class="right_content">
+					<div id="tab_home" class="table"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="c_foot">
+		<span class="left_bg"></span> <span class="right_bg"></span>
+	</div>
+</div>

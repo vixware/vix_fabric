@@ -1,0 +1,27 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.refund.config" namespace="/sales/refund" extends="crud-default">
+		<!-- 返款 -->
+		<action name="returnRuleAction!*" method="{1}" class="returnRuleAction">
+			<result name="goList">/WEB-INF/content/sales/refund/returnRule_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/refund/returnRule_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/refund/updateReturnRule.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="returnRuleItemAction!*" method="{1}" class="returnRuleItemAction">
+			<result name="goList">/WEB-INF/content/sales/refund/returnRuleItem_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/refund/returnRuleItem_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/refund/updateReturnRuleItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="saleReturnBillAction!*" method="{1}" class="saleReturnBillAction">
+			<result name="chooseCondition">/WEB-INF/content/sales/refund/chooseConditionForReturnBill.jsp</result>
+			<result name="goList">/WEB-INF/content/sales/refund/saleReturnBill_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/refund/saleReturnBill_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/refund/updateSaleReturnBill.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

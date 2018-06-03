@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.drp.MembershipCardmanagement.entity.MemberShipCard" table="DRP_MEMBERSHIPCARD">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!--自身属性 -->
+		<property name="vipcardid" type="java.lang.String" column="vipcardid" length="50" />
+		<property name="viptypeid" type="java.lang.String" column="viptypeid" length="50" />
+		<property name="vipTypeName" type="java.lang.String" column="vipTypeName" length="50" />
+		<property name="balance_amount" type="java.lang.Double" column="balance_amount" />
+		<property name="consume_amount" type="java.lang.Double" column="consume_amount" />
+		<property name="settle_count" type="java.lang.Integer" column="settle_count" />
+		<property name="opencarddate" type="java.util.Date" column="opencarddate" />
+		<property name="opencardtime" type="java.util.Date" column="opencardtime" />
+		<property name="issale" type="java.lang.String" column="issale" length="50" />
+		<property name="repsid" type="java.lang.String" column="repsid" length="50" />
+		<property name="repsname" type="java.lang.String" column="repsname" length="50" />
+		<property name="saleprice" type="java.lang.Double" column="saleprice" />
+		<property name="sale_date" type="java.util.Date" column="sale_date" />
+		<property name="sale_time" type="java.util.Date" column="sale_time" />
+		<property name="isstartuse" type="java.lang.String" column="isstartuse" length="50" />
+		<property name="start_date" type="java.util.Date" column="start_date" />
+		<property name="start_time" type="java.util.Date" column="start_time" />
+		<property name="invalid_date" type="java.util.Date" column="invalid_date" />
+		<property name="invalid_time" type="java.util.Date" column="invalid_time" />
+		<property name="lastuse_date" type="java.util.Date" column="lastuse_date" />
+		<property name="lastuse_time" type="java.util.Date" column="lastuse_time" />
+		<property name="password" type="java.lang.String" column="password" length="50" />
+		<property name="isstop" type="java.lang.String" column="isstop" length="50" />
+		<property name="isdestruct" type="java.lang.String" column="isdestruct" length="50" />
+		<property name="leave_begindate" type="java.util.Date" column="leave_begindate" />
+		<property name="leave_enddate" type="java.util.Date" column="leave_enddate" />
+		<property name="vipid" type="java.lang.String" column="vipid" length="50" />
+		<property name="oldcardid" type="java.lang.String" column="oldcardid" length="50" />
+		<property name="trackdata" type="java.lang.String" column="trackdata" length="50" />
+		<property name="remark" type="java.lang.String" column="remark" length="50" />
+		<property name="isinvalid" type="java.lang.String" column="isinvalid" length="50" />
+		<property name="pointHistory" type="java.lang.Long" column="pointHistory" />
+		<property name="pointFreeze" type="java.lang.Long" column="pointFreeze" />
+		<property name="point" type="java.lang.Long" column="point" />
+		<property name="batchNo" type="java.lang.String" column="batchNo" />
+		<property name="checkNo" type="java.lang.String" column="checkNo" />
+		<property name="opentype" type="java.lang.String" column="opentype" />
+		<property name="isDownLoad" type="java.lang.String" column="isDownLoad" />
+		<property name="isOpenCard" type="java.lang.String" column="isOpenCard" />
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<!-- 基础业务对象 -->
+		<property name="barCode" type="java.lang.String" column="BARCODE" length="150" />
+		<property name="approver" type="java.lang.String" column="APPROVER" length="150" />
+		<property name="barCodeTwoDimen" type="java.lang.String" column="BARCODETWODIMEN" length="150" />
+		<property name="selfExtendStringField1" type="java.lang.String" column="SELFEXTENDSTRINGFIELD1" length="150" />
+		<property name="selfExtendStringField2" type="java.lang.String" column="SELFEXTENDSTRINGFIELD2" length="150" />
+		<property name="selfExtendStringField3" type="java.lang.String" column="SELFEXTENDSTRINGFIELD3" length="150" />
+		<property name="selfExtendStringField4" type="java.lang.String" column="SELFEXTENDSTRINGFIELD4" length="150" />
+		<property name="selfExtendStringField5" type="java.lang.String" column="SELFEXTENDSTRINGFIELD5" length="150" />
+		<property name="selfExtendStringField6" type="java.lang.String" column="SELFEXTENDSTRINGFIELD6" length="150" />
+		<property name="selfExtendStringField7" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD7" length="150" />
+		<property name="selfExtendStringField8" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD8" length="150" />
+		<property name="selfExtendStringField9" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD9" length="150" />
+		<property name="selfExtendStringField10" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD10" length="150" />
+		<property name="selfExtendStringField11" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD11" length="150" />
+		<property name="selfExtendStringField12" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD12" length="150" />
+		<property name="selfExtendXMLField1" type="java.lang.String" column="SELFEXTENDXMLFIELD1" length="1000" />
+		<property name="selfExtendXMLField2" type="java.lang.String" column="SELFEXTENDXMLFIELD2" length="1000" />
+		<property name="ipAddress" type="java.lang.String" column="IPADDRESS" length="150" />
+		<property name="bizflowPhase" type="java.lang.String" column="BIZFLOWPHASE" length="150" />
+		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="150" />
+		<many-to-one name="channelDistributor" column="channelDistributor_id" />
+		<!-- 关系 -->
+		<many-to-one name="customerAccount" class="com.vix.mdm.crm.entity.CustomerAccount">
+			<column name="CUSTOMERACCOUNT_ID">
+				<comment>客户id</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

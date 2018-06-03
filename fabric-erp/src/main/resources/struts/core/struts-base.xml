@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="common" namespace="/common" extends="crud-default">
+		<action name="vixAction!*" method="{1}" class="vixAction">
+			<!-- <result name="goLogin">/WEB-INF/content/login.jsp</result> -->
+			<result name="goLogin">${loginPage}</result>
+			<result name="goSetup">/WEB-INF/content/common/setup.jsp</result>
+			<result name="goNvix">/WEB-INF/vixnt/index.jsp</result>
+			<!-- <result name="goIndex">/WEB-INF/content/common/vix_index.jsp</result> -->
+			<!-- <result name="goIndex">${goIndexPage}</result> -->
+			<!-- 其他系统访问 重定向到原系统 -->
+
+			<result name="goDefaultAction" type="redirect">/common/vixAction!goIndex.action</result>
+			<result name="redirectApp" type="redirect">${service}</result>
+			<!-- 个性化定值跳转 -->
+			<result name="goIndex" type="chain">${goIndexPage}</result>
+
+			<result name="goTenant">${goIndexPage}</result>
+			<result name="goTenantChain" type="chain">${goIndexPage}</result>
+			<!-- 默认首页面 -->
+			<result name="defaultPage">/WEB-INF/content/common/vix_index.jsp</result>
+			<!-- 默认页面根据客户端类型的动态跳转 -->
+			<result name="indexPage">${targetPage}</result>
+
+
+			<result name="leftMenu">/WEB-INF/content/common/leftMenu.jsp</result>
+			<result name="loginFail">/WEB-INF/content/login.jsp</result>
+			<!-- loadContent -->
+			<result name="templateContent">/WEB-INF/content/template/template_content.jsp</result>
+			<result name="securityContent">/WEB-INF/content/security/security_content.jsp</result>
+			<result name="systemContent">/WEB-INF/content/system/system_content.jsp</result>
+			<!-- 员工自助 -->
+			<result name="staffSelf">/WEB-INF/content/common/home/staffSelf.jsp</result>
+			<!-- 支持平台 -->
+			<result name="goSupportedPlatform">/WEB-INF/content/common/home/supportedPlatform.jsp</result>
+			<!-- 通讯录 -->
+			<result name="goAddressBook">/WEB-INF/content/common/home/addressBook.jsp</result>
+			<!-- 关于我们 -->
+			<result name="goAboutUs">/WEB-INF/content/common/home/aboutUs.jsp</result>
+			<!-- 关于 -->
+			<result name="goAbout">/WEB-INF/content/common/home/about.jsp</result>
+			<!-- 个人信息 -->
+			<result name="goPersonalInformation">/WEB-INF/content/common/indexDataPage/personalInformation.jsp</result>
+		</action>
+	</package>
+
+	<!-- 此文件中的其他内容被移到文件struts/core/struts-base-module.xml中 -->
+</struts>

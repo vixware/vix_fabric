@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.eam.entity.EqWarranty" table="eam_eq_warranty">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="installObj" type="java.lang.String" column="installObj" length="100"></property>
+		<property name="serialNo" type="java.lang.String" column="serialNo" length="100"></property>
+		<property name="contractSn" type="java.lang.String" column="contractSn" length="100"></property>
+		<property name="responsiPerson" type="java.lang.String" column="responsiPerson" length="100"></property>
+		<property name="phone" type="java.lang.String" column="phone" length="100"></property>
+		<property name="content" type="java.lang.String" column="content"></property>
+		<property name="priority" type="java.lang.String" column="priority" length="30"></property>
+		<property name="warrantyMode" type="java.lang.Integer" column="warrantyMode" ></property>
+		<property name="feeMode" type="java.lang.String" column="feeMode" length="100"></property>
+		<property name="warrantyBy" type="java.lang.String" column="warrantyBy" length="100"></property>
+		<property name="warrantyType" type="java.lang.Integer" column="warrantyType" ></property>
+		<property name="warrantyExpire" type="java.util.Date" column="warrantyExpire"/>
+		<property name="countValue" type="java.lang.Integer" column="countValue" ></property>
+		<property name="countUnit" type="java.lang.String" column="countUnit" length="20"></property>
+		
+		<property name="startTime" type="java.util.Date" column="start_time"/>
+		<property name="endTime" type="java.util.Date" column="end_time"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		
+		<many-to-one name="equipment" column="eqId"/>
+		
+	</class>
+</hibernate-mapping>

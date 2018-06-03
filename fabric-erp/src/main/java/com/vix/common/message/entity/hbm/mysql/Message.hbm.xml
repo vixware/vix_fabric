@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.message.entity.Message" table="CMN_MESSAGE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+        <property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="100"/>
+		
+		<property name="startTime" type="java.util.Date" column="START_DATE"/>
+		<property name="endTime" type="java.util.Date" column="END_DATE"/>
+		
+		
+		<property name="sourceFrom" type="java.lang.Integer" column="SOURCE_FROM"/>
+		<property name="msgType" type="java.lang.Integer" column="MSG_TYPE"/>
+		<property name="sourceClass" type="java.lang.String" column="SOURCE_CLASS" length="200"/>
+		<property name="sourceClassPk" type="java.lang.String" column="SOURCE_CLASS_PK" length="200"/>
+		<property name="handleUrl" type="java.lang.String" column="HANDLE_URL" length="1000"/>
+		
+		<property name="title" type="java.lang.String" column="TITLE" length="200"/>
+		<property name="content" type="java.lang.String" column="CONTENT" length="2000"/>
+		<property name="isRead" type="java.lang.Integer" column="IS_READ"/>
+		<property name="status" type="java.lang.Integer" column="STATUS"/>
+		<property name="readTime" type="java.util.Date" column="READ_TIME"/>
+		<property name="isReply" type="java.lang.Integer" column="IS_REPLY"/>
+		<property name="replyPk" type="java.lang.String" column="REPLY_PK" length="2000"/>
+		<!-- 
+		<property name="isAudit" type="java.lang.Integer" column="IS_AUDIT"/>
+		<property name="auditDate" type="java.util.Date" column="AUDIT_DATE"/>
+		<property name="isPublish" type="java.lang.Integer" column="IS_PUBLISH"/>
+		<property name="isSendMsg" type="java.lang.Integer" column="isSendMsg"/>
+		<property name="title" type="java.lang.String" column="TITLE" length="200"/>
+		<property name="content" type="java.lang.String" column="CONTENT" length="2000"/>
+		<property name="isRead" type="java.lang.Integer" column="IS_READ"/>
+		<property name="status" type="java.lang.Integer" column="STATUS"/>
+		<property name="readTime" type="java.util.Date" column="READ_TIME"/>
+		<property name="isReply" type="java.lang.Integer" column="IS_REPLY"/>
+		<property name="replyPk" type="java.lang.String" column="REPLY_PK"/>
+		 -->
+		
+		
+		<!-- <many-to-one name="sender" class="com.vix.security.entity.User" lazy="false" >
+			<column name="SENDER_USER_ID">
+				 <comment>用户信息id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="receiver" class="com.vix.security.entity.User" lazy="false" >
+			<column name="RECEIVER_USER_ID">
+				 <comment>用户信息id</comment>
+			</column>
+		</many-to-one> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.market.entity.PrintedRequisition" table="CRM_M_PRINTEDREQUISITION">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		 		
+ 		<property name="requisitionDate" type="java.util.Date" column="REQUISITIONDATE"/>
+ 		<property name="count" type="java.lang.Long" column="COUNT" />
+ 		<property name="use" type="java.lang.String" column="USE_" length="300"/>
+ 		<many-to-one name="employee" column="employee_id"/>
+ 		<many-to-one name="printedMatter" column="printedMatter_id"/>
+  </class>
+</hibernate-mapping>

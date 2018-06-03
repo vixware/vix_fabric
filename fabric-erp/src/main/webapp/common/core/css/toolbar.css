@@ -1,0 +1,280 @@
+/*-- top bar --*/
+#top_bar {position:fixed;height:43px;width:100%;top:0;left:0;background:url(../img/top_bar_bg.png) repeat-x;z-index:9999;min-width:1002px;width:100%;width:expression((documentElement.clientWidth < 1002) ? "1002px" : "100%" );z-index:999;}
+
+	/*-- IE6 --*/
+	#top_bar {_position:absolute;_bottom:auto;_top:expression(eval(document.documentElement.scrollTop));}
+	*html{background-image:url(about:blank);background-attachment:fixed;}
+	
+#top_bar span {float:left;display:block;background:url(../img/top_bar_border.gif) no-repeat right;}
+#top_bar strong#dcMenuSugarCube {float:left;display:block;width:50px;height:43px;background:url(../img/dcMenuSugarCube.png);_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/dcMenuSugarCube.png',sizingMethod='scale'); cursor:pointer;}
+#top_bar strong#dcMenuSugarCube.dcMenuSugarCubeHover,#top_bar strong#dcMenuSugarCube.dcMenuSugarCubeOn{background:url(../img/dcMenuSugarCube_hover.png);_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/dcMenuSugarCube_hover.png',sizingMethod='scale');}
+#top_bar li {float:left;padding:0 7px;}
+#top_bar a small,#top_bar a span {text-align:center;width:70px;background: url(../img/msg_01.gif) no-repeat center top;padding:11px 5px 11px;display:none;color:#fff;text-indent:0;}
+#top_bar a:hover small,#top_bar a:hover span{display:block;position:absolute;top:45px;left:50%;margin-left:-40px;z-index:9999; font-size:12px;}
+#top_bar li {float:left;position:relative;font-size:0;}
+#top_bar li a {text-decoration:none;color:#333;position:relative;}
+#top_bar ul.top_btn li img,#top_bar ul.top_btn li a{width:32px;height:43px;display:block;}
+#top_bar li#tp_01 a img {background:url(../img/icon_01.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_01.png',sizingMethod='scale');}
+#top_bar li#tp_05 a img {background:url(../img/icon_02.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_02.png',sizingMethod='scale');}
+ #top_bar li#tp_06 a img {background:url(../img/icon_03.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_03.png',sizingMethod='scale');} 
+/* #top_bar li#tp_04 a img {background:url(../img/icon_04.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_04.png',sizingMethod='scale');} */
+#top_bar li#tp_04 a img {background:url(../img/icon_05.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_05.png',sizingMethod='scale');}
+#top_bar li#tp_06 a img {background:url(../img/icon_06.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_06.png',sizingMethod='scale');}
+#top_bar li#tp_03 a img {background:url(../img/icon_07.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_07.png',sizingMethod='scale');}
+#top_bar li#tp_08 a img {background:url(../img/icon_08.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_08.png',sizingMethod='scale');}
+#top_bar li#tp_09 a img {background:url(../img/icon_09.png);
+_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/icon_09.png',sizingMethod='scale');}
+#top_bar li#tp_01 a:hover img,#top_bar li#tp_02 a:hover img,#top_bar li#tp_03 a:hover img,#top_bar li#tp_04 a:hover img,#top_bar li#tp_05 a:hover img,#top_bar li#tp_06 a:hover img,#top_bar li#tp_07 a:hover img,#top_bar li#tp_08 a:hover img,#top_bar li#tp_09 a:hover img {background-position:1px 1px;}
+#top_bar ul.top_btn li#feedback img {width:65px;}
+
+#search {float:right;background:url(../img/search_bg.gif) no-repeat 0 7px;padding:7px 10px 0;position:relative;}
+#search.show {background:url(../img/search_bg.png) no-repeat;_background:url(../img/search_bg_ie6.gif) no-repeat;height:50px;}
+#search.show input.sint {border:1px solid #bbb;}
+#search input {vertical-align:middle;border:0;}
+#search input.sint {width:198px;margin-right:20px;padding:2px;border:1px solid #fff;}
+#search input.btn {background:url(../img/btn_search.gif);width:29px;height:26px;cursor:pointer;}
+#search div#s_select {position:absolute;top:43px;right:-2px;_right:-3px;width:410px;}
+
+.search_txt {clear:both;padding:5px 10px;background:url(../img/search_show_bg.png);_background:url(../img/search_show_bg.gif);_height:100%;overflow:hidden;}
+.search_txt p {font-size:12px;line-height:20px;display:block;float:left;width:50%;}
+.search_txt p a {display:block;color:#666;padding:0 5px;}
+.search_txt p a.current,.search_txt p a:hover {background:#f2f2f2;color:#1F63B6;}
+
+.search_bot {clear:both;background:url(../img/search_show_bot.png);_background:url(../img/search_show_bot.gif);height:10px;overflow:hidden;}
+/*
+#search div#s_select div {height:135px;overflow:auto}
+*/
+
+.skin {float:right;margin:17px 20px 0 0;width:160px;}
+.skin img {width:12px;height:12px;}
+#top_bar .skin li {float:left;margin-right:5px;padding:0;}
+.skin li a {display:block;}
+.skin li#skin_01 a {background:url(../img/skin_bg.gif);}
+.skin li#skin_02 a {background:url(../img/skin_bg.gif) 0 -12px;}
+.skin li#skin_03 a {background:url(../img/skin_bg.gif) 0 -24px;}
+.skin li#skin_04 a {background:url(../img/skin_bg.gif) 0 -36px;}
+.skin li#skin_05 a {background:url(../img/skin_bg.gif) 0 -48px;}
+.skin li#skin_06 a {background:url(../img/skin_bg.gif) 0 -60px;}
+.skin li#font_01 a {background:url(../img/skin_bg.gif) 0 -72px;}
+.skin li#font_02 a {background:url(../img/skin_bg.gif) 0 -84px;}
+.skin li#font_03 a {background:url(../img/skin_bg.gif) 0 -96px;}
+.skin li#skin_01.this a {background:url(../img/skin_bg.gif) -14px 0;}
+.skin li#skin_02.this a {background:url(../img/skin_bg.gif) -14px -12px;}
+.skin li#skin_03.this a {background:url(../img/skin_bg.gif) -14px -24px;}
+.skin li#skin_04.this a {background:url(../img/skin_bg.gif) -14px -36px;}
+.skin li#skin_05.this a {background:url(../img/skin_bg.gif) -14px -48px;}
+.skin li#skin_06.this a {background:url(../img/skin_bg.gif) -14px -60px;}
+.skin li#font_01.this a {background:url(../img/skin_bg.gif) -14px -72px;}
+.skin li#font_02.this a {background:url(../img/skin_bg.gif) -14px -84px;}
+.skin li#font_03.this a {background:url(../img/skin_bg.gif) -14px -96px;}
+
+
+
+/*-- footpanel_switch --*/
+#footpanel_switch {position: fixed;bottom: 0; left: 0;z-index: 8;border-bottom: none;width:100%;font: 10px normal Verdana, Arial, Helvetica, sans-serif;overflow:hidden;}
+#footpanel_switch ul {padding: 0; margin: 0;float: right;list-style: none;font-size: 1.1em;background: #e3e2e2;border: 1px solid #c3c3c3;border-bottom: none;}
+#footpanel_switch ul li {border-top: 1px solid #fff;}
+#footpanel_switch ul li a {padding: 5px;float: left;text-indent: -9999px;height: 14px; width: 14px;}
+
+/*-- foot bar --*/
+#footpanel {
+	position: fixed;
+	bottom: -2px; left: 0;
+	z-index: 9999; /*--Keeps the panel on top of all other elements--*/
+	background: #e3e2e2;
+	border: 1px solid #c3c3c3;
+	border-bottom: none;
+	_border-left: none;
+	_border-right: none;
+	width: 100%;
+	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
+	visibility:hidden;
+}
+
+*html #footpanel,*html #footpanel_switch { /*--IE6 Hack - Fixed Positioning to the Bottom--*/
+	margin-top: -1px; /*--prevents IE6 from having an infinity scroll bar - due to 1px border on #footpanel--*/
+	position: absolute;
+	top:expression(eval(document.compatMode &&document.compatMode=='CSS1Compat') ?documentElement.scrollTop+(documentElement.clientHeight-this.clientHeight) : document.body.scrollTop +(document.body.clientHeight-this.clientHeight));
+}
+
+#footpanel ul {
+	padding: 0; margin: 0;
+	float: left;
+	width: 100%;
+	list-style: none;
+	border-top: 1px solid #fff; /*--Gives the bevel feel on the panel--*/
+	font-size: 1.1em;
+}
+
+#footpanel ul li{
+	padding: 0; margin: 0;
+	float: left;
+	position: relative;
+}
+#footpanel ul li a{
+	padding: 5px;
+	float: left;
+	text-indent: -9999px;
+	height: 16px; width: 16px;
+	text-decoration: none;
+	color: #333;
+	position: relative;
+}
+html #footpanel ul li a:hover{	background-color: #fff; }
+html #footpanel ul li a.active { /*--Active state when subpanel is open--*/
+	background-color: #fff;
+	height: 17px;
+	margin-top: -2px; /*--Push it up 2px to attach the active button to subpanel--*/
+	border: 1px solid #555;
+	border-top: none;
+	z-index: 200; /*--Keeps the active area on top of the subpanel--*/
+	position: relative;
+}
+
+
+#footpanel a.home{	
+	background: url(../img/home.png) no-repeat 15px center;
+	width: 80px;
+	padding-left: 40px;
+	border-right: 1px solid #bbb;
+	text-indent: 0; /*--Reset text indent--*/
+}
+a.profile{	background: url(../img/user.png) no-repeat center center;  }
+a.contacts{	background: url(../img/address_book.png) no-repeat center center; }
+a.playlist{	background: url(../img/document_music_playlist.png) no-repeat center center; }
+a.videos{	background: url(../img/film.png) no-repeat center center; }
+a.messages{	background: url(../img/mail.png) no-repeat center center; }
+a.editprofile{	background: url(../img/wrench_screwdriver.png) no-repeat center center; }
+#footpanel a.chat{	
+	background: url(../img/balloon.png) no-repeat 15px center;
+	width: 126px;
+	border-left: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	padding-left: 40px;
+	text-indent: 0; /*--Reset text indent--*/
+}
+a.alerts{	background: url(../img/newspaper.png) no-repeat center center;	 }
+
+#footpanel li#chatpanel, #footpanel li#alertpanel {	float: right; }  /*--Right align the chat and alert panels--*/
+
+#footpanel a small {  /*--panel tool tip styles--*/
+	text-align: center;
+	width: 70px;
+	background: url(../img/msg_02.gif) no-repeat center bottom;
+	padding: 5px 5px 11px;
+	display: none; /*--Hide by default--*/
+	color: #fff;
+	text-indent: 0;
+}
+#footpanel a:hover small{
+	display: block; /*--Show on hover--*/
+	position: absolute;
+	top: -35px; /*--Position tooltip 35px above the list item--*/
+	left: 50%; 
+	margin-left: -40px; /*--Center the tooltip--*/
+	z-index: 9999;
+}
+#footpanel ul li div a { /*--Reset link style for subpanel links--*/
+	text-indent: 0;
+	width: auto;
+	height: auto;
+	padding: 0;
+	float: none;
+	color: #00629a;
+	position: static;
+}
+#footpanel ul li div a:hover {	text-decoration: underline; } /*--Reset link style for subpanel links--*/
+
+#footpanel .subpanel {
+	position: absolute;
+	left: 0; bottom: 27px;
+	display: none;	/*--Hide by default--*/
+	width: 198px;
+	_width: 196px;
+	border: 1px solid #555;
+	background: #fff;
+	overflow: hidden;
+	padding-bottom: 2px;
+}
+#footpanel h3 {
+	background: #526ea6;
+	padding: 5px 10px;
+	color: #fff;
+	font-size: 1.1em;
+	cursor: pointer;
+}
+#footpanel h3 span { 
+	font-size: 1.5em;
+	float: right;
+	line-height: 0.6em;
+	font-weight: normal;
+}
+#footpanel .subpanel ul{
+	padding: 0; margin: 0;
+	background: #fff;
+	width: 100%;
+	overflow: auto;
+}
+#footpanel .subpanel li{ 
+	float: none; /*--Reset float--*/
+	display: block;
+	padding: 0; margin: 0;
+	overflow: hidden;
+	clear: both;
+	background: #fff;
+	position: static;  /*--Reset relative positioning--*/
+	font-size: 0.9em;
+}
+
+#chatpanel .subpanel li { background: url(../img/dash.gif) repeat-x left center; } 
+#chatpanel .subpanel li span {
+	padding: 5px;
+	background: #fff;
+	color: #777;
+	float: left;
+}
+#chatpanel .subpanel li a img {
+	float: left;
+	margin: 0 5px;
+}
+#chatpanel .subpanel li a{
+	padding: 3px 0;	margin: 0;
+	line-height: 22px;
+	height: 22px;
+	background: #fff;
+	display: block;
+}
+#chatpanel .subpanel li a:hover {
+	background: #3b5998;
+	color: #fff;
+	text-decoration: none;
+}
+
+
+#alertpanel .subpanel { right: 0; left: auto; /*--Reset left positioning and make it right positioned--*/ }
+#alertpanel .subpanel li {
+	border-top: 1px solid #f0f0f0;
+	display: block;
+}
+#alertpanel .subpanel li p {padding: 5px 10px;}
+#alertpanel .subpanel li a.delete{
+	background: url(../img/delete_x.gif) no-repeat;
+	float: right;
+	width: 13px; height: 14px;
+	margin: 5px;
+	text-indent: -9999px;
+	visibility: hidden; /*--Hides by default but still takes up space (not completely gone like display:none;)--*/
+}
+#alertpanel .subpanel li a.delete:hover { background-position: left bottom; }
+#footpanel #alertpanel li.view {
+	text-align: right;
+	padding: 5px 10px 5px 0;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResRowParam" table="CMN_SEC_DATARESROWPARAM">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+ 		
+ 		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		<property name="paramName" type="java.lang.String" column="ParamName" length="64"/>
+		<property name="dspParamName" type="java.lang.String" column="DspParamName" length="128"/>
+		<property name="paramType" type="java.lang.String" column="ParamType" length="64"/>
+		<property name="paramValue" type="java.lang.String" column="ParamValue" length="4000"/>
+		
+  </class>
+</hibernate-mapping>

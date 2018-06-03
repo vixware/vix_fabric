@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.mdm.item.entity.BindItemDetail" table="MDM_BINDITEMDETAIL">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        
+		<property name="createTime" type="java.util.Date" column="createTime" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="updateTime"/> 
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="100" update="false"/>
+		<many-to-one name="dataCreater" column="dataCreater_id" foreign-key="none" update="false"/>
+		
+		<property name="code" type="java.lang.String" column="CODE" length="100"/>
+ 		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+ 		<property name="bindPrice" type="java.lang.Double" column="BINDPRICE"/>
+ 		<property name="bindCount" type="java.lang.Integer" column="BINDCOUNT"/>
+		<many-to-one name="bindItem" column="BINDITEM_ID" foreign-key="none"/>
+		<many-to-one name="item" column="ITEM_ID" foreign-key="none"/>
+  </class>
+</hibernate-mapping>

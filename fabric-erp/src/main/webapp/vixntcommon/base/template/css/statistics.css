@@ -1,0 +1,17 @@
+.text-size-24{font-size:24px}
+.text-size-12{font-size:12px}
+.homelist-security-status{border:1px solid #eeeeee;background:#f9f9fa;padding:22px 16px 15px;margin-top:17px}
+.homelist-security-status .hand .text-counts{color:#090 !important}
+.homelist-security-status .text-counts{margin-bottom:5px}
+.homelist-security-status .homelist-security-danger .hand .text-counts{color:#F00 !important}
+.homelist-security-status .summary-title{line-height:30px}.
+homelist-security-status 
+	.homelist-security-status {padding-top:20px}
+	.homelist-security-status .homelist-summary-bd{padding:0;margin:0;background:#fff;color:#666666;border:1px solid #eeeeee;border-right:none}
+	.homelist-security-status .homelist-summary-bd li{padding:20px 0 10px 30px;list-style:none;text-align:left;border-right:1px solid #eeeeee}
+	.homelist-security-status .homelist-summary-bd li.hand{cursor:pointer}
+	.homelist-security-status .homelist-summary-th{margin:22px 0 -1px 0;background:#f9f9fa;padding:5px}
+	.homelist-security-status .homelist-summary-th li{padding:5px;padding-left:15px;text-align:left}
+	@-webkit-keyframes hostintrusionDashboard{0%{transform:rotate(-110deg)}50%{transform:rotate(-90deg)}100%{transform:rotate(0deg)}}
+	@-moz-keyframes hostintrusionDashboard{0%{transform:rotate(-110deg)}50%{transform:rotate(-90deg)}100%{transform:rotate(0deg)}}
+	@-o-keyframes hostintrusionDashboard{0%{transform:rotate(-110deg)}50%{transform:rotate(-90deg)}100%{transform:rotate(0deg)}}

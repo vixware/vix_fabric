@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.hr.trainning.entity.TrainingPlanning" table="HR_TRAININGPLANNING">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="applicationName" type="java.lang.String">
+			<column name="APPLICATIONNAME" length="254" />
+		</property>
+		<property name="org" type="java.lang.String">
+			<column name="ORG" length="254" />
+		</property>
+		<property name="planStatus" type="java.lang.String">
+			<column name="PLANSTATUS" length="254" />
+		</property>
+		<property name="planType" type="java.lang.String">
+			<column name="PLANTYPE" length="254" />
+		</property>
+		<property name="planLevel" type="java.lang.String">
+			<column name="PLANLEVEL" length="254" />
+		</property>
+		<property name="planningATotalCost" type="java.lang.String">
+			<column name="PLANNINGATOTALCOST" length="254" />
+		</property>
+		<property name="planningNature" type="java.lang.String">
+			<column name="PLANNINGNATURE" length="254" />
+		</property>
+		<property name="courseDescription" type="java.lang.String">
+			<column name="COURSEDESCRIPTION" length="254" />
+		</property>
+		<property name="proposedTime" type="java.util.Date" column="PROPOSEDTIME" />
+		<property name="remarks" type="java.lang.String">
+			<column name="REMARKS" length="254" />
+		</property>
+		<property name="isTemp" type="java.lang.String">
+			<column name="istemp" length="254" />
+		</property>
+		
+		<property name="pubTypes" type="java.lang.String" column="PUBTYPES" length="100" />
+		<property name="orgUnitAndLeadingOfficial" type="java.lang.String" column="ORGUNITANDLEADINGOFFICIAL" length="100" />
+		<property name="pubIds" type="java.lang.String" column="PUBIDS" length="100" />
+		<property name="uploadPerson" type="java.lang.String" column="UPLOADPERSON" length="100" />
+		<property name="uploadPersonId" type="java.lang.String" column="UPLOADPERSONID" length="100" />
+		<property name="uploadPersonName" type="java.lang.String" column="UPLOADPERSONNAME" length="100"/>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100" />
+		
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+			
+		<many-to-one name="trainningImplement" column="trainningimplement_id" />
+		<set name="attachments" inverse="true">
+			<key column="trainingplanning_id" />
+			<one-to-many class="com.vix.hr.job.entity.HrAttachments" />
+		</set>
+		<set name="trainingPlanningDetails" inverse="true">
+			<key column="trainingplanning_id" />
+			<one-to-many class="com.vix.hr.trainning.entity.TrainingPlanningDetail" />
+		</set>
+		<many-to-one name="organizationUnit" column="OrganizationUnit_ID" />
+	</class>
+</hibernate-mapping>

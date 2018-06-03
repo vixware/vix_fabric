@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.pm.common.entity.WbsTaskUser" table="pm_wbs_task_user">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="startTime" type="java.util.Date" column="start_time" update="false" />
+		<property name="endTime" type="java.util.Date" column="end_time" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="companyCode" type="java.lang.String" column="companyCode" length="128" update="false" />
+
+		<property name="taskRole" type="java.lang.String" column="taskRole" length="100"></property>
+		<property name="content" type="java.lang.String" column="taskCode"></property>
+
+		<many-to-one name="project" column="projectId" />
+		<many-to-one name="task" column="taskId" />
+		<many-to-one name="businessOrg" column="businessOrgId" />
+
+	</class>
+</hibernate-mapping>

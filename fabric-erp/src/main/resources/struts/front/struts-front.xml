@@ -1,0 +1,70 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="front" namespace="/front" extends="crud-default">
+		<!-- 首页 -->
+		<action name="fabricIndexAction!*" method="{1}" class="fabricIndexAction">
+			<result name="goIndex">/WEB-INF/mobile/index.jsp</result>
+			<result name="goLogin">/WEB-INF/mobile/login.jsp</result>
+			<result name="goForgetPassword">/WEB-INF/mobile/forgetPassword.jsp</result>
+			<result name="goRegister">/WEB-INF/mobile/register.jsp</result>
+			<result name="goSearch">/WEB-INF/mobile/search.jsp</result>
+			<result name="searchProduct">/WEB-INF/mobile/productList.jsp</result>
+		</action>
+		<!-- 创建合约 -->
+		<action name="fabricContractAction!*" method="{1}" class="fabricContractAction">
+			<result name="goNewContract">/WEB-INF/mobile/newContract.jsp</result>
+			<result name="goContractList">/WEB-INF/mobile/contractList.jsp</result>
+			<result name="goContractDetail">/WEB-INF/mobile/contractDetail.jsp</result>
+		</action>
+		<!-- 创建资产 -->
+		<action name="fabricAssetAction!*" method="{1}" class="fabricAssetAction">
+			<result name="goNewAsset">/WEB-INF/mobile/newAsset.jsp</result>
+			<result name="goAssetList">/WEB-INF/mobile/assetList.jsp</result>
+			<result name="goAssetDetail">/WEB-INF/mobile/assetDetail.jsp</result>
+			<result name="goMapPage">/WEB-INF/mobile/mapPage.jsp</result>
+		</action>
+		<!-- 分类页 -->
+		<action name="fabricCategoryAction!*" method="{1}" class="fabricCategoryAction">
+			<result name="goIndex">/WEB-INF/mobile/category.jsp</result>
+			<result name="goProductList">/WEB-INF/mobile/productList.jsp</result>
+			<result name="loadItemCatalog">/WEB-INF/mobile/loadItemCatalog.jsp</result>
+		</action>
+		<!-- 购物车 -->
+		<action name="fabricShoppingCartAction!*" method="{1}" class="fabricShoppingCartAction">
+			<result name="goIndex">/WEB-INF/mobile/shoppingCart.jsp</result>
+			<result name="loadShoppingCart">/WEB-INF/mobile/loadShoppingCart.jsp</result>
+			<result name="loadShoppingCartCount">/WEB-INF/mobile/loadShoppingCartCount.jsp</result>
+		</action>
+		<!-- 个人中心 -->
+		<action name="fabricUserCenterAction!*" method="{1}" class="fabricUserCenterAction">
+			<result name="goIndex">/WEB-INF/mobile/userCenter.jsp</result>
+			<result name="goSet">/WEB-INF/mobile/set.jsp</result>
+			<result name="goConsignee">/WEB-INF/mobile/consignee.jsp</result>
+			<result name="goSearchStock">/WEB-INF/mobile/searchStock.jsp</result>
+			<result name="searchStock">/WEB-INF/mobile/searchStockList.jsp</result>
+			<result name="loadSearchStock">/WEB-INF/mobile/loadSearchStockList.jsp</result>
+			<result name="searchStockByItemCode">/WEB-INF/mobile/searchStockItemCodeList.jsp</result>
+			<result name="goSaveOrUpdateConsignee">/WEB-INF/mobile/saveOrUpdateConsignee.jsp</result>
+			<result name="loadCity">/WEB-INF/mobile/loadCity.jsp</result>
+			<result name="loadRegion">/WEB-INF/mobile/loadRegion.jsp</result>
+			<result name="goOrderList">/WEB-INF/mobile/orderList.jsp</result>
+		</action>
+		<!-- 商品页 -->
+		<action name="fabricProductAction!*" method="{1}" class="fabricProductAction">
+			<result name="goProductDetail">/WEB-INF/mobile/productDetail.jsp</result>
+			<result name="goProductComment">/WEB-INF/mobile/productComment.jsp</result>
+		</action>
+		<!-- 订单页 -->
+		<action name="fabricOrderAction!*" method="{1}" class="fabricOrderAction">
+			<result name="goIndex">/WEB-INF/mobile/order.jsp</result>
+			<result name="goConfirmOrder">/WEB-INF/mobile/confirmOrder.jsp</result>
+			<result name="goOrderPayment">/WEB-INF/mobile/ecOrderPayment.jsp</result>
+			<result name="goOrderPaymentSuccess">/WEB-INF/mobile/ecOrderPaymentSuccess.jsp</result>
+		</action>
+		<action name="fabricPaymentAction!*" method="{1}" class="fabricPaymentAction">
+		</action>
+	</package>
+</struts>

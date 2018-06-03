@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.produce" namespace="/nvixnt/produce" extends="crud-default">
+		<!-- 工作中心 -->
+		<action name="nvixWorkCenterAction!*" method="{1}" class="nvixWorkCenterAction">
+			<result name="goList">/WEB-INF/vixnt/produce/workCenter/workCenter_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/produce/workCenter/workCenter_update.jsp</result>
+			<result name="goChooseWorkCenter">/WEB-INF/vixnt/produce/workCenter/chooseWorkCenter.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- BOM结构 -->
+		<action name="nvixBomStructAction!*" method="{1}" class="nvixBomStructAction">
+			<result name="goList">/WEB-INF/vixnt/produce/bom/bomStruct_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/produce/bom/bomStruct_update.jsp</result>
+			<result name="goChooseBomStruct">/WEB-INF/vixnt/produce/bom/chooseBomStruct.jsp</result>
+			<result name="goChooseItem">/WEB-INF/vixnt/produce/bom/chooseItem.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- BOM节点 -->
+		<action name="nvixBomNodeAction!*" method="{1}" class="nvixBomNodeAction">
+			<result name="goList">/WEB-INF/vixnt/produce/bom/bomNode_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/produce/bom/bomNode_update.jsp</result>
+			<result name="goChooseItem">/WEB-INF/vixnt/produce/bom/chooseNodeItem.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 工艺路线 -->
+		<action name="nvixCraftsRouteAction!*" method="{1}" class="nvixCraftsRouteAction">
+			<result name="goList">/WEB-INF/vixnt/produce/craftsRoute/craftsRoute_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/produce/craftsRoute/craftsRoute_update.jsp</result>
+			<result name="goSaveOrUpdateCraftsRouteDetail">/WEB-INF/vixnt/produce/craftsRoute/craftsRouteDetail_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 工序管理-->
+		<action name="nvixProcessManagementAction!*" method="{1}" class="nvixProcessManagementAction">
+			<result name="goList">/WEB-INF/vixnt/produce/process/nvixnt_processManagement_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mm/settings/process_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+	</package>
+</struts>

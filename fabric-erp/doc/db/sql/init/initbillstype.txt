@@ -1,0 +1,61 @@
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `cmn_met_orginial_billscategory`
+-- ----------------------------
+DROP TABLE IF EXISTS `cmn_met_orginial_billscategory`;
+CREATE TABLE `cmn_met_orginial_billscategory` (
+  `ID` varchar(255) NOT NULL,
+  `CATEGORYCODE` varchar(128) DEFAULT NULL,
+  `CATEGORYNAME` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cmn_met_orginial_billscategory
+-- ----------------------------
+INSERT INTO `cmn_met_orginial_billscategory` VALUES ('c0a80064-517a-1618-8151-7acddcb60006', 'OA', '协同办公');
+INSERT INTO `cmn_met_orginial_billscategory` VALUES ('c0a80064-51a9-14d2-8151-a9fe034b0015', 'PUR', '采购管理');
+INSERT INTO `cmn_met_orginial_billscategory` VALUES ('c0a80064-51a9-14d2-8151-a9fe1c03001f', 'SALES', '销售管理');
+INSERT INTO `cmn_met_orginial_billscategory` VALUES ('c0a80066-515c-14dd-8151-5c6a2f840008', 'INV', '库存管理');
+
+
+-- ----------------------------
+-- Table structure for `cmn_met_orginial_billsproperty`
+-- ----------------------------
+DROP TABLE IF EXISTS `cmn_met_orginial_billsproperty`;
+CREATE TABLE `cmn_met_orginial_billsproperty` (
+  `ID` varchar(255) NOT NULL,
+  `propertyCode` varchar(128) DEFAULT NULL,
+  `propertyName` varchar(128) DEFAULT NULL,
+  `ORGINIAL_BILLSCATEGORY_ID` varchar(255) DEFAULT NULL COMMENT '分类id',
+  PRIMARY KEY (`ID`),
+  KEY `FK2F2B5A4B6FC0E269` (`ORGINIAL_BILLSCATEGORY_ID`),
+  CONSTRAINT `FK2F2B5A4B6FC0E269` FOREIGN KEY (`ORGINIAL_BILLSCATEGORY_ID`) REFERENCES `cmn_met_orginial_billscategory` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cmn_met_orginial_billsproperty
+-- ----------------------------
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-517a-1618-8151-7acddd4e0007', 'OA_EXPENSE_ACCOUNT', '报销单', 'c0a80064-517a-1618-8151-7acddcb60006');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe03d70016', 'PUR_APPLY', '采购申请', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe04160017', 'PUR_ORDER', '采购订单', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe04550018', 'PUR_INBOUND', '采购入库', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe04f10019', 'PUR_RETURN', '采购退货', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe0520001a', 'PUR_ARRIVAL', '采购到货', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe054e001b', 'PUR_IMPORT', '进口单据', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe057d001c', 'PUR_INQUERY', '采购询价单', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe05ac001d', 'PUR_INVOICE', '采购发票', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe05cb001e', 'PUR_PLAN', '采购计划', 'c0a80064-51a9-14d2-8151-a9fe034b0015');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1c800020', 'SAL_PLAN', '销售计划', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1caf0021', 'SAL_QUOTATION', '销售报价单', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1cce0022', 'SA_ORDER', '销售订单', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1cfd0023', 'SA_DELIVERY', '销售发货单', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1d3c0024', 'SA_OUTBOUND', '销售出库单', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1d6a0025', 'SA_RETURN', '销售退货单', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80064-51a9-14d2-8151-a9fe1d990026', 'SA_EXPORT', '出口单据', 'c0a80064-51a9-14d2-8151-a9fe1c03001f');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80066-515c-14dd-8151-5c6a30cb0009', 'INV_OUTBOUND', '出库单', 'c0a80066-515c-14dd-8151-5c6a2f840008');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80066-515c-14dd-8151-5c6a31b5000a', 'INV_STOCKTRANFER', '调拨单', 'c0a80066-515c-14dd-8151-5c6a2f840008');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80066-515c-14dd-8151-5c6a3222000b', 'INV_INBOUND', '入库单', 'c0a80066-515c-14dd-8151-5c6a2f840008');
+INSERT INTO `cmn_met_orginial_billsproperty` VALUES ('c0a80066-515c-14dd-8151-5c6a334b000c', 'INV_ STOCKTAKING', '盘点单', 'c0a80066-515c-14dd-8151-5c6a2f840008');

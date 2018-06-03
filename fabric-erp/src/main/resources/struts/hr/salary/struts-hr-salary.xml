@@ -1,0 +1,61 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="hr.salary.config" namespace="/hr/salary" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+		
+		 <!-- 工资类型管理 -->
+		 <action name="salaryProjectAction!*" method="{1}" class="salaryProjectAction">
+			<result name="goList">/WEB-INF/content/hr/salary/salaryProject/salaryProject_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/salary/salaryProject/salaryProject_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/salaryProject/salaryProject_update.jsp</result>
+			<!-- <result name="goChooseSalaryProject">/WEB-INF/content/hr/salary/salaryProject/salaryProject_choose.jsp</result> -->
+			<result name="goChooseSalaryProjectItemMod">/WEB-INF/content/hr/salary/salaryProject/chooseSalaryProjectItemMod.jsp</result>
+			<result name="goChooseSalaryProjectItemModList">/WEB-INF/content/hr/salary/salaryProject/chooseSalaryProjectItemMod_content.jsp</result>
+		</action>
+		
+		<!-- 工资项实例化管理 -->
+		<action name="salaryProjectItemAction!*" method="{1}" class="salaryProjectItemAction">
+			<result name="goList">/WEB-INF/content/hr/salary/salaryProjectItem/salaryProjectItem_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/salary/salaryProjectItem/salaryProjectItem_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/salaryProjectItem/salaryProjectItem_update.jsp</result>
+			<!-- 
+			<result name="goChooseSalaryProjectItem">/WEB-INF/content/hr/salaryProjectItem/salaryProjectItem_choose.jsp</result>
+			-->
+		</action>
+		
+		
+		<!-- 工资项模型管理 -->
+		<action name="salaryProjectItemModAction!*" method="{1}" class="salaryProjectItemModAction">
+			<result name="goList">/WEB-INF/content/hr/salary/salaryProjectItemMod/salaryProjectItemMod_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/salary/salaryProjectItemMod/salaryProjectItemMod_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/salaryProjectItemMod/salaryProjectItemMod_update.jsp</result>
+			<result name="goSaveOrUpdateFormula">/WEB-INF/content/hr/salary/salaryProjectItemMod/salaryProjectItemMod_formula.jsp</result>
+			<!--
+			<result name="goChooseSalaryProjectItemMod">/WEB-INF/content/hr/salaryProjectItemMod/salaryProjectItemMod_choose.jsp</result>
+			-->
+		</action>
+		
+		<!-- 工资辅助项 -->
+		<action name="salaryProjectOptionAction!*" method="{1}" class="salaryProjectOptionAction">
+			<result name="goList">/WEB-INF/content/hr/salary/salaryProjectOption/salaryProjectOption_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/salary/salaryProjectOption/salaryProjectOption_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/salaryProjectOption/salaryProjectOption_update.jsp</result>
+			<result name="goChooseSalaryProjectOption">/WEB-INF/content/hr/salary/salaryProjectOption/salaryProjectOption_choose.jsp</result>
+		</action>
+		
+		
+		<!-- 职员和工资类别关系维护 -->
+		<action name="salaryProjectEmpAction!*" method="{1}" class="salaryProjectEmpAction">
+			<result name="goList">/WEB-INF/content/hr/salary/salaryProjectEmp/salaryProjectEmp.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/salary/salaryProjectEmp/salaryProjectEmp_content.jsp</result>
+			<result name="goChooseSalaryProject">/WEB-INF/content/hr/salary/salaryProjectEmp/chooseSalaryProject.jsp</result>
+			<result name="goChooseSalaryProjectList">/WEB-INF/content/hr/salary/salaryProjectEmp/chooseSalaryProject_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/salaryProjectEmp/salaryProjectValueEmp.jsp</result>
+		</action>
+	</package>
+</struts>

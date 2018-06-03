@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpSnowecConfig" table="wxp_snowec_config">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="validateCode" type="java.lang.String" column="validate_code" />
+		<property name="dateValidateStr" type="java.lang.String" column="date_validate_str" />
+		<property name="syncScheme" type="java.lang.String" column="sync_scheme" />
+		<property name="syncHost" type="java.lang.String" column="sync_host" />
+		<property name="projectName" type="java.lang.String" column="project_name" />
+		<property name="projectBName" type="java.lang.String" column="project_b_name" />
+		<property name="uriCreateMspShareTreeToSdp" type="java.lang.String" column="uri_create_msp_share_tree_to_sdp" />
+		<property name="uriFindMicroShopDtoByAppId" type="java.lang.String" column="uri_find_micro_shop_dto_by_appId" />
+		<property name="uriWxToSnowecLogin" type="java.lang.String" column="uri_wx_to_snowec_login" />
+		<property name="uriFindMspShareQrCodeByTicketKey" type="java.lang.String" column="uri_find_msp_share_qr_code_by_ticket_key" />
+		<property name="uriEcCustomerRegister" type="java.lang.String" column="uri_ec_customer_register" />
+		<property name="uriFindEcOrderItemGroupPager" type="java.lang.String" column="uri_find_ec_order_item_group_pager" />
+		<property name="uriFindMicroShopMarketUrlByAppId" type="java.lang.String" column="uri_find_micro_shop_market_url_by_appId" />
+		<property name="uriFindEcCouponPager" type="java.lang.String" column="uri_find_ec_coupon_pager" />
+		<property name="findMicroShopUrlByAppId" type="java.lang.String" column="find_micro_shop_url_by_appId" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,1054 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="hr.config" namespace="/hr" extends="crud-default">
+	
+	<!-- 人资主页左侧快速新增栏 -->
+		<action name="hrMainAction!*" method="{1}" class="hrMainAction">
+			<result name="goMenuContent">/WEB-INF/content/hr/main/menuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+	<!-- 组织管理-->
+		<!-- 组织机构-->
+		<action name="orgAction!*" method="{1}" class="orgAction">
+			<result name="goList">/WEB-INF/content/hr/organization/org_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/organization/org_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/organization/org_update.jsp</result>
+		</action>
+		<!-- 部门管理-->
+		<action name="deparManageAction!*" method="{1}" class="deparManageAction">
+			<result name="goList">/WEB-INF/content/hr/organization/deparmanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/organization/deparmanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/organization/deparmanage_update.jsp</result>
+		</action>
+		<!-- 岗位管理-->
+		<action name="postManageAction!*" method="{1}" class="postManageAction">
+			<result name="goList">/WEB-INF/content/hr/organization/postmanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/organization/postmanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/organization/postmanage_update.jsp</result>
+		</action>
+		<!-- 在职管理  xx 作废-->
+		<action name="personAdminAction!*" method="{1}" class="personAdminAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/personadmin_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/hrmgr/personadmin_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/personadminp_update.jsp</result>
+		</action>
+		<!-- 基本信息 -->
+		<action name="essentialinformationAction!*" method="{1}" class="essentialinformationAction">
+			<result name="essentialinFormation">/WEB-INF/content/hr/hrmgr/essentialinformation_update.jsp</result>
+			</action>
+		<!-- 工作情况 -->
+		<action name="workingsituationAction!*" method="{1}" class="workingsituationAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/workingsituation_update.jsp</result>
+			</action>
+		<!-- 个人技能 -->
+		<action name="personalskillsAction!*" method="{1}" class="personalskillsAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/personalskills_update.jsp</result>
+			</action>
+		<!-- 关系情况 -->
+		<action name="relationshipAction!*" method="{1}" class="relationshipAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/relationship_update.jsp</result>
+			</action>
+		<!-- 在职管理x-->
+		<action name="botjManageAction!*" method="{1}" class="botjManageAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/botjmanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/hrmgr/botjmanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/botjmanage_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 员工花名册-->
+		<action name="staffRosterAction!*" method="{1}" class="staffRosterAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/staffroster_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/staffroster_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/staffrosterSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 人事事务单据 -->
+		<action name="probationAction!*" method="{1}" class="probationAction">
+		<!-- 事务列表 -->
+			<result name="goList">/WEB-INF/content/hr/personnelmgr/probation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/personnelmgr/probation_list_content.jsp</result>
+		<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/personnelmgr/probationSeniorSearch_list.jsp</result>	
+		<!-- 转正 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/personnelmgr/probation_update.jsp</result>
+		<!-- 异动 -->
+			<result name="goSaveOrUpdateXtaffTurnover">/WEB-INF/content/hr/personnelmgr/staffturnover_update.jsp</result>
+		<!-- 离职 -->
+			<result name="goSaveOrUpdateXresign">/WEB-INF/content/hr/personnelmgr/resign_update.jsp</result>
+		<!-- 借调 -->
+			<result name="goSaveOrUpdateStaffSecondments">/WEB-INF/content/hr/personnelmgr/staffsecondments_update.jsp</result>
+		<!-- 请假 -->
+			<result name="goSaveOrUpdateAskForLeave">/WEB-INF/content/hr/personnelmgr/askforleave_update.jsp</result>
+		<!-- 辞退 -->
+			<result name="goSaveOrUpdateDismiss">/WEB-INF/content/hr/personnelmgr/dismiss_update.jsp</result>
+		<!-- 离退休 -->
+			<result name="goSaveOrUpdateRetirement">/WEB-INF/content/hr/personnelmgr/retirement_update.jsp</result>
+		<!-- 返聘 -->
+			<result name="goSaveOrUpdateBridget">/WEB-INF/content/hr/personnelmgr/bridget_update.jsp</result>
+			<result name="addHrAttachments">/WEB-INF/content/hr/job/addAttachFile.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrBecomeRegular.jsp</result>
+			<result name="goChooseEmployee">/WEB-INF/content/hr/job/chooseEmployee.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 合同管理-->
+		<action name="agreementAction!*" method="{1}" class="agreementAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/agreement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/agreement_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/agreementSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/agreement_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGrid.jsp</result>
+			<result name="addHrAttachments">/WEB-INF/content/hr/job/addAttachFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 档案查询-->
+		<action name="employeeOrgFileAction!*" method="{1}" class="employeeOrgFileAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/employee_listfile.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/employee_list_contentfile.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/employeesSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/employee_updatefile.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/hr/hrmgr/employee_choosefile.jsp</result>
+			<!-- 基本信息 -->
+			<result name="goSaveOrUpdateEss">/WEB-INF/content/hr/hrmgr/employee_update_essentialinformationfile.jsp</result>
+				<!-- 联系方式明细 tab-->
+			<result name="goAddLinkman">/WEB-INF/content/hr/hrmgr/addlinkmanfile.jsp</result>
+			<!-- 个人技能 -->
+			<result name="goSaveOrUpdatePer">/WEB-INF/content/hr/hrmgr/employee_update_personalskillsfile.jsp</result>
+				<!-- 语言能力明细 tab-->
+			<result name="goAddLanguageAbility">/WEB-INF/content/hr/hrmgr/addlanguageabilityfile.jsp</result>
+				<!-- 计算机能力明细tab -->
+			<result name="goAddComputerLevel">/WEB-INF/content/hr/hrmgr/addcomputerlevelfile.jsp</result>
+				<!-- 技术工人职业资格明细tab -->
+			<result name="goAddWorkQualify">/WEB-INF/content/hr/hrmgr/addworkqualifyfile.jsp</result>
+				<!-- 学历学位情况明细tab -->
+			<result name="goAddDegree">/WEB-INF/content/hr/hrmgr/adddegreefile.jsp</result>
+				<!-- 培训情况明细tab -->
+			<result name="goAddTraining">/WEB-INF/content/hr/hrmgr/addtrainingfile.jsp</result>
+				<!-- 专业技术职务tab -->
+			<result name="goAddTechtitle">/WEB-INF/content/hr/hrmgr/addtechtitlefile.jsp</result>
+				<!-- 专业技术成果tab -->
+			<result name="goAddTechachieve">/WEB-INF/content/hr/hrmgr/addtechachievefile.jsp</result>
+			<!-- 个人关系 -->
+			<result name="goSaveOrUpdateRel">/WEB-INF/content/hr/hrmgr/employee_update_relationshipfile.jsp</result>
+				<!-- 离退情况tab -->
+			<result name="goAddRetireInfo">/WEB-INF/content/hr/hrmgr/addretireinfofile.jsp</result>
+				<!-- 流动情况tab -->
+			<result name="goAddRedeployInfo">/WEB-INF/content/hr/hrmgr/addredeployinfofile.jsp</result>
+				<!-- 出国（出境）情况tab -->
+			<result name="goAddAboard">/WEB-INF/content/hr/hrmgr/addaboardfile.jsp</result>
+				<!-- 家庭成员及社会关系tab -->
+			<result name="goAddFamilyRelationship">/WEB-INF/content/hr/hrmgr/addfamilyrelationshipfile.jsp</result>
+				<!-- 伤残病tab -->
+			<result name="goAddDisabilityDiseaseInfor">/WEB-INF/content/hr/hrmgr/adddisabilitydiseaseinforfile.jsp</result>
+			<!-- 工作情况 -->
+			<result name="goSaveOrUpdateWork">/WEB-INF/content/hr/hrmgr/employee_update_workingsituationfile.jsp</result>
+				<!-- 工作履历tab -->
+			<result name="goAddWorkRecord">/WEB-INF/content/hr/hrmgr/addworkrecordfile.jsp</result>
+				<!-- 政治面貌tab -->
+			<result name="goAddPoliticalStatus">/WEB-INF/content/hr/hrmgr/addpoliticalstatusfile.jsp</result>
+				<!-- 军转情况tab -->
+			<result name="goAddSoldierTuneInfo">/WEB-INF/content/hr/hrmgr/addsoldieryuneinfofile.jsp</result>
+				<!-- 奖励情况tab -->
+			<result name="goAddAwardInfo">/WEB-INF/content/hr/hrmgr/addawardinfofile.jsp</result>
+				<!-- 惩罚情况tab -->
+			<result name="goAddPunInfo">/WEB-INF/content/hr/hrmgr/addpuninfofile.jsp</result>
+				<!-- 兼任情况tab -->
+			<result name="goAddPartPostionInfo">/WEB-INF/content/hr/hrmgr/addpartpostioninfofile.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 奖惩管理-->
+		<action name="inceManageAction!*" method="{1}" class="inceManageAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/incemanage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/incemanage_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/incemanageSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/incemanage_update.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 作废-->
+		<!-- 政策制度管理-->
+		<!-- <action name="polSysManageAction!*" method="{1}" class="polSysManageAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/polsysmanage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/polsysmanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/polsysmanage_update.jsp</result>
+			<result name="goSaveOrUpdatePol">/WEB-INF/content/hr/hrmgr/pol_update.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/hr/hrmgr/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGrid.jsp</result>
+			加载顶部工具栏
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action> -->
+		
+		<!-- 政策制度管理 -->
+		<action name="policiesAction!*" method="{1}" class="policiesAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/policies_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/policies_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/policies_update.jsp</result>
+			<result name="goSaveOrUpdateCategory">/WEB-INF/content/hr/hrmgr/policiesCategory_update.jsp</result>
+			<result name="goPoliciesCategory">/WEB-INF/content/hr/hrmgr/policiesCategory_choose.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/policiesSeniorSearch_list.jsp</result>
+			<result name="downloadAttachment" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		
+		<!-- 薪酬管理-->
+		<!-- 工资模型定义-->
+		<action name="wagesManageAction!*" method="{1}" class="wagesManageAction">
+			<result name="goList">/WEB-INF/content/hr/salary/wagesanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/salary/wagesanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/wagesanage_update.jsp</result>
+		</action>
+		<!-- 工资项管理-->
+		<action name="definingSalaryAction!*" method="{1}" class="definingSalaryAction">
+			<result name="goList">/WEB-INF/content/hr/salary/definingsalary_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/salary/definingsalary_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/salary/definingsalary_update.jsp</result>
+		</action>
+		<!-- 基础设置 -->
+		<!-- 系统参数设置 -->
+		<action name="hrTypeSettingsAction!*" method="{1}" class="hrTypeSettingsAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/hrTypeSettings_update.jsp</result>
+		</action>
+		<!-- 公共日历 -->
+		<action name="hrCanlendarAction!*" method="{1}" class="hrCanlendarAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/hrcanlendar_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/hrcanlendar_list_content.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/hr/trainning/hrcanlendar_list_contents.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/hrcanlendar_update.jsp</result>
+		</action>
+		<!-- 综合管理监控平台 -->
+		<action name="hrstaffselfAction!*" method="{1}" class="hrstaffselfAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/hrstaffself_update.jsp</result>
+		</action>
+		<!-- 高级查询 -->
+		<action name="advancedSearchAction!*" method="{1}" class="advancedSearchAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/advancedSearch_update.jsp</result>
+		</action>
+		<!-- 员工自助 -->
+		<action name="hrEmpstaffselfAction!*" method="{1}" class="hrEmpstaffselfAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/hrEmpstaffself_update.jsp</result>
+		</action>
+		
+		<!-- 教育培训-->
+		<!-- 需求通知-->
+		<action name="demandNoticeAction!*" method="{1}" class="demandNoticeAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/demandnotice_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/demandnotice_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/demandnoticeSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/demandnotice_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 培训需求申请-->
+		<action name="demandApplyAction!*" method="{1}" class="demandApplyAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/demandApply_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/demandApply_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/demandApply_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/demandApplySeniorSearch_list.jsp</result>
+			<!-- 选择培训课程 -->
+			<result name="goAddDemandCourse">/WEB-INF/content/hr/trainning/addDemandCourse.jsp</result>
+			<result name="goDemandCourseLists">/WEB-INF/content/hr/trainning/addDemandCourse_list.jsp</result>
+			<!-- 选择培训设施 -->
+			<result name="goAddDemandFacilities">/WEB-INF/content/hr/trainning/addDemandFacilities.jsp</result>
+			<result name="goDemandFacilitiesLists">/WEB-INF/content/hr/trainning/addDemandFacilities_list.jsp</result>
+			<!-- 选择培训资料-->
+			<result name="goAddDemandData">/WEB-INF/content/hr/trainning/addDemandData.jsp</result>
+			<result name="goDemandDataLists">/WEB-INF/content/hr/trainning/addDemandData_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 培训需求汇总-->
+		<action name="demandSummaryAction!*" method="{1}" class="demandSummaryAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/demandSummary_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/demandSummary_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/demandSummarySeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/demandSummary_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 选择培训需求申请 -->
+			<result name="goAddDemandApply">/WEB-INF/content/hr/trainning/addDemandApply.jsp</result>
+			<result name="goDemandApplyLists">/WEB-INF/content/hr/trainning/addDemandApply_list.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 创建活动计划-->
+		<action name="trainPlanAction!*" method="{1}" class="trainPlanAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainplan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainplan_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainplanSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainplan_update.jsp</result>
+			<result name="goAddTrainingPlanningDetail">/WEB-INF/content/hr/trainning/addtrainingPlanningdetail.jsp</result>
+			<result name="addHrAttachments">/WEB-INF/content/hr/job/addAttachFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 填报计划-->
+		<action name="planAction!*" method="{1}" class="planAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingPlan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingPlan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingPlan_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingPlanSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 计划汇总-->
+		<action name="planTrainCourseAction!*" method="{1}" class="planTrainCourseAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/planTrainCourse_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/planTrainCourse_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/planTrainCourse_update.jsp</result>
+			<!-- <result name="goChooseCategory">/WEB-INF/content/hr/trainning/chooseTreeGridplanTrainCourse.jsp</result> -->
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/planTrainCourseSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 选择培训课程 -->
+			<result name="goChoosePlan">/WEB-INF/content/hr/trainning/choosePlan_list.jsp</result>
+			<result name="goPlanList">/WEB-INF/content/hr/trainning/plan_list_content.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 培训活动-->
+		<action name="trainingActivityAction!*" method="{1}" class="trainingActivityAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingActivity_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingActivity_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingActivity_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingActivitySeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 选择培训计划 -->
+			<result name="goChooseTrainingPlanningDetail">/WEB-INF/content/hr/trainning/chooseTrainingPlan_list.jsp</result>
+			<result name="goTrainingPlanningDetailList">/WEB-INF/content/hr/trainning/trainingPlanList_content.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 培训活动暂时屏蔽可以不需要因为不符合业务逻辑-->
+		<action name="trainImpAction!*" method="{1}" class="trainImpAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainim_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainim_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainim_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/trainning/chooseTreeGridtrainPlan.jsp</result>
+			<result name="goAddTrainningImplementDetail">/WEB-INF/content/hr/trainning/addTrainningImplementDetail.jsp</result>
+			<!-- 选择培训计划 -->
+			<result name="goChoosePlanning">/WEB-INF/content/hr/trainning/choosePlanning.jsp</result>
+			<result name="goPlanningList">/WEB-INF/content/hr/trainning/planningList_content.jsp</result>
+			<result name="gettrainingPlanningDetailListList">/WEB-INF/content/hr/trainning/purchaseplanitemlist.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 培训费用-->
+		<action name="trainingCostAction!*" method="{1}" class="trainingCostAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingCost_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingCost_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingCostSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingCost_update.jsp</result>
+			<!-- 选择培训计划 -->
+			<result name="goChooseTrainingPlan">/WEB-INF/content/hr/trainning/addTrainingPlan.jsp</result>
+			<result name="goTrainingPlanLists">/WEB-INF/content/hr/trainning/addTrainingPlan_list.jsp</result>
+			<!-- 选择培训计划课程-->
+			<result name="goChooseTrainingProgram">/WEB-INF/content/hr/trainning/addTrainingProgram.jsp</result>
+			<result name="goTrainingProgramLists">/WEB-INF/content/hr/trainning/addTrainingProgram_list.jsp</result>
+			<!-- 选择培训活动 -->
+			<result name="goChooseTrainingActivity">/WEB-INF/content/hr/trainning/addTrainingActivity.jsp</result>
+			<result name="goTrainingActivityLists">/WEB-INF/content/hr/trainning/addTrainingActivity_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 作废-->
+		<!-- 培训费用-->
+		<action name="trainCostAction!*" method="{1}" class="trainCostAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/traincost_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/traincost_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/traincost_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!--作废 -->
+		<!-- 培训资源-->
+		<action name="trainReAction!*" method="{1}" class="trainReAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainre_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainre_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainre_update.jsp</result>
+			<result name="goAddTrainingCourse">/WEB-INF/content/hr/trainning/addTrainingCourse.jsp</result>
+			<result name="goAddTrainingData">/WEB-INF/content/hr/trainning/addTrainingData.jsp</result>
+			<result name="goAddTrainingFacilities">/WEB-INF/content/hr/trainning/addTrainingFacilities.jsp</result>
+			<result name="goAddTrainingTeacher">/WEB-INF/content/hr/trainning/addTrainingTeacher.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 基础设置——教育培训——素质指标 -->
+		<action name="qualityIndexAction!*" method="{1}" class="qualityIndexAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/qualityIndex_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/qualityIndex_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/qualityIndex_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 基础设置——教育培训——课程性质 -->
+		<action name="courseNatureAction!*" method="{1}" class="courseNatureAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/courseNature_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/courseNature_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/courseNature_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 基础设置——教育培训——培训类别 -->
+		<action name="trainCategoryAction!*" method="{1}" class="trainCategoryAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainCategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainCategory_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 基础设置——培训课程——课程类别 -->
+		<action name="courseTypeAction!*" method="{1}" class="courseTypeAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/courseType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/courseType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/courseType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——职称类型 -->
+		<action name="titleTypeAction!*" method="{1}" class="titleTypeAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/titleType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/titleType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/titleType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——职称等级 -->
+		<action name="titleGradeAction!*" method="{1}" class="titleGradeAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/titleGrade_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/titleGrade_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/titleGrade_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——技术水平 -->
+		<action name="technicalLevelAction!*" method="{1}" class="technicalLevelAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/technicalLevel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/technicalLevel_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/technicalLevel_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——熟练程度 -->
+		<action name="proficiencyAction!*" method="{1}" class="proficiencyAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/proficiency_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/proficiency_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/proficiency_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——职务类型 -->
+		<action name="postsysTypesAction!*" method="{1}" class="postsysTypesAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/postsysTypes_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/postsysTypes_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/postsysTypes_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——等级 -->
+		<action name="rankAction!*" method="{1}" class="rankAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/rank_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/rank_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/rank_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——职等 -->
+		<action name="gradingAction!*" method="{1}" class="gradingAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/grading_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/grading_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/grading_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 初始设置——职权 -->
+		<action name="powersAction!*" method="{1}" class="powersAction">
+			<result name="goList">/WEB-INF/content/hr/initialSetup/powers_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/initialSetup/powers_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/initialSetup/powers_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 培训课程管理-->
+		<action name="trainingCMAction!*" method="{1}" class="trainingCMAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingCM_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingCM_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingCMSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingCM_update.jsp</result>
+			<!-- 选择培训讲师 -->
+			<result name="goAddTrainingCM">/WEB-INF/content/hr/trainning/addTrainingCM.jsp</result>
+			<result name="goSubRadioSingleLists">/WEB-INF/content/hr/trainning/addTrainingCM_list.jsp</result>
+			<!-- 选择培训渠道-->
+			<result name="goAddTrainingChannel">/WEB-INF/content/hr/trainning/addTrainingChannel.jsp</result>
+			<result name="goTrainingChannelLists">/WEB-INF/content/hr/trainning/addTrainingChannel_list.jsp</result>
+			<!-- 选择培训资料 -->
+			<result name="goAddTrainingData">/WEB-INF/content/hr/trainning/addTrainingDatass.jsp</result>
+			<result name="goTrainingDataLists">/WEB-INF/content/hr/trainning/addTrainingData_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 培训课程-->
+		<action name="trainingCourseAction!*" method="{1}" class="trainingCourseAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingcourse_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingcourse_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingcourseSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingcourse_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 培训资料-->
+		<action name="trainingDataAction!*" method="{1}" class="trainingDataAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingdata_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingdata_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingdataSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingdata_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 培训渠道-->
+		<action name="trainingChannelAction!*" method="{1}" class="trainingChannelAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingChannel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingChannel_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingChannelSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingChannel_update.jsp</result>
+			<result name="goAddtrainingChannel">/WEB-INF/content/hr/trainning/trainingChannelApplication.jsp</result>
+			<result name="goSubRadioSingleList">/WEB-INF/content/hr/trainning/trainingChannelApplication_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 培训讲师-->
+		<action name="trainingLecturerAction!*" method="{1}" class="trainingLecturerAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingLecturer_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingLecturer_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/trainning/trainingLecturerSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingLecturer_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 培训设施暂时不需要不符合业务逻辑后面再做处理-->
+		<action name="trainingFacilitiesAction!*" method="{1}" class="trainingFacilitiesAction">
+			<result name="goList">/WEB-INF/content/hr/trainning/trainingfacilities_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/trainning/trainingfacilities_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/trainning/trainingfacilities_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 招聘管理-->
+		<!-- 招聘征集-->
+		<action name="reCollAction!*" method="{1}" class="reCollAction">
+			<result name="goList">/WEB-INF/content/hr/job/recoll_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/recoll_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/recollSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/recoll_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitnoficaition.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 用人申请-->
+		<action name="empAAppAction!*" method="{1}" class="empAAppAction">
+			<result name="goList">/WEB-INF/content/hr/job/empaapp_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/empaapp_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/empaappSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/empaapp_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitApplication.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 招聘计划-->
+		<action name="rePlanAction!*" method="{1}" class="rePlanAction">
+			<result name="goList">/WEB-INF/content/hr/job/replan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/replan_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/replanSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/replan_update.jsp</result>
+			<result name="goAddHrRecruitmentPlanDetails">/WEB-INF/content/hr/job/addHrRecruitmentPlanDetail.jsp</result>
+			<result name="addHrAttachments">/WEB-INF/content/hr/job/addAttachFile.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGrid.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			
+			<result name="downloadEqDocument " type="stream">
+			<param name="contentType">application/octet-stream</param>
+			<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+			<param name="inputName">inputStream</param>
+			<param name="buffserSize">4096</param>
+			</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 招聘计划汇总-->
+		<action name="recruitmentPlanSummaryAction!*" method="{1}" class="recruitmentPlanSummaryAction">
+			<result name="goList">/WEB-INF/content/hr/job/recruitmentPlanSummary_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/recruitmentPlanSummary_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/planSummarySeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/recruitmentPlanSummary_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitactivitity.jsp</result>
+			
+			<result name="goAddHrRecruitplan">/WEB-INF/content/hr/job/addRecruitmentPlanSummary.jsp</result>
+			<result name="goSubRadioSingleLists">/WEB-INF/content/hr/job/addRecruitmentPlanSummary_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 招聘计划下达-->
+		<action name="recruitmentPlanIssuedAction!*" method="{1}" class="recruitmentPlanIssuedAction">
+			<result name="goList">/WEB-INF/content/hr/job/recruitmentPlanIssued_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/recruitmentPlanIssued_list_content.jsp</result>
+				<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/planSummarySeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/recruitmentPlanIssued_update.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		
+		<!-- 招聘活动-->
+		<action name="reActAction!*" method="{1}" class="reActAction">
+			<result name="goList">/WEB-INF/content/hr/job/react_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/react_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/reactSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/react_update.jsp</result>
+			<result name="goAddHrRecruitactivitityDetails">/WEB-INF/content/hr/job/addHrRecruitactivitityDetails.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitactivitity.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 高级人才招聘-->
+		<action name="seniorReAction!*" method="{1}" class="seniorReAction">
+			<result name="goList">/WEB-INF/content/hr/job/seniorre_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/seniorre_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/seniorreSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/seniorre_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrSenior.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 资料筛选-->
+		<action name="dataScreAction!*" method="{1}" class="dataScreAction">
+			<result name="goList">/WEB-INF/content/hr/job/datascre_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/job/datascre_list_content.jsp</result>
+		</action>
+		<!-- 面试管理-->
+		<action name="audiManageAction!*" method="{1}" class="audiManageAction">
+			<result name="goList">/WEB-INF/content/hr/job/audimanage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/audimanage_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/audimanageSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/audimanage_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrInterviewManagement.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 用工状况-->
+		<action name="employmentSituationAction!*" method="{1}" class="employmentSituationAction">
+			<result name="goList">/WEB-INF/content/hr/job/employmentsituation_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/job/employmentsituation_list_content.jsp</result>
+		</action>
+		<!-- 录用管理-->
+		<action name="hirManageAction!*" method="{1}" class="hirManageAction">
+			<result name="goList">/WEB-INF/content/hr/job/hirmanage_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/hirmanage_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/hirManageSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/hirmanage_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrHirmanage.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 后备简历库-->
+		<action name="backupResumeDatabaseAciton!*" method="{1}" class="backupResumeDatabaseAciton">
+			<result name="goList">/WEB-INF/content/hr/job/backupresumedatabase_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/job/backupresumedatabase_list_content.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitSummary.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 招聘总结-->
+		<action name="reSumAciton!*" method="{1}" class="reSumAciton">
+			<result name="goList">/WEB-INF/content/hr/job/resum_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/resum_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/resumSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/resum_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitSummary.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 在职管理 -->
+		<action name="employeesAction!*" method="{1}" class="employeesAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/employee_lists.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/employee_list_contents.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/employeesSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/employee_updates.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/hr/hrmgr/employee_chooses.jsp</result>
+			<!-- 基本信息 -->
+			<result name="goSaveOrUpdateEss">/WEB-INF/content/hr/hrmgr/employee_update_essentialinformations.jsp</result>
+				<!-- 联系方式明细 tab-->
+			<result name="goAddLinkman">/WEB-INF/content/hr/hrmgr/addlinkmans.jsp</result>
+			<!-- 个人技能 -->
+			<result name="goSaveOrUpdatePer">/WEB-INF/content/hr/hrmgr/employee_update_personalskillss.jsp</result>
+				<!-- 语言能力明细 tab-->
+			<result name="goAddLanguageAbility">/WEB-INF/content/hr/hrmgr/addlanguageabilitys.jsp</result>
+				<!-- 计算机能力明细tab -->
+			<result name="goAddComputerLevel">/WEB-INF/content/hr/hrmgr/addcomputerlevels.jsp</result>
+				<!-- 技术工人职业资格明细tab -->
+			<result name="goAddWorkQualify">/WEB-INF/content/hr/hrmgr/addworkqualifys.jsp</result>
+				<!-- 学历学位情况明细tab -->
+			<result name="goAddDegree">/WEB-INF/content/hr/hrmgr/adddegrees.jsp</result>
+				<!-- 培训情况明细tab -->
+			<result name="goAddTraining">/WEB-INF/content/hr/hrmgr/addtrainings.jsp</result>
+				<!-- 专业技术职务tab -->
+			<result name="goAddTechtitle">/WEB-INF/content/hr/hrmgr/addtechtitles.jsp</result>
+				<!-- 专业技术成果tab -->
+			<result name="goAddTechachieve">/WEB-INF/content/hr/hrmgr/addtechachieves.jsp</result>
+			<!-- 个人关系 -->
+			<result name="goSaveOrUpdateRel">/WEB-INF/content/hr/hrmgr/employee_update_relationships.jsp</result>
+				<!-- 离退情况tab -->
+			<result name="goAddRetireInfo">/WEB-INF/content/hr/hrmgr/addretireinfos.jsp</result>
+				<!-- 流动情况tab -->
+			<result name="goAddRedeployInfo">/WEB-INF/content/hr/hrmgr/addredeployinfos.jsp</result>
+				<!-- 出国（出境）情况tab -->
+			<result name="goAddAboard">/WEB-INF/content/hr/hrmgr/addaboards.jsp</result>
+				<!-- 家庭成员及社会关系tab -->
+			<result name="goAddFamilyRelationship">/WEB-INF/content/hr/hrmgr/addfamilyrelationships.jsp</result>
+				<!-- 伤残病tab -->
+			<result name="goAddDisabilityDiseaseInfor">/WEB-INF/content/hr/hrmgr/adddisabilitydiseaseinfors.jsp</result>
+			<!-- 工作情况 -->
+			<result name="goSaveOrUpdateWork">/WEB-INF/content/hr/hrmgr/employee_update_workingsituations.jsp</result>
+				<!-- 工作履历tab -->
+			<result name="goAddWorkRecord">/WEB-INF/content/hr/hrmgr/addworkrecords.jsp</result>
+				<!-- 政治面貌tab -->
+			<result name="goAddPoliticalStatus">/WEB-INF/content/hr/hrmgr/addpoliticalstatuss.jsp</result>
+				<!-- 军转情况tab -->
+			<result name="goAddSoldierTuneInfo">/WEB-INF/content/hr/hrmgr/addsoldieryuneinfos.jsp</result>
+				<!-- 奖励情况tab -->
+			<result name="goAddAwardInfo">/WEB-INF/content/hr/hrmgr/addawardinfos.jsp</result>
+				<!-- 惩罚情况tab -->
+			<result name="goAddPunInfo">/WEB-INF/content/hr/hrmgr/addpuninfos.jsp</result>
+				<!-- 兼任情况tab -->
+			<result name="goAddPartPostionInfo">/WEB-INF/content/hr/hrmgr/addpartpostioninfos.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 后备人才管理 -->
+		<action name="employeessAction!*" method="{1}" class="employeessAction">
+			<result name="goList">/WEB-INF/content/hr/hrmgr/employee_listss.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/hrmgr/employee_list_contentss.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/hrmgr/employee_updatess.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/hrmgr/employeeSeniorSearch_list.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/hr/hrmgr/employee_choosess.jsp</result>
+			<!-- 基本信息 -->
+			<result name="goSaveOrUpdateEss">/WEB-INF/content/hr/hrmgr/employee_update_essentialinformationss.jsp</result>
+			<!-- 联系方式明细 tab-->
+			<result name="goAddLinkman">/WEB-INF/content/hr/hrmgr/addlinkmanss.jsp</result>
+			<!-- 个人技能 -->
+			<result name="goSaveOrUpdatePer">/WEB-INF/content/hr/hrmgr/employee_update_personalskillsss.jsp</result>
+				<!-- 语言能力明细 tab-->
+			<result name="goAddLanguageAbility">/WEB-INF/content/hr/hrmgr/addlanguageabilityss.jsp</result>
+				<!-- 计算机能力明细tab -->
+			<result name="goAddComputerLevel">/WEB-INF/content/hr/hrmgr/addcomputerlevelss.jsp</result>
+				<!-- 技术工人职业资格明细tab -->
+			<result name="goAddWorkQualify">/WEB-INF/content/hr/hrmgr/addworkqualifyss.jsp</result>
+				<!-- 学历学位情况明细tab -->
+			<result name="goAddDegree">/WEB-INF/content/hr/hrmgr/adddegreess.jsp</result>
+				<!-- 培训情况明细tab -->
+			<result name="goAddTraining">/WEB-INF/content/hr/hrmgr/addtrainingss.jsp</result>
+				<!-- 专业技术职务tab -->
+			<result name="goAddTechtitle">/WEB-INF/content/hr/hrmgr/addtechtitless.jsp</result>
+				<!-- 专业技术成果tab -->
+			<result name="goAddTechachieve">/WEB-INF/content/hr/hrmgr/addtechachievess.jsp</result>
+			<!-- 个人关系 -->
+			<result name="goSaveOrUpdateRel">/WEB-INF/content/hr/hrmgr/employee_update_relationshipss.jsp</result>
+				<!-- 离退情况tab -->
+			<result name="goAddRetireInfo">/WEB-INF/content/hr/hrmgr/addretireinfoss.jsp</result>
+				<!-- 流动情况tab -->
+			<result name="goAddRedeployInfo">/WEB-INF/content/hr/hrmgr/addredeployinfoss.jsp</result>
+				<!-- 出国（出境）情况tab -->
+			<result name="goAddAboard">/WEB-INF/content/hr/hrmgr/addaboardss.jsp</result>
+				<!-- 家庭成员及社会关系tab -->
+			<result name="goAddFamilyRelationship">/WEB-INF/content/hr/hrmgr/addfamilyrelationshipss.jsp</result>
+				<!-- 伤残病tab -->
+			<result name="goAddDisabilityDiseaseInfor">/WEB-INF/content/hr/hrmgr/adddisabilitydiseaseinforss.jsp</result>
+			<!-- 工作情况 -->
+			<result name="goSaveOrUpdateWork">/WEB-INF/content/hr/hrmgr/employee_update_workingsituationss.jsp</result>
+				<!-- 工作履历tab -->
+			<result name="goAddWorkRecord">/WEB-INF/content/hr/hrmgr/addworkrecordss.jsp</result>
+				<!-- 政治面貌tab -->
+			<result name="goAddPoliticalStatus">/WEB-INF/content/hr/hrmgr/addpoliticalstatusss.jsp</result>
+				<!-- 军转情况tab -->
+			<result name="goAddSoldierTuneInfo">/WEB-INF/content/hr/hrmgr/addsoldieryuneinfoss.jsp</result>
+				<!-- 奖励情况tab -->
+			<result name="goAddAwardInfo">/WEB-INF/content/hr/hrmgr/addawardinfoss.jsp</result>
+				<!-- 惩罚情况tab -->
+			<result name="goAddPunInfo">/WEB-INF/content/hr/hrmgr/addpuninfoss.jsp</result>
+				<!-- 兼任情况tab -->
+			<result name="goAddPartPostionInfo">/WEB-INF/content/hr/hrmgr/addpartpostioninfoss.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 考勤管理-->
+		<!-- 日常管理-->
+		<action name="curManageAction!*" method="{1}" class="curManageAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/curmanage_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/hr/attendance/curmanage_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/attendance/curmanage_update.jsp</result>
+		</action>
+		<!-- 考勤记录-->
+		<action name="attendanceRecordAction!*" method="{1}" class="attendanceRecordAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendanceRecord_list.jsp</result>
+			<result name="goRecordList">/WEB-INF/content/hr/attendance/attendanceRecord_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 考勤设置 -->
+		<action name="hrattendSettingsAction!*" method="{1}" class="hrattendSettingsAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/attendance/hrattendSettings_update.jsp</result>
+		</action>
+		<!-- 考勤类别x -->
+		<action name="attendanceCategoryAction!*" method="{1}" class="attendanceCategoryAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendancecategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/attendance/attendancecategory_list_content.jsp</result>
+			<result name="goSearchList">/WEB-INF/content/hr/attendance/attendancecategory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/attendance/attendancecategory_update.jsp</result>
+			<result name="goChooseSupplierCategory">/WEB-INF/content/hr/attendance/chooseTreeGridSupplierCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 考勤类别 -->
+		<action name="attendanceTypeAction!*" method="{1}" class="attendanceTypeAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendancetype_list.jsp</result>
+		</action>
+		<!-- 考勤班次 -->
+			<action name="attendanceFrequencyAction!*" method="{1}" class="attendanceFrequencyAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendancefrequency_list.jsp</result>
+		</action>
+		<!-- 考勤班组 -->
+			<action name="attendanceTeamAction!*" method="{1}" class="attendanceTeamAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendanceteam_list.jsp</result>
+		</action>
+		<!-- 通用考勤制度 -->
+			<action name="attendanceUniversalAction!*" method="{1}" class="attendanceUniversalAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendanceuniversal_list.jsp</result>
+		</action>
+		<!-- 特殊考勤制度 -->
+			<action name="attendanceSpecialAction!*" method="{1}" class="attendanceSpecialAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/attendancespecial_list.jsp</result>
+		</action>
+		<!-- 打卡机记录 -->
+		<action name="punchRecordsAction!*" method="{1}" class="punchRecordsAction">
+			<result name="goList">/WEB-INF/content/hr/attendance/punchRecords_list.jsp</result>
+			<result name="goRecordList">/WEB-INF/content/hr/attendance/punchRecords_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 员工组织向导页-->
+		<action name="orgItemAction!*" method="{1}" class="orgItemAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/updateItem.jsp</result>
+		</action>
+		<!-- 职务体系-->
+		<action name="postSysAction!*" method="{1}" class="postSysAction">
+			<result name="goList">/WEB-INF/content/hr/job/postSys_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/postSys_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/postSysSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/postSys_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGridHrRecruitactivitity.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 职称体系-->
+		<action name="titleSysAction!*" method="{1}" class="titleSysAction">
+			<result name="goList">/WEB-INF/content/hr/job/titleSys_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/titleSys_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/hr/job/titleSysSeniorSearch_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/titleSys_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 福利档案-->
+		<action name="welfareArchivesAction!*" method="{1}" class="welfareArchivesAction">
+			<result name="goList">/WEB-INF/content/hr/job/welfareArchives_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/welfareArchives_list_content.jsp</result>
+			<result name="goSearchList">/WEB-INF/content/hr/job/welfareArchives_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/job/welfareArchives_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/hr/job/chooseTreeGrid.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 组织架构图-->
+		<action name="orgChartAction!*" method="{1}" class="orgChartAction">
+			<result name="goList">/WEB-INF/content/hr/job/orgChart_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/orgChart_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+		<!-- 员工自助-岗位职责-->
+		<action name="responsibilitiesAction!*" method="{1}" class="responsibilitiesAction">
+			<result name="goList">/WEB-INF/content/hr/job/responsibilities_list.jsp</result>
+		</action>
+		<!-- 员工自助-员工个人信息-->
+		<action name="employeeQueryAction!*" method="{1}" class="employeeQueryAction">
+			<result name="goList">/WEB-INF/content/hr/job/employeequery_list.jsp</result>
+		</action>
+		<!-- 员工自助-保险信息-->
+		<action name="insuranceAction!*" method="{1}" class="insuranceAction">
+			<result name="goList">/WEB-INF/content/hr/job/insurance_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/insurance_list_content.jsp</result>
+		</action>
+		<!-- 员工自助-工作绩效-->
+		<action name="jobPerformanceAction!*" method="{1}" class="jobPerformanceAction">
+			<result name="goList">/WEB-INF/content/hr/job/jobPerformance_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/jobPerformance_list_content.jsp</result>
+			<result name="goSearchList">/WEB-INF/content/hr/job/jobPerformance_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+			<!-- 员工自助-工资信息-->
+		<action name="salaryInformationAction!*" method="{1}" class="salaryInformationAction">
+			<result name="goList">/WEB-INF/content/hr/job/salaryInformation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/salaryInformation_list_content.jsp</result>
+			<result name="goSearchList">/WEB-INF/content/hr/job/salaryInformation_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+			<!-- 员工自助-应聘报名-->
+		<action name="applyregistrationAction!*" method="{1}" class="applyregistrationAction">
+			<result name="goList">/WEB-INF/content/hr/job/applyregistration_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/applyregistration_list_content.jsp</result>
+		</action>
+			<!-- 员工自助-个人培训需求-->
+		<action name="personalTrainingNeedsAction!*" method="{1}" class="personalTrainingNeedsAction">
+			<result name="goList">/WEB-INF/content/hr/job/personaltrainingneeds_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/personaltrainingneeds_list_content.jsp</result>
+		</action>
+			<!-- 员工自助-个人培训通知-->
+		<action name="personalTrainingNoticeAction!*" method="{1}" class="personalTrainingNoticeAction">
+			<result name="goList">/WEB-INF/content/hr/job/personaltrainingnotice_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/personaltrainingnotice_list_content.jsp</result>
+		</action>
+			<!-- 员工自助-个人培训登记-->
+		<action name="personalTrainingRegistrationAction!*" method="{1}" class="personalTrainingRegistrationAction">
+			<result name="goList">/WEB-INF/content/hr/job/personaltrainingregistration_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/job/personaltrainingregistration_list_content.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpReplyRecord" table="wxp_reply_record">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="openId" type="java.lang.String" column="open_id" />
+		<property name="fromUserName" type="java.lang.String" column="from_user_name" />
+
+		<property name="replyMsg" type="java.lang.String" column="reply_msg" />
+		<property name="receiveMsg" type="java.lang.String" column="receive_msg" />
+
+		<property name="directReply" type="java.lang.Integer" column="direct_reply" />
+		<property name="matchReply" type="java.lang.Integer" column="match_reply" />
+
+		<many-to-one name="userMessage" column="message_id" />
+	</class>
+</hibernate-mapping>

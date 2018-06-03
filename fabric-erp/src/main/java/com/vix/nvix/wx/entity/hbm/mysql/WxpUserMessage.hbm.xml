@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpUserMessage" table="wxp_user_message">
+		<id name="msgId" type="java.lang.String" column="msg_id" length="150">
+			<generator class="assigned" />
+		</id>
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="toUserName" type="java.lang.String" column="to_user_name" length="100" update="false" />
+		<property name="msgType" type="java.lang.String" column="msg_type" length="20" update="false" />
+		<property name="event" type="java.lang.String" column="event" length="30" />
+		<property name="content" type="java.lang.String" column="content" length="2000" />
+		<property name="picUrl" type="java.lang.String" column="pic_url" length="300" />
+		<property name="mediaId" type="java.lang.String" column="media_id" length="200" />
+		<property name="voiceFormat" type="java.lang.String" column="voice_format" length="30" />
+		<property name="voiceRecognition" type="java.lang.String" column="voice_recognition" length="300" />
+		<property name="videoThumbMediaId" type="java.lang.String" column="video_thumb_media_id" length="200" />
+		<property name="locationX" type="java.lang.Double" column="location_x" />
+		<property name="locationY" type="java.lang.Double" column="location_y" />
+		<property name="locationScale" type="java.lang.Double" column="location_scale" />
+		<property name="locationLabel" type="java.lang.String" column="location_label" length="300" />
+		<property name="linkTitle" type="java.lang.String" column="link_title" length="300" />
+		<property name="linkDescription" type="java.lang.String" column="link_description" length="1000" />
+		<property name="linkUrl" type="java.lang.String" column="link_url" length="300" />
+		<property name="eventKey" type="java.lang.String" column="event_key" length="300" />
+		<property name="eventTicket" type="java.lang.String" column="event_ticket" length="100" />
+		<property name="xyLatitude" type="java.lang.Double" column="xy_latitude" />
+		<property name="xyLongitude" type="java.lang.Double" column="xy_longitude" />
+		<property name="xyPrecision" type="java.lang.Double" column="xy_precision" />
+		<property name="markStar" type="java.lang.Integer" column="mark_star" />
+		<property name="matchReply" type="java.lang.Integer" column="match_reply" />
+		<property name="isRead" type="java.lang.Integer" column="is_read" />
+		<property name="directReplyCount" type="java.lang.Integer" column="direct_reply_count" />
+		<property name="mediaFileId" type="java.lang.String" column="media_file_id" />
+		<property name="replyRecordId" type="java.lang.String" column="reply_record_id" />
+		<many-to-one name="user" column="open_id" update="false" />
+	</class>
+</hibernate-mapping>

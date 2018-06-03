@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.sales.order.entity.SalesOrder" table="SALE_SALESORDER">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" update="false" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" length="10" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="searchText1" type="java.lang.String" column="SEARCHTEXT1" length="100" />
+		<property name="searchText2" type="java.lang.String" column="SEARCHTEXT2" length="100" />
+
+		<!-- 基础业务对象 -->
+		<property name="barCode" type="java.lang.String" column="BARCODE" length="150" />
+		<property name="approver" type="java.lang.String" column="APPROVER" length="150" />
+		<!-- <property name="approalStatus" type="java.lang.String" column="APPROALSTATUS" length="50"/> -->
+		<property name="barCodeTwoDimen" type="java.lang.String" column="BARCODETWODIMEN" length="150" />
+		<property name="selfExtendStringField1" type="java.lang.String" column="SELFEXTENDSTRINGFIELD1" length="150" />
+		<property name="selfExtendStringField2" type="java.lang.String" column="SELFEXTENDSTRINGFIELD2" length="150" />
+		<property name="selfExtendStringField3" type="java.lang.String" column="SELFEXTENDSTRINGFIELD3" length="150" />
+		<property name="selfExtendStringField4" type="java.lang.String" column="SELFEXTENDSTRINGFIELD4" length="150" />
+		<property name="selfExtendStringField5" type="java.lang.String" column="SELFEXTENDSTRINGFIELD5" length="150" />
+		<property name="selfExtendStringField6" type="java.lang.String" column="SELFEXTENDSTRINGFIELD6" length="150" />
+		<property name="selfExtendStringField7" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD7" length="150" />
+		<property name="selfExtendStringField8" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD8" length="150" />
+		<property name="selfExtendStringField9" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD9" length="150" />
+		<property name="selfExtendStringField10" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD10" length="150" />
+		<property name="selfExtendStringField11" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD11" length="150" />
+		<property name="selfExtendStringField12" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD12" length="150" />
+		<property name="selfExtendXMLField1" type="java.lang.String" column="SELFEXTENDXMLFIELD1" length="1000" />
+		<property name="selfExtendXMLField2" type="java.lang.String" column="SELFEXTENDXMLFIELD2" length="1000" />
+		<property name="ipAddress" type="java.lang.String" column="IPADDRESS" length="150" />
+		<property name="bizflowPhase" type="java.lang.String" column="BIZFLOWPHASE" length="150" />
+		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="10" />
+		<property name="auditStatus" type="java.lang.String" column="AUDITSTATUS" length="10" />
+		
+		
+		<property name="bizType" type="java.lang.String" column="bizType" length="150" />
+		<property name="formType" type="java.lang.String" column="formType" length="150" />
+		<property name="sourceClassName" type="java.lang.String" column="sourceClassName" length="150" />
+		<property name="sourceBillCode" type="java.lang.String" column="sourceBillCode" length="150" />
+		<property name="orderCreateDate" type="java.util.Date" column="ORDERCREATEDATE" />
+		<property name="cashbatch" type="java.lang.String" column="cashbatch" length="100" />
+		<property name="title" type="java.lang.String" column="TITLE" length="100" />
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100" />
+		<many-to-one name="crmProject" column="crmProject_id" />
+		<many-to-one name="regional" column="regional_id" />
+		<property name="billDate" type="java.util.Date" column="BILLDATE" />
+		<property name="groupCode" type="java.lang.String" column="GROUPCODE" length="100" update="false" />
+		<many-to-one name="customerAccount" column="customerAccount_id" />
+		<property name="customerCompany" type="java.lang.String" column="CUSTOMERCOMPANY" length="100" />
+		<property name="usageCustomer" type="java.lang.String" column="USAGECUSTOMER" length="100" />
+		<property name="ucContact" type="java.lang.String" column="UCCONTACT" length="100" />
+		<property name="ucPostCode" type="java.lang.String" column="UCPOSTCODE" length="100" />
+		<property name="ucAddress" type="java.lang.String" column="UCADDRESS" length="100" />
+		<property name="ucMobile" type="java.lang.String" column="UCMOBILE" length="100" />
+		<property name="ucPhone" type="java.lang.String" column="UCPHONE" length="100" />
+		<property name="ucEmail" type="java.lang.String" column="UCEMAIL" length="100" />
+		<property name="deptCode" type="java.lang.String" column="DEPTCODE" length="100" />
+		<property name="salePersonCode" type="java.lang.String" column="SALEPERSONCODE" length="100" />
+		<property name="purchaseOrderCode" type="java.lang.String" column="PURCHASEORDERCODE" length="100" />
+		<!-- <property name="bizType" type="java.lang.String" column="BIZTYPE" length="100" />
+		<property name="formType" type="java.lang.String" column="FORMTYPE" length="100" /> -->
+		<many-to-one name="contactPerson" column="contactPerson_id" />
+		<many-to-one name="orderType" column="orderType_id" />
+		<many-to-one name="biz" column="biz_id" />
+		<property name="saleChannel" type="java.lang.String" column="SALECHANNEL" length="100" />
+		<many-to-one name="saleOrg" column="saleOrg_id" />
+		<many-to-one name="salePerson" column="salePerson_id" />
+		<property name="isFreeze" type="java.lang.String" column="ISFREEZE" length="100" />
+		<property name="deliveryOrg" type="java.lang.String" column="DELIVERYORG" length="100" />
+		<property name="deliveryWarehouse" type="java.lang.String" column="DELIVERYWAREHOUSE" length="100" />
+		<property name="loadPoint" type="java.lang.String" column="LOADPOINT" length="100" />
+		<property name="source" type="java.lang.String" column="SOURCE" length="100" />
+		<property name="target" type="java.lang.String" column="TARGET" length="100" />
+		<property name="carrier" type="java.lang.String" column="CARRIER" length="100" />
+		<property name="carrierCode" type="java.lang.String" column="CARRIERCODE" length="100" />
+		<property name="transferStyle" type="java.lang.String" column="TRANSFERSTYLE" length="100" />
+		<property name="deliveryTimeInPlan" type="java.util.Date" column="DELIVERYTIMEINPLAN" />
+		<property name="promiseTime" type="java.util.Date" column="PROMISETIME" length="100" />
+		<property name="amount" type="java.lang.Double" column="AMOUNT" />
+		<property name="freight" type="java.lang.Double" column="FREIGHT" />
+		<property name="taxRate" type="java.lang.Double" column="TAXRATE" />
+		<property name="tax" type="java.lang.Double" column="TAX" />
+		<property name="amountTotal" type="java.lang.Double" column="AMOUNTTOTAL" />
+		<many-to-one name="currencyType" column="currencyType_id" />
+		<property name="payCondition" type="java.lang.String" column="PAYCONDITION" length="100" />
+		<property name="changeReason" type="java.lang.String" column="CHANGEREASON" length="100" />
+		<property name="postingTime" type="java.util.Date" column="POSTINGTIME" />
+		<property name="deliveryTime" type="java.util.Date" column="DELIVERYTIME" />
+		<property name="ip" type="java.lang.String" column="IP" length="100" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="10" />
+		<property name="isSaleReturnBillCalculation" type="java.lang.String" column="ISSALERETURNBILLCALCULATION" length="10" />
+		<property name="isCommissionCalculation" type="java.lang.String" column="ISCOMMISSIONCALCULATION" length="150" />
+		<property name="isComplate" type="java.lang.String" column="ISCOMPLATE" length="10" />
+		<property name="payType" type="java.lang.String" column="PAYTYPE" length="150" />
+		<property name="payAmount" type="java.lang.Double" column="PAYAMOUNT" />
+		<property name="flowPhase" type="java.lang.String" column="FLOWPHASE" length="100" />
+		<property name="isSettlement" type="java.lang.String" column="isSettlement" length="100" />
+		<property name="isSendToSupplier" type="java.lang.String" column="isSendToSupplier" length="100" />
+		<set name="saleOrderItems" inverse="true">
+			<key column="salesorder_id" />
+			<one-to-many class="com.vix.sales.order.entity.SaleOrderItem" />
+		</set>
+		<set name="salesAttachFiles" inverse="true" order-by="ID asc">
+			<key column="salesorder_id" />
+			<one-to-many class="com.vix.sales.order.entity.SalesAttachFile" />
+		</set>
+		<set name="salesDeliveryPlans" inverse="true">
+			<key column="salesorder_id" />
+			<one-to-many class="com.vix.sales.order.entity.SalesDeliveryPlan" />
+		</set>
+		<set name="salesTickets" inverse="true">
+			<key column="salesorder_id" />
+			<one-to-many class="com.vix.sales.order.entity.SalesTicket" />
+		</set>
+		<many-to-one name="channelDistributor" column="channelDistributor_id" />
+		<many-to-one name="vehicle" column="vehicle_id" />
+
+		<!-- 自身属性 -->
+		<property name="outerId" type="java.lang.String" column="outerId" length="150" />
+		<property name="num" type="java.lang.Double" column="num" length="150" />
+		<property name="type" type="java.lang.String" column="type" length="150" />
+		<property name="tradeMemo" type="java.lang.String" column="tradeMemo" length="150" />
+		<property name="discountFee" type="java.lang.String" column="discountFee" length="150" />
+		<property name="totalFee" type="java.lang.String" column="totalFee" length="150" />
+		<property name="payTime" type="java.util.Date" column="payTime" length="150" />
+		<property name="buyerMessage" type="java.lang.String" column="buyerMessage" length="150" />
+		<property name="sellerMemo" type="java.lang.String" column="sellerMemo" length="150" />
+		<property name="sellerFlag" type="java.lang.Long" column="sellerFlag" length="150" />
+		<property name="buyerNick" type="java.lang.String" column="buyerNick" length="150" />
+		<property name="buyerArea" type="java.lang.String" column="buyerArea" length="150" />
+		<property name="shippingType" type="java.lang.String" column="shippingType" length="150" />
+		<property name="adjustFee" type="java.lang.String" column="adjustFee" length="150" />
+		<property name="sellerNick" type="java.lang.String" column="sellerNick" length="150" />
+		<property name="buyerMemo" type="java.lang.String" column="buyerMemo" length="150" />
+		<property name="payment" type="java.lang.Double" column="payment" length="150" />
+		<property name="codFee" type="java.lang.Long" column="codFee" length="150" />
+		<property name="sellerRate" type="java.lang.Integer" column="sellerRate" length="150" />
+		<property name="buyerRate" type="java.lang.Integer" column="buyerRate" length="150" />
+		<property name="postFee" type="java.lang.String" column="postFee" length="150" />
+		<property name="buyerCodFee" type="java.lang.String" column="buyerCodFee" length="150" />
+		<property name="sellerCodFee" type="java.lang.String" column="sellerCodFee" length="150" />
+		<property name="receiverName" type="java.lang.String" column="receiverName" length="150" />
+		<property name="receiverState" type="java.lang.String" column="receiverState" length="150" />
+		<property name="payNo" type="java.lang.String" column="payNo" length="150" />
+		<property name="receiverCity" type="java.lang.String" column="receiverCity" length="150" />
+		<property name="receiverDistrict" type="java.lang.String" column="receiverDistrict" length="150" />
+		<property name="receiverAddress" type="java.lang.String" column="receiverAddress" length="150" />
+		<property name="receiverZip" type="java.lang.String" column="receiverZip" length="150" />
+		<property name="receiverMobile" type="java.lang.String" column="receiverMobile" length="150" />
+		<property name="receiverPhone" type="java.lang.String" column="receiverPhone" length="150" />
+		<property name="consignTime" type="java.util.Date" column="consignTime" />
+		<property name="invoiceName" type="java.lang.String" column="invoiceName" length="150" />
+		<property name="payTypeCn" type="java.lang.String" column="payTypeCn" length="150" />
+		<property name="picPath" type="java.lang.String" column="picPath" length="150" />
+		<property name="buyerFlag" type="java.lang.Long" column="buyerFlag" length="150" />
+		<property name="expressAgencyfee" type="java.lang.Long" column="expressAgencyfee" length="150" />
+		<property name="pointFee" type="java.lang.Integer" column="pointFee" length="150" />
+		<property name="realPointFee" type="java.lang.Integer" column="realPointFee" length="150" />
+		<property name="promotion" type="java.lang.String" column="promotion" length="150" />
+		<property name="orderDetails" type="java.lang.String" column="orderDetails" length="1500" />
+		<property name="outInteractingState" type="java.lang.Integer" column="outInteractingState" length="150" />
+		<property name="dealState" type="java.lang.Integer" column="dealState" length="150" />
+		<property name="buyerObtainPointFee" type="java.lang.Integer" column="buyerObtainPointFee" length="150" />
+		<property name="sellerShippingType" type="java.lang.Integer" column="sellerShippingType" length="150" />
+		<property name="weight" type="java.lang.Double" column="weight" length="150" />
+		<property name="shippingNo" type="java.lang.String" column="shippingNo" length="150" />
+		<property name="packageNum" type="java.lang.Integer" column="packageNum" length="150" />
+		<property name="latestInteractingError" type="java.lang.String" column="latestInteractingError" length="150" />
+		<property name="latestInteractingErrorTime" type="java.util.Date" column="latestInteractingErrorTime" />
+		<property name="shippingCompanyCode" type="java.lang.String" column="shippingCompanyCode" length="150" />
+		<property name="chineseCharacter" type="java.lang.String" column="chineseCharacter" length="150" />
+		<many-to-one name="orderBatch" column="orderBatch_id" />
+		<many-to-one name="logistics" column="logistics_id" />
+		<many-to-one name="invWarehouse" column="invWarehouse_id" />
+		<many-to-one name="distributionCenter" column="distributionCenter_id" />
+		<many-to-one name="employee" column="employee_id" />
+		<many-to-one name="organization" column="organization_id" />
+		<many-to-one name="supplier" column="supplier_id" />
+		<many-to-one name="saleChance" column="saleChance_id" />
+	</class>
+</hibernate-mapping>

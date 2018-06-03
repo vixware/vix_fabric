@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.system.entity.Department" table="SYSTEM_DEPARTMENT">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="sequence">
+				<param name="sequence">SYSTEM_DEPARTMENT_ID</param>
+			</generator>
+        </id>
+        <property name="code" type="java.lang.String" column="CODE" length="100"/>
+		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+		<property name="employeeId" type="java.lang.Long" column="EMPLOYEE_ID"/>
+		<property name="telephone" type="java.lang.String" column="TELEPHONE" length="50"/>
+		<property name="fax" type="java.lang.String" column="FAX" length="50"/>
+		<property name="email" type="java.lang.String" column="EMAIL" length="100"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="200"/>
+		<many-to-one name="parentDepartment" column="PARENT_ID"/>
+		<set name="subDepartments" inverse="true">
+			<key column="PARENT_ID"/>
+			<one-to-many class="com.vix.system.entity.Department"/>
+		</set>
+		<set name="employees" inverse="true">
+        	<key column="DEPARTMENT_ID"/>
+			<one-to-many class="com.vix.system.entity.Employee"/>
+        </set>
+        <many-to-one name="organization" column="ORGANIZATION_ID"/>
+  </class>
+</hibernate-mapping>

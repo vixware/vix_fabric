@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.process.vreport.dao.NodeMonitorDao">
+	<insert id="saveDataLog">
+		INSERT INTO CRM_B_NODESLOG (
+		ID,CREATETIME,logContent,TENANTID,COMPANYCODE,COMPANYINNERCODE
+		) VALUES (
+		#{id ,jdbcType=VARCHAR },
+		#{createTime ,jdbcType=TIMESTAMP },
+		#{logContent ,jdbcType=VARCHAR },
+		#{tenantId ,jdbcType=VARCHAR },
+		#{companyCode ,jdbcType=VARCHAR },
+		#{companyInnerCode
+		,jdbcType=VARCHAR }
+		)
+	</insert>
+	<insert id="saveCouponSendLog">
+		INSERT INTO CRM_B_COUPONSENDLOG (
+		ID,name,CREATETIME,TENANTID,COMPANYCODE,COMPANYINNERCODE,couponDetail_id,customerAccount_id,membershipSubdivision_id
+		) VALUES (
+		#{id ,jdbcType=VARCHAR },
+		#{name ,jdbcType=VARCHAR },
+		#{createTime ,jdbcType=TIMESTAMP },
+		#{tenantId ,jdbcType=VARCHAR },
+		#{companyCode
+		,jdbcType=VARCHAR},
+		#{companyInnerCode ,jdbcType=VARCHAR },
+		#{couponDetail.id,jdbcType=NUMERIC },
+		#{customerAccount.id,jdbcType=NUMERIC },
+		#{membershipSubdivision.id,jdbcType=NUMERIC }
+		)
+	</insert>
+	<insert id="saveProcessLog">
+		<selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+			SELECT @@IDENTITY
+		</selectKey>
+		INSERT INTO CRM_B_PROCESSLOG (
+		ID,name,logContent,TENANTID,COMPANYCODE,CREATETIME,COMPANYINNERCODE
+		) VALUES (
+		#{id ,jdbcType=VARCHAR },
+		#{name ,jdbcType=VARCHAR },
+		#{logContent ,jdbcType=VARCHAR },
+		#{tenantId ,jdbcType=VARCHAR },
+		#{companyCode ,jdbcType=VARCHAR },
+		#{createTime
+		,jdbcType=TIMESTAMP },
+		#{companyInnerCode
+		,jdbcType=VARCHAR }
+		)
+	</insert>
+
+	<update id="updateByExchangeId">
+		update CRM_NODEMONITOR set status =2 where status=1 and exchange_id =#{exchangeId}
+	</update>
+
+
+	<update id="updateCouponDetailById">
+		update CRM_B_COUPONDETAIL
+		<set>
+			<if test="status != null">status=#{status},</if>
+			<if test="customerAccount_id != null">customerAccount_id=#{customerAccount_id},</if>
+		</set>
+		WHERE
+		ID = #{id}
+	</update>
+	<update id="updateCustomerAccountById">
+		update CRM_CUSTOMERACCOUNT
+		<set>
+			<if test="isCouponing != null">isCouponing=#{isCouponing},</if>
+		</set>
+		WHERE
+		ID = #{id}
+	</update>
+
+
+	<resultMap type="com.vix.crm.business.entity.CouponDetail" id="CouponDetailList">
+		<id column="ID" property="id" />
+		<result property="uuid" column="UUID" />
+		<result property="code" column="CODE" />
+		<result property="name" column="NAME" />
+		<result property="primaryKey" column="PRIMARYKEY" />
+		<result property="language" column="LANGUAGE" />
+		<result property="companyInnerCode" column="COMPANYINNERCODE" />
+		<result property="companyCode" column="COMPANYCODE" />
+		<result property="accountSet" column="ACCOUNTSET" />
+		<result property="createTime" column="CREATETIME" />
+		<result property="updateTime" column="UPDATETIME" />
+		<result property="enterpriseCode" column="ENTERPRISECODE" />
+		<result property="departmentCode" column="DEPARTMENTCODE" />
+		<result property="department" column="DEPARTMENT" />
+		<result property="creator" column="CREATOR" />
+		<result property="status" column="STATUS" />
+		<result property="secretLevel" column="SECRETLEVEL" />
+		<result property="startTime" column="STARTTIME" />
+		<result property="endTime" column="ENDTIME" />
+		<result property="tenantId" column="TENANTID" />
+		<result property="langCode" column="LANGCODE" />
+		<result property="countryCode" column="COUNTRYCODE" />
+		<result property="interestedPartyPerson" column="INTERESTEDPARTYPERSON" />
+		<result property="interestedPartyRoleCode" column="INTERESTEDPARTYROLECODE" />
+		<result property="interestedPartyRole" column="INTERESTEDPARTYROLE" />
+		<result property="version" column="VERSION" />
+		<result property="memo" column="MEMO" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="type" column="type" />
+		<result property="userule" column="userule" />
+		<result property="effectiveDate" column="EFFECTIVEDATE" />
+		<result property="cutOffDate" column="CUTOFFDATE" />
+		<result property="amount" column="AMOUNT" />
+		<result property="couponId" column="couponId" />
+		<result property="expenditure" column="EXPENDITURE" />
+		<association property="coupon" column="coupon_id" javaType="com.vix.crm.business.entity.Coupon"></association>
+	</resultMap>
+	<select id="findCouponDetailList" resultMap="CouponDetailList">
+		SELECT
+		*
+		FROM CRM_B_COUPONDETAIL
+		where status = #{status}
+		and coupon_id = #{couponId}
+	</select>
+
+
+	<select id="getMarketingActivitiesId" resultMap="marketingActivities">
+		SELECT
+		*
+		FROM CRM_B_MARKETINGACTIVITIES
+		where ID = #{id}
+	</select>
+	<select id="getMembershipSubdivisionById" resultMap="membershipSubdivision">
+		SELECT
+		*
+		FROM CRM_B_MEMBERSHIPSUBDIVISION
+		where ID = #{id}
+	</select>
+
+	<resultMap type="com.vix.crm.business.entity.MarketingActivities" id="marketingActivities">
+
+		<result column="ID" property="id" />
+		<result property="uuid" column="UUID" />
+		<result property="code" column="CODE" />
+		<result property="name" column="NAME" />
+		<result property="primaryKey" column="PRIMARYKEY" />
+		<result property="language" column="LANGUAGE" />
+		<result property="companyInnerCode" column="COMPANYINNERCODE" />
+		<result property="companyCode" column="COMPANYCODE" />
+		<result property="accountSet" column="ACCOUNTSET" />
+		<result property="createTime" column="CREATETIME" />
+		<result property="updateTime" column="UPDATETIME" />
+		<result property="enterpriseCode" column="ENTERPRISECODE" />
+		<result property="departmentCode" column="DEPARTMENTCODE" />
+		<result property="department" column="DEPARTMENT" />
+		<result property="creator" column="CREATOR" />
+		<result property="status" column="STATUS" />
+		<result property="secretLevel" column="SECRETLEVEL" />
+		<result property="startTime" column="STARTTIME" />
+		<result property="endTime" column="ENDTIME" />
+		<result property="tenantId" column="TENANTID" />
+		<result property="langCode" column="LANGCODE" />
+		<result property="countryCode" column="COUNTRYCODE" />
+		<result property="interestedPartyPerson" column="INTERESTEDPARTYPERSON" />
+		<result property="interestedPartyRoleCode" column="INTERESTEDPARTYROLECODE" />
+		<result property="interestedPartyRole" column="INTERESTEDPARTYROLE" />
+		<result property="version" column="VERSION" />
+		<result property="memo" column="MEMO" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="activityFlow" column="activityFlow" />
+	</resultMap>
+	<resultMap type="com.vix.crm.business.entity.MembershipSubdivision" id="membershipSubdivision">
+
+		<result property="id" column="ID" />
+		<result property="uuid" column="UUID" />
+		<result property="code" column="CODE" />
+		<result property="name" column="NAME" />
+		<result property="primaryKey" column="PRIMARYKEY" />
+		<result property="language" column="LANGUAGE" />
+		<result property="companyInnerCode" column="COMPANYINNERCODE" />
+		<result property="companyCode" column="COMPANYCODE" />
+		<result property="accountSet" column="ACCOUNTSET" />
+		<result property="createTime" column="CREATETIME" />
+		<result property="updateTime" column="UPDATETIME" />
+		<result property="enterpriseCode" column="ENTERPRISECODE" />
+		<result property="departmentCode" column="DEPARTMENTCODE" />
+		<result property="department" column="DEPARTMENT" />
+		<result property="creator" column="CREATOR" />
+		<result property="status" column="STATUS" />
+		<result property="secretLevel" column="SECRETLEVEL" />
+		<result property="startTime" column="STARTTIME" />
+		<result property="endTime" column="ENDTIME" />
+		<result property="tenantId" column="TENANTID" />
+		<result property="langCode" column="LANGCODE" />
+		<result property="countryCode" column="COUNTRYCODE" />
+		<result property="interestedPartyPerson" column="INTERESTEDPARTYPERSON" />
+		<result property="interestedPartyRoleCode" column="INTERESTEDPARTYROLECODE" />
+		<result property="interestedPartyRole" column="INTERESTEDPARTYROLE" />
+		<result property="version" column="VERSION" />
+		<result property="memo" column="MEMO" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="isTemp" column="isTemp" />
+		<result property="channelDistributorId" column="channelDistributorId" />
+		<result property="memberTagName" column="memberTagName" />
+		<result property="chineseCharacter" column="chineseCharacter" />
+	</resultMap>
+
+	<select id="getCustomerAccountId" resultMap="customerAccount">
+		SELECT
+		*
+		FROM CRM_CUSTOMERACCOUNT
+		where ID = #{id}
+	</select>
+	<resultMap type="com.vix.mdm.crm.entity.CustomerAccount" id="customerAccount">
+		<result column="ID" property="id" />
+		<result property="uuid" column="UUID" />
+		<result property="code" column="CODE" />
+		<result property="name" column="NAME" />
+		<result property="primaryKey" column="PRIMARYKEY" />
+		<result property="language" column="LANGUAGE" />
+		<result property="companyInnerCode" column="COMPANYINNERCODE" />
+		<result property="companyCode" column="COMPANYCODE" />
+		<result property="accountSet" column="ACCOUNTSET" />
+		<result property="createTime" column="CREATETIME" />
+		<result property="updateTime" column="UPDATETIME" />
+		<result property="enterpriseCode" column="ENTERPRISECODE" />
+		<result property="departmentCode" column="DEPARTMENTCODE" />
+		<result property="department" column="DEPARTMENT" />
+		<result property="creatorCode" column="CREATORCODE" />
+		<result property="creator" column="CREATOR" />
+		<result property="status" column="STATUS" />
+		<result property="secretLevel" column="SECRETLEVEL" />
+		<result property="startTime" column="STARTTIME" />
+		<result property="endTime" column="ENDTIME" />
+		<result property="tenantId" column="TENANTID" />
+		<result property="langCode" column="LANGCODE" />
+		<result property="countryCode" column="COUNTRYCODE" />
+		<result property="interestedPartyPerson" column="INTERESTEDPARTYPERSON" />
+		<result property="interestedPartyRoleCode" column="INTERESTEDPARTYROLECODE" />
+		<result property="interestedPartyRole" column="INTERESTEDPARTYROLE" />
+		<result property="version" column="VERSION" />
+		<result property="memo" column="MEMO" />
+		<result property="isTemp" column="ISTEMP" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="englishName" column="ENGLISHNAME" />
+		<result property="chineseFirstLetter" column="CHINESEFIRSTLETTER" />
+		<result property="shorterName" column="SHORTERNAME" />
+		<result property="indexWord" column="INDEXWORD" />
+		<result property="trademark" column="TRADEMARK" />
+		<result property="type" column="TYPE" />
+		<result property="isHighSea" column="ISHIGHSEA" />
+		<result property="internalUnitId" column="INTERNALUNITID" />
+		<result property="internalUnitType" column="INTERNALUNITTYPE" />
+		<result property="internalUnitName" column="INTERNALUNITNAME" />
+		<result property="isHotCustomer" column="ISHOTCUSTOMER" />
+		<result property="valueAssessment" column="VALUEASSESSMENT" />
+		<result property="creditLevel" column="CREDITLEVEL" />
+		<result property="dateEntered" column="DATEENTERED" />
+		<result property="dateModified" column="DATEMODIFIED" />
+		<result property="modifiedUserId" column="MODIFIEDUSERID" />
+		<result property="createdBy" column="CREATEBY" />
+		<result property="belongerCode" column="BELONGERCODE" />
+		<result property="belonger" column="BELONGER" />
+		<result property="isDeleted" column="ISDELETED" />
+		<result property="assignedUserId" column="ASSIGNEDUSERID" />
+		<result property="accountType" column="ACCOUNTTYPE" />
+		<result property="annualRevenue" column="ANNUALREVENUE" />
+		<result property="phoneFax" column="PHONEFAX" />
+		<result property="billingAddressStreet" column="BILLINGADDRESSSTREET" />
+		<result property="billingAddressCity" column="BILLINGADDRESSCITY" />
+		<result property="billingAddressState" column="BILLINGADDRESSSTATE" />
+		<result property="billingAddressPostalcode" column="BILLINGADDRESSPOSTALCODE" />
+		<result property="billingAddressCountry" column="BILLINGADDRESSCOUNTRY" />
+		<result property="rating" column="RATING" />
+		<result property="pointValue" column="POINTVALUE" />
+		<result property="phoneOffice" column="PHONEOFFICE" />
+		<result property="phoneAlternate" column="PHONEALTERNATE" />
+		<result property="website" column="WEBSITE" />
+		<result property="ownership" column="OWNERSHIP" />
+		<result property="employees" column="EMPLOYEES" />
+		<result property="rickerSymbol" column="RICKERSYMBOL" />
+		<result property="shippingAddressStreet" column="SHIPPINGADDRESSSTREET" />
+		<result property="shippingAddressCity" column="SHIPPINGADDRESSCITY" />
+		<result property="shippingAddressState" column="SHIPPINGADDRESSSTATE" />
+		<result property="shippingAddressPostalcode" column="SHIPPINGADDRESSPOSTALCODE" />
+		<result property="shippingAddressCountry" column="SHIPPINGADDRESSCOUNTRY" />
+		<result property="parentId" column="PARENTID" />
+		<result property="sicCode" column="SICCODE" />
+		<result property="style" column="STYLE" />
+		<result property="qqAccount" column="QQACCOUNT" />
+		<result property="msnAccount" column="MSNACCOUNT" />
+		<result property="wangAccount" column="WANGACCOUNT" />
+		<result property="skypeAccount" column="SKYPEACCOUNT" />
+		<result property="isDownLoad" column="isDownLoad" />
+		<result property="companyBrief" column="COMPANYBRIEF" />
+		<result property="uncontactDays" column="UNCONTACTDAYS" />
+		<result property="channelCode" column="CHANNELCODE" />
+		<result property="saleOrgCode" column="SALEORGCODE" />
+		<result property="productGroup" column="PRODUCTGROUP" />
+		<result property="campaignId" column="CAMPAIGNID" />
+		<result property="creditControlMethod" column="CREDITCONTROLMETHOD" />
+		<result property="afterTax" column="AFTERTAX" />
+		<result property="currencu" column="CURRENCU" />
+		<result property="isAlsoSupplier" column="ISALSOSUPPLIER" />
+		<result property="customerIndustry" column="CUSTOMERINDUSTRY" />
+		<result property="transArea" column="TRANSAREA" />
+		<result property="saleArea" column="SALEAREA" />
+		<result property="priceGroup" column="PRICEGROUP" />
+		<result property="deliveryPriority" column="DELIVERYPRIORITY" />
+		<result property="deliveryFactoryCode" column="DELIVERYFACTORYCODE" />
+		<result property="factoryCode" column="FACTORYCODE" />
+		<result property="isAllowPartDelivery" column="ISALLOWPARTDELIVERY" />
+		<result property="maxDeliveryTime" column="MAXDELIVERYTIME" />
+		<result property="recievePoint" column="recievepoint" />
+		<result property="levelId" column="LEVELID" />
+		<result property="pointHistory" column="POINTHISTORY" />
+		<result property="pointFreeze" column="POINTFREEZE" />
+		<result property="point" column="POINT" />
+		<result property="buyNum" column="buyNum" />
+		<result property="sex" column="SEX" />
+		<result property="identityType" column="IDENTITYTYPE" />
+		<result property="identityId" column="IDENTITYID" />
+		<result property="mobilePhone" column="MOBILEPHONE" />
+		<result property="telephone" column="TELEPHONE" />
+		<result property="address" column="ADDRESS" />
+		<result property="email" column="EMAIL" />
+		<result property="vipChannel" column="vipChannel" />
+		<result property="memberTag" column="memberTag" />
+		<result property="isCouponing" column="isCouponing" />
+		<result property="birthday" column="birthday" />
+		<result property="age" column="age" />
+	</resultMap>
+
+	<select id="findCustomerAccountGroupListViewList" resultMap="customerAccountGroupListView">
+		SELECT
+		*
+		FROM CRM_B_CUSTOMERACCOUNTGROUPLISTVIEW
+		WHERE membershipSubdivision_id = #{membershipSubdivision_id}
+	</select>
+	<resultMap type="com.vix.crm.business.entity.CustomerAccountGroupListView" id="customerAccountGroupListView">
+		<result column="ID" property="id" />
+		<result property="uuid" column="UUID" />
+		<result property="code" column="CODE" />
+		<result property="name" column="NAME" />
+		<result property="primaryKey" column="PRIMARYKEY" />
+		<result property="language" column="LANGUAGE" />
+		<result property="companyInnerCode" column="COMPANYINNERCODE" />
+		<result property="companyCode" column="COMPANYCODE" />
+		<result property="accountSet" column="ACCOUNTSET" />
+		<result property="createTime" column="CREATETIME" />
+		<result property="updateTime" column="UPDATETIME" />
+		<result property="enterpriseCode" column="ENTERPRISECODE" />
+		<result property="departmentCode" column="DEPARTMENTCODE" />
+		<result property="department" column="DEPARTMENT" />
+		<result property="creatorCode" column="CREATORCODE" />
+		<result property="creator" column="CREATOR" />
+		<result property="status" column="STATUS" />
+		<result property="secretLevel" column="SECRETLEVEL" />
+		<result property="startTime" column="STARTTIME" />
+		<result property="endTime" column="ENDTIME" />
+		<result property="tenantId" column="TENANTID" />
+		<result property="langCode" column="LANGCODE" />
+		<result property="countryCode" column="COUNTRYCODE" />
+		<result property="interestedPartyPerson" column="INTERESTEDPARTYPERSON" />
+		<result property="interestedPartyRoleCode" column="INTERESTEDPARTYROLECODE" />
+		<result property="interestedPartyRole" column="INTERESTEDPARTYROLE" />
+		<result property="version" column="VERSION" />
+		<result property="memo" column="MEMO" />
+		<result property="isTemp" column="ISTEMP" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="customerName" column="customerName" />
+		<result property="mobilePhone" column="mobilePhone" />
+		<result property="telephone" column="telephone" />
+		<result property="address" column="address" />
+		<result property="email" column="email" />
+		<result property="membershipSubdivisionId" column="membershipSubdivisionId" />
+		<result property="customerAccountId" column="customerAccountId" />
+		<result property="channelDistributorId" column="channelDistributorId" />
+		<result property="customerIdAndMembershipSubdivisionId" column="customerIdAndMembershipSubdivisionId" />
+		<association property="membershipSubdivision" column="membershipSubdivision_id" javaType="com.vix.crm.business.entity.MembershipSubdivision"></association>
+		<association property="customerAccount" column="customerAccount_id" javaType="com.vix.mdm.crm.entity.CustomerAccount"></association>
+	</resultMap>
+</mapper>

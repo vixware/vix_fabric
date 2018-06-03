@@ -1,0 +1,92 @@
+body, html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.weui-reddot, .weui-reddot-border, .weui-reddot-s {
+	position: relative;
+  	display: inline-block;
+  	line-height: 22px;
+  	padding: 0 6px; 
+}
+.weui-reddot:after, .weui-reddot-border:after, .weui-reddot-s:after {
+	content: '';
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #f74c31;
+    border-radius: 5px;
+    right: -6px;
+    top: 2px;
+    background-clip: padding-box; 
+}
+.weui-reddot-static {
+	display: block;
+  	width: 8px;
+	height: 8px;
+  	padding: 0; 
+}
+.weui-reddot-static:after {
+	top: 0;
+    right: 0; 
+}
+.weui-reddot-border:before {
+	content: '';
+  	position: absolute;
+  	display: block;
+	width: 8px;
+  	height: 8px;
+  	background-color: #fff;
+  	border-radius: 5px;
+  	right: -4px;
+  	top: -4px;
+  	background-clip: padding-box;
+  	padding: 1px; 
+}
+.weui-reddot-s:after {
+  	width: 6px;
+  	height: 6px;
+  	top: -5px;
+  	right: -5px; 
+}

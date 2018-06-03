@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+	<package name="mdm.config" namespace="/mdm" extends="crud-default">
+		<!-- 主数据设置 -->
+		<action name="basicSettingsAction!*" method="{1}" class="basicSettingsAction">
+			<!-- <result name="goList">/WEB-INF/content/purchase/procurementSet/purchasingOptions_list.jsp</result> -->
+			<result name="goListContent">/WEB-INF/content/mdm/basicSettings/basicSettings_list_content.jsp</result>
+		</action>
+		<!-- 数据抽取 -->
+		<action name="dataExtractionAction!*" method="{1}" class="dataExtractionAction">
+			<result name="goList">/WEB-INF/content/mdm/dataExtraction/dataExtraction_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/dataExtraction/dataExtraction_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/dataExtraction/dataExtraction_update.jsp</result>
+		</action>
+		<!-- 数据清洗 -->
+		<action name="dataCleanAction!*" method="{1}" class="dataCleanAction">
+			<result name="goList">/WEB-INF/content/mdm/dataClean/dataClean_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/dataClean/dataClean_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/dataClean/dataClean_update.jsp</result>
+		</action>
+		<!-- 监控服务 -->
+		<action name="monitoringServiceAction!*" method="{1}" class="monitoringServiceAction">
+			<result name="goList">/WEB-INF/content/mdm/monitoringService/monitoringService_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/monitoringService/monitoringService_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/monitoringService/monitoringService_update.jsp</result>
+		</action>
+		<!-- 主数据同步管理 -->
+		<action name="synchronousAction!*" method="{1}" class="synchronousAction">
+			<result name="goList">/WEB-INF/content/mdm/synchronous/synchronous_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/synchronous/synchronous_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/synchronous/synchronous_update.jsp</result>
+		</action>
+		<!-- 主数据共享与发布管理 -->
+		<action name="sharingAndPublishingAction!*" method="{1}" class="sharingAndPublishingAction">
+			<result name="goList">/WEB-INF/content/mdm/sharingAndPublishing/sharingAndPublishing_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/sharingAndPublishing/sharingAndPublishing_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/sharingAndPublishing/sharingAndPublishing_update.jsp</result>
+		</action>
+		<!-- 物料 -->
+		<action name="materialsAction!*" method="{1}" class="materialsAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/materials/material_update.jsp</result>
+		</action>
+		<!-- 财务 -->
+		<action name="financeAction!*" method="{1}" class="financeAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/materials/finance_update.jsp</result>
+		</action>
+		<!-- 生产 -->
+		<action name="produceAction!*" method="{1}" class="produceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/materials/produce_update.jsp</result>
+		</action>
+	</package>
+</struts>

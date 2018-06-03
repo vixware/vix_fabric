@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.job.entity.JobTodo" table="CMN_JOBTODO">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!-- 自身属性 -->
+		<property name="jobName" type="java.lang.String" column="JOB_NAME" length="200" />
+		<property name="jobContent" type="java.lang.String" column="JOB_CONTENT" length="2000" />
+		<property name="flowName" type="java.lang.String" column="FLOW_NAME" length="200" />
+		<property name="flowInstanceId" type="java.lang.String" column="FLOW_INSTANCEID" />
+		<property name="resultState" type="java.lang.String" column="RESULT_STATE" length="500" />
+		<property name="finishStandard" type="java.lang.String" column="FINISH_STANDARD" length="500" />
+		<property name="sourceClass" type="java.lang.String" column="SOURCE_CLASS" length="200" />
+		<property name="sourceClassPk" type="java.lang.String" column="SOURCE_CLASS_PK" length="200" />
+		<property name="sourceType" type="java.lang.String" column="SOURCETYPE" length="200" />
+		<property name="priority" type="java.lang.String" column="PRIORITY" length="200" />
+		<property name="isNew" type="java.lang.String" column="isNew" length="200" />
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="url" type="java.lang.String" column="url" length="200" />
+
+		<!-- add by zhanghaibing 2015/6/2 -->
+		<many-to-one name="employee" column="employee_id" />
+	</class>
+</hibernate-mapping>

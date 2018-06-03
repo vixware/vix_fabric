@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.share.entity.BaseEmployee" table="HR_ORG_EMPLOYEE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+       
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+        <property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128"  update="false"/>
+		
+		<property name="code" type="java.lang.String" column="Code" length="100"/>
+		<property name="name" type="java.lang.String" column="Name" length="100"/>
+		
+		<property name="oldName" type="java.lang.String" column="OldName" length="128"/>
+		<property name="fsName" type="java.lang.String" column="FsName" length="128"/>
+		<property name="staffJobNumber" type="java.lang.String" column="StaffJobNumber" length="128"/>
+		<property name="idNumber" type="java.lang.String" column="IdNumber" length="128"/>
+		<property name="bloodType" type="java.lang.String" column="BloodType" length="2"/>
+		<property name="qualificationsCode" type="java.lang.String" column="QualificationsCode" length="128"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode"  length="128" update="false"/>
+		<property name="residenceAddress" type="java.lang.String" column="ResidenceAddress" length="128"/>
+		
+		<property name="birthday" type="java.util.Date" column="Birthday"/>
+		<property name="gender" type="java.lang.String" column="Gender" length="10"/>
+		<property name="isMarriage" type="java.lang.String" column="IsMarriage" length="10"/>
+		<property name="graduation" type="java.lang.String" column="Graduation" length="200"/>
+		<property name="professional" type="java.lang.String" column="Professional" length="200"/>
+		<property name="birthplace" type="java.lang.String" column="Birthplace" length="200"/>
+		<property name="currentResidence" type="java.lang.String" column="CurrentResidence" length="200"/>
+		<property name="national" type="java.lang.String" column="National" length="100"/>
+		<property name="isDemission" type="java.lang.String" column="IsDDemission" length="10"/>
+		<property name="telephone" type="java.lang.String" column="Telephone" length="100"/>
+		<property name="employeeType" type="java.lang.String" column="EmployeeType" length="100"/>
+		<property name="headImgUrl" type="java.lang.String" column="headImgUrl" length="100"/>
+		<property name="entityTime" type="java.util.Date"><column name="EntityTime" /></property>
+		<!-- 职员类型 -->
+		<property name="empType" type="java.lang.String" column="empType" length="8"/>
+		
+		<property name="organizationUnitId" type="java.lang.String" update="false" insert="false" column="OrganizationUnit_ID"/>
+		
+		<many-to-one name="organizationUnit" class="com.vix.common.share.entity.BaseOrganizationUnit" lazy="false">
+			<column name="OrganizationUnit_ID">
+				 <comment>部门id</comment>
+			</column>
+		</many-to-one>
+		
+  </class>
+</hibernate-mapping>

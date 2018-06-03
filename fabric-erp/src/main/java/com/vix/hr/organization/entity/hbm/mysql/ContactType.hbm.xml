@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.hr.organization.entity.ContactType" table="HR_ORG_CONTACTTYPE">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+        
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+        <property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128"/>
+		
+		
+		<property name="linkMan" type="java.lang.String" column="LinkMan" length="128"/>
+		<property name="contactTel" type="java.lang.String" column="ContactTel" length="128"/>
+		<property name="contactAd" type="java.lang.String" column="ContactAd" length="128"/>
+		<property name="zipCode" type="java.lang.String" column="ZipCode" length="128"/>
+		<property name="email" type="java.lang.String" column="Email" length="128"/>
+		
+		<many-to-one name="employee" >
+			<column name="Employee_id">
+				<comment>职员ID</comment>
+			</column>
+		</many-to-one>
+		
+  </class>
+</hibernate-mapping>

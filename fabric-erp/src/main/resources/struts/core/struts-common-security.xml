@@ -1,0 +1,203 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--演示-->
+	<package name="common.security.config" namespace="/common/security" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+		<!-- 数据源 -->
+		<!-- 权限管理 -->
+		<action name="orginialAuthorityAction!*" method="{1}" class="orginialAuthorityAction">
+			<result name="goList">/WEB-INF/content/common_model/security/orginialAuthority/orginial_authority_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/orginialAuthority/orginial_authority_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/orginialAuthority/orginial_authority_update.jsp</result>
+			<result name="goChooseAuthority">/WEB-INF/content/common_model/security/orginialAuthority/orginial_authority_choose.jsp</result>
+			<!-- <result name="toImport">/WEB-INF/content/common_model/security/authority/authority_import.jsp</result> -->
+		</action>
+		
+		<!-- 资源管理-->
+		<action name="orginialResourceAction!*" method="{1}" class="orginialResourceAction">
+			<result name="goList">/WEB-INF/content/common_model/security/orginialResource/orginial_resource_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/orginialResource/orginial_resource_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/orginialResource/orginial_resource_update.jsp</result>
+			<!-- <result name="goSubSingleList">/WEB-INF/content/security/single_sub_resource_list.jsp</result> -->
+			<result name="goChooseResource">/WEB-INF/content/common_model/security/orginialResource/orginial_chooseResource.jsp</result>
+			<result name="goChooseResourceList">/WEB-INF/content/common_model/security/orginialResource/orginial_chooseResource_content.jsp</result>
+		</action>
+		<!-- 数据源结束 -->
+		
+		
+		
+		<!-- 职员帐号 管理-->
+		<action name="userAccountAction!*" method="{1}" class="userAccountAction">
+			<result name="goList">/WEB-INF/content/common_model/security/userAccount/userAccount_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/userAccount/userAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/userAccount/userAccount_update.jsp</result>
+			<result name="goResetPwd">/WEB-INF/content/common_model/security/userAccount/userAccount_pwd.jsp</result>
+			
+			<result name="goChooseRole">/WEB-INF/content/common_model/security/userAccount/chooseRole.jsp</result>
+			<result name="goChooseRoleList">/WEB-INF/content/common_model/security/userAccount/chooseRole_content.jsp</result>
+			<result name="goChooseUserAccount">/WEB-INF/content/common_model/security/userAccount/chooseUserAccount.jsp</result>
+			<result name="goChooseUserAccountList">/WEB-INF/content/common_model/security/userAccount/chooseUserAccount_content.jsp</result>
+			<result name="goUpdateUserForPersonal">/WEB-INF/content/common_model/security/userAccount/updateUserForPersonal.jsp</result>
+		</action>
+		
+		<!-- 角色管理 -->
+		<action name="roleAction!*" method="{1}" class="roleAction">
+			<result name="goList">/WEB-INF/content/common_model/security/role/role_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/role/role_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/role/role_update.jsp</result>
+			<!-- <result name="goChooseAuthority">/WEB-INF/content/common_model/security/role/role_authority_update.jsp</result>
+			<result name="goAuthorityTreeData">/WEB-INF/content/common_model/security/role/role_authority_update_content.jsp</result> -->
+			
+			<result name="goChooseAuthority">/WEB-INF/content/common_model/security/role/role_authority_update2.jsp</result>
+		
+			<!-- 个性化配置 -->
+			<result name="goIndexPdc">/WEB-INF/content/common_model/security/role/roleIndexPdc_list.jsp</result>
+			<result name="goIndexPdcList">/WEB-INF/content/common_model/security/role/roleIndexPdc_list_content.jsp</result>
+		
+		</action>
+		
+		<!-- 权限管理 -->
+		<action name="authorityAction!*" method="{1}" class="authorityAction">
+			<result name="goList">/WEB-INF/content/common_model/security/authority/authority_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/authority/authority_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/authority/authority_update.jsp</result>
+			<result name="goChooseAuthority">/WEB-INF/content/common_model/security/authority/authority_choose.jsp</result>
+			<!-- <result name="toImport">/WEB-INF/content/common_model/security/authority/authority_import.jsp</result> -->
+		</action>
+		
+		<!-- 资源管理-->
+		<action name="resourceAction!*" method="{1}" class="resourceAction">
+			<result name="goList">/WEB-INF/content/common_model/security/resource/resource_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/resource/resource_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/resource/resource_update.jsp</result>
+			<!-- <result name="goSubSingleList">/WEB-INF/content/security/single_sub_resource_list.jsp</result> -->
+			<result name="goChooseResource">/WEB-INF/content/common_model/security/resource/chooseResource.jsp</result>
+			<result name="goChooseResourceList">/WEB-INF/content/common_model/security/resource/chooseResource_content.jsp</result>
+		</action>
+		 
+		 
+		<!-- 列级权限管理 -->
+		<action name="dataColSecAction!*" method="{1}" class="dataColSecAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDca/dataColSec_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDca/dataColSec_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDca/dataColSec_update.jsp</result>
+		</action>
+		<!-- 列级权限策略配置管理dataColPolicyAction -->
+		<action name="dataColPolicyAction!*" method="{1}" class="dataColPolicyAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDca/dataColPly_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDca/dataColPly_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDca/dataColPly_update.jsp</result>
+		</action>
+		
+		
+		<!-- 行集权限  -->
+		<action name="dataResRowOwnerAction!*" method="{1}" class="dataResRowOwnerAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDra/rowOwner/dataRowOwner_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDra/rowOwner/dataRowOwner_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDra/rowOwner/dataRowOwner_update.jsp</result>
+			
+			<result name="goChooseRowPolicy">/WEB-INF/content/common_model/securityDra/rowOwner/chooseRowPly.jsp</result>
+			<result name="goChooseRowPolicyList">/WEB-INF/content/common_model/securityDra/rowOwner/chooseRowPly_content.jsp</result>
+		</action>
+		<action name="dataResRowPolicyAction!*" method="{1}" class="dataResRowPolicyAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDra/rowPly/dataRowPolicy_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDra/rowPly/dataRowPolicy_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDra/rowPly/dataRowPolicy_update.jsp</result>
+			
+			<result name="goChooseRowPolicy">/WEB-INF/content/common_model/securityDra/rowPly/chooseRowPlyObj.jsp</result>
+			<result name="goChooseRowPolicyList">/WEB-INF/content/common_model/securityDra/rowPly/chooseRowPlyObj_content.jsp</result>
+		</action>
+		
+		<action name="dataResRowPolicyObjAction!*" method="{1}" class="dataResRowPolicyObjAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDra/rowPlyObj/dataRowPolicyObj_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDra/rowPlyObj/dataRowPolicyObj_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDra/rowPlyObj/dataRowPolicyObj_update.jsp</result>
+			<result name="dataRowConfig">/WEB-INF/content/common_model/securityDra/rowPlyObj/dataRowPolicyObj_config.jsp</result>
+		</action>
+		<action name="dataResRowPolicyObjSelectAction!*" method="{1}" class="dataResRowPolicyObjSelectAction">
+			<result name="goChooseCommonBiz">/WEB-INF/content/common_model/securityDra/rowPlyObj/chooseCommonBiz.jsp</result>
+			<result name="goChooseCommonBizList">/WEB-INF/content/common_model/securityDra/rowPlyObj/chooseCommonBiz_content.jsp</result>
+		</action>
+		
+		
+		<action name="dataResRowMethodConfigAction!*" method="{1}" class="dataResRowMethodConfigAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDra/rowMethodConfig/dataRowMethodConfig_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDra/rowMethodConfig/dataRowMethodConfig_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDra/rowMethodConfig/dataRowMethodConfig_update.jsp</result>
+			<result name="goChooseMetaData">/WEB-INF/content/common_model/securityDra/rowMethodConfig/chooseMetaData.jsp</result>
+			<result name="goChooseMetaDataList">/WEB-INF/content/common_model/securityDra/rowMethodConfig/chooseMetaData_content.jsp</result>
+			
+		</action>
+		
+		<!-- hql方法配置 -->
+		<action name="dataResRowMethodAction!*" method="{1}" class="dataResRowMethodAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDra/rowMethod/dataRowMethod_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDra/rowMethod/dataRowMethod_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDra/rowMethod/dataRowMethod_update.jsp</result>
+			
+			<result name="goChooseDataResRowMethod">/WEB-INF/content/common_model/securityDra/rowMethod/chooseDataResRowMethod.jsp</result>
+			<result name="goChooseDataResRowMethodList">/WEB-INF/content/common_model/securityDra/rowMethod/chooseDataResRowMethod_content.jsp</result>
+			
+		</action>
+		
+		<!-- 行集权限的系统参数配配置（包括预处理数据） 管理-->
+		<action name="dataResRowSysParamAction!*" method="{1}" class="dataResRowSysParamAction">
+			<result name="goList">/WEB-INF/content/common_model/securityDra/sysParam/sysParam_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/securityDra/sysParam/sysParam_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/securityDra/sysParam/sysParam_update.jsp</result>
+			
+			<result name="goChooseRole">/WEB-INF/content/common_model/securityDra/userAccount/chooseRole.jsp</result>
+			<result name="goChooseRoleList">/WEB-INF/content/common_model/securityDra/userAccount/chooseRole_content.jsp</result>
+			
+			<result name="goSaveUpdatePredata">/WEB-INF/content/common_model/securityDra/sysParam/sysParam_update_preDataUpdate.jsp</result>
+			
+			<!-- 
+			<result name="goChoosePredata">/WEB-INF/content/common_model/securityDra/sysParam/choosePredata.jsp</result>
+			<result name="goChoosePredataList">/WEB-INF/content/common_model/securityDra/sysParam/choosePredata_content.jsp</result>
+			-->		
+		
+		</action>
+		
+		<!-- 在线账户管理 -->
+		<action name="userAccountOnlineMgtAction!*" method="{1}" class="userAccountOnlineMgtAction">
+			<result name="goList">/WEB-INF/content/common_model/security/userAccountOnline/userAccountOnline_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/userAccountOnline/userAccountOnline_list_content.jsp</result>
+		</action>
+		
+		<!-- 模块管理 -->
+		<action name="moduleAction!*" method="{1}" class="moduleAction">
+			<result name="goList">/WEB-INF/content/common_model/module/module_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/module/module_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/module/module_update.jsp</result>
+			
+			<result name="goChooseAuthority">/WEB-INF/content/common_model/module/module_authority_update.jsp</result>
+			<result name="goAuthorityTreeData">/WEB-INF/content/common_model/module/module_authority_update_content.jsp</result>
+		</action>
+		
+		<!-- url配置 -->
+		<action name="configUrlAction!*" method="{1}" class="configUrlAction">
+			<result name="goList">/WEB-INF/content/common_model/configUrl/configUrl_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/configUrl/configUrl_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/configUrl/configUrl_update.jsp</result>
+		</action>
+		
+		<!-- 账号代理 -->
+		<action name="userAccountProxyAction!*" method="{1}" class="userAccountProxyAction">
+			<result name="goSaveOrUpdateApply">/WEB-INF/content/common_model/security/userAccountProxy/userAccountProxyApply_update.jsp</result>
+			<result name="redirectIndex" type="redirect">/common/vixAction!goIndex.action</result>
+		</action>
+		
+		<!-- 首页面div配置 -->
+		<action name="indexPdcAction!*" method="{1}" class="indexPdcAction">
+			<result name="goList">/WEB-INF/content/common_model/security/indexPageData/indexPdc_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/security/indexPageData/indexPdc_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/security/indexPageData/indexPdc_update.jsp</result>
+		</action>
+		
+	</package>
+</struts>

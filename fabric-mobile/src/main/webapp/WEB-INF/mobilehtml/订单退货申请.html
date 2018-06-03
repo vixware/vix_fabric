@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>农本记</title>
+    <meta name="keywords" content="农本记"/>
+    <meta name="description" content="农本记"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+<header>
+    <a href="个人中心.html" class="b-header-code b-header-return"></a>退货申请
+</header>
+<section class="application">
+    <ul class="application_list1">
+        <li>退货商品：<b></b>红富士苹果</li>
+        <li style="position:relative;">退货类型：<input type="text" placeholder="请选择退货类型" />
+            <div id="box">
+                <p>七天无理由退换货</p>
+                <p>收到商品与描述不符</p>
+                <p>商品质量问题</p>
+                <p>未按约定时间发货</p>
+                <p>收到商品破损</p>
+                <p>商品错发漏发</p>
+             </div>
+            <i id="thlx"></i></li>
+        <li>退货金额：<input type="text" placeholder="请输入退款金额" /><em>最多79.5</em></li>
+        <li>退货说明：<input type="text" placeholder="请说明" /></li>
+    </ul>
+    <div class="application_list2">
+        <input type="button" value="提交申请"/>
+    </div>
+</section>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/base.js"></script>
+<script>
+    var thlx=document.getElementById("thlx");
+    thlx.onclick=function(){
+        var divbox=document.getElementById("box");
+        divbox.style.display="block";
+    }
+</script>
+</body>
+</html>

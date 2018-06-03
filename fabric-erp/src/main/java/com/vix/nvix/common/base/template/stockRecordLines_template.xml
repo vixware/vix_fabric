@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+	<worksheet name="stockRecordLines">
+		<section startRow="0" endRow="2" />
+		<loop startRow="3" endRow="3" items="stockRecordLinesList" var="stockRecordLines" varType="com.vix.inventory.inbound.entity.StockRecordLines">
+			<section startRow="3" endRow="3">
+				<mapping row="3" col="0">stockRecordLines.itemcode</mapping>
+				<mapping row="3" col="1">stockRecordLines.itemname</mapping>
+				<mapping row="3" col="2">stockRecordLines.quantity</mapping>
+				<mapping row="3" col="3">stockRecordLines.warehouseName</mapping>
+				<mapping row="3" col="4">stockRecordLines.invshelfname</mapping>
+			</section>
+			<loopbreakcondition>
+				<rowcheck offset="0" />
+				<rowcheck offset="1" />
+			</loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>

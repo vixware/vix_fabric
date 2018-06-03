@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.salechance.entity.BackSectionRecord" table="CRM_BACKSECTIONRECORD">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		 		
+		<many-to-one name="customerAccount" column="customerAccount_id"/>
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100"/>
+		<property name="saleOrderId" type="java.lang.String" column="SALEORDERID" length="255" />
+		<property name="saleOrderTitle" type="java.lang.String" column="SALEORDERTITLE" length="150"/>
+		<many-to-one name="crmProject" column="crmProject_id"/>
+		<property name="backSectionDate" type="java.util.Date" column="BACKSECTIONDATE" />
+		<property name="stageNumber" type="java.lang.Integer" column="STAGENUMBER" />
+		<property name="amount" type="java.lang.Double" column="AMOUNT"/>
+		<property name="foreignCurrencyMemo" type="java.lang.String" column="FOREIGNCURRENCYMEMO" length="300"/>
+		<property name="isBilling" type="java.lang.String" column="ISBILLING" length="10"/>
+		<many-to-one name="owner" column="owner_id"/>
+		<many-to-one name="paymentType" column="paymentType_id"/>
+		<many-to-one name="paymentCategory" column="paymentCategory_id"/>
+		<many-to-one name="salesOrder" column="salesOrder_id"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="500"/>
+  </class>
+</hibernate-mapping>

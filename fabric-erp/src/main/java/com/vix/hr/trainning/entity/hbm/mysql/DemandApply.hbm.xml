@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.hr.trainning.entity.DemandApply" table="HR_DEMANDAPPLY">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="applicationName" type="java.lang.String">
+			<column name="APPLICATIONNAME" length="254" />
+		</property>
+		<property name="applicationNumber" type="java.lang.String">
+			<column name="applicationNumber" length="254" />
+		</property>
+		<property name="applicationDate" type="java.util.Date">
+			<column name="APPLICATIONDATE" />
+		</property>
+		<property name="nameOfTrainingCourse" type="java.lang.String">
+			<column name="NAMEOFTRAININGCOURSE" length="254" />
+		</property>
+		<property name="courseCategory" type="java.lang.String">
+			<column name="COURSECATEGORY" length="254" />
+		</property>
+		<property name="courseDescription" type="java.lang.String">
+			<column name="COURSEDESCRIPTION" length="254" />
+		</property>
+		<property name="courseObjective" type="java.lang.String">
+			<column name="COURSEOBJECTIVE" length="254" />
+		</property>
+		<property name="proposedTrainingInstitutions" type="java.lang.String">
+			<column name="PROPOSEDTRAININGINSTITUTIONS" length="254" />
+		</property>
+		<property name="trainingInstructor" type="java.lang.String">
+			<column name="TRAININGINSTRUCTOR" length="254" />
+		</property>
+		<property name="contactway" type="java.lang.String">
+			<column name="CONTACTWAY" length="254" />
+		</property>
+		<property name="numberOfParticipants" type="java.lang.String">
+			<column name="NUMBEROFPARTICIPANTS" length="254" />
+		</property>
+		<property name="remarks" type="java.lang.String">
+			<column name="REMARKS" length="254" />
+		</property>
+		<property name="courseid" type="java.lang.String">
+			<column name="COURSEID" length="254" />
+		</property>
+		<property name="teacherid" type="java.lang.String">
+			<column name="TEACHERID" length="254" />
+		</property>
+		<property name="courseName" type="java.lang.String">
+			<column name="COURSENAME" length="254" />
+		</property>
+		<property name="expectStartDate" type="java.util.Date" column="EXPECTSTARTDATE" />
+		<property name="expectEndDate" type="java.util.Date" column="EXPECTENDDATE" />
+		
+		<many-to-one name="departmet" column="departmet_id" />
+		<many-to-one name="noticePerson" column="noticePerson_id" />
+		<many-to-one name="applyDepartmet" column="applyDepartmet_id" />
+		<many-to-one name="applyPerson" column="applyPerson_id" />
+		
+		<property name="pubType" type="java.lang.String" column="pubType" length="100" />
+		<property name="pubIds" type="java.lang.String" column="pubIds" length="100" />
+		<property name="uploadPerson" type="java.lang.String" column="UPLOADPERSON" length="100" />
+		<property name="uploadPersonId" type="java.lang.String" column="UPLOADPERSONID" length="100" />
+		<property name="uploadPersonName" type="java.lang.String" column="UPLOADPERSONNAME" length="100"/>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100" />
+		
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<many-to-one name="organizationUnit" column="OrganizationUnit_ID" />
+		<!-- 培训课程 -->
+		<set name="trainingCourse" inverse="true">
+			<key column="demandApply_id" />
+			<one-to-many class="com.vix.hr.trainning.entity.TrainingCourse" />
+		</set>
+		<!-- 培训资料 -->
+		<set name="trainingDatas" inverse="true">
+			<key column="demandApply_id" />
+			<one-to-many class="com.vix.hr.trainning.entity.TrainingData" />
+		</set>
+		<!-- 培训设施 -->
+		<set name="trainingFacilities" inverse="true">
+			<key column="demandApply_id" />
+			<one-to-many class="com.vix.hr.trainning.entity.TrainingFacilities" />
+		</set>
+		<!-- 培训需求汇总-->
+		<many-to-one name="demandSummary" column="demandSummary_id"/>
+	</class>
+</hibernate-mapping>

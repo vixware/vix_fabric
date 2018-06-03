@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--组织机构 公司 -->
+	<package name="common.org.config" namespace="/common/org" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+
+		<!-- 机构机构公司管理 -->
+		<action name="organizationAction!*" method="{1}" class="organizationAction">
+			<result name="goList">/WEB-INF/content/common_model/org/organization_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/org/organization_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/org/organization_update.jsp</result>
+			<result name="goShowOrganization">/WEB-INF/content/common_model/org/show_organization_update.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/common_model/org/organization_choose.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+
+		<!-- 部门管理管理 -->
+		<action name="organizationUnitAction!*" method="{1}" class="organizationUnitAction">
+			<result name="goList">/WEB-INF/content/common_model/orgUnit/organizationUnit_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/orgUnit/organizationUnit_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/orgUnit/organizationUnit_update.jsp</result>
+			<result name="goShowOrganizationUnit">/WEB-INF/content/common_model/orgUnit/show_organizationUnit_update.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/common_model/orgUnit/organizationUnit_choose.jsp</result>
+			<result name="goChooseBusinessOrg">/WEB-INF/content/common_model/orgUnit/businessOrg_choose.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/hr/top/dynamicMenuContent.jsp</result>
+		</action>
+
+		<!-- 业务组织部门管理管理 -->
+		<action name="businessOrgAction!*" method="{1}" class="businessOrgAction">
+			<result name="goList">/WEB-INF/content/common_model/businessOrg/businessOrg_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/businessOrg/businessOrg_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/businessOrg/businessOrg_update.jsp</result>
+			<result name="goChooseBusinessOrg">/WEB-INF/content/common_model/businessOrg/businessOrg_choose.jsp</result>
+			<result name="goSaveOrUpdateDetail">/WEB-INF/content/common_model/businessOrg/businessOrg_detail_update_list.jsp</result>
+		</action>
+
+		<!-- 业务组织视图 -->
+		<action name="businessViewAction!*" method="{1}" class="businessViewAction">
+			<result name="goList">/WEB-INF/content/common_model/businessView/businessView_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/businessView/businessView_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/businessView/businessView_update.jsp</result>
+		</action>
+
+		<!-- 职员管理 -->
+		<action name="employeeOrgAction!*" method="{1}" class="employeeOrgAction">
+			<result name="goList">/WEB-INF/content/common_model/employee/employee_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common_model/employee/employee_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common_model/employee/employee_update.jsp</result>
+			<result name="goSubRadioSingleList">/WEB-INF/content/common_model/employee/choosehrPost_list.jsp</result>
+			<result name="goChoosehrPost">/WEB-INF/content/common_model/employee/choosehrPost.jsp</result>
+			<result name="goSubRadioSingleLists">/WEB-INF/content/common_model/employee/choosehrTitle_list.jsp</result>
+			<result name="goChoosehrTitle">/WEB-INF/content/common_model/employee/choosehrTitle.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/common_model/employee/employee_choose.jsp</result>
+		</action>
+	</package>
+</struts>

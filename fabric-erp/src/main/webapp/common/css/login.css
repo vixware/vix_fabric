@@ -1,0 +1,122 @@
+*{padding:0; margin:0;}
+input,
+textarea {
+  border:1px solid #CCC;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border-radius: 3px;
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+input:focus,
+textarea:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+
+}
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+img{border:0;}
+*html img.png{
+    _background-image: expression(this.runtimeStyle.backgroundImage = "none",this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",this.src = "img/login/mask.gif");
+}
+html,body{width:100%; height:100%; overflow:hidden;}
+body{ color:#FFF; font-family:"Microsoft Yahei","微软雅黑","黑体","宋体"; font-size:16px;}
+#bg,#bg li{width:100%; height:100%; overflow: hidden; position:absolute; left:0; top:0; background-size:cover; background:#363636;}
+#bg li{ opacity:0;background:url(../img/login/login_01.jpg) no-repeat center top #363636;}
+#bg li.bg1{background-image:url(../img/login/login_01.jpg);}
+#bg li.bg2{background-image:url(../img/login/login_06.jpg);}
+#bg li.bg3{background-image:url(../img/login/login_04.jpg);}
+#bg li.bg4{background-image:url(../img/login/login_02.jpg);}
+#bg li.bg5{background-image:url(../img/login/login_03.jpg);}
+#bg li.bg6{background-image:url(../img/login/login_05.jpg);}
+#bg li.bg7{background-image:url(../img/login/login_07.jpg);}
+#bg li.bg8{background-image:url(../img/login/login_08.jpg);}
+#bg li.bg9{background-image:url(../img/login/login_09.jpg);}
+#bg li.bg10{background-image:url(../img/login/login_10.jpg);}
+
+#autoBtn{width:16px; height:16px; overflow:hidden; line-height:0; font-size:0; float:left; background-image:url(../img/login/play.gif); background-repeat:no-repeat; float:left; display:inline; margin:8px 0 0 20px; cursor:pointer;}
+.play{ background-position:left top;}
+.play:hover{background-position:left bottom;}
+.pause{ background-position:right top;}
+.pause:hover{background-position:right bottom;}
+
+.top_bar,.footer_bar{ width:100%;height:30px; background:url(../img/login/login_bar.gif) repeat-x; position:fixed; _position:absolute; left:0;}
+.top_bar{top:0; border-bottom:3px solid #000;}
+.footer_bar{bottom:0; border-top:3px solid #000;}
+
+.top,.footer,.main{width:980px; margin:0 auto; position:relative;}
+.top,.footer{height:30px; overflow:hidden; line-height:30px; font-size:12px;}
+.footer{text-align:right;}
+
+.bgbtn{float:left; font-size:0; line-height:0; padding:10px 0;}
+.bgbtn li{float:left; width:6px; height:5px; overflow:hidden; display:inline; margin:0 5px 0 0; padding:2px; cursor:pointer; background:#FFF;}
+.bgbtn li span{display:none; width:4px; height:3px; overflow:hidden;border-right:1px solid #FFF;border-bottom:1px solid #FFF;}
+.bgbtn li.bgbtn1{border:1px solid #aedaf0; background:#8db2c4;}
+.bgbtn li.bgbtn1 span{border-left:1px solid #647e8b;border-top:1px solid #647e8b;}
+.bgbtn li.bgbtn2{border:1px solid #b2e036; background:#7c9b28;}
+.bgbtn li.bgbtn2 span{border-left:1px solid #4a5d18;border-top:1px solid #4a5d18;}
+.bgbtn li.bgbtn3{border:1px solid #dfc481; background:#988658;}
+.bgbtn li.bgbtn3 span{border-left:1px solid #615538;border-top:1px solid #615538;}
+.bgbtn li.bgbtn4{border:1px solid #FFF; background:#fbd360;}
+.bgbtn li.bgbtn4 span{border-left:1px solid #bc9934;border-top:1px solid #bc9934;}
+.bgbtn li.bgbtn5{border:1px solid #e98e89; background:#af0d05;}
+.bgbtn li.bgbtn5 span{border-left:1px solid #580601;border-top:1px solid #580601;}
+.bgbtn li.bgbtn6{border:1px solid #c78e55; background:#563e26;}
+.bgbtn li.bgbtn6 span{border-left:1px solid #21170d;border-top:1px solid #21170d;}
+.bgbtn li.bgbtn7{border:1px solid #98b9ef; background:#657ea7;}
+.bgbtn li.bgbtn7 span{border-left:1px solid #40506b;border-top:1px solid #40506b;}
+.bgbtn li.bgbtn8{border:1px solid #f4684f; background:#d82202;}
+.bgbtn li.bgbtn8 span{border-left:1px solid #911903;border-top:1px solid #911903;}
+.bgbtn li.bgbtn9{border:1px solid #d19b00; background:#8c6800;}
+.bgbtn li.bgbtn9 span{border-left:1px solid #4e3a00;border-top:1px solid #4e3a00;}
+.bgbtn li.bgbtn10{border:1px solid #e5ae2e; background:#af831b;}
+.bgbtn li.bgbtn10 span{border-left:1px solid #6d5110;border-top:1px solid #6d5110;}
+.bgbtn li.onthis span{display:block;}
+
+
+
+.formbg{width:371px; height:235px; display:none; overflow:hidden; background:url(../img/login/formbg.png) no-repeat; position:absolute; right:50%; top:50%; margin:-80px -370px 0 0; _background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/login/formbg.png', sizingMethod='crop');}
+.loginbox{width:345px; height:165px; position:absolute; right:50%; top:50%; margin:-60px -370px 0 0; display:none;}
+.title h1{font-size:25px;}
+.loginform{ padding:15px;}
+.formline{padding:5px 0;}
+.formline label{margin:0 5px 0 0;}
+.ipt{ padding:3px 5px; vertical-align:middle; height:15px; width:220px;}
+.card{width:145px; margin-right:10px;}
+.formline img{vertical-align:middle;}
+.error{text-align: center; color:#F00; font-size:14px; font-family:"宋体"; height:16px; overflow:hidden;}
+
+.loginbtn{width:80px; height:30px; display:block; margin:0 auto; padding:0; border:0;font-family:"Microsoft Yahei","微软雅黑","黑体","宋体"; font-size:16px; cursor:pointer; background:url(../img/login/loginbtn.png) no-repeat; color:#FFF;}
+.loginbtn_hover{background-image:url(../img/login/loginbtn_hover.png);}
+
+
+
+
+
+
+
+
+
+
+
+
+

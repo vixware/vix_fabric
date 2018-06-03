@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.project.entity.CrmProject" table="CRM_P_CRMPROJECT">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		 		
+ 		<property name="subject" type="java.lang.String" column="SUBJECT" length="100"/>
+ 		<property name="projectStageMemo" type="java.lang.String" column="PROJECTSTAGEMEMO" length="300"/>
+ 		<many-to-one name="personInCharge" column="personInCharge_id"/>
+ 		<property name="projectEstablishDate" type="java.util.Date" column="PROJECTESTABLISHDATE" length="100"/>
+		<property name="projectSummary" type="java.lang.String" column="PROJECTSUMMARY" length="100"/>
+ 		<property name="forecastSignDate" type="java.util.Date" column="FORECASTSIGNDATE"/>
+		<property name="forecastMoney" type="java.lang.Double" column="FORECASTMONEY" />
+		<property name="projectSchedule" type="java.lang.Integer" column="projectSchedule" />
+		<property name="possibility" type="java.lang.String" column="MEMO" length="300"/>
+ 		<many-to-one name="customerAccount" column="projectStage_id"/>
+ 		<many-to-one name="projectStage" column="customerAccount_id"/>
+ 		<many-to-one name="projectStatus" column="projectStatus_id"/>
+ 		<many-to-one name="projectSalePreviousStage" column="projectSalePreviousStage_id"/>
+ 		<many-to-one name="channelDistributor" column="channelDistributor_id"/>
+		<!-- <set name="projectEmployees" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.hr.organization.entity.Employee"/>
+		</set> -->
+		<set name="projectEmployees" table="CRM_EMPLOYEE_CRMPROJECT" fetch="join">
+			<key>
+				<column name="crmProject_id" not-null="true">
+					<comment>日志id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.hr.organization.entity.Employee">
+				<column name="Employee_ID" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="subEvaluationReviews" inverse="true">
+			<key column="crmproject_id" />
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.EvaluationReview" />
+		</set>
+		<set name="competitors" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.crm.project.entity.Competitor"/>
+		</set>
+		<set name="projectSolutions" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.crm.project.entity.ProjectSolution"/>
+		</set>
+		<set name="projectRequirements" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.crm.project.entity.ProjectRequirement"/>
+		</set>
+		<set name="projectCollaborators" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.crm.project.entity.ProjectCollaborator"/>
+		</set>
+		<set name="actionHistorys" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.crm.project.entity.ActionHistory"/>
+		</set>
+		<set name="projectCosts" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.crm.project.entity.ProjectCost"/>
+		</set>
+		<set name="contactPersons" inverse="true">
+			<key column="crmproject_id"/>
+			<one-to-many class="com.vix.mdm.crm.entity.ContactPerson"/>
+		</set>
+  </class>
+</hibernate-mapping>

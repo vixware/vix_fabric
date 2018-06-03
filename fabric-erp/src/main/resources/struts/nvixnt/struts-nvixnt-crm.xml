@@ -1,0 +1,436 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.customer" namespace="/nvixnt" extends="crud-default">
+		<!-- CRM设置 -->
+		<action name="nvixCrmSetAction!*" method="{1}" class="nvixCrmSetAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/crmSet/crmSet.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户 -->
+		<action name="nvixCustomerAction!*" method="{1}" class="nvixCustomerAction">
+			<result name="goCrmList">/WEB-INF/vixnt/customer/base/crmList.jsp</result>
+			<result name="goList">/WEB-INF/vixnt/customer/customer/customer.jsp</result>
+			<result name="goCustomerList">/WEB-INF/vixnt/customer/customer/customerList.jsp</result>
+			<result name="enterPrise">/WEB-INF/vixnt/customer/customer/customer_update.jsp</result>
+			<result name="internal">/WEB-INF/vixnt/customer/customer/customer_update.jsp</result>
+			<result name="personal">/WEB-INF/vixnt/customer/customer/customer_update.jsp</result>
+			<result name="goChooseCustomerAccount">/WEB-INF/vixnt/customer/customer/chooseCustomerAccount.jsp</result>
+			<result name="enterPriseView">/WEB-INF/vixnt/customer/customer/customerView.jsp</result>
+			<result name="personalView">/WEB-INF/vixnt/customer/customer/customerView.jsp</result>
+			<result name="goContactPersonDetail">/WEB-INF/vixnt/customer/customer/contactPersonDetail.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户统计 -->
+		<action name="nvixCustomerStatisticsAction!*" method="{1}" class="nvixCustomerStatisticsAction">
+			<result name="goList">/WEB-INF/vixnt/customer/customer/customer_statistics_list.jsp</result>
+			<result name="goCustomerAccountDistribute">/WEB-INF/vixnt/customer/customer/customerDistribute.jsp</result>
+			<result name="customerKindPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerKindPie.jsp</result>
+			<result name="customerStagePie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerStagePie.jsp</result>
+			<result name="customerHotLevelPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerHotLevelPie.jsp</result>
+			<result name="customerCreditLevelPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerCreditLevelPie.jsp</result>
+			<result name="customerRelationshipClassPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerRelationshipClassPie.jsp</result>
+			<result name="customerStaffScalePie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerStaffScalePie.jsp</result>
+			<result name="customerCustomerSourcePie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerCustomerSourcePie.jsp</result>
+			<result name="customerIndustryPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerIndustryPie.jsp</result>
+			<result name="customerValueAssessmentPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerValueAssessmentPie.jsp</result>
+			<result name="customerAccountTypePie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerAccountTypePie.jsp</result>
+			<result name="customerProvincePie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerProvincePie.jsp</result>
+			<result name="customerCityPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerCityPie.jsp</result>
+			<result name="customerEmployeePie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerEmployeePie.jsp</result>
+			<result name="customerAccountCategoryPie">/WEB-INF/vixnt/customer/customer/customerAnalysis/customerAccountCategoryPie.jsp</result>
+		</action>
+		<!-- 客户地址 -->
+		<action name="nvixCustomerAddressAction!*" method="{1}" class="nvixCustomerAddressAction">
+			<result name="goList">/WEB-INF/vixnt/customer/customerAddress/customerAddress_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/customerAddress/customerAddress_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		
+		<!-- 字典管理start -->
+		<!-- 客户来源 -->
+		<action name="nvixCustomerSourceAction!*" method="{1}" class="nvixCustomerSourceAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/customerSource/customerSource_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/customerSource/customerSource_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 热度等级 -->
+		<action name="nvixHotLevelAction!*" method="{1}" class="nvixHotLevelAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/hotLevel/hotLevel_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/hotLevel/hotLevel_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 行业类型 -->
+		<action name="nvixIndustryAction!*" method="{1}" class="nvixIndustryAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/industry/industry_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/industry/industry_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 行业类型 -->
+		<action name="nvixAccountTypeAction!*" method="{1}" class="nvixAccountTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/accountType/accountType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/accountType/accountType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 关系等级 -->
+		<action name="nvixRelationshipClassAction!*" method="{1}" class="nvixRelationshipClassAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/relationshipClass/relationshipClass_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/relationshipClass/relationshipClass_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 人员规模 -->
+		<action name="nvixStaffScaleAction!*" method="{1}" class="nvixStaffScaleAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/staffScale/staffScale_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/staffScale/staffScale_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户种类 -->
+		<action name="nvixCustomerTypeAction!*" method="{1}" class="nvixCustomerTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/customerType/customerType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/customerType/customerType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户阶段 -->
+		<action name="nvixCustomerStageAction!*" method="{1}" class="nvixCustomerStageAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/customerStage/customerStage_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/customerStage/customerStage_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 证件类型 -->
+		<action name="nvixCredentialTypeAction!*" method="{1}" class="nvixCredentialTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/credentialType/credentialType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/credentialType/credentialType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 联系人分类 -->
+		<action name="nvixContactPersonTypeAction!*" method="{1}" class="nvixContactPersonTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/contactPersonType/contactPersonType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/contactPersonType/contactPersonType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 联系人类型 -->
+		<action name="nvixCrmContactTypeAction!*" method="{1}" class="nvixCrmContactTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/crmContactType/crmContactType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/crmContactType/crmContactType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 纪念日类型 -->
+		<action name="nvixMemorialDayTypeAction!*" method="{1}" class="nvixMemorialDayTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/memorialDayType/memorialDayType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/memorialDayType/memorialDayType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售机会状态 -->
+		<action name="nvixSaleChanceStatusAction!*" method="{1}" class="nvixSaleChanceStatusAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/saleChanceStatus/saleChanceStatus_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/saleChanceStatus/saleChanceStatus_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售机会阶段 -->
+		<action name="nvixSaleChanceStageAction!*" method="{1}" class="nvixSaleChanceStageAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/saleChanceStage/saleChanceStage_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/saleChanceStage/saleChanceStage_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售机会类型 -->
+		<action name="nvixSaleChanceTypeAction!*" method="{1}" class="nvixSaleChanceTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/saleChanceType/saleChanceType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/saleChanceType/saleChanceType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售机会来源 -->
+		<action name="nvixSaleSourceAction!*" method="{1}" class="nvixSaleSourceAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/saleSource/saleSource_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/saleSource/saleSource_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售活动类型 -->
+		<action name="nvixSaleActivityTypeAction!*" method="{1}" class="nvixSaleActivityTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/saleActivityType/saleActivityType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/saleActivityType/saleActivityType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售费用类型 -->
+		<action name="nvixExpenseTypeAction!*" method="{1}" class="nvixExpenseTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/expenseType/expenseType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/expenseType/expenseType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售票据类型 -->
+		<action name="nvixSaleInvoiceTypeAction!*" method="{1}" class="nvixSaleInvoiceTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/saleInvoiceType/saleInvoiceType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/saleInvoiceType/saleInvoiceType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 项目阶段 -->
+		<action name="nvixProjectStageAction!*" method="{1}" class="nvixProjectStageAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/projectStage/projectStage_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/projectStage/projectStage_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 项目状态 -->
+		<action name="nvixProjectStatusAction!*" method="{1}" class="nvixProjectStatusAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/projectStatus/projectStatus_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/projectStatus/projectStatus_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 售前阶段-->
+		<action name="nvixProjectSalePreviousStageAction!*" method="{1}" class="nvixProjectSalePreviousStageAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/projectSalePreviousStage/projectSalePreviousStage_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/projectSalePreviousStage/projectSalePreviousStage_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 支付方式-->
+		<action name="nvixPaymentTypeAction!*" method="{1}" class="nvixPaymentTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/paymentType/paymentType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/paymentType/paymentType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 支付分类-->
+		<action name="nvixPaymentCategoryAction!*" method="{1}" class="nvixPaymentCategoryAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/paymentCategory/paymentCategory_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/paymentCategory/paymentCategory_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 竞争能力-->
+		<action name="nvixCompetitiveAction!*" method="{1}" class="nvixCompetitiveAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/competitive/competitive_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/competitive/competitive_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 关怀类型-->
+		<action name="nvixCustomerCareTypeAction!*" method="{1}" class="nvixCustomerCareTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/customerCareType/customerCareType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/customerCareType/customerCareType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户服务方式 -->
+		<action name="nvixServiceModeAction!*" method="{1}" class="nvixServiceModeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/serviceMode/serviceMode_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/serviceMode/serviceMode_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户服务类型 -->
+		<action name="nvixServiceTypeAction!*" method="{1}" class="nvixServiceTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/serviceType/serviceType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/serviceType/serviceType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 维修工单类型 -->
+		<action name="nvixRepairOrderTypeAction!*" method="{1}" class="nvixRepairOrderTypeAction">
+			<result name="goList">/WEB-INF/vixnt/customer/base/repairOrderType/repairOrderType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/base/repairOrderType/repairOrderType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 字典管理end -->
+		
+		<!-- 客户分类 -->
+		<action name="nvixCustomerCategoryAction!*" method="{1}" class="nvixCustomerCategoryAction">
+			<result name="goList">/WEB-INF/vixnt/customer/category/customerAccount_category_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/category/customerAccount_category_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 联系人 -->
+		<action name="nvixContactPersonAction!*" method="{1}" class="nvixContactPersonAction">
+			<result name="goList">/WEB-INF/vixnt/customer/contactPerson/contactPerson.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/contactPerson/contactPerson_update.jsp</result>
+			<result name="loadContactPersonOption">/WEB-INF/vixnt/customer/contactPerson/loadContactPersonOption.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 纪念日 -->
+		<action name="nvixMemorialDayAction!*" method="{1}" class="nvixMemorialDayAction">
+			<result name="goList">/WEB-INF/vixnt/customer/memorialDay/memorialDay.jsp</result>
+			<result name="goMemorialDayList">/WEB-INF/vixnt/customer/memorialDay/memorialDayList.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/memorialDay/memorialDay_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 机会与跟踪 -->
+		<action name="nvixChanceAndTrackingAction!*" method="{1}" class="nvixChanceAndTrackingAction">
+			<result name="goList">/WEB-INF/vixnt/customer/chanceAndTracking/chanceAndTracking.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/chanceAndTracking/chanceAndTracking_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售机会统计 -->
+		<action name="nvixSaleChanceStatisticsAction!*" method="{1}" class="nvixSaleChanceStatisticsAction">
+			<result name="goList">/WEB-INF/vixnt/customer/chanceAndTracking/saleChanceStatistics.jsp</result>
+			<!-- 销售跟踪 -->
+			<result name="discoveryTimeMonthView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/discoveryTimeMonthView.jsp</result>
+			<result name="preOrderDateMonthView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/preOrderDateMonthView.jsp</result>
+			<result name="createtimeMonthView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/createtimeMonthView.jsp</result>
+			<result name="saleChanceChargerView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChanceChargerView.jsp</result>
+			<result name="saleChanceSaleSourceView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChanceSaleSourceView.jsp</result>
+			<result name="saleChanceSaleTypeView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChanceSaleTypeView.jsp</result>
+			<result name="chargerDivisionStatusView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/chargerDivisionStatusView.jsp</result>
+			<result name="chargerDivisionSaleStageView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/chargerDivisionSaleStageView.jsp</result>
+			<result name="saleChancePossibilityView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChancePossibilityView.jsp</result>
+			<result name="saleChanceStagePossibilityView">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChanceStagePossibilityView.jsp</result>
+			<result name="saleChanceStageNumFunnel">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChanceStageNumFunnel.jsp</result>
+			<result name="saleChanceStageExpectedMoneyFunnel">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/saleChanceStageExpectedMoneyFunnel.jsp</result>
+			<result name="activitySaleActivityPieShow">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/activitySaleActivityPieShow.jsp</result>
+			<result name="activityTypeDivideMonthDraw">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/activityTypeDivideMonthDraw.jsp</result>
+			<result name="backSectionPlanAmountCustomerTop">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/backSectionPlanAmountCustomerTop.jsp</result>
+			<result name="backSectionPlanAmountOwnerTop">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/backSectionPlanAmountOwnerTop.jsp</result>
+			<result name="backSectionPlanAmountChargerTop">/WEB-INF/vixnt/customer/chanceAndTracking/saleTrack/backSectionPlanAmountChargerTop.jsp</result>
+		</action>
+		<!-- 销售线索 -->
+		<action name="nvixSaleLeadAction!*" method="{1}" class="nvixSaleLeadAction">
+			<result name="goList">/WEB-INF/vixnt/customer/saleLead/saleLead.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/saleLead/saleLead_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 项目需求 -->
+		<action name="nvixProjectRequirementAction!*" method="{1}" class="nvixProjectRequirementAction">
+			<result name="goList">/WEB-INF/vixnt/customer/requirement/projectRequirement.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/requirement/projectRequirement_update.jsp</result>
+			<!-- 下载附件 -->
+			<result name="downloadUploader" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 竞争对手 -->
+		<action name="nvixCompetitorAction!*" method="{1}" class="nvixCompetitorAction">
+			<result name="goList">/WEB-INF/vixnt/customer/competitor/competitor.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/competitor/competitor_update.jsp</result>
+			<result name="loadSaleChance">/WEB-INF/vixnt/customer/competitor/loadSaleChance.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 解决方案 -->
+		<action name="nvixProjectSolutionAction!*" method="{1}" class="nvixProjectSolutionAction">
+			<result name="goList">/WEB-INF/vixnt/customer/solution/solution.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/solution/solution_update.jsp</result>
+			<!-- 下载附件 -->
+			<result name="downloadUploader" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 行动历史 -->
+		<action name="nvixActionHistoryAction!*" method="{1}" class="nvixActionHistoryAction">
+			<result name="goList">/WEB-INF/vixnt/customer/actionHistory/actionHistory.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/actionHistory/actionHistory_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 销售活动 -->
+		<action name="nvixSaleActivityAction!*" method="{1}" class="nvixSaleActivityAction">
+			<result name="goList">/WEB-INF/vixnt/customer/saleActivity/saleActivity.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/saleActivity/saleActivity_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 项目管理 -->
+		<action name="nvixCrmProjectAction!*" method="{1}" class="nvixCrmProjectAction">
+			<result name="goList">/WEB-INF/vixnt/customer/crmProject/crmProject.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/crmProject/crmProject_update.jsp</result>
+			<result name="crmProjectView">/WEB-INF/vixnt/customer/crmProject/crmProjectView.jsp</result>
+			<result name="goChooseCrmProject">/WEB-INF/vixnt/customer/crmProject/chooseCrmProject.jsp</result>
+			<result name="loadCrmProject">/WEB-INF/vixnt/customer/crmProject/loadCrmProject.jsp</result>
+			<result name="goChooseEmployees">/WEB-INF/vixnt/customer/crmProject/chooseEmployees.jsp</result>
+			<result name="goCrmProjectDiscuss">/WEB-INF/vixnt/customer/crmProject/crmProjectDiscuss.jsp</result>
+			<result name="goShowEvaluationReview">/WEB-INF/vixnt/customer/crmProject/showEvaluationReview.jsp</result>
+			<result name="goSaveOrUpdateFeedback">/WEB-INF/vixnt/customer/crmProject/crmProjectFeedback.jsp</result>
+			<!-- 下载附件 -->
+			<result name="downloadUploader" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 回款计划 -->
+		<action name="nvixBackSectionPlanAction!*" method="{1}" class="nvixBackSectionPlanAction">
+			<result name="goList">/WEB-INF/vixnt/customer/backSectionPlan/backSectionPlan.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/backSectionPlan/backSectionPlan_update.jsp</result>
+			<result name="goChooseSaleOrder">/WEB-INF/vixnt/customer/backSectionPlan/chooseSaleOrder.jsp</result>
+			<result name="goChooseCrmProject">/WEB-INF/vixnt/customer/backSectionPlan/chooseCrmProject.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 回款记录 -->
+		<action name="nvixBackSectionRecordAction!*" method="{1}" class="nvixBackSectionRecordAction">
+			<result name="goList">/WEB-INF/vixnt/customer/backSectionRecord/backSectionRecord.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/backSectionRecord/backSectionRecord_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 开票记录 -->
+		<action name="nvixSalesInvoiceAction!*" method="{1}" class="nvixSalesInvoiceAction">
+			<result name="goList">/WEB-INF/vixnt/customer/salesInvoice/salesInvoice.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/salesInvoice/salesInvoice_update.jsp</result>
+			<result name="addSalesInvoiceItem">/WEB-INF/vixnt/customer/salesInvoice/addSalesInvoiceItem.jsp</result>
+			<result name="goChooseItem">/WEB-INF/vixnt/customer/salesInvoice/chooseItem.jsp</result>
+			<result name="loadSalesOrder">/WEB-INF/vixnt/customer/salesInvoice/loadSalesOrder.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 退款记录 -->
+		<action name="nvixSaleReturnBillAction!*" method="{1}" class="nvixSaleReturnBillAction">
+			<result name="goList">/WEB-INF/vixnt/customer/saleReturnBill/saleReturnBill.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/saleReturnBill/saleReturnBill_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 费用支出 -->
+		<action name="nvixExpensesAction!*" method="{1}" class="nvixExpensesAction">
+			<result name="goList">/WEB-INF/vixnt/customer/expenses/expenses.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/expenses/expenses_update.jsp</result>
+			<result name="addExpensesDetail">/WEB-INF/vixnt/customer/expenses/addExpensesDetail.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户关怀 -->
+		<action name="nvixCustomerCareAction!*" method="{1}" class="nvixCustomerCareAction">
+			<result name="goList">/WEB-INF/vixnt/customer/customerCare/customerCare.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/customerCare/customerCare_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户服务-->
+		<action name="nvixCustomerServiceAction!*" method="{1}" class="nvixCustomerServiceAction">
+			<result name="goList">/WEB-INF/vixnt/customer/customerService/customerService.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/customerService/customerService_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 客户服务-->
+		<action name="nvixRepairOrderAction!*" method="{1}" class="nvixRepairOrderAction">
+			<result name="goList">/WEB-INF/vixnt/customer/repairOrder/repairOrder.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/customer/repairOrder/repairOrder_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		
+		
+		<!-- 销售智能分析1 -->
+		<action name="nvixntSalesStatisticsAction!*" method="{1}" class="nvixntSalesStatisticsAction">
+			<result name="goStatisticsSaleView">/WEB-INF/vixnt/sales/saleStatistics/goStatisticsSaleView.jsp</result>
+			<result name="sLoadSalesOrderTrendNum">/WEB-INF/vixnt/sales/saleStatistics/slowLoadSales/sLoadSalesOrderTrendNum.jsp</result>
+			<result name="sLoadSalesOrderTrendMoney">/WEB-INF/vixnt/sales/saleStatistics/slowLoadSales/sLoadSalesOrderTrendMoney.jsp</result>
+			<result name="sLoadSaleProductTopNum">/WEB-INF/vixnt/sales/saleStatistics/slowLoadSales/sLoadSaleProductTopNum.jsp</result>
+			<result name="sLoadSaleProductTopMoney">/WEB-INF/vixnt/sales/saleStatistics/slowLoadSales/sLoadSaleProductTopMoney.jsp</result>
+			<result name="sLoadCustomerBuyTopMoney">/WEB-INF/vixnt/sales/saleStatistics/slowLoadSales/sLoadCustomerBuyTopMoney.jsp</result>	
+			<result name="sLoadSalesmanSellTopMoney">/WEB-INF/vixnt/sales/saleStatistics/slowLoadSales/sLoadSalesmanSellTopMoney.jsp</result>		
+			<result name="goSaleDetailedView">/WEB-INF/vixnt/sales/saleStatistics/goSaleDetailedView.jsp</result>
+			<result name="goSaleDetailedBookView">/WEB-INF/vixnt/sales/saleStatistics/goSaleDetailedBookView.jsp</result>
+		</action>
+		<!-- 销售智能分析2 -->
+		<action name="nvixntSalesAnalysisAction!*" method="{1}" class="nvixntSalesAnalysisAction">
+			<result name="goSaleGrowView">/WEB-INF/vixnt/sales/saleStatistics/goSaleGrowView.jsp</result>
+			<result name="goSaleGoodsTopView">/WEB-INF/vixnt/sales/saleStatistics/goSaleGoodsTopView.jsp</result>
+			<result name="goCustomerBuyGoodsTopView">/WEB-INF/vixnt/sales/saleStatistics/goCustomerBuyGoodsTopView.jsp</result>
+			<result name="goSalesmanSellTopView">/WEB-INF/vixnt/sales/saleStatistics/goSalesmanSellTopView.jsp</result>
+			<result name="goSaleStructureAnalysisView">/WEB-INF/vixnt/sales/saleStatistics/goSaleStructureAnalysisView.jsp</result>
+			<result name="goSaleReturnGoodsView">/WEB-INF/vixnt/sales/saleStatistics/goSaleReturnGoodsView.jsp</result>
+			<result name="goDeliverDetailedView">/WEB-INF/vixnt/sales/saleStatistics/goDeliverDetailedView.jsp</result>
+			<result name="goSaleSendMapView">/WEB-INF/vixnt/sales/saleStatistics/goSaleSendMapView.jsp</result>
+		</action>
+		<!-- 销售统计点击数字跳转 -->
+		<action name="nvixntSalesStatisticsClickAction!*" method="{1}" class="nvixntSalesStatisticsClickAction">
+			<result name="clickSeeNumOrMoneyOfSalesOrders">/WEB-INF/vixnt/sales/saleStatistics/clickLook/clickSeeNumOrMoneyOfSalesOrders.jsp</result>
+			<result name="clickSeeReturnGoods">/WEB-INF/vixnt/sales/saleStatistics/clickLook/clickSeeReturnGoods.jsp</result>
+			<result name="clickSeeTheNewCustomer">/WEB-INF/vixnt/sales/saleStatistics/clickLook/clickSeeTheNewCustomer.jsp</result>
+			<result name="clickSeeTheTodayCustomer">/WEB-INF/vixnt/sales/saleStatistics/clickLook/clickSeeTheTodayCustomer.jsp</result>
+			<result name="clickSeeTypesOfSalesProducts">/WEB-INF/vixnt/sales/saleStatistics/clickLook/clickSeeTypesOfSalesProducts.jsp</result>
+		</action>
+	</package>
+</struts>

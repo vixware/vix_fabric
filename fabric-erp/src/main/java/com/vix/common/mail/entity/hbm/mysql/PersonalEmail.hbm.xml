@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.mail.entity.PersonalEmail" table="CMN_MAIL_PERSONALEMAIL">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="emailAddress" type="java.lang.String" column="EMAILADDRESS" length="50" />
+		<property name="emailUserName" type="java.lang.String" column="EMAILUSERNAME" length="50" />
+		<property name="emailPassword" type="java.lang.String" column="EMAILPASSWORD" length="50" />
+		<property name="isDefault" type="java.lang.String" column="ISDEFAULT" length="50" />
+		<property name="mailServerHost" type="java.lang.String" column="mailServerHost" length="50" />
+		<property name="type" type="java.lang.String" column="TYPE" length="50" />
+		<many-to-one name="mailServer" class="com.vix.common.mail.entity.MailServer">
+			<column name="mailServer_id">
+				<comment>邮箱服务器id</comment>
+			</column>
+		</many-to-one>
+		<set name="mailInfos" inverse="true">
+			<key column="personalEmail_id" />
+			<one-to-many class="com.vix.common.mail.entity.MailInfo" />
+		</set>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+	</class>
+</hibernate-mapping>

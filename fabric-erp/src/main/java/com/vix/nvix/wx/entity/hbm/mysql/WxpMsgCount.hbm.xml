@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpMsgCount" table="wxp_msg_count">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="isAllowSend" type="java.lang.String" column="is_allow_send" />
+		<property name="weixinType" type="java.lang.String" column="weixin_type" />
+		<property name="day" type="java.lang.Integer" column="day" />
+		<property name="year" type="java.lang.Integer" column="year" />
+		<property name="month" type="java.lang.Integer" column="month" />
+		<property name="count" type="java.lang.Integer" column="count" />
+		<property name="timingCount" type="java.lang.Integer" column="timing_count" />
+	</class>
+</hibernate-mapping>

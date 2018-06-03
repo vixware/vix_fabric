@@ -1,0 +1,626 @@
+DELIMITER ;
+-- 1 
+DROP PROCEDURE
+IF EXISTS `vix_pro_sys_bizorg_pos_emp`;
+
+CREATE PROCEDURE `vix_pro_sys_bizorg_pos_emp` (
+	IN p_tenant_id TEXT,
+	IN p_bizViewId VARCHAR (64),
+	IN p_parent_bo_id VARCHAR (64),
+	IN p_pos_id VARCHAR (64),
+	IN p_companyInnerCode TEXT -- IN p_is_top_comp BOOLEAN, 
+	-- IN p_org_id BIGINT,IN p_org_id_str TEXT,IN p_org_name TEXT,IN p_org_compinnercode TEXT,
+)
+BEGIN
+	-- DECLARE bizViewId BIGINT;	
+	-- DECLARE compInnerCode VARCHAR(1024);	
+	DECLARE
+		emp_id VARCHAR (64);
+
+DECLARE
+	ov_companyInnerCode TEXT;
+
+DECLARE
+	done INT DEFAULT 0;
+
+DECLARE
+	cur CURSOR FOR (
+		SELECT
+			Employee_ID
+		FROM
+			HR_ORG_EMPLOYEE_POSITION
+		WHERE
+			OrgPosition_ID = p_pos_id
+	);
+
+-- DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;  
+DECLARE
+	CONTINUE HANDLER FOR NOT FOUND,
+	1329,
+	SQLSTATE '02000'
+SET done = 1;
+
+OPEN cur;
+
+-- SELECT CONCAT('begin:',done); 
+FETCH cur INTO emp_id;
+
+
+WHILE done <> 1 DO
+	INSERT INTO MDM_ORG_BUSINESSORG_DETAIL (
+		`ID`,
+		`TENANTID`,
+		`CreateTime`,
+		`UpdateTime`,
+		`STARTTIME`,
+		`ENDTIME`,
+		`BizOrgType`,
+		`BusinessOrg_ID`,
+		`BusinessView_ID`,
+		`Employee_ID`,
+		`CompanyInnerCode`
+	)
+VALUES
+	(
+		UUID(),
+		p_tenant_id,
+		NOW(),
+		NOW(),
+		NOW(),
+		STR_TO_DATE(
+			'9999-12-31,00:00',
+			'%Y-%m-%d,%H:%i'
+		),
+		'E',
+		p_parent_bo_id,
+		p_bizViewId,
+		emp_id,
+		p_companyInnerCode
+	);
+
+-- SELECT @@IDENTITY INTO @org_last_id; 
+FETCH cur INTO emp_id;
+
+
+END
+WHILE;
+
+-- select CONCAT('end:',done); 
+CLOSE cur;
+
+
+END;
+
+-- 2  
+DROP PROCEDURE
+IF EXISTS `vix_pro_sys_bizorg_pos`;
+
+CREATE PROCEDURE `vix_pro_sys_bizorg_pos` (
+	IN p_tenant_id TEXT,
+	IN p_bizViewId VARCHAR (64),
+	IN p_parent_bo_id VARCHAR (64),
+	IN p_parent_bo_code TEXT,
+	IN p_parent_id TEXT
+)
+BEGIN
+	-- DECLARE bizViewId BIGINT;	
+	-- DECLARE compInnerCode VARCHAR(1024);	
+	DECLARE
+		op_id TEXT;
+
+DECLARE
+	op_real_id VARCHAR (64);
+
+DECLARE
+	op_posName TEXT;
+
+DECLARE
+	op_parent_id TEXT;
+
+DECLARE
+	op_tenantId TEXT;
+
+DECLARE
+	op_companyInnerCode TEXT;
+
+DECLARE
+	pos_last_id VARCHAR (64);
+
+DECLARE
+	parentPosBoCode LONGTEXT;
+
+-- select * from v_mdm_org_orgview;
+DECLARE
+	done INT DEFAULT 0;
+
+DECLARE
+	cur CURSOR FOR (
+		SELECT
+			id,
+			realId,
+			orgname,
+			parent_id,
+			TENANTID,
+			CompanyInnerCode
+		FROM
+			v_mdm_org_posview
+		WHERE
+			orgType = 'P'
+		AND tenantId = p_tenant_id
+		AND parent_id = p_parent_id
+	);
+
+-- DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;  
+DECLARE
+	CONTINUE HANDLER FOR NOT FOUND,
+	1329,
+	SQLSTATE '02000'
+SET done = 1;
+
+-- SELECT CONCAT('p_parent_bo_id:',p_parent_bo_id,', p_parent_id:',p_parent_id); 	
+-- SET FOREIGN_KEY_CHECKS=0;	
+OPEN cur;
+
+-- SELECT CONCAT('beginPOS:',done); 
+FETCH cur INTO op_id,
+ op_real_id,
+ op_posName,
+ op_parent_id,
+ op_tenantId,
+ op_companyInnerCode;
+
+
+WHILE done <> 1 DO
+	SELECT
+		UUID() INTO pos_last_id;
+
+-- `BizOrgType`, NULL,		
+INSERT INTO mdm_org_businessorg (
+	`ID`,
+	`BusinessOrgName`,
+	`Parent_id`,
+	`CreateTime`,
+	`UpdateTime`,
+	`IsVirtualUnitNode`,
+	`BusinessView_ID`,
+	`TENANTID`,
+	`CompanyInnerCode`
+)
+VALUES
+	(
+		pos_last_id,
+		CONCAT('岗位_', op_posName),
+		p_parent_bo_id,
+		NOW(),
+		NOW(),
+		'1',
+		p_bizViewId,
+		p_tenant_id,
+		op_companyInnerCode
+	);
+
+
+SET parentPosBoCode = CONCAT(
+	p_parent_bo_code,
+	'_',
+	pos_last_id
+);
+
+UPDATE mdm_org_businessorg
+SET BusinessOrgCode = parentPosBoCode
+WHERE
+	id = pos_last_id;
+
+CALL vix_pro_sys_bizorg_pos_emp (
+	p_tenant_id,
+	p_bizViewId,
+	pos_last_id,
+	op_real_id,
+	op_companyInnerCode
+);
+
+CALL vix_pro_sys_bizorg_pos (
+	p_tenant_id,
+	p_bizViewId,
+	pos_last_id,
+	parentPosBoCode,
+	op_id
+);
+
+FETCH cur INTO op_id,
+ op_real_id,
+ op_posName,
+ op_parent_id,
+ op_tenantId,
+ op_companyInnerCode;
+
+
+END
+WHILE;
+
+-- select CONCAT('end:',done); 
+CLOSE cur;
+
+-- SET FOREIGN_KEY_CHECKS=1;
+END;
+
+-- 3  
+DROP PROCEDURE
+IF EXISTS `vix_pro_sys_bizorg_cpOrOrg`;
+
+CREATE PROCEDURE `vix_pro_sys_bizorg_cpOrOrg` (
+	IN p_tenant_id TEXT,
+	IN p_bizViewId VARCHAR (64),
+	IN p_parent_bo_id VARCHAR (64),
+	IN p_parent_bo_code TEXT,
+	IN p_ov_id TEXT
+)
+BEGIN
+	-- DECLARE bizViewId BIGINT;	
+	-- DECLARE compInnerCode VARCHAR(1024);	
+	DECLARE
+		ov_id TEXT;
+
+DECLARE
+	ov_realId VARCHAR (64);
+
+DECLARE
+	ov_orgname TEXT;
+
+DECLARE
+	ov_parent_id TEXT;
+
+DECLARE
+	ov_orgType TEXT;
+
+DECLARE
+	ov_tenantId TEXT;
+
+DECLARE
+	ov_companyInnerCode TEXT;
+
+DECLARE
+	org_last_id VARCHAR (64);
+
+DECLARE
+	parentBoCode LONGTEXT;
+
+DECLARE
+	done INT DEFAULT 0;
+
+DECLARE
+	cur CURSOR FOR (
+		SELECT
+			id,
+			realId,
+			orgname,
+			parent_id,
+			orgType,
+			tenantId,
+			companyInnerCode
+		FROM
+			V_MDM_ORG_ORGVIEW
+		WHERE
+			tenantId = p_tenant_id
+		AND parent_id = p_ov_id
+	);
+
+-- DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;  
+DECLARE
+	CONTINUE HANDLER FOR NOT FOUND,
+	1329,
+	SQLSTATE '02000'
+SET done = 1;
+
+OPEN cur;
+
+-- SELECT CONCAT('begin:',done); 
+FETCH cur INTO ov_id,
+ ov_realId,
+ ov_orgname,
+ ov_parent_id,
+ ov_orgType,
+ ov_tenantId,
+ ov_companyInnerCode;
+
+
+WHILE done <> 1 DO
+	SELECT
+		UUID() INTO org_last_id;
+
+
+IF ov_orgType = 'C' THEN
+	-- `BizOrgType`, NULL,
+	INSERT INTO mdm_org_businessorg (
+		`ID`,
+		`BusinessOrgName`,
+		`Parent_id`,
+		`CreateTime`,
+		`UpdateTime`,
+		`IsVirtualUnitNode`,
+		`BusinessView_ID`,
+		`TENANTID`,
+		`CompanyInnerCode`
+	)
+VALUES
+	(
+		org_last_id,
+		CONCAT('公司_', ov_orgname),
+		p_parent_bo_id,
+		NOW(),
+		NOW(),
+		'1',
+		p_bizViewId,
+		p_tenant_id,
+		ov_companyInnerCode
+	);
+
+
+IF p_parent_bo_code IS NULL THEN
+
+SET parentBoCode = CONCAT('', org_last_id);
+
+
+ELSE
+
+SET parentBoCode = CONCAT(
+	p_parent_bo_code,
+	'_',
+	org_last_id
+);
+
+
+END
+IF;
+
+UPDATE mdm_org_businessorg
+SET BusinessOrgCode = parentBoCode
+WHERE
+	id = org_last_id;
+
+CALL vix_pro_sys_bizorg_cpOrOrg (
+	p_tenant_id,
+	p_bizViewId,
+	org_last_id,
+	parentBoCode,
+	ov_id
+);
+
+-- SELECT CONCAT('EndCPInner:',ov_id); 
+ELSEIF ov_orgType = 'O' THEN
+	-- SELECT CONCAT('1');  `BizOrgType`,  NULL,
+	-- SELECT CONCAT('##',org_last_id,'  ',ov_orgname,' ',p_parent_bo_id);
+	-- SELECT CONCAT('##',org_last_id,'#',ov_orgname,'#',p_parent_bo_code);
+	INSERT INTO mdm_org_businessorg (
+		`ID`,
+		`BusinessOrgName`,
+		`Parent_id`,
+		`CreateTime`,
+		`UpdateTime`,
+		`IsVirtualUnitNode`,
+		`BusinessView_ID`,
+		`TENANTID`,
+		`CompanyInnerCode`
+	)
+VALUES
+	(
+		org_last_id,
+		CONCAT('部门_', ov_orgname),
+		p_parent_bo_id,
+		NOW(),
+		NOW(),
+		'1',
+		p_bizViewId,
+		p_tenant_id,
+		ov_companyInnerCode
+	);
+
+
+IF p_parent_bo_code IS NULL THEN
+
+SET parentBoCode = CONCAT('', org_last_id);
+
+
+ELSE
+
+SET parentBoCode = CONCAT(
+	p_parent_bo_code,
+	'_',
+	org_last_id
+);
+
+
+END
+IF;
+
+UPDATE mdm_org_businessorg
+SET BusinessOrgCode = parentBoCode
+WHERE
+	id = org_last_id;
+
+CALL vix_pro_sys_bizorg_cpOrOrg (
+	p_tenant_id,
+	p_bizViewId,
+	org_last_id,
+	parentBoCode,
+	ov_id
+);
+
+CALL vix_pro_sys_bizorg_pos (
+	p_tenant_id,
+	p_bizViewId,
+	org_last_id,
+	parentBoCode,
+	ov_id
+);
+
+-- CALL vix_pro_sys_bizorg_cpOrOrg(p_tenant_id,p_bizViewId, p_parent_bo_id,p_parent_bo_code, ov_id);		
+END
+IF;
+
+FETCH cur INTO ov_id,
+ ov_realId,
+ ov_orgname,
+ ov_parent_id,
+ ov_orgType,
+ ov_tenantId,
+ ov_companyInnerCode;
+
+
+END
+WHILE;
+
+-- select CONCAT('end:',done); 
+CLOSE cur;
+
+
+END;
+
+-- 4  
+DROP PROCEDURE
+IF EXISTS `vix_pro_sys_bizorg`;
+
+CREATE PROCEDURE `vix_pro_sys_bizorg` (
+	IN p_tenant_id TEXT,
+	IN p_bizview_prefix_like_code TEXT,
+	IN p_bizview_prefix_code TEXT
+)
+BEGIN
+	DECLARE
+		bizViewId VARCHAR (64) DEFAULT '';
+
+DECLARE
+	compIdStr TEXT;
+
+DECLARE
+	compRealId VARCHAR (64);
+
+DECLARE
+	compName VARCHAR (1024);
+
+DECLARE
+	compInnerCode VARCHAR (1024);
+
+
+SET max_sp_recursion_depth = 255;
+
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+SELECT
+	mb.ID
+FROM
+	MDM_ORG_BUSINESSVIEW mb
+WHERE
+	mb.TENANTID = p_tenant_id
+AND mb. CODE LIKE p_bizview_prefix_like_code INTO bizViewId;
+
+-- select CONCAT('begin:',bizViewId); 
+SELECT
+	id,
+	realId,
+	orgName,
+	companyInnerCode
+FROM
+	V_MDM_ORG_ORGVIEW
+WHERE
+	tenantId = p_tenant_id
+AND orgType = 'C'
+AND parent_id IS NULL INTO compIdStr,
+ compRealId,
+ compName,
+ compInnerCode;
+
+-- SELECT CONCAT('begin:',compIdStr,'--',compRealId,'--',compName,'--',compInnerCode); 
+IF bizViewId IS NULL || bizViewId = '' THEN
+	SELECT
+		UUID() INTO bizViewId;
+
+INSERT INTO MDM_ORG_BUSINESSVIEW (
+	`ID`,
+	`Code`,
+	`CREATETIME`,
+	`UPDATETIME`,
+	`StartTime`,
+	`EndTime`,
+	`BizViewCreateDate`,
+	`Name`,
+	`IsMatrixManagement`,
+	`BizViewType`,
+	`PmCode`,
+	`MetaDataCode`,
+	`TENANTID`,
+	`LANGCODE`,
+	`CompanyCode`,
+	`COUNTRYCODE`,
+	`CompanyInnerCode`,
+	`Organization_ID`
+)
+VALUES
+	(
+		bizViewId,
+		p_bizview_prefix_code,
+		NOW(),
+		NOW(),
+		NOW(),
+		STR_TO_DATE(
+			'9999-12-31,00:00',
+			'%Y-%m-%d,%H:%i'
+		),
+		NOW(),
+		CONCAT(
+			compName,
+			'_默认上下级业务'
+		),
+		'1',
+		'JZ',
+		NULL,
+		NULL,
+		p_tenant_id,
+		NULL,
+		NULL,
+		NULL,
+		compInnerCode,
+		compRealId
+	);
+
+
+END
+IF;
+
+DELETE
+FROM
+	MDM_ORG_BUSINESSORG_DETAIL
+WHERE
+	BusinessOrg_ID IN (
+		SELECT
+			ID
+		FROM
+			MDM_ORG_BUSINESSORG
+		WHERE
+			BusinessView_ID = bizViewId
+		AND TENANTID = p_tenant_id
+	);
+
+DELETE
+FROM
+	MDM_ORG_BUSINESSORG
+WHERE
+	BusinessView_ID = bizViewId
+AND TENANTID = p_tenant_id;
+
+CALL vix_pro_sys_bizorg_cpOrOrg (
+	p_tenant_id,
+	bizViewId,
+	NULL,
+	NULL,
+	compIdStr
+);
+
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+END;
+
+DELIMITER ;

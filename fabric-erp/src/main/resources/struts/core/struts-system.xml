@@ -1,0 +1,275 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--演示 -->
+	<package name="system.config" namespace="/system" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+
+		<!-- 机构管理 <action name="organizationAction!*" method="{1}" class="organizationAction"> <result name="goList">/WEB-INF/content/system/organization_list.jsp</result> <result name="goSingleList">/WEB-INF/content/system/single_organization_list.jsp</result> <result name="goSaveOrUpdate">/WEB-INF/content/system/updateOrganization.jsp</result> 
+			<result name="goChooseOrganization">/WEB-INF/content/system/chooseOrganization.jsp</result> </action> -->
+		<!-- 部门管理 <action name="departmentAction!*" method="{1}" class="departmentAction"> <result name="goList">/WEB-INF/content/system/department_list.jsp</result> <result name="goSingleList">/WEB-INF/content/system/single_department_list.jsp</result> <result name="goSaveOrUpdate">/WEB-INF/content/system/updateDepartment.jsp</result> 
+			<result name="goChooseDepartment">/WEB-INF/content/system/chooseDepartment.jsp</result> </action> -->
+		<!-- 职员管理 <action name="employeeAction!*" method="{1}" class="employeeAction"> <result name="goList">/WEB-INF/content/system/employee_list.jsp</result> <result name="goSingleList">/WEB-INF/content/system/single_employee_list.jsp</result> <result name="goSaveOrUpdate">/WEB-INF/content/system/updateEmployee.jsp</result> 
+			<result name="goSubSingleList">/WEB-INF/content/system/single_sub_employee_list.jsp</result> <result name="goChooseEmployee">/WEB-INF/content/system/chooseEmployee.jsp</result> </action> -->
+		<!-- 编码管理 -->
+		<action name="codeAction!*" method="{1}" class="codeAction">
+			<result name="goList">/WEB-INF/content/system/code/code_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/code/code_list_content.jsp</result>
+			<result name="goSaveOrUpdateEncoding">/WEB-INF/content/system/code/code_update.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/code/encodingSettings.jsp</result>
+			<result name="goListContent">/WEB-INF/content/system/code/encodingSettings_content.jsp</result>
+		</action>
+		<!-- 对象扩展 -->
+		<action name="objectExpandAction!*" method="{1}" class="objectExpandAction">
+			<result name="goList">/WEB-INF/content/system/expand/objectExpand_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/expand/objectExpand_list_content.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/system/expand/objectExpand_sub_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/expand/updateObjectExpand.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseObjectExpand">/WEB-INF/content/system/expand/chooseObjectExpand.jsp</result>
+		</action>
+		<action name="objectExpandFieldAction!*" method="{1}" class="objectExpandFieldAction">
+			<result name="goSingleList">/WEB-INF/content/system/expand/objectExpandField_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/expand/updateObjectExpandField.jsp</result>
+		</action>
+		<!-- 规格 -->
+		<action name="specificationAction!*" method="{1}" class="specificationAction">
+			<result name="goList">/WEB-INF/content/system/expand/specification_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/expand/specification_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/expand/updateSpecification.jsp</result>
+			<result name="specification">/WEB-INF/content/system/expand/specificationForProduct.jsp</result>
+		</action>
+		<!-- 规格明细 -->
+		<action name="specificationDetailAction!*" method="{1}" class="specificationDetailAction">
+			<result name="goSingleList">/WEB-INF/content/system/expand/specificationDetail_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/expand/updateSpecificationDetail.jsp</result>
+		</action>
+		<!-- 字典分类 -->
+		<action name="enumerationCategoryAction!*" method="{1}" class="enumerationCategoryAction">
+			<result name="goList">/WEB-INF/content/system/enumeration/enumerationCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/enumeration/single_enumerationCategory_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/enumeration/updateEnumerationCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 字典信息 -->
+		<action name="enumerationAction!*" method="{1}" class="enumerationAction">
+			<result name="goList">/WEB-INF/content/system/enumeration/enumeration_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/enumeration/single_enumeration_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/enumeration/updateEnumeration.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/system/enumeration/single_sub_enumeration_list.jsp</result>
+			<result name="goChooseEnumeration">/WEB-INF/content/system/enumeration/chooseEnumeration.jsp</result>
+		</action>
+		<!-- 数据精度管理 -->
+		<action name="precisionControlAction!*" method="{1}" class="precisionControlAction">
+			<result name="goList">/WEB-INF/content/system/precisionControl/precisionControl_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/precisionControl/precisionControl_list_content.jsp</result>
+		</action>
+		<!-- 单据类型管理 -->
+		<action name="billTypeManagementAction!*" method="{1}" class="billTypeManagementAction">
+			<result name="goList">/WEB-INF/content/system/billTypeManagement/billTypeManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/billTypeManagement/billTypeManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdateBillType">/WEB-INF/content/system/billTypeManagement/billType_update.jsp</result>
+			<result name="goSaveOrUpdateBillsCategory">/WEB-INF/content/system/billTypeManagement/billsCategory_update.jsp</result>
+			<result name="goChooseBillsCategory">/WEB-INF/content/system/billTypeManagement/category_choose.jsp</result>
+		</action>
+		<!-- 单据类型设置 -->
+		<action name="billTypeSetAction!*" method="{1}" class="billTypeSetAction">
+			<result name="goList">/WEB-INF/content/system/billtypeset/billtypeset_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/billtypeset/billtypeset_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/billtypeset/billtypeset_update.jsp</result>
+		</action>
+		<!-- 变更管理 -->
+		<action name="changeManagementAction!*" method="{1}" class="changeManagementAction">
+			<result name="goList">/WEB-INF/content/system/changeManagement/changeManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/changeManagement/changeManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/changeManagement/changeManagement_update.jsp
+			</result>
+		</action>
+		<!-- 数据库管理 -->
+		<action name="databaseManagementAction!*" method="{1}" class="databaseManagementAction">
+			<result name="goList">/WEB-INF/content/system/databaseManagement/databaseManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/databaseManagement/databaseManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/databaseManagement/databaseManagement_update.jsp
+			</result>
+		</action>
+		<!-- 系统日志 -->
+		<action name="systemLogManagementAction!*" method="{1}" class="systemLogManagementAction">
+			<result name="goList">/WEB-INF/content/system/systemLog/systemLog_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/systemLog/systemLog_list_content.jsp</result>
+			<result name="goLoginList">/WEB-INF/content/system/systemLog/systemLog_list_login.jsp</result>
+			<result name="goErrorList">/WEB-INF/content/system/systemLog/systemLog_list_error.jsp</result>
+		</action>
+		<!-- 在线更新 -->
+		<action name="onLineUpdateAction!*" method="{1}" class="onLineUpdateAction">
+			<result name="goList">/WEB-INF/content/system/onLineUpdate/onLineUpdate_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/onLineUpdate/onLineUpdate_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/onLineUpdate/onLineUpdate_update.jsp
+			</result>
+		</action>
+		<!-- 问题反馈 -->
+		<action name="issuesFeedbackAction!*" method="{1}" class="issuesFeedbackAction">
+			<result name="goList">/WEB-INF/content/system/issuesFeedback/issuesFeedback_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/issuesFeedback/issuesFeedback_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/issuesFeedback/issuesFeedback_update.jsp
+			</result>
+		</action>
+		<!-- 在线帮助 -->
+		<action name="onLineAssistenceAction!*" method="{1}" class="onLineAssistenceAction">
+			<result name="goList">/WEB-INF/content/system/onLineAssistence/onLineAssistence_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/onLineAssistence/onLineAssistence_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/onLineAssistence/onLineAssistence_update.jsp
+			</result>
+		</action>
+
+		<!-- 公司运营管理 -->
+		<action name="companyOperationAction!*" method="{1}" class="companyOperationAction">
+			<result name="goList">/WEB-INF/content/system/base/companyOperation/companyOperation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/base/companyOperation/companyOperation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/base/companyOperation/companyOperation_update.jsp</result>
+			<result name="goChooseOrganization">/WEB-INF/content/system/base/companyOperation/companyOperation_choose.jsp</result>
+		</action>
+		<!-- 行业管理 -->
+		<action name="industryManagementAction!*" method="{1}" class="industryManagementAction">
+			<result name="goList">/WEB-INF/content/system/industryManagement/industryManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/industryManagement/industryManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/industryManagement/industryManagement_update.jsp</result>
+			<result name="goChooseAuthority">/WEB-INF/content/system/industryManagement/industryManagementModule_authority_update.jsp</result>
+			<result name="goAuthorityTreeData">/WEB-INF/content/system/industryManagement/industryManagementModule_authority_update_content.jsp</result>
+			<result name="goChooseMetaData">/WEB-INF/content/system/industryManagement/industryManagementModule_metadata_list.jsp</result>
+			<result name="goChooseMetaDataList">/WEB-INF/content/system/industryManagement/industryManagementModule_metadata_list_content.jsp</result>
+		</action>
+		<action name="industryManagementMetaDataAction!*" method="{1}" class="industryManagementMetaDataAction">
+			<result name="goChooseMetaData2">/WEB-INF/content/system/industryManagement/industryManagementModule_chooseOrginialMetaData2.jsp</result>
+			<result name="goChooseMetaDataList2">/WEB-INF/content/system/industryManagement/industryManagementModule_chooseOrginialMetaData2_content.jsp</result>
+		</action>
+
+		<action name="industryManagementAuthorityAction!*" method="{1}" class="industryManagementAuthorityAction">
+		</action>
+
+		<action name="industryManagementSelectAction!*" method="{1}" class="industryManagementSelectAction">
+			<result name="goList">/WEB-INF/content/system/industryManagement/industry_choose.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/industryManagement/industry_choose_content.jsp</result>
+		</action>
+
+		<!-- 提醒中心 -->
+		<action name="remindsCenterAction!*" method="{1}" class="remindsCenterAction">
+			<result name="goList">/WEB-INF/content/system/remindscenter/remindsCenter_list.jsp
+			</result>
+		</action>
+		<!-- 预警中心 -->
+		<action name="warningCenterAction!*" method="{1}" class="warningCenterAction">
+			<result name="goList">/WEB-INF/content/system/warningcenter/warningcenter_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/system/warningcenter/warningcenter_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/warningcenter/warningcenter_update.jsp
+			</result>
+			<result name="goSaveOrUpdateTaskPlan">/WEB-INF/content/system/warningcenter/taskplan_update.jsp
+			</result>
+			<result name="goSaveOrUpdateNotice">/WEB-INF/content/system/warningcenter/notice_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 预警源设置 -->
+		<action name="warningSourceAction!*" method="{1}" class="warningSourceAction">
+			<result name="goList">/WEB-INF/content/system/warningSource/warningSource_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/warningSource/warningSource_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/warningSource/warningSource_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 个人设置 -->
+		<action name="personalInformationAction!*" method="{1}" class="personalInformationAction">
+			<result name="goList">/WEB-INF/content/system/personalInformation/personalInformation.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 运行参数 -->
+		<action name="systemSetAction!*" method="{1}" class="systemSetAction">
+			<result name="goList">/WEB-INF/content/system/systemset/systemset.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 初始化设置 -->
+		<action name="initSetAction!*" method="{1}" class="initSetAction">
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 最近访问 -->
+		<action name="latestOperateAction!*" method="{1}" class="latestOperateAction">
+			<result name="goList">/WEB-INF/content/system/latestOperate/latestOperate_list.jsp</result>
+		</action>
+		<action name="storeWebServiceAction!*" method="{1}" class="storeWebServiceAction">
+		</action>
+
+		<action name="customerApi!*" method="{1}" class="updateCustomerAction">
+		</action>
+		<action name="vaUserAction!*" method="{1}" class="vaUserAction">
+		</action>
+
+		<!-- 单据类型管理 -->
+		<action name="orginialBillTypeAction!*" method="{1}" class="orginialBillTypeAction">
+			<result name="goList">/WEB-INF/content/system/orginialbilltype/orginialBillType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/orginialbilltype/orginialBillType_list_content.jsp</result>
+			<result name="goSaveOrUpdateBillType">/WEB-INF/content/system/orginialbilltype/orginialBillType_update.jsp</result>
+			<result name="goSaveOrUpdateBillsCategory">/WEB-INF/content/system/orginialbilltype/orginialBillsCategory_update.jsp</result>
+			<result name="goChooseBillsCategory">/WEB-INF/content/system/orginialbilltype/orginialBillsCategory_choose.jsp</result>
+		</action>
+
+		<!-- 承租户系统常量管理 -->
+		<action name="systemVarAction!*" method="{1}" class="systemVarAction">
+			<result name="goList">/WEB-INF/content/system/systemVar/systemVar_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/systemVar/systemVar_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/systemVar/systemVar_update.jsp</result>
+		</action>
+
+
+		<!-- 流程 -->
+		<action name="vreportAction!*" method="{1}" class="vreportAction">
+			<result name="goList">/WEB-INF/content/vreport/vreport_list.jsp</result>
+			<result name="goList1">/WEB-INF/content/vreport/vreport_list_1.jsp</result>
+			<result name="goList2">/WEB-INF/content/vreport/vreport_list_2.jsp</result>
+		</action>
+		
+		
+		
+		<!-- 流程关联定义 -->
+		<action name="processDefinitionAction!*" method="{1}" class="processDefinitionAction">
+			<result name="goList">/WEB-INF/content/system/processDefinition/processDefinition_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/processDefinition/processDefinition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/processDefinition/processDefinition_update.jsp</result>
+			<result name="goChooseBillType">/WEB-INF/content/system/processDefinition/billType_choose.jsp</result>
+		</action>
+		<!-- 审批管理 -->
+		<action name="accraditationAction!*" method="{1}" class="accraditationAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/system/accraditation/accraditation_update.jsp</result>
+			<result name="goInvInbound">/WEB-INF/content/system/accraditation/InboundWarehouse_update.jsp</result>
+			<result name="showAccraditation">/WEB-INF/content/system/accraditation/showAccraditation.jsp</result>
+		</action>
+		<!-- 表单绑定 -->
+		<action name="formBindingAction!*" method="{1}" class="formBindingAction">
+			<result name="goList">/WEB-INF/content/system/formBinding/formBinding_list.jsp</result>
+			<result name="goEmp">/WEB-INF/content/system/formBinding/emp_formBinding_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/formBinding/formBinding_list_content.jsp</result>
+			<result name="goChooseBusinessFormTemplate">/WEB-INF/content/system/formBinding/businessFormTemplate_choose.jsp</result>
+			<result name="goBusinessFormTemplateList">/WEB-INF/content/system/formBinding/businessFormTemplate_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 流程监控 -->
+		<action name="processMonitoringAction!*" method="{1}" class="processMonitoringAction">
+			<result name="goList">/WEB-INF/content/system/processMonitoring/processMonitoring_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/system/processMonitoring/processMonitoring_list_content.jsp</result>
+		</action>
+	</package>
+</struts>

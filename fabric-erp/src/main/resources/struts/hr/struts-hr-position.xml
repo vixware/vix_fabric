@@ -1,0 +1,23 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="hr.position.config" namespace="/hr/position" extends="crud-default">
+		 <!-- 岗位管理 -->
+		 <action name="orgPositionAction!*" method="{1}" class="orgPositionAction">
+			<result name="goList">/WEB-INF/content/hr/orgPosition/orgPosition_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/hr/orgPosition/orgPosition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/hr/orgPosition/orgPosition_update.jsp</result>
+			<result name="goShowPosition">/WEB-INF/content/hr/orgPosition/show_orgPosition_update.jsp</result>
+			<result name="goSubRadioSingleLists">/WEB-INF/content/common_model/employee/choosehrTitle_list.jsp</result>
+			<result name="goChoosehrTitle">/WEB-INF/content/common_model/employee/choosehrTitle.jsp</result>
+			<result name="goAddKpiIndexs">/WEB-INF/content/hr/orgPosition/addkpiIndexs.jsp</result>
+			<result name="goAddPerformanceAppraisalIndexs">/WEB-INF/content/hr/orgPosition/addperformanceappraisal.jsp</result>
+			<result name="goChoosePosition">/WEB-INF/content/hr/orgPosition/orgPosition_choose.jsp</result>
+			<!-- <result name="goChoosePositionOrDep">/WEB-INF/content/hr/orgPosition/orgPositionOrDepartment_choose.jsp</result> -->
+			<result name="addHrAttachments">/WEB-INF/content/hr/job/addAttachFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

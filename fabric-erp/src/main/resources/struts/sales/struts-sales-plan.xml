@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.plan.config" namespace="/sales/plan" extends="crud-default">
+		<!-- 销售计划 -->
+		<action name="salePlanAction!*" method="{1}" class="salePlanAction">
+			<result name="goList">/WEB-INF/content/sales/plan/salePlan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/plan/salePlan_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/plan/updateSalePlan.jsp</result>
+			<result name="goChooseSalePlan">/WEB-INF/content/sales/plan/chooseSalePlan.jsp</result>
+			<result name="showSalesPlan">/WEB-INF/content/sales/plan/showSalesPlan.jsp</result>
+			<result name="goPrintSalesPlan">/WEB-INF/content/sales/plan/salesPlan_print.jsp</result>
+			<result name="goSearch">/WEB-INF/content/sales/plan/salesPlan_Search.jsp</result>
+			<result name="salePlanMeasureUnit">/WEB-INF/content/sales/plan/loadItemMeasureUnit.jsp</result>
+			<result name="salePlanAssitMeasureUnit">/WEB-INF/content/sales/plan/loadItemAssitMeasureUnit.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

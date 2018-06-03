@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResRowPolicyObj" table="CMN_SEC_DATARESROWPOLICYOBJ">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		 
+		 		
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+
+		<property name="metaDataSrcName" type="java.lang.String" column="MetaDataSrcName" length="1024"/>
+		<property name="metaDataViewName" type="java.lang.String" column="MetaDataViewName" length="1024"/>
+		<property name="priory" type="java.lang.Integer" column="Priory"/>
+
+
+		<property name="wheres" type="java.lang.String" column="Wheres" length="1024"/>
+		<property name="paramsMap" type="java.lang.String" column="ParamsMap" length="1024"/>
+		
+		<property name="bizAndSetParamsJson" type="java.lang.String" column="BizAndSetParamsJson" length="2048"/>
+		<property name="bizHqlMap" type="java.lang.String" column="BizHqlMap" length="2048"/>
+
+		<!-- <many-to-one name="dataResRowPolicys" class="com.vix.common.security.entity.DataResRowPolicy" lazy="false">
+			<column name="DataResRowPolicy_ID">
+				 <comment>行集权限策略id</comment>
+			</column>
+		</many-to-one> -->
+		
+		<set name="dataResRowPolicys" table="CMN_SEC_DATARESROWPOLICY_OBJ" inverse="true">
+            <key>
+                <column name="DataResRowPolicyObj_ID" not-null="true">
+                	<comment>条件id</comment>
+               	</column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.DataResRowPolicy">
+              	<column name="DataResRowPolicy_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+        		
+		<many-to-one name="baseMetaData" class="com.vix.common.meta.entity.BaseMetaData" lazy="false">
+			<column name="BaseMetaData_ID">
+				<comment>元数据对象id</comment>
+			</column>
+		</many-to-one>
+		
+		<property name="dataConfigRule" type="text" column="DataConfigRule" length="16777216"/>
+		
+		<!-- <set name="dataResRowPolicyObjConfigs" inverse="true">
+			 <key>
+                <column name="DataResRowPolicyObj_ID"  not-null="true" >
+                </column>
+            </key>
+			<one-to-many class="com.vix.common.security.entity.DataResRowPolicyObjConfig"/>
+		</set> -->
+		
+  </class>
+</hibernate-mapping>

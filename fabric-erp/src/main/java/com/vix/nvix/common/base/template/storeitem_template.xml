@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<workbook>
+	<worksheet name="item">
+		<section startRow="0" endRow="0" />
+		<loop startRow="1" endRow="1" items="storeItemList" var="storeItem" varType="com.vix.mdm.item.entity.StoreItem">
+			<section startRow="1" endRow="1">
+				<mapping row="1" col="0">storeItem.codeRule</mapping>
+				<mapping row="1" col="1">storeItem.code</mapping>
+				<mapping row="1" col="2">storeItem.name</mapping>
+				<mapping row="1" col="3">storeItem.saleUnit</mapping>
+				<mapping row="1" col="4">storeItem.specification</mapping>
+				<mapping row="1" col="5">storeItem.barCode</mapping>
+				<mapping row="1" col="6">storeItem.purchasePrice</mapping>
+				<mapping row="1" col="7">storeItem.price</mapping>
+				<mapping row="1" col="8">storeItem.vipPrice</mapping>
+				<mapping row="1" col="9">storeItem.brand</mapping>
+				<mapping row="1" col="10">storeItem.origin</mapping>
+				<mapping row="1" col="11">storeItem.isplu</mapping>
+				<mapping row="1" col="12">storeItem.plu</mapping>
+				<mapping row="1" col="13">storeItem.pluMode</mapping>
+				<mapping row="1" col="14">storeItem.isDiscount</mapping>
+				<mapping row="1" col="15">storeItem.status</mapping>
+				<mapping row="1" col="16">storeItem.revAccountId</mapping>
+			</section>
+			<loopbreakcondition>
+				<rowcheck offset="0" />
+				<rowcheck offset="1" />
+			</loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>

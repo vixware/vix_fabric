@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.eam.entity.EqLevel" table="eam_eq_level">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="levelName" type="java.lang.String" column="level_name" length="200"></property>
+		<property name="levelCode" type="java.lang.String" column="level_code" length="200"></property>
+		<property name="orderNo" type="java.lang.Integer" column="order_no" ></property>
+		<property name="hasSubEq" type="java.lang.Integer" column="has_sub_eq"></property>
+		<property name="levelType" type="java.lang.String" column="level_type" length="200"></property>
+		<property name="startTime" type="java.util.Date" column="start_time"/>
+		<property name="endTime" type="java.util.Date" column="end_time"/>
+		
+		<many-to-one name="parentLevel" column="parent_level_id"/>
+	</class>
+</hibernate-mapping>

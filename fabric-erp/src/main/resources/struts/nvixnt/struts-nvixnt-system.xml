@@ -1,0 +1,141 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.system" namespace="/nvixnt/system" extends="crud-default">
+		<!-- 系统常量管理 -->
+		<action name="nvixntSystemVarAction!*" method="{1}" class="nvixntSystemVarAction">
+			<result name="goList">/WEB-INF/vixnt/system/systemVar/systemVar_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/systemVar/systemVar_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 币种 -->
+		<action name="nvixntCurrencyTypeAction!*" method="{1}" class="nvixntCurrencyTypeAction">
+			<result name="goList">/WEB-INF/vixnt/system/currencyType/currencyType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/currencyType/currencyType_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 地域 -->
+		<action name="nvixntRegionalAction!*" method="{1}" class="nvixntRegionalAction">
+			<result name="goList">/WEB-INF/vixnt/system/regional/regional_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/regional/regional_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 汇率 -->
+		<action name="nvixntExchangeRateAction!*" method="{1}" class="nvixntExchangeRateAction">
+			<result name="goList">/WEB-INF/vixnt/system/exchangeRate/exchangeRate_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/exchangeRate/exchangeRate_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 计量单位 -->
+		<action name="nvixntMeasureUnitGroupAction!*" method="{1}" class="nvixntMeasureUnitGroupAction">
+			<result name="goList">/WEB-INF/vixnt/system/measureUnitGroup/measureUnitGroup_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/measureUnitGroup/measureUnitGroup_update.jsp</result>
+			<result name="goSaveOrUpdateMeasureUnitGroupDetail">/WEB-INF/vixnt/system/measureUnitGroup/measureUnitGroupDetail_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 引用字典分类 -->
+		<action name="nvixEnumerationCategoryAction!*" method="{1}" class="nvixEnumerationCategoryAction">
+			<result name="goList">/WEB-INF/vixnt/system/enumerationCategory/enumerationCategory_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/enumerationCategory/enumerationCategory_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 引用字典管理 -->
+		<action name="nvixEnumerationAction!*" method="{1}" class="nvixEnumerationAction">
+			<result name="goList">/WEB-INF/vixnt/system/enumeration/enumeration_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/enumeration/enumeration_update.jsp</result>
+			<result name="goSaveOrUpdateEnumValue">/WEB-INF/vixnt/system/enumeration/enumValue_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 扩展类型管理 -->
+		<action name="nvixObjectExpandAction!*" method="{1}" class="nvixObjectExpandAction">
+			<result name="goList">/WEB-INF/vixnt/system/objectExpand/objectExpand_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/objectExpand/objectExpand_update.jsp</result>
+			<result name="goSaveOrUpdateDetail">/WEB-INF/vixnt/system/objectExpand/objectExpandDetail_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 商品规格管理 -->
+		<action name="nvixSpecificationAction!*" method="{1}" class="nvixSpecificationAction">
+			<result name="goList">/WEB-INF/vixnt/system/specification/specification_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/specification/specification_update.jsp</result>
+			<result name="goSaveOrUpdateSpecificationDetail">/WEB-INF/vixnt/system/specification/specificationDetail_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 门户后台设置 -->
+		<action name="nvixntWebColumnAction!*" method="{1}" class="nvixntWebColumnAction">
+			<result name="goList">/WEB-INF/vixnt/system/webcolumn/nvix_webcolumn_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/webcolumn/nvix_webcolumn_update.jsp</result>
+			<result name="goSaveOrUpdateHomeColumnDetail">/WEB-INF/vixnt/system/webcolumn/nvix_webcolumndetail_update.jsp</result>
+		</action>
+		<!-- 工作台模板管理 -->
+		<action name="nvixntTemplateAction!*" method="{1}" class="nvixntTemplateAction">
+			<result name="goList">/WEB-INF/vixnt/system/template/nvix_template_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/template/nvix_template_update.jsp</result>
+			<result name="goSaveOrUpdateTemplateDetail">/WEB-INF/vixnt/system/template/nvix_templatedetail_update.jsp</result>
+		</action>
+		<!-- 地址管理 -->
+		<action name="nvixntAddressInfoAction!*" method="{1}" class="nvixntAddressInfoAction">
+			<result name="goList">/WEB-INF/vixnt/system/addressInfo/addressInfo_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/addressInfo/addressInfo_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+			<result name="loadSubAddressInfo">/WEB-INF/vixnt/system/addressInfo/subAddressInfo.jsp</result>
+			<result name="goChooseAddressInfo">/WEB-INF/vixnt/system/addressInfo/chooseAddressInfo.jsp</result>
+			<result name="goChooseAddressInfoFile">/WEB-INF/vixnt/system/addressInfo/chooseAddressInfoFile.jsp</result>
+		</action>
+		<!-- 用户申请信息 -->
+		<action name="userApplicationAction!*" method="{1}" class="userApplicationAction">
+			<result name="goList">/WEB-INF/vixnt/system/userApplication/nvix_userApplication_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/userApplication/nvix_userApplication_update.jsp</result>
+		</action>
+		<!-- 预警中心 -->
+		<action name="nvixntWaringCenterAction!*" method="{1}" class="nvixntWaringCenterAction">
+			<result name="goList">/WEB-INF/vixnt/system/remindsCenter/remindsCenter_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/userApplication/nvix_userApplication_update.jsp</result>
+		</action>
+		<!-- 用户反馈 -->
+		<action name="nvixntUserFeedbackAction!*" method="{1}" class="nvixntUserFeedbackAction">
+			<result name="goList">/WEB-INF/vixnt/system/userFeedback/nvix_userFeedback_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/userFeedback/nvix_userFeedback_update.jsp</result>
+		</action>
+		<!-- 消息中心 -->
+		<action name="vixntRemindsCenterAction!*" method="{1}" class="vixntRemindsCenterAction">
+			<result name="goList">/WEB-INF/vixnt/system/remindscenter/vixnt_remindscenter_list.jsp</result>
+		</action>
+		<!-- 预警源设置 -->
+		<action name="nvixntWarningSourceAction!*" method="{1}" class="nvixntWarningSourceAction">
+			<result name="goList">/WEB-INF/vixnt/system/warningSource/nvix_warningSource_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/warningSource/nvix_warningSource_update.jsp</result>
+			<result name="goSaveOrUpdateWarningType">/WEB-INF/vixnt/system/warningSource/nvix_warningType_update.jsp</result>
+		</action>
+		<!-- 预警信息 -->
+		<action name="nvixntAlertNoticeAction!*" method="{1}" class="nvixntAlertNoticeAction">
+			<result name="goList">/WEB-INF/vixnt/system/alertNotice/nvix_alertNotice_list.jsp</result>
+		</action>
+		<!-- 邮件管理 -->
+		<action name="nvixMailAction!*" method="{1}" class="nvixMailAction">
+			<result name="goList">/WEB-INF/vixnt/email/vixnt_mail_list.jsp</result>
+			<result name="goEmailList">/WEB-INF/vixnt/email/email-list.jsp</result>
+			<result name="goEmailOpened">/WEB-INF/vixnt/email/email-opened.jsp</result>
+			<result name="goEmailReply">/WEB-INF/vixnt/email/email-reply.jsp</result>
+			<result name="goEmailCompose">/WEB-INF/vixnt/email/email-compose.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/email/vixnt_mail_update.jsp</result>
+			<result name="goDetail">/WEB-INF/vixnt/email/vixnt_mail_detail.jsp</result>
+		</action>
+		<!-- 税率管理 -->
+		<action name="nvixntTaxRateAction!*" method="{1}" class="nvixntTaxRateAction">
+			<result name="goList">/WEB-INF/vixnt/system/taxRate/taxRate_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/taxRate/taxRate_update.jsp</result>
+		</action>
+		<!-- 部门类型设置 -->
+		<action name="nvixntOrganizationUnitTypeAction!*" method="{1}" class="nvixntOrganizationUnitTypeAction">
+			<result name="goList">/WEB-INF/vixnt/system/nvixntOrganizationUnitType/vixnt_organizationUnitType_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/system/nvixntOrganizationUnitType/vixnt_organizationUnitType_update.jsp</result>
+		</action>
+		<!-- 表单回收站管理 -->
+		<action name="vixntBillRecycleBinAction!*" method="{1}" class="vixntBillRecycleBinAction">
+			<result name="goList">/WEB-INF/vixnt/system/billrecyclebin/vixnt_billRecycleBin_list.jsp</result>
+		</action>
+		<!-- 系统管理结束 -->
+	</package>
+</struts>

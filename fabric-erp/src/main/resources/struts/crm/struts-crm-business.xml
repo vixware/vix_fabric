@@ -1,0 +1,231 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 会员交互管理 -->
+	<package name="crm.business" namespace="/crm/business" extends="crud-default">
+		<!-- 会员交互管理二级页面 -->
+		<action name="crmBusinessAction!*" method="{1}" class="crmBusinessAction">
+			<result name="goList">/WEB-INF/content/crm/business/crmbusiness_list.jsp
+			</result>
+		</action>
+		<!-- 设置 短信模板 邮件模板 -->
+		<action name="businessSetAction!*" method="{1}" class="businessSetAction">
+			<result name="goMessageList">/WEB-INF/content/crm/business/messageTemplate/messageTemplate_list.jsp</result>
+			<result name="goMessageListContent">/WEB-INF/content/crm/business/messageTemplate/messageTemplate_list_content.jsp</result>
+			<result name="goMessageTemplate">/WEB-INF/content/crm/business/messageTemplate/messageTemplate_update.jsp</result>
+			<result name="goEmailList">/WEB-INF/content/crm/business/emailTemplate/emailTemplate_list.jsp</result>
+			<result name="goEmailListContent">/WEB-INF/content/crm/business/emailTemplate/emailTemplate_list_content.jsp</result>
+			<result name="goEmailTemplate">/WEB-INF/content/crm/business/emailTemplate/emailTemplate_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 短信模板类型设置 -->
+		<action name="messageTemplateTypeSetAction!*" method="{1}" class="messageTemplateTypeSetAction">
+			<result name="goMessageTemplateTypeList">/WEB-INF/content/crm/business/messageTemplateTypeSet/messageTemplateTypeSet_list.jsp</result>
+			<result name="goMessageTemplateTypeListContent">/WEB-INF/content/crm/business/messageTemplateTypeSet/messageTemplateTypeSet_list_content.jsp</result>
+			<result name="goSaveOrUpdateMessageTemplateType">/WEB-INF/content/crm/business/messageTemplateTypeSet/messageTemplateTypeSet_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 购买行为分析 -->
+		<action name="purchasingBehaviorAction!*" method="{1}" class="purchasingBehaviorAction">
+			<result name="goList">/WEB-INF/content/crm/business/purchasingBehavior_list.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/purchasingBehavior_search.jsp</result>
+			<result name="goChooseChannelDistributor">/WEB-INF/content/crm/business/channeldistributor_choose.jsp</result>
+		</action>
+		<!-- 会员层次分析 -->
+		<action name="membershipStructureAnalysisAction!*" method="{1}" class="membershipStructureAnalysisAction">
+			<result name="goList">/WEB-INF/content/crm/business/membershipStructureAnalysis_list.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/membershipStructureAnalysis_search.jsp</result>
+		</action>
+		<!-- 销售分析 -->
+		<action name="salesAnalysisAction!*" method="{1}" class="salesAnalysisAction">
+			<result name="goList">/WEB-INF/content/crm/business/salesAnalysis_list.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/salesAnalysis_search.jsp</result>
+		</action>
+		<!-- 品类分析 -->
+		<action name="categoryAnalysisAction!*" method="{1}" class="categoryAnalysisAction">
+			<result name="goList">/WEB-INF/content/crm/business/categoryAnalysis_list.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/categoryAnalysis_search.jsp</result>
+		</action>
+		<!-- 订单监控 -->
+		<action name="orderSupervisoryControlAction!*" method="{1}" class="orderSupervisoryControlAction">
+			<result name="goList">/WEB-INF/content/crm/business/orderSupervisoryControl_list.jsp</result>
+		</action>
+		<!-- 订单催付 -->
+		<action name="orderExpeditingAction!*" method="{1}" class="orderExpeditingAction">
+			<result name="goList">/WEB-INF/content/crm/business/orderExpediting_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/orderExpediting_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/orderExpediting_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单关怀 -->
+		<action name="orderCareAction!*" method="{1}" class="orderCareAction">
+			<result name="goList">/WEB-INF/content/crm/business/orderCare_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/orderCare_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/orderCare_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 未付款跟进 -->
+		<action name="followPaymentAction!*" method="{1}" class="followPaymentAction">
+			<result name="goList">/WEB-INF/content/crm/business/followPayment/followPayment_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/followPayment/followPayment_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/followPayment/followPayment_update.jsp</result>
+			<result name="goSaveOrUpdateFollowing">/WEB-INF/content/crm/business/followPayment/followPaymentFollowing_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 物流跟进 -->
+		<action name="logisticsFollowUpAction!*" method="{1}" class="logisticsFollowUpAction">
+			<result name="goList">/WEB-INF/content/crm/business/logisticsFollowUp/logisticsFollowUp_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/logisticsFollowUp/logisticsFollowUp_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/logisticsFollowUp/logisticsFollowUp_update.jsp</result>
+			<result name="goSaveOrUpdateFollowing">/WEB-INF/content/crm/business/logisticsFollowUp/logisticsFollowUpFollowing_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--会员细分管理 -->
+		<action name="membershipSubdivisionAction!*" method="{1}" class="membershipSubdivisionAction">
+			<result name="goList">/WEB-INF/content/crm/business/membershipSubdivision/membershipSubdivision_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/membershipSubdivision/membershipSubdivision_list_content.jsp</result>
+			<result name="goCustomerList">/WEB-INF/content/crm/business/membershipSubdivision/membershipSubdivisioncustomer_list.jsp</result>
+			<result name="goCustomerListContent">/WEB-INF/content/crm/business/membershipSubdivision/membershipSubdivisioncustomer_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/membershipSubdivision/membershipSubdivision_update.jsp</result>
+			<result name="goSaveOrUpdateMembershipSubdivision">/WEB-INF/content/crm/business/membershipSubdivision/membershipSubdivisionitem_update.jsp</result>
+			<result name="goChooseMemberTag">/WEB-INF/content/crm/business/membershipSubdivision/memberTag_list_choose.jsp</result>
+			<result name="goMemberTagList">/WEB-INF/content/crm/business/membershipSubdivision/memberTag_list_content_choose.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 营销自动化流程监控 -->
+		<action name="marketingAutomationProcessAction!*" method="{1}" class="marketingAutomationProcessAction">
+			<result name="goList">/WEB-INF/content/crm/business/marketingAutomationProcess_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/marketingAutomationProcess_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/marketingAutomationProcess_update.jsp</result>
+			<result name="goProcessLogList">/WEB-INF/content/crm/business/marketingAutomationProcess/processLog_list_content.jsp</result>
+			<result name="goNodesLogList">/WEB-INF/content/crm/business/marketingAutomationProcess/nodesLog_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 询单管理 -->
+		<action name="orderManagementAction!*" method="{1}" class="orderManagementAction">
+			<result name="goList">/WEB-INF/content/crm/business/orderManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/orderManagement_list_content.jsp</result>
+		</action>
+		<!-- 改邮改价 -->
+		<action name="changePostAndPriceAction!*" method="{1}" class="changePostAndPriceAction">
+			<result name="goList">/WEB-INF/content/crm/business/changePostAndPrice_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/changePostAndPrice_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/changePostAndPrice_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--优惠券管理 -->
+		<action name="couponAction!*" method="{1}" class="couponAction">
+			<result name="goList">/WEB-INF/content/crm/business/coupon/coupon_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/coupon/coupon_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/coupon/coupon_update.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/coupon/coupon_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员优惠券 -->
+		<action name="customerCouponAction!*" method="{1}" class="customerCouponAction">
+			<result name="goList">/WEB-INF/content/crm/business/customerCoupon/customerCoupon_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/customerCoupon/customerCoupon_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/customerCoupon/customerCoupon_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 营销流程管理 -->
+		<action name="marketingProcessManagementAction!*" method="{1}" class="marketingProcessManagementAction">
+			<result name="goList">/WEB-INF/content/crm/business/marketingProcessManagement/marketingProcessManagement_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/crm/business/marketingProcessManagement/marketingProcessManagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/marketingProcessManagement/marketingProcessManagement_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 营销活动 -->
+		<action name="marketingActivitiesAction!*" method="{1}" class="marketingActivitiesAction">
+			<result name="goList">/WEB-INF/content/crm/business/marketingActivities/marketingActivities_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/crm/business/marketingActivities/marketingActivities_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/marketingActivities/marketingActivities_update.jsp</result>
+			<result name="goMemberShipSubdivisionList">/WEB-INF/content/crm/business/marketingActivities/go_membershipSubdivision_list.jsp</result>
+			<result name="goMemberShipSubdivisionListContent">/WEB-INF/content/crm/business/marketingActivities/go_membershipSubdivision_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 我的事务 -->
+		<action name="myAffairsAction!*" method="{1}" class="myAffairsAction">
+			<result name="goList">/WEB-INF/content/crm/business/myAffairs/myAffairs_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/myAffairs/myAffairs_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/myAffairs/myAffairs_update.jsp</result>
+		</action>
+		<!-- 未发货跟进 -->
+		<action name="noDeliveryFollowUpAction!*" method="{1}" class="noDeliveryFollowUpAction">
+			<result name="goList">/WEB-INF/content/crm/business/noDeliveryFollowUp/noDeliveryFollowUp_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/noDeliveryFollowUp/noDeliveryFollowUp_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/noDeliveryFollowUp/noDeliveryFollowUp_update.jsp</result>
+			<result name="goSaveOrUpdateFollowing">/WEB-INF/content/crm/business/noDeliveryFollowUp/noDeliveryFollowUpFollowing_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 评价跟进 -->
+		<action name="followUpEvaluationAction!*" method="{1}" class="followUpEvaluationAction">
+			<result name="goList">/WEB-INF/content/crm/business/followUpEvaluation/followUpEvaluation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/followUpEvaluation/followUpEvaluation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/followUpEvaluation/followUpEvaluation_update.jsp</result>
+		</action>
+		<!-- 发送记录 -->
+		<action name="sentLogAction!*" method="{1}" class="sentLogAction">
+			<result name="goList">/WEB-INF/content/crm/business/sentLog/sentLog_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/sentLog/sentLog_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/sentLog/sentLog_update.jsp</result>
+		</action>
+		<!-- 会员整合管理 -->
+		<action name="membershipIntegrationAction!*" method="{1}" class="membershipIntegrationAction">
+			<result name="goList">/WEB-INF/content/crm/business/membershipIntegration/membershipIntegration_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/membershipIntegration/membershipIntegration_list_content.jsp</result>
+			<result name="goSingleList1">/WEB-INF/content/crm/business/membershipIntegration/membershipIntegration_list_content1.jsp</result>
+			<result name="goSingleList2">/WEB-INF/content/crm/business/membershipIntegration/membershipIntegration_list_content2.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员关怀 -->
+		<action name="memberCareAction!*" method="{1}" class="memberCareAction">
+			<result name="goList">/WEB-INF/content/crm/business/memberCare/memberCare_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/memberCare/memberCare_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/memberCare/memberCare_update.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/memberCare/memberCare_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员列表 -->
+		<action name="memberShipAction!*" method="{1}" class="memberShipAction">
+			<result name="goList">/WEB-INF/content/crm/business/memberShip/memberShip_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/memberShip/memberShip_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/business/memberShip/memberShip_update.jsp</result>
+			<result name="goMemberShipView">/WEB-INF/content/crm/business/memberShip/memberShip_View.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/memberShip/memberShip_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 优惠券发放 -->
+		<action name="dispenseCouponAction!*" method="{1}" class="dispenseCouponAction">
+			<result name="goList">/WEB-INF/content/crm/business/dispenseCoupon/dispenseCoupon_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/dispenseCoupon/dispenseCoupon_list_content.jsp</result>
+			<result name="goChooseCoupon">/WEB-INF/content/crm/business/dispenseCoupon/coupon_choose.jsp</result>
+			<result name="goListCouponDetail">/WEB-INF/content/crm/business/dispenseCoupon/couponDetail_list_choose.jsp</result>
+			<result name="goSingleListCouponDetail">/WEB-INF/content/crm/business/dispenseCoupon/couponDetail_list_content_choose.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/dispenseCoupon/dispenseCoupon_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 优惠券使用情况 -->
+		<action name="couponUseConditionAction!*" method="{1}" class="couponUseConditionAction">
+			<result name="goList">/WEB-INF/content/crm/business/couponUseCondition/couponUseCondition_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/couponUseCondition/couponUseCondition_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/business/couponUseCondition/couponUseCondition_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 营销流程执行汇总 (所有会员) -->
+		<action name="allMarketingProcessExecuteSummaryAction!*" method="{1}" class="allMarketingProcessExecuteSummaryAction">
+			<result name="goList">/WEB-INF/content/crm/business/allMarketingProcessExecuteSummary/allMarketingProcessExecuteSummary_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/allMarketingProcessExecuteSummary/allMarketingProcessExecuteSummary_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 营销流程执行汇总 (会员细分) -->
+		<action name="anyMarketingProcessExecuteSummaryAction!*" method="{1}" class="anyMarketingProcessExecuteSummaryAction">
+			<result name="goList">/WEB-INF/content/crm/business/anyMarketingProcessExecuteSummary/anyMarketingProcessExecuteSummary_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/business/anyMarketingProcessExecuteSummary/anyMarketingProcessExecuteSummary_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.security.entity.DataResRowMethodConfig" table="CMN_SEC_DATARESROWMETHODCONFIG">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+ 		
+ 		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		 
+		 		
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		<!--
+		注销掉  转移到  DataResRowMethod 中
+		<property name="hqlProvider" type="java.lang.String" column="HqlProvider" length="1024"/>
+		<property name="methodList" type="java.lang.String" column="MethodList" length="4000"/>
+		 -->
+        <many-to-one name="baseMetaData" class="com.vix.common.meta.entity.BaseMetaData" lazy="false">
+			<column name="BaseMetaData_ID">
+				<comment>元数据对象id</comment>
+			</column>
+		</many-to-one>
+		
+		<many-to-one name="dataResRowMethod" class="com.vix.common.security.entity.DataResRowMethod" lazy="false">
+			<column name="dataResRowMethod_ID">
+				<comment>拦截方法配置id</comment>
+			</column>
+		</many-to-one>
+		
+  </class>
+</hibernate-mapping>

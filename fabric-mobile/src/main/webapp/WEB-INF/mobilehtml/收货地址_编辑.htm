@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html style="height: 100%;overflow: hidden;">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>农本记</title>
+	<meta name="keywords" content="农本记"/>
+	<meta name="description" content="农本记"/>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+<header>
+    <a href="收货地址.html" class="b-header-code b-header-return"></a>收货地址
+    <a href="#" class="b-header-edit">保存</a>
+</header>
+<section class="mt_50">
+    <div class="addrset">
+        <div class="input-item mb15"><input type="text" class="input-common" placeholder="收货人姓名" id="receiverName"></div>
+        <div class="input-item mb15"><input type="text" class="input-common" placeholder="联系电话" id="receiverPhone"></div>
+        <div class="addr-sel">
+            <div class="input-item addr-sel-item mb15">
+                <span class="f_l addr-label">省份</span>
+                <div class="addr-sel-inp">
+                    <select type="text" class="input-common" placeholder="省份" readonly="" id="provId">
+                        <option value="-1" reset="true">请选择</option>
+                        <option value="北京市" provid="1">北京市</option><option value="天津市" provid="2">天津市</option><option value="河北省" provid="3">河北省</option><option value="山西省" provid="4">山西省</option><option value="内蒙古自治区" provid="5">内蒙古自治区</option><option value="辽宁省" provid="6">辽宁省</option><option value="吉林省" provid="7">吉林省</option><option value="黑龙江省" provid="8">黑龙江省</option><option value="上海市" provid="9">上海市</option><option value="江苏省" provid="10">江苏省</option><option value="浙江省" provid="11">浙江省</option><option value="安徽省" provid="12">安徽省</option><option value="福建省" provid="13">福建省</option><option value="江西省" provid="14">江西省</option><option value="山东省" provid="15">山东省</option><option value="河南省" provid="16">河南省</option><option value="湖北省" provid="17">湖北省</option><option value="湖南省" provid="18">湖南省</option><option value="广东省" provid="19">广东省</option><option value="广西壮族自治区" provid="20">广西壮族自治区</option><option value="海南省" provid="21">海南省</option><option value="重庆市" provid="22">重庆市</option><option value="四川省" provid="23">四川省</option><option value="贵州省" provid="24">贵州省</option><option value="云南省" provid="25">云南省</option><option value="西藏自治区" provid="26">西藏自治区</option><option value="陕西省" provid="27">陕西省</option><option value="甘肃省" provid="28">甘肃省</option><option value="青海省" provid="29">青海省</option><option value="宁夏回族自治区" provid="30">宁夏回族自治区</option><option value="新疆维吾尔自治区" provid="31">新疆维吾尔自治区</option><option value="香港特别行政区" provid="32">香港特别行政区</option><option value="澳门特别行政区" provid="33">澳门特别行政区</option><option value="台湾省" provid="34">台湾省</option></select>
+                </div>
+            </div>
+            <div class="input-item addr-sel-item  mb15">
+                <div class="f_l addr-label">城市</div>
+                <div class="addr-sel-inp">
+                    <select type="text" class="input-common" placeholder="城市" readonly="" id="cityId"><option value="-1">请选择</option><option value="重庆市" cityid="234">重庆市</option></select>
+                </div>
+            </div>
+            <div class="input-item addr-sel-item  mb15">
+                <div class="f_l addr-label">区县</div>
+                <div class="addr-sel-inp">
+                    <select type="text" class="input-common" placeholder="区县" readonly="" id="regionId"><option value="-1">请选择</option><option value="万州区" regionid="2000">万州区</option><option value="涪陵区" regionid="2001">涪陵区</option><option value="渝中区" regionid="2002">渝中区</option><option value="大渡口区" regionid="2003">大渡口区</option><option value="江北区" regionid="2004">江北区</option><option value="沙坪坝区" regionid="2005">沙坪坝区</option><option value="九龙坡区" regionid="2006">九龙坡区</option><option value="南岸区" regionid="2007">南岸区</option><option value="北碚区" regionid="2008">北碚区</option><option value="万盛区" regionid="2009">万盛区</option><option value="双桥区" regionid="2010">双桥区</option><option value="渝北区" regionid="2011">渝北区</option><option value="巴南区" regionid="2012">巴南区</option><option value="黔江区" regionid="2013">黔江区</option><option value="长寿区" regionid="2014">长寿区</option><option value="綦江县" regionid="2015">綦江县</option><option value="潼南县" regionid="2016">潼南县</option><option value="铜梁县" regionid="2017">铜梁县</option><option value="大足县" regionid="2018">大足县</option><option value="荣昌县" regionid="2019">荣昌县</option><option value="璧山县" regionid="2020">璧山县</option><option value="梁平县" regionid="2021">梁平县</option><option value="城口县" regionid="2022">城口县</option><option value="丰都县" regionid="2023">丰都县</option><option value="垫江县" regionid="2024">垫江县</option><option value="武隆县" regionid="2025">武隆县</option><option value="忠县" regionid="2026">忠县</option><option value="开县" regionid="2027">开县</option><option value="云阳县" regionid="2028">云阳县</option><option value="奉节县" regionid="2029">奉节县</option><option value="巫山县" regionid="2030">巫山县</option><option value="巫溪县" regionid="2031">巫溪县</option><option value="石柱土家族自治县" regionid="2032">石柱土家族自治县</option><option value="秀山土家族苗族自治县" regionid="2033">秀山土家族苗族自治县</option><option value="酉阳土家族苗族自治县" regionid="2034">酉阳土家族苗族自治县</option><option value="彭水苗族土家族自治县" regionid="2035">彭水苗族土家族自治县</option><option value="江津市" regionid="2036">江津市</option><option value="合川市" regionid="2037">合川市</option><option value="永川市" regionid="2038">永川市</option><option value="南川市" regionid="2039">南川市</option></select>
+                </div>
+            </div>
+        </div>
+        <div class="input-item mb15">
+            <textarea class="addr-textarea" placeholder="详细收货地址"></textarea>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/base.js"></script>

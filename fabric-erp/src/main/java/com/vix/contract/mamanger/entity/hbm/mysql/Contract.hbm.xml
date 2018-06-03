@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.contract.mamanger.entity.Contract" table="CTM_CMN_CONTRACT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="partyUnitName" type="java.lang.String">
+			<column name="partyUnitName" length="100" />
+		</property>
+		<property name="baddress" type="java.lang.String">
+			<column name="bAddress" length="100" />
+		</property>
+		<property name="bunitName" type="java.lang.String">
+			<column name="bUnitName" length="100" />
+		</property>
+		<property name="bcontact" type="java.lang.String">
+			<column name="bContact" length="100" />
+		</property>
+		<property name="bphone" type="java.lang.String">
+			<column name="bPhone" length="100" />
+		</property>
+		<property name="partyCAddress" type="java.lang.String">
+			<column name="partyCAddress" length="100" />
+		</property>
+		<property name="partyCUnitName" type="java.lang.String">
+			<column name="partyCUnitName" length="100" />
+		</property>
+		<property name="partyCContact" type="java.lang.String">
+			<column name="partyCContact" length="100" />
+		</property>
+		<property name="partyCPhone" type="java.lang.String">
+			<column name="partyCPhone" length="100" />
+		</property>
+		<property name="partyCEmail" type="java.lang.String">
+			<column name="partyCEmail" length="100" />
+		</property>
+		<property name="masterContractCoding" type="java.lang.String">
+			<column name="masterContractCoding" length="100" />
+		</property>
+		<property name="retentionCalculation" type="java.lang.String">
+			<column name="retentionCalculation" length="100" />
+		</property>
+		<property name="retentionRatio" type="java.lang.String">
+			<column name="retentionRatio" length="100" />
+		</property>
+		<property name="warranty" type="java.lang.String">
+			<column name="warranty" length="100" />
+		</property>
+		<property name="agingcontrol" type="java.lang.String">
+			<column name="agingcontrol" length="100" />
+		</property>
+		<property name="agingControllink" type="java.lang.String">
+			<column name="agingControllink" length="100" />
+		</property>
+		<property name="businessType" type="java.lang.String">
+			<column name="businessType" length="100" />
+		</property>
+		<property name="contractTotalQuantity" type="java.lang.String">
+			<column name="contractTotalQuantity" length="100" />
+		</property>
+		<property name="numberContractExecution" type="java.lang.String">
+			<column name="numberContractExecution" length="100" />
+		</property>
+		<property name="enableStage" type="java.lang.String">
+			<column name="enableStage" length="100" />
+		</property>
+		<property name="contractStageGroup" type="java.lang.String">
+			<column name="contractStageGroup" length="100" />
+		</property>
+		<property name="retentionsStartDate" type="java.util.Date">
+			<column name="retentionsStartDate" length="19" />
+		</property>
+		<property name="retentionEndDate" type="java.util.Date">
+			<column name="retentionEndDate" length="19" />
+		</property>
+		<property name="approvalDate" type="java.util.Date">
+			<column name="approvalDate" length="19" />
+		</property>
+		<property name="contractExecutionMoney" type="java.lang.Double">
+			<column name="contractExecutionMoney" precision="8" scale="0" />
+		</property>
+		<property name="warrantyAmount" type="java.lang.Double">
+			<column name="warrantyAmount" precision="8" scale="0" />
+		</property>
+
+		<property name="contractCode" type="java.lang.String">
+			<column name="contractCode" length="100" />
+		</property>
+		<property name="contractApproveCode" type="java.lang.String">
+			<column name="contractApproveCode" length="100" />
+		</property>
+		<property name="projectCode" type="java.lang.String">
+			<column name="projectCode" length="100" />
+		</property>
+		<property name="projectName" type="java.lang.String">
+			<column name="projectName" length="100" />
+		</property>
+		<property name="projectCatalog" type="java.lang.String">
+			<column name="projectCatalog" length="100" />
+		</property>
+		<property name="projectSubCatalog" type="java.lang.String">
+			<column name="projectSubCatalog" length="100" />
+		</property>
+		<property name="contractName" type="java.lang.String">
+			<column name="contractName" length="100" />
+		</property>
+		<property name="contractType" type="java.lang.Integer" column="contractType" />
+		<property name="paymentType" type="java.lang.String">
+			<column name="paymentType" length="100" />
+		</property>
+		<property name="isOpenValueContract" type="java.lang.String">
+			<column name="isOpenValueContract" length="100" />
+		</property>
+		<property name="firstParty" type="java.lang.String">
+			<column name="firstParty" length="100" />
+		</property>
+		<property name="firstPartyAddress" type="java.lang.String">
+			<column name="firstPartyAddress" length="100" />
+		</property>
+		<property name="firstPartyContact" type="java.lang.String">
+			<column name="firstPartyContact" length="100" />
+		</property>
+		<property name="firstPartyPhone" type="java.lang.String">
+			<column name="firstPartyPhone" length="100" />
+		</property>
+		<property name="firstPartyEmail" type="java.lang.String">
+			<column name="firstPartyEmail" length="100" />
+		</property>
+		<property name="secondPartyId" type="java.lang.String">
+			<column name="secondPartyId" length="100" />
+		</property>
+		<property name="firstPartyId" type="java.lang.Long">
+			<column name="firstPartyId" length="100" />
+		</property>
+		<property name="secondParty" type="java.lang.String">
+			<column name="secondParty" length="100" />
+		</property>
+		<property name="thirdParty" type="java.lang.String">
+			<column name="thirdParty" length="100" />
+		</property>
+		<property name="totalAmount" type="java.lang.Double">
+			<column name="totalAmount" precision="8" scale="0" />
+		</property>
+		<property name="prepay" type="java.lang.Double">
+			<column name="prepay" precision="8" scale="0" />
+		</property>
+		<property name="payrecieveType" type="java.lang.String">
+			<column name="payrecieveType" length="100" />
+		</property>
+		<property name="modetypecode" type="java.lang.String">
+			<column name="modetypecode" length="100" />
+		</property>
+		<property name="stampTax" type="java.lang.String">
+			<column name="stampTax" precision="8" scale="0" />
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="content" length="100" />
+		</property>
+		<!-- <property name="departmentCode" type="java.lang.String"><column name="departmentCode" length="100" /></property> -->
+		<property name="departmentName" type="java.lang.String">
+			<column name="departmentName" length="100" />
+		</property>
+		<property name="signDate" type="java.util.Date">
+			<column name="signDate" length="19" />
+		</property>
+		<!-- <property name="phase" type="java.lang.String"><column name="phase" length="100" /></property> -->
+		<property name="contractStartTime" type="java.util.Date">
+			<column name="contractStartTime" length="19" />
+		</property>
+		<property name="contractEndTime" type="java.util.Date">
+			<column name="contractEndTime" length="19" />
+		</property>
+		<property name="isPassApprove" type="java.lang.String">
+			<column name="isPassApprove" length="100" />
+		</property>
+		<property name="drafter" type="java.lang.String">
+			<column name="drafter" length="100" />
+		</property>
+		<property name="operator" type="java.lang.String">
+			<column name="operator" length="100" />
+		</property>
+		<property name="negotiator" type="java.lang.String">
+			<column name="negotiator" length="100" />
+		</property>
+		<property name="approval" type="java.lang.String">
+			<column name="approval" length="100" />
+		</property>
+		<property name="isbid" type="java.lang.String">
+			<column name="isbid" length="100" />
+		</property>
+		<property name="isHistory" type="java.lang.String">
+			<column name="isHistory" length="100" />
+		</property>
+		<property name="isArchived" type="java.lang.String">
+			<column name="isArchived" length="100" />
+		</property>
+		<property name="theme" type="java.lang.String">
+			<column name="theme" length="100" />
+		</property>
+		<property name="mode" type="java.lang.String">
+			<column name="mode" length="100" />
+		</property>
+		<property name="viewDepartment" type="java.lang.String">
+			<column name="viewDepartment" length="100" />
+		</property>
+		<property name="contractNature" type="java.lang.String">
+			<column name="contractNature" length="100" />
+		</property>
+		<property name="nameEachOther" type="java.lang.String">
+			<column name="nameEachOther" length="100" />
+		</property>
+		<property name="otherContacts" type="java.lang.String">
+			<column name="otherContacts" length="100" />
+		</property>
+		<property name="otherPhone" type="java.lang.String">
+			<column name="otherPhone" length="100" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" length="100" />
+		</property>
+		<!-- <property name="contractSubject" type="java.lang.String"><column name="contractSubject" length="100" /></property> -->
+		<property name="prepaymentAmount" type="java.lang.String">
+			<column name="prepaymentAmount" length="100" />
+		</property>
+		<property name="outstandingAmounts" type="java.lang.String">
+			<column name="outstandingAmounts" length="100" />
+		</property>
+		<property name="mainContent" type="java.lang.String">
+			<column name="mainContent" length="100" />
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="remark" length="100" />
+		</property>
+		<property name="signingDate" type="java.util.Date">
+			<column name="signingDate" length="19" />
+		</property>
+		<property name="viewIndustryCode" type="java.lang.String">
+			<column name="viewIndustryCode" length="100" />
+		</property>
+		<property name="typeCode" type="java.lang.String">
+			<column name="typeCode" length="100" />
+		</property>
+		<property name="moneyTypeCode" type="java.lang.String">
+			<column name="moneyTypeCode" length="100" />
+		</property>
+		<property name="isbidtypecode" type="java.lang.String">
+			<column name="isbidtypecode" length="100" />
+		</property>
+		<property name="viewDepartmentTypeCode" type="java.lang.String">
+			<column name="viewDepartmentTypeCode" length="100" />
+		</property>
+		<property name="businessTypeCode" type="java.lang.String">
+			<column name="businessTypeCode" length="100" />
+		</property>
+		<property name="enableStageTypeCode" type="java.lang.String">
+			<column name="enableStageTypeCode" length="100" />
+		</property>
+		<property name="contractStageGroupTypeCode" type="java.lang.String">
+			<column name="contractStageGroupTypeCode" length="100" />
+		</property>
+		<property name="agingcontroltypecode" type="java.lang.String">
+			<column name="agingcontroltypecode" length="100" />
+		</property>
+		<property name="belongsContractGroupTypeCode" type="java.lang.String">
+			<column name="belongsContractGroupTypeCode" length="100" />
+		</property>
+		<property name="agingControlLinkTypeCode" type="java.lang.String">
+			<column name="agingControlLinkTypeCode" length="100" />
+		</property>
+		<property name="contractNatureCode" type="java.lang.String">
+			<column name="contractNatureCode" length="100" />
+		</property>
+		<property name="isTemp" type="java.lang.String">
+			<column name="ISTEMP" length="100" />
+		</property>
+
+		<property name="uploadPerson" type="java.lang.String" column="UPLOADPERSON" length="100" />
+		<property name="uploadPersonId" type="java.lang.String" column="UPLOADPERSONID" length="100" />
+		<property name="uploadPersonName" type="java.lang.String" column="UPLOADPERSONNAME" length="100" />
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100" />
+		<property name="dayTime" type="java.lang.Long" column="dayTime" />
+
+
+		<set name="contractWarning" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ContractWarning" />
+		</set>
+		<set name="contractLines" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ContractLine" />
+		</set>
+		<set name="contractTemplate" inverse="true">
+			<key>
+				<column name="contractTemplate_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ContractTemplate" />
+		</set>
+		<set name="applicationForm" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ApplicationForm" />
+		</set>
+		<set name="priceConditions" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.PriceConditions" />
+		</set>
+		<set name="contractSubject" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ContractSubject" />
+		</set>
+		<set name="pmContract" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.PmContract" />
+		</set>
+		<set name="contractMarket" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ContractMarket" />
+		</set>
+		<set name="contractPricingConditions" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.ContractPricingConditions" />
+		</set>
+		<set name="salesPricing" inverse="true">
+			<key>
+				<column name="contract_id" />
+			</key>
+			<one-to-many class="com.vix.contract.mamanger.entity.SalesPricing" />
+		</set>
+
+		<many-to-one name="crmProject" column="crmProject_id" />
+		<many-to-one name="currencyType" column="currencyType_id" />
+		<many-to-one name="exchangeRate" column="exchangeRate_id" />
+		<many-to-one name="contractGroupType" column="contractGroupType_id" />
+		<many-to-one name="contractTypeCombine" column="contractTypeCombine_id" />
+		<many-to-one name="contractNatureType" column="contractNatureType_id" />
+		<many-to-one name="viewIndustryType" column="viewIndustryType_id" />
+		<many-to-one name="modeType" column="modeType_id" />
+		<many-to-one name="enableStageType" column="enableStageType_id" />
+		<many-to-one name="contractStageGroupType" column="contractStageGroupType_id" />
+	</class>
+</hibernate-mapping>

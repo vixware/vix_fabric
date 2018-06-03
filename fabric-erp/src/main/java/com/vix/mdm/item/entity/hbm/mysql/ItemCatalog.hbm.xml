@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemCatalog" table="MDM_ITEMCATALOG">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="parentCode" type="java.lang.String" column="PARENTCODE" length="150" />
+		<property name="codeRule" type="java.lang.String" column="CODERULE" length="150" />
+		<property name="preExamineStandard" type="java.lang.String" column="PREEXAMINESTANDARD" length="150" />
+		<property name="prePurchaseDays" type="java.lang.Float" column="PREPURCHASEDAYS" />
+		<property name="preProduceDays" type="java.lang.Float" column="PREPRODUCEDAYS" />
+		<property name="preExamineDays" type="java.lang.Float" column="PREEXAMINEDAYS" />
+		<property name="preBackupDays" type="java.lang.Float" column="PREBACKUPDAYS" />
+		<property name="preInventoryUnit" type="java.lang.String" column="PREINVENTORYUNIT" length="150" />
+		<property name="preBatchCode" type="java.lang.String" column="PREBATCHCODE" length="150" />
+		<property name="preVirtualItem" type="java.lang.String" column="PREVIRTUALITEM" length="150" />
+		<property name="isSingalItemDelivery" type="java.lang.String" column="ISSINGALITEMDELIVERY" length="150" />
+		<property name="preWholePackaged" type="java.lang.String" column="PREWHOLEPACKAGED" length="150" />
+		<property name="preSingal" type="java.lang.String" column="PRESINGAL" length="150" />
+		<property name="preCycleCheck" type="java.lang.Float" column="PRECYCLECHECK" />
+		<property name="preAttritionRate" type="java.lang.Float" column="PREATTRITIORATE" length="150" />
+		<property name="preAttritionDelivery" type="java.lang.String" column="PREATTRITIONDELIVERY" length="150" />
+		<property name="preCustomhouseProductCode" type="java.lang.String" column="PRECUSTOMHOUSEPRODUCTCODE" length="150" />
+		<property name="businessModelTag" type="java.lang.String" column="BUSINESSMODELTAG" length="150" />
+		<property name="flag" type="java.lang.String" column="flag" length="150" />
+		<property name="specTableIsGenerate" type="java.lang.String" column="specTableIsGenerate" length="50" />
+		<property name="expandTableName" type="java.lang.String" column="expandTableName" length="150" />
+
+		<set name="items" table="MDM_ITEMCATALOG_ITEM">
+			<key column="CATALOG_ID" />
+			<many-to-many class="com.vix.mdm.item.entity.Item" column="ITEM_ID" />
+		</set>
+		<set name="subChannelDistributors" table="MDM_ITEMCATALOG_CHANNELDISTRIBUTOR">
+			<key column="CATALOG_ID" />
+			<many-to-many class="com.vix.drp.channel.entity.ChannelDistributor" column="CHANNELDISTRIBUTOR_ID" />
+		</set>
+		<many-to-one name="parentItemCatalog" column="parent_id" />
+		<set name="subItemCatalogs" inverse="true">
+			<key column="parent_id" />
+			<one-to-many class="com.vix.mdm.item.entity.ItemCatalog" />
+		</set>
+		<set name="specifications" inverse="true">
+			<key column="itemCatalog_id" />
+			<one-to-many class="com.vix.core.persistence.jdbc.dbstruct.Specification" />
+		</set>
+	</class>
+</hibernate-mapping>

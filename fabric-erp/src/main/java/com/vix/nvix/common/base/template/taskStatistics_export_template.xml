@@ -1,0 +1,7 @@
+<xls>
+	<area ref="taskStatistics!A1:G4">
+		<each items="taskStatisticsList" var="taskStatistics" ref="taskStatistics!A4:G4">
+			<area ref="taskStatistics!A4:G4" />
+		</each>
+	</area>
+</xls>

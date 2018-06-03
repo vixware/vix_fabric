@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.mail.entity.MailServer" table="CMN_MAIL_MAILSERVER">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="serverName" type="java.lang.String" column="serverName" length="128" />
+		<property name="smtpServerName" type="java.lang.String" column="SmtpServerName" length="128" />
+		<property name="smtpRequireSSL" type="java.lang.Boolean" column="SmtpRequireSSL" />
+		<property name="smtpPort" type="java.lang.String" column="SmtpPort" length="8" />
+		<property name="receiveProtocol" type="java.lang.String" column="ReceiveProtocol" length="8" />
+		<property name="pop3ServerName" type="java.lang.String" column="Pop3ServerName" length="128" />
+		<property name="pop3RequireSSL" type="java.lang.Boolean" column="Pop3RequireSSL" />
+		<property name="pop3Port" type="java.lang.String" column="pop3Port" length="8" />
+		<property name="imapServerName" type="java.lang.String" column="ImapServerName" length="128" />
+		<property name="imapRequireSSL" type="java.lang.Boolean" column="ImapRequireSSL" />
+		<property name="imapPort" type="java.lang.String" column="ImapPort" length="8" />
+	</class>
+</hibernate-mapping>

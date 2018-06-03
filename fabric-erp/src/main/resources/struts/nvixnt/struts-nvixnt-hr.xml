@@ -1,0 +1,153 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.hr" namespace="/nvixnt/hr" extends="crud-default">
+		<!-- 花名册 -->
+		<action name="nvixNameBookAction!*" method="{1}" class="nvixNameBookAction">
+			<result name="goList">/WEB-INF/vixnt/hr/name/name_book_list.jsp</result>
+			<result name="employeeList">/WEB-INF/vixnt/hr/name/employee_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/hr/name/name_book_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 组织架构图 -->
+		<action name="nvixOrganizeAction!*" method="{1}" class="nvixOrganizeAction">
+			<result name="goList">/WEB-INF/vixnt/hr/orga/orga_list.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 组织架构 -->
+		<action name="nvixAgencyAction!*" method="{1}" class="nvixAgencyAction">
+			<result name="goList">/WEB-INF/vixnt/hr/agency/agency_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/hr/agency/agency_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 部门管理 -->
+		<action name="nvixDepartmentAction!*" method="{1}" class="nvixDepartmentAction">
+			<result name="goList">/WEB-INF/vixnt/hr/depart/department_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/hr/depart/department_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 岗位管理 -->
+		<action name="nvixntPostAction!*" method="{1}" class="nvixntPostAction">
+			<result name="goList">/WEB-INF/vixnt/hr/post/post_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/hr/post/post_update.jsp</result>
+			<result name="goChoosePosition">/WEB-INF/vixnt/hr/post/post_choose.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 人事事务管理 -->
+		<action name="nvixHrManageAction!*" method="{1}" class="nvixHrManageAction">
+			<result name="goList">/WEB-INF/vixnt/hr/hrmage/pass_test_list.jsp</result>
+			<result name="saveOrUpdatePass">/WEB-INF/vixnt/hr/hrmage/pass_test_update.jsp</result>
+			<result name="goUnusual">/WEB-INF/vixnt/hr/hrmage/unusual_action_list.jsp</result>
+			<result name="saveOrUpdateUnusual">/WEB-INF/vixnt/hr/hrmage/unusual_action_update.jsp</result>
+			<result name="goBorrow">/WEB-INF/vixnt/hr/hrmage/borrow_move_list.jsp</result>
+			<result name="saveOrUpdateBorrow">/WEB-INF/vixnt/hr/hrmage/borrow_move_update.jsp</result>
+			<result name="goAskLeave">/WEB-INF/vixnt/hr/hrmage/ask_leave_list.jsp</result>
+			<result name="saveOrUpdateAskLeave">/WEB-INF/vixnt/hr/hrmage/ask_leave_update.jsp</result>
+			<result name="goDimission">/WEB-INF/vixnt/hr/hrmage/leave_job_list.jsp</result>
+			<result name="saveOrUpdateDimission">/WEB-INF/vixnt/hr/hrmage/leave_job_update.jsp</result>
+			<result name="goRetire">/WEB-INF/vixnt/hr/hrmage/retire_job_list.jsp</result>
+			<result name="saveOrUpdateRetire">/WEB-INF/vixnt/hr/hrmage/retire_job_update.jsp</result>
+			<result name="goPrepareRetire">/WEB-INF/vixnt/hr/hrmage/prepare_retire_list.jsp</result>
+			<result name="saveOrUpdatePrepareRetire">/WEB-INF/vixnt/hr/hrmage/prepare_retire_update.jsp</result>
+			<result name="goRehire">/WEB-INF/vixnt/hr/hrmage/rehire_job_list.jsp</result>
+			<result name="saveOrUpdateRehire">/WEB-INF/vixnt/hr/hrmage/rehire_job_update.jsp</result>
+			<result name="goCheckPersonChoose">/WEB-INF/vixnt/hr/hrmage/check_person_choose.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 招聘计划-->
+		<action name="nvixRecruitPlanAction!*" method="{1}" class="nvixRecruitPlanAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/recruit/write_plan_list.jsp</result>
+		    <result name="saveOrUpdateWrite">/WEB-INF/vixnt/hr/recruit/write_plan_update.jsp</result>
+		    <result name="saveOrUpdatePlanItem">/WEB-INF/vixnt/hr/recruit/write_plan_detail.jsp</result>
+		    <result name="collectPlanList">/WEB-INF/vixnt/hr/recruit/collect_plan_list.jsp</result>
+		    <result name="saveOrUpdateCollect">/WEB-INF/vixnt/hr/recruit/collect_plan_update.jsp</result>
+		    <result name="goChooseTrainPlan">/WEB-INF/vixnt/hr/recruit/choose_train_plan.jsp</result>
+		    <result name="downPlanList">/WEB-INF/vixnt/hr/recruit/down_plan_list.jsp</result>
+		     <result name="saveOrUpdateDown">/WEB-INF/vixnt/hr/recruit/down_plan_update.jsp</result>
+		</action>
+		<!-- 招聘征集/用人申请/招聘活动/高级人才招聘-->
+		<action name="nvixRecruitStaffAction!*" method="{1}" class="nvixRecruitStaffAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/staff/recruit_staff_list.jsp</result>
+		    <result name="saveOrUpdateCollect">/WEB-INF/vixnt/hr/staff/recruit_staff_update.jsp</result>
+		    <result name="goApplyList">/WEB-INF/vixnt/hr/staff/apply_staff_list.jsp</result>
+		    <result name="gosaveOrUpdateApply">/WEB-INF/vixnt/hr/staff/apply_staff_update.jsp</result>
+		    <result name="goAllRecruitList">/WEB-INF/vixnt/hr/staff/all_recruit_list.jsp</result>
+		    <result name="gosaveOrUpdateAllRecruit">/WEB-INF/vixnt/hr/staff/all_recruit_update.jsp</result>
+		    <result name="goActivityList">/WEB-INF/vixnt/hr/staff/recruit_activity_list.jsp</result>
+		    <result name="saveOrUpdateActivity">/WEB-INF/vixnt/hr/staff/recruit_activity_update.jsp</result>
+		    <result name="saveOrUpdateActivityDetail">/WEB-INF/vixnt/hr/staff/recruit_activity_detail.jsp</result>
+		    <result name="goSuperTalentList">/WEB-INF/vixnt/hr/staff/super_talent_list.jsp</result>
+		    <result name="saveOrUpdateSuperTalent">/WEB-INF/vixnt/hr/staff/super_talent_update.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 面试管理/录用管理/资料刷选/后备简历库-->
+		<action name="nvixInterviewAction!*" method="{1}" class="nvixInterviewAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/interview/interview_staff_list.jsp</result>
+		    <result name="saveOrUpdateCollect">/WEB-INF/vixnt/hr/interview/interview_staff_update.jsp</result>
+		    <result name="goEmployList">/WEB-INF/vixnt/hr/interview/employ_staff_list.jsp</result>
+		    <result name="goSaveOrUpdateEmploy">/WEB-INF/vixnt/hr/interview/employ_staff_update.jsp</result>
+		    <result name="goSelectDataList">/WEB-INF/vixnt/hr/interview/select_data_list.jsp</result>
+		    <result name="goSaveOrUpdateData">/WEB-INF/vixnt/hr/interview/select_data_update.jsp</result>
+		    <result name="goResumeLibraryList">/WEB-INF/vixnt/hr/interview/resume_library_list.jsp</result>
+		    <result name="goSaveOrUpdateResumeLibrary">/WEB-INF/vixnt/hr/interview/resume_library_update.jsp</result>
+		    <result name="goSumRecruit">/WEB-INF/vixnt/hr/interview/sum_recruit_list.jsp</result>
+		    <result name="goSaveOrUpdateSumRecruit">/WEB-INF/vixnt/hr/interview/sum_recruit_update.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 培训管理/培训计划-->
+		<action name="nvixTrainAction!*" method="{1}" class="nvixTrainAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/train/activity_list.jsp</result>
+		    <result name="goSaveOrUpdateTrain">/WEB-INF/vixnt/hr/train/activity_update.jsp</result>
+		    <result name="saveOrUpdateTrainDetail">/WEB-INF/vixnt/hr/train/activity_detail.jsp</result>
+		    <result name="goWriteList">/WEB-INF/vixnt/hr/train/write_list.jsp</result>
+		    <result name="goSaveOrUpdateWrite">/WEB-INF/vixnt/hr/train/write_update.jsp</result>
+		    <result name="goAllTrainList">/WEB-INF/vixnt/hr/train/all_train_list.jsp</result>
+		    <result name="goSaveOrUpdateAllTrain">/WEB-INF/vixnt/hr/train/all_train_update.jsp</result>
+		    <result name="goChooseWritePlan">/WEB-INF/vixnt/hr/train/choose_write_plan.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 需求通知/需求申请/需求汇总-->
+		<action name="nvixNeedAction!*" method="{1}" class="nvixNeedAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/need/notice_list.jsp</result>
+		    <result name="goSaveOrUpdateNotice">/WEB-INF/vixnt/hr/need/notice_update.jsp</result>
+		    <result name="goAllNeedList">/WEB-INF/vixnt/hr/need/all_need_list.jsp</result>
+		    <result name="goSaveOrUpdateAllNeed">/WEB-INF/vixnt/hr/need/all_need_update.jsp</result>
+		    <result name="goChooseApply">/WEB-INF/vixnt/hr/need/choose_apply.jsp</result>
+		    <result name="goNeedApply">/WEB-INF/vixnt/hr/need/need_apply_list.jsp</result>
+		    <result name="goSaveOrUpdateNeedApply">/WEB-INF/vixnt/hr/need/need_apply_update.jsp</result>
+		    <result name="goChooseCourse">/WEB-INF/vixnt/hr/need/choose_course.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 培训体系-->
+		<action name="nvixTrainSystemAction!*" method="{1}" class="nvixTrainSystemAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/system/train_course_list.jsp</result>
+		    <result name="goSaveOrUpdateCourse">/WEB-INF/vixnt/hr/system/train_course_update.jsp</result>
+		    <result name="goDataList">/WEB-INF/vixnt/hr/system/train_data_list.jsp</result>
+		    <result name="goSaveOrUpdateData">/WEB-INF/vixnt/hr/system/train_data_update.jsp</result>
+		    <result name="goTeacherList">/WEB-INF/vixnt/hr/system/train_teacher_list.jsp</result>
+		    <result name="goSaveOrUpdateTeacher">/WEB-INF/vixnt/hr/system/train_teacher_update.jsp</result>
+		    <result name="goChannelList">/WEB-INF/vixnt/hr/system/train_channel_list.jsp</result>
+		    <result name="goSaveOrUpdateChannel">/WEB-INF/vixnt/hr/system/train_channel_update.jsp</result>
+		    <result name="goChooseTeacher">/WEB-INF/vixnt/hr/system/choose_teacher.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 培训规划/培训活动/问卷调查/培训总结-->
+		<action name="nvixTrainProjectAction!*" method="{1}" class="nvixTrainProjectAction">
+		    <result name="goList">/WEB-INF/vixnt/hr/project/train_project_list.jsp</result>
+		    <result name="goSaveOrUpdateProject">/WEB-INF/vixnt/hr/project/train_project_update.jsp</result>
+		    <result name="goActivityList">/WEB-INF/vixnt/hr/project/train_activity_list.jsp</result>
+		    <result name="goSaveOrUpdateActivity">/WEB-INF/vixnt/hr/project/train_activity_update.jsp</result>
+		    <result name="goCourseSummarizeList">/WEB-INF/vixnt/hr/project/course_summarize_list.jsp</result>
+		    <result name="goSaveOrUpdateCourseSummarize">/WEB-INF/vixnt/hr/project/course_summarize_update.jsp</result>
+		    <result name="goActivitySummarizeList">/WEB-INF/vixnt/hr/project/activity_summarize_list.jsp</result>
+		    <result name="goSaveOrUpdateActivitySummarize">/WEB-INF/vixnt/hr/project/activity_summarize_update.jsp</result>
+		    
+		    <result name="goQuessionList">/WEB-INF/vixnt/hr/project/quession_list.jsp</result>
+		    <result name="goSaveOrUpdateQuession">/WEB-INF/vixnt/hr/project/quession_update.jsp</result>
+		    
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+	</package>
+</struts>

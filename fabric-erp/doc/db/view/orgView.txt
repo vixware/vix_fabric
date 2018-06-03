@@ -1,0 +1,460 @@
+
+--1
+
+DELIMITER ;
+-- USE `vix5`;
+DROP VIEW
+IF EXISTS `v_mdm_org_orgview`;
+
+CREATE
+OR REPLACE VIEW `v_mdm_org_orgview` AS (
+	SELECT
+		CONCAT(`org`.`ID`, 'C') AS `id`,
+		`org`.`ID` AS `realId`,
+		`org`.`OrgName` AS `orgname`,
+		CONCAT(`org`.`Parent_id`, 'C') AS `parent_id`,
+		'C' AS `orgType`,
+		`org`.`tenantId` AS `tenantId`,
+		`org`.`CompanyCode` AS `companyCode`,
+		`org`.`CompanyInnerCode` AS `CompanyInnerCode`,
+		`org`.`OrgType` AS `orgUnitType`,
+		`org`.`DepartmentCode` AS `DepartmentCode`
+	FROM
+		`mdm_org_organization` `org`
+)
+UNION ALL
+	(
+		SELECT
+			CONCAT(`unit`.`ID`, 'O') AS `id`,
+			`unit`.`ID` AS `realId`,
+			`unit`.`Fs` AS `orgname`,
+			(
+				CASE
+				WHEN (
+					`unit`.`Parent_id` IS NOT NULL
+				) THEN
+					CONCAT(`unit`.`Parent_id`, 'O')
+				WHEN (
+					`unit`.`Organization_ID` IS NOT NULL
+				) THEN
+					CONCAT(
+						`unit`.`Organization_ID`,
+						'C'
+					)
+				ELSE
+					NULL
+				END
+			) AS `parent_id`,
+			'O' AS `orgType`,
+			`unit`.`tenantId` AS `tenantId`,
+			`unit`.`CompanyCode` AS `companyCode`,
+			`unit`.`CompanyInnerCode` AS `CompanyInnerCode`,
+			`unit`.`UnitType` AS `orgUnitType`,
+			`unit`.`DepartmentCode` AS `DepartmentCode`
+		FROM
+			`mdm_org_organizationunit` `unit`
+	);
+
+DELIMITER ;
+
+
+
+--公司和部门
+SELECT
+	CONCAT(org.id, 'C') id,
+	org.orgName orgname,
+	CONCAT(org.parent_id, 'C') parent_id,
+	'C' orgType
+FROM
+	mdm_org_organization org
+UNION ALL
+	SELECT
+		CONCAT(unit.id, 'O') id,
+		unit.Fs orgname,
+		(
+			CASE
+			WHEN unit.Parent_id IS NOT NULL THEN
+				CONCAT(unit.parent_id, 'O')
+			WHEN unit.organization_id IS NOT NULL THEN
+				CONCAT(unit.organization_id, 'C')
+			ELSE
+				NULL
+			END
+		) parentId,
+		'O' orgType
+	FROM
+		mdm_org_organizationunit unit;
+
+--2\
+
+DROP VIEW
+IF EXISTS `v_mdm_org_posview`;
+
+CREATE
+OR REPLACE VIEW `v_mdm_org_posview` AS (
+	SELECT
+		CONCAT(`org`.`ID`, 'C') AS `id`,
+		`org`.`ID` AS `realId`,
+		`org`.`OrgName` AS `orgname`,
+		CONCAT(`org`.`Parent_id`, 'C') AS `parent_id`,
+		'C' AS `orgType`,
+		`org`.`tenantId` AS `tenantId`,
+		`org`.`CompanyCode` AS `companyCode`,
+		`org`.`CompanyInnerCode` AS `CompanyInnerCode`,
+		`org`.`DepartmentCode` AS `DepartmentCode`
+	FROM
+		`mdm_org_organization` `org`
+)
+UNION ALL
+	(
+		SELECT
+			CONCAT(`unit`.`ID`, 'O') AS `id`,
+			`unit`.`ID` AS `realId`,
+			`unit`.`Fs` AS `orgname`,
+			(
+				CASE
+				WHEN (
+					`unit`.`Parent_id` IS NOT NULL
+				) THEN
+					CONCAT(`unit`.`Parent_id`, 'O')
+				WHEN (
+					`unit`.`Organization_ID` IS NOT NULL
+				) THEN
+					CONCAT(
+						`unit`.`Organization_ID`,
+						'C'
+					)
+				ELSE
+					NULL
+				END
+			) AS `parentId`,
+			'O' AS `orgType`,
+			`unit`.`tenantId` AS `tenantId`,
+			`unit`.`CompanyCode` AS `companyCode`,
+			`unit`.`CompanyInnerCode` AS `CompanyInnerCode`,
+			`unit`.`DepartmentCode` AS `DepartmentCode`
+		FROM
+			`mdm_org_organizationunit` `unit`
+	)
+UNION ALL
+	(
+		SELECT
+			CONCAT(`pos`.`ID`, 'P') AS `id`,
+			`pos`.`ID` AS `realId`,
+			`pos`.`PosName` AS `orgname`,
+			(
+				CASE
+				WHEN (`pos`.`Parent_id` IS NOT NULL) THEN
+					CONCAT(`pos`.`Parent_id`, 'P')
+				WHEN (
+					`pos`.`OrganizationUnit_ID` IS NOT NULL
+				) THEN
+					CONCAT(
+						`pos`.`OrganizationUnit_ID`,
+						'O'
+					)
+				ELSE
+					NULL
+				END
+			) AS `parentId`,
+			'P' AS `orgType`,
+			`pos`.`tenantId` AS `tenantId`,
+			`pos`.`CompanyCode` AS `companyCode`,
+			`pos`.`CompanyInnerCode` AS `CompanyInnerCode`,
+			`pos`.`DepartmentCode` AS `DepartmentCode`
+		FROM
+			`mdm_org_orgposition` `pos`
+	);
+
+
+--公司 部门 和岗位
+(
+	SELECT
+		CONCAT(org.id, 'C') id,
+		org.id realId,
+		org.orgName orgname,
+		CONCAT(org.parent_id, 'C') parent_id,
+		'C' orgType
+	FROM
+		mdm_org_organization org
+)
+UNION ALL
+	(
+		SELECT
+			CONCAT(unit.id, 'O') id,
+			unit.id realId,
+			unit.Fs orgname,
+			(
+				CASE
+				WHEN unit.Parent_id IS NOT NULL THEN
+					CONCAT(unit.parent_id, 'O')
+				WHEN unit.organization_id IS NOT NULL THEN
+					CONCAT(unit.organization_id, 'C')
+				ELSE
+					NULL
+				END
+			) parentId,
+			'O' orgType
+		FROM
+			mdm_org_organizationunit unit
+	)
+UNION ALL
+	(
+		SELECT
+			CONCAT(pos.id, 'P') id,
+			pos.id realId,
+			pos.posName orgname,
+			(
+				CASE
+				WHEN pos.Parent_id IS NOT NULL THEN
+					CONCAT(pos.parent_id, 'P')
+				WHEN pos.organizationUnit_id IS NOT NULL THEN
+					CONCAT(
+						pos.organizationUnit_id,
+						'O'
+					)
+				ELSE
+					NULL
+				END
+			) parentId,
+			'P' orgType
+		FROM
+			MDM_ORG_ORGPOSITION pos
+	);
+
+SELECT
+	CONCAT(org.id, 'C') id,
+	org.orgname,
+	CONCAT(org.parent_id, 'C') parent_id,
+	'C' orgType
+FROM
+	mdm_org_organization org
+UNION ALL
+	SELECT
+		CONCAT(unit.id, 'O') id,
+		unit.Fs orgname,
+		CASE
+	WHEN unit.parent_id IS NOT NULL THEN
+		CONCAT(unit.parent_id, 'O')
+	WHEN unit.organization_id IS NOT NULL THEN
+		CONCAT(unit.organization_id, 'C')
+	ELSE
+		NULL
+	END parent_id,
+	'O' orgType
+FROM
+	mdm_org_organizationunit unit
+UNION ALL
+	SELECT
+		CONCAT(bo.id, 'B') id,
+		bo.orgUnitName orgname,
+		CASE
+	WHEN bo.parent_id IS NOT NULL THEN
+		CONCAT(bo.parent_id, 'B')
+	WHEN bo.organizationUnit_id IS NOT NULL THEN
+		CONCAT(bo.organizationUnit_id, 'O')
+	ELSE
+		NULL
+	END parent_id,
+	'B' orgType
+FROM
+	mdm_org_businessorg bo;
+
+
+
+--3、业务视图和业务组织的视图
+DROP VIEW
+IF EXISTS `v_mdm_org_bizOrgView`;
+
+CREATE
+OR REPLACE VIEW `v_mdm_org_bizOrgView` AS (
+	SELECT
+		CONCAT(bizView.id, 'V') id,
+		bizView. NAME vname,
+		'V' viewType,
+		bizView.id realId,
+		NULL v_parent_id,
+		bizView.tenantId tenantId,
+		bizView.CompanyCode companyCode,
+		bizView.CompanyInnerCode CompanyInnerCode,
+		bizView.DepartmentCode DepartmentCode
+	FROM
+		mdm_org_businessview bizView
+)
+UNION ALL
+	(
+		SELECT
+			CONCAT(bizOrg.id, 'O') id,
+			bizOrg.businessOrgName vname,
+			'O' viewType,
+			bizOrg.id realId,
+			(
+				CASE
+				WHEN bizOrg.Parent_id IS NULL THEN
+					CONCAT(bizOrg.businessVIew_ID, 'V')
+				WHEN bizOrg.Parent_id IS NOT NULL THEN
+					CONCAT(bizOrg.Parent_id, 'O')
+				ELSE
+					NULL
+				END
+			) v_parent_id,
+			bizOrg.tenantId tenantId,
+			bizOrg.CompanyCode companyCode,
+			bizOrg.CompanyInnerCode CompanyInnerCode,
+			bizOrg.DepartmentCode DepartmentCode
+		FROM
+			mdm_org_businessorg bizOrg
+	);
+
+
+4、公司 部门  分销组织
+
+ CREATE
+OR REPLACE VIEW `v_mdm_org_orgDrpView` AS SELECT
+	CONCAT(org.id, 'C') id,
+	org.ID realId,
+	org.OrgName orgName,
+	CONCAT(org.Parent_id, 'C') parent_id,
+	'C' orgType,
+	org.tenantId tenantId,
+	org.CompanyCode companyCode,
+	org.CompanyInnerCode CompanyInnerCode,
+	org. CODE treeCode,
+	org.DepartmentCode DepartmentCode
+FROM
+	mdm_org_organization org
+UNION ALL
+	SELECT
+		CONCAT(unit.ID, 'O') id,
+		unit.ID realId,
+		unit.Fs orgName,
+		(
+			CASE
+			WHEN (
+				unit.Organization_ID IS NOT NULL
+			) THEN
+				CONCAT(unit.Organization_ID, 'C')
+			WHEN (unit.Parent_id IS NOT NULL) THEN
+				CONCAT(unit.Parent_id, 'O')
+			WHEN (
+				unit.CHANNELDISTRIBUTOR_ID IS NOT NULL
+			) THEN
+				CONCAT(
+					unit.CHANNELDISTRIBUTOR_ID,
+					'D'
+				)
+			ELSE
+				NULL
+			END
+		) parent_id,
+		'O' orgType,
+		unit.tenantId tenantId,
+		unit.CompanyCode companyCode,
+		unit.CompanyInnerCode CompanyInnerCode,
+		unit. CODE treeCode,
+		unit.DepartmentCode DepartmentCode
+	FROM
+		mdm_org_organizationunit unit
+	UNION ALL
+		SELECT
+			CONCAT(dc.ID, 'D') id,
+			dc.ID realId,
+			dc. NAME orgName,
+			(
+				CASE
+				WHEN (
+					dc.Organization_ID IS NOT NULL
+				) THEN
+					CONCAT(dc.Organization_ID, 'C')
+				WHEN (
+					dc.ORGANIZATIONUNIT_ID IS NOT NULL
+				) THEN
+					CONCAT(dc.ORGANIZATIONUNIT_ID, 'O')
+				WHEN (dc.PARENT_ID IS NOT NULL) THEN
+					CONCAT(dc.PARENT_ID, 'D')
+				ELSE
+					NULL
+				END
+			) parent_id,
+			'D' orgType,
+			dc.tenantId tenantId,
+			dc.CompanyCode companyCode,
+			dc.CompanyInnerCode CompanyInnerCode,
+			dc. CODE treeCode,
+			dc.DepartmentCode DepartmentCode
+		FROM
+			DRP_CHANNELDISTRIBUTOR dc;
+
+
+
+SELECT
+	CONCAT(org.id, 'C') id,
+	org.ID realId,
+	org.OrgName orgName,
+	CONCAT(org.Parent_id, 'C') parent_id,
+	'C' orgType,
+	org.tenantId tenantId,
+	org.CompanyCode companyCode,
+	org.CompanyInnerCode CompanyInnerCode,
+	org. CODE treeCode
+FROM
+	mdm_org_organization org
+UNION ALL
+	SELECT
+		CONCAT(unit.ID, 'O') id,
+		unit.ID realId,
+		unit.Fs orgName,
+		(
+			CASE
+			WHEN (
+				unit.Organization_ID IS NOT NULL
+			) THEN
+				CONCAT(unit.Organization_ID, 'C')
+			WHEN (unit.Parent_id IS NOT NULL) THEN
+				CONCAT(unit.Parent_id, 'O')
+			WHEN (
+				unit.CHANNELDISTRIBUTOR_ID IS NOT NULL
+			) THEN
+				CONCAT(
+					unit.CHANNELDISTRIBUTOR_ID,
+					'D'
+				)
+			ELSE
+				NULL
+			END
+		) parent_id,
+		'O' orgType,
+		unit.tenantId tenantId,
+		unit.CompanyCode companyCode,
+		unit.CompanyInnerCode CompanyInnerCode,
+		unit. CODE treeCode
+	FROM
+		mdm_org_organizationunit unit
+	UNION ALL
+		SELECT
+			CONCAT(dc.ID, 'D') id,
+			dc.ID realId,
+			dc. NAME orgName,
+			(
+				CASE
+				WHEN (
+					dc.Organization_ID IS NOT NULL
+				) THEN
+					CONCAT(dc.Organization_ID, 'C')
+				WHEN (
+					dc.ORGANIZATIONUNIT_ID IS NOT NULL
+				) THEN
+					CONCAT(dc.ORGANIZATIONUNIT_ID, 'O')
+				WHEN (dc.PARENT_ID IS NOT NULL) THEN
+					CONCAT(dc.PARENT_ID, 'D')
+				ELSE
+					NULL
+				END
+			) parent_id,
+			'D' orgType,
+			dc.tenantId tenantId,
+			dc.CompanyCode companyCode,
+			dc.CompanyInnerCode CompanyInnerCode,
+			dc. CODE treeCode
+		FROM
+			DRP_CHANNELDISTRIBUTOR dc;

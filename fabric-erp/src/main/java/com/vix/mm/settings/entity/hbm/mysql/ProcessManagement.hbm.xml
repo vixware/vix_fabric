@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mm.settings.entity.ProcessManagement" table="MM_PROCESSMANAGEMENT">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="processCode" type="java.lang.String">
+			<column name="PROCESSCODE" length="254" />
+		</property>
+		<property name="processDescription" type="java.lang.String">
+			<column name="PROCESSDESCRIPTION" length="254" />
+		</property>
+		<property name="types" type="java.lang.String">
+			<column name="TYPES" length="254" />
+		</property>
+		<property name="creDate" type="java.util.Date">
+			<column name="CREDATE" />
+		</property>
+		<property name="repPoint" type="java.lang.String">
+			<column name="REPPOINT" length="254" />
+		</property>
+		<property name="orgName" type="java.lang.String">
+			<column name="ORGNAME" length="254" />
+		</property>
+		<property name="eeverseBlankingProcess" type="java.lang.String">
+			<column name="EEVERSEBLANKINGPROCESS" length="254" />
+		</property>
+		<property name="outsourcingProcess" type="java.lang.String">
+			<column name="OUTSOURCINGPROCESS" length="254" />
+		</property>
+		<property name="manufacturerCode" type="java.lang.String">
+			<column name="MANUFACTURERCODE" length="254" />
+		</property>
+		<property name="manufacturerName" type="java.lang.String">
+			<column name="MANUFACTURERNAME" length="254" />
+		</property>
+		<property name="planOutsourcingProcess" type="java.lang.String">
+			<column name="PLANOUTSOURCINGPROCESS" length="254" />
+		</property>
+		<property name="deliveryPeriod" type="java.lang.String">
+			<column name="DELIVERYPERIOD" length="254" />
+		</property>
+		<property name="inspectionMethods" type="java.lang.String">
+			<column name="INSPECTIONMETHODS" length="254" />
+		</property>
+		<property name="samplingRule" type="java.lang.String">
+			<column name="SAMPLINGRULE" length="254" />
+		</property>
+		<property name="samplingRate" type="java.lang.String">
+			<column name="SAMPLINGRATE" length="254" />
+		</property>
+		<property name="samplingNumber" type="java.lang.String">
+			<column name="SAMPLINGNUMBER" length="254" />
+		</property>
+		<property name="inspectionStrictDegree" type="java.lang.String">
+			<column name="INSPECTIONSTRICTDEGREE" length="254" />
+		</property>
+		<property name="qualityInspectionPlan" type="java.lang.String">
+			<column name="QUALITYINSPECTIONPLAN" length="254" />
+		</property>
+		<property name="customInspectionRules" type="java.lang.String">
+			<column name="CUSTOMINSPECTIONRULES" length="254" />
+		</property>
+		<property name="inspectionRules" type="java.lang.String">
+			<column name="INSPECTIONRULES" length="254" />
+		</property>
+		<property name="testLevel" type="java.lang.String">
+			<column name="TESTLEVEL" length="254" />
+		</property>
+		<property name="aqlCode" type="java.lang.String">
+			<column name="AQLCODE" length="254" />
+		</property>
+		<property name="orgid" type="java.lang.String">
+			<column name="ORGID" length="254" />
+		</property>
+		
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID"
+			length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME"
+			length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY"
+			length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE"
+			length="150" />
+		<property name="companyInnerCode" type="java.lang.String"
+			column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE"
+			length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET"
+			length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String"
+			column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String"
+			column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT"
+			length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR"
+			length="150" />
+		<property name="status" type="java.lang.String" column="STATUS"
+			length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL"
+			length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID"
+			length="150" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE"
+			length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE"
+			length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String"
+			column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String"
+			column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String"
+			column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION"
+			length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO"
+			length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION"
+			length="150" />
+			
+		<set name="processManagementDetails" inverse="true">
+			<key column="processManagement_id" />
+			<one-to-many class="com.vix.mm.settings.entity.ProcessManagementDetail" />
+		</set>
+		
+		<set name="resourceiIformations" inverse="true">
+			<key column="processManagement_id" />
+			<one-to-many class="com.vix.mm.settings.entity.ResourceiIformation" />
+		</set>
+		
+		<many-to-one name="craftsRoute" column="CraftsRoute_ID" />
+	</class>
+</hibernate-mapping>

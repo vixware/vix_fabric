@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.hr.personnelmgr.entity.HrBecomeRegular" table="hr_becomeregular">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="theme" type="java.lang.String">
+			<column name="THEME" length="254" />
+		</property>
+		<property name="types" type="java.lang.String">
+			<column name="TYPES" length="254" />
+		</property>
+		<property name="litigant" type="java.lang.String">
+			<column name="LITIGANT" length="254" />
+		</property>
+		<property name="gestores" type="java.lang.String">
+			<column name="GESTORES" length="254" />
+		</property>
+		<property name="transactionState" type="java.lang.Integer" column="TRANSACTIONSTATE"/>
+		<property name="transactionTime" type="java.util.Date">
+			<column name="TRANSACTIONTIME"/>
+		</property>
+		<property name="employeeName" type="java.lang.String">
+			<column name="EMPLOYEENAME" length="254"/>
+		</property>
+		<property name="staff" type="java.lang.String">
+			<column name="STAFF" length="254" />
+		</property>
+		<property name="subStaff" type="java.lang.String">
+			<column name="SUBSTAFF" length="254" />
+		</property>
+		<property name="jobNumber" type="java.lang.String">
+			<column name="JOBNUMBER" length="254"/>
+		</property>
+		<property name="iDNumber" type="java.lang.String">
+			<column name="IDNUMBER" length="254"/>
+		</property>
+		<property name="probationDepartment" type="java.lang.String">
+			<column name="PROBATIONDEPARTMENT" length="254" />
+		</property>
+		<property name="probationPost" type="java.lang.String">
+			<column name="PROBATIONPOST" length="254" />
+		</property>
+		<property name="afterThePromotionDepartment" type="java.lang.String">
+			<column name="AFTERTHEPROMOTIONDEPARTMENT" length="254" />
+		</property>
+		<property name="afterThePromotionPost" type="java.lang.String">
+			<column name="AFTERTHEPROMOTIONPOST" length="254" />
+		</property>
+		<property name="becomeFullMembercause" type="java.lang.String">
+			<column name="BECOMEFULLMEMBERCAUSE" length="254" />
+		</property>
+		<property name="becomeFullMemberState" type="java.lang.Integer" column="BECOMEFULLMEMBERSTATE"/>
+		<property name="loanState" type="java.lang.Integer" column="LOANSTATE"/>
+		<property name="trialPeriod" type="java.lang.String">
+			<column name="TRIALPERIOD" length="254" />
+		</property>
+		<property name="approval" type="java.lang.String">
+			<column name="APPROVAL" length="254" />
+		</property>
+		<property name="approvalEvaluate" type="java.lang.String">
+			<column name="APPROVALEVALUATE" length="254" />
+		</property>
+		<property name="licenseNumber" type="java.lang.String">
+			<column name="LICENSENUMBER" length="254" />
+		</property>
+		<property name="licenseDate" type="java.util.Date">
+			<column name="LICENSEDATE" />
+		</property>
+		<property name="loanPeriod" type="java.lang.String">
+			<column name="LOANPERIOD" length="254" />
+		</property>
+		<property name="loadDate" type="java.util.Date">
+			<column name="LOADDATE" />
+		</property>
+		<property name="wherePosition" type="java.lang.String">
+			<column name="WHEREPOSITION" length="254" />
+		</property>
+		<property name="leaveType" type="java.lang.Integer" column="LEAVETYPE"/>
+		<property name="leaveName" type="java.lang.String">
+			<column name="LEAVENAME" length="254" />
+		</property>
+		<property name="leaveStartDate" type="java.util.Date">
+			<column name="LEAVESTARTDATE" />
+		</property>
+		<property name="leaveEndDate" type="java.util.Date">
+			<column name="LEAVEENDDATE" />
+		</property>
+		<property name="remarks" type="java.lang.String">
+			<column name="REMARKS" length="254" />
+		</property>
+		<property name="infoOrgDate" type="java.util.Date">
+			<column name="INFOORGDATE" />
+		</property>
+		<property name="employmentDate" type="java.util.Date">
+			<column name="EMPLOYMENTDATE" />
+		</property>
+		<property name="age" type="java.lang.String">
+			<column name="AGE" length="254" />
+		</property>
+		<property name="entryDate" type="java.util.Date">
+			<column name="ENTRYDATE" />
+		</property>
+		<property name="jiaName" type="java.lang.String">
+			<column name="JIANAME" length="254" />
+		</property>
+		<property name="jiaAddress" type="java.lang.String">
+			<column name="JIAADDRESS" length="254" />
+		</property>
+		<property name="zipCode" type="java.lang.String">
+			<column name="ZIPCODE" length="254" />
+		</property>
+		<property name="legalRepresentative" type="java.lang.String">
+			<column name="LEGALREPRESENTATIVE" length="254" />
+		</property>
+		<property name="telephone" type="java.lang.String">
+			<column name="TELEPHONE" length="254" />
+		</property>
+		<property name="fax" type="java.lang.String">
+			<column name="FAX" length="254" />
+		</property>
+		<property name="yiName" type="java.lang.String">
+			<column name="YINAME" length="254" />
+		</property>
+		<property name="yiAddress" type="java.lang.String">
+			<column name="YIADDRESS" length="254" />
+		</property>
+		<property name="bridgeProtocol" type="java.lang.String">
+			<column name="BRIDGEPROTOCOL" length="254" />
+		</property>
+		<property name="yiFamily" type="java.lang.String">
+			<column name="YIFAMILY" length="254" />
+		</property>
+		<property name="yiFamilySuggestion" type="java.lang.String">
+			<column name="YIFAMILYSUGGESTION" length="254" />
+		</property>
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID"
+			length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME"
+			length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY"
+			length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE"
+			length="150" />
+		<property name="companyInnerCode" type="java.lang.String"
+			column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE"
+			length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET"
+			length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String"
+			column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String"
+			column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT"
+			length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR"
+			length="150" />
+		<property name="status" type="java.lang.String" column="STATUS"
+			length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL"
+			length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID"
+			length="150"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE"
+			length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE"
+			length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String"
+			column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String"
+			column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String"
+			column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION"
+			length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO"
+			length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION"
+			length="150" />
+			
+		<property name="uploadPerson" type="java.lang.String" column="UPLOADPERSON" length="100" />
+		<property name="uploadPersonId" type="java.lang.String" column="UPLOADPERSONID" length="100" />
+		<property name="uploadPersonName" type="java.lang.String" column="UPLOADPERSONNAME" length="100"/>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100" />
+			
+		<set name="attachments" inverse="true">
+			<key column="hrbecomeregular_id" />
+			<one-to-many class="com.vix.hr.job.entity.HrAttachments" />
+		</set>
+		
+		<set name="hrapprovalOpinions" inverse="true">
+			<key column="hrbecomeregular_id" />
+			<one-to-many class="com.vix.hr.personnelmgr.entity.HrApprovalOpinion" />
+		</set>	
+		
+		<many-to-one name="employee" column="employee_id" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans" xmlns:oauth2="http://www.springframework.org/schema/security/oauth2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd 
+	http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2.xsd"
+	default-lazy-init="true">
+
+	<beans:description>Spring security 配置</beans:description>
+
+	<beans:bean id="authenticationLoggerListener" class="org.springframework.security.authentication.event.LoggerListener" />
+	<beans:bean id="authorizationLoggerListener" class="org.springframework.security.access.event.LoggerListener" />
+
+
+	<global-method-security pre-post-annotations="enabled" />
+	<!-- 该路径下的资源不用过滤 -->
+	<!-- IS_AUTHENTICATED_ANONYMOUSLY -->
+	<http pattern="/common/core/**" security="none" />
+	<http pattern="/vixntcommon/**" security="none" />
+	<http pattern="/wxcommon/**" security="none" />
+	<http pattern="/common/css/**" security="none" />
+	<http pattern="/common/img/**" security="none" />
+	<http pattern="/common/js/**" security="none" />
+	<http pattern="/common/page/**" security="none" />
+	<http pattern="/plugin/**" security="none" />
+	<http pattern="/common/vixAction!goLogin.action*" security="none" />
+	<http pattern="/common/vixAction!goNvix.action*" security="none" />
+	<http pattern="/common/vixAction!getUserInforByTicket.action*" security="none" />
+	<http pattern="/nvixnt/wxpWeixinSiteAction!goLoginPage.action*" security="none" />
+	<http pattern="/nvixnt/vixntWxPayAction!getPayBack.action*" security="none" />
+	<http pattern="/wechat/**" security="none" />
+	<http pattern="/front/**" security="none" />
+    <!---->
+	<http pattern="/module/eam/*.css" security="none" />
+	<http pattern="/module/eam/*.js" security="none" />
+	<http pattern="/module/phone/*.css" security="none" />
+	<http pattern="/module/phone/*.js" security="none" />
+
+
+	<http pattern="/cxfservices/IStoreDownLoadService*" security="none" />
+
+	<http pattern="/system/storeWebServiceAction!findCustomerInformationByShipCardCode.action*" security="none" />
+	<http pattern="/system/storeWebServiceAction!findCustomerInformationByMobile.action*" security="none" />
+	<http pattern="/front/fabricIndexAction!goIndex.action*" security="none" />
+	<http pattern="/system/customerApi*" security="none" />
+	<http pattern="/system/vaUserAction*" security="none" />
+	<http pattern="/restService/fruitDataUpload/**" security="none" />
+	<http pattern="/restService/orderDown/**" security="none" />
+	<http pattern="/restService/orderReturn/**" security="none" />
+	<http pattern="/restService/dataSelect/**" security="none" />
+	<http pattern="/restService/uploadCode/**" security="none" />
+	<http pattern="/restService/salesOrderUpLoad/**" security="none" />
+	<http pattern="/restService/fabricSDK/**" security="none" />
+
+	<!-- REST BASIC AUTH 为Rest服务定制的 基本认证 20150427 -->
+	<beans:bean id="vixBasicAuthenticationEntryPoint" class="com.vix.common.security.util.basic.VixBasicAuthenticationEntryPoint" />
+
+	<http pattern="/restService/common/servlet/wx/**" security="none" />
+	<http pattern="/restService/common/share/**" security="none" />
+
+	<http pattern="/restService/**" use-expressions="true" realm="RestAuth">
+		<anonymous enabled="false" />
+		<intercept-url pattern="/**/*.rs" access="isAuthenticated()" />
+		<http-basic entry-point-ref="vixBasicAuthenticationEntryPoint" />
+	</http>
+
+	<http use-expressions="true" access-denied-page="/no.jsp">
+		<intercept-url pattern="/**/*.action" access="isAuthenticated()" />
+		<form-login login-page="/common/vixAction!goLogin.action" default-target-url="/common/vixAction!goIndex.action" authentication-failure-url="/common/vixAction!goLogin.action?error=true" />
+		<session-management invalid-session-url="/common/vixAction!goLogin.action" session-authentication-strategy-ref="sas">
+		</session-management>
+
+		<anonymous enabled="false" />
+
+		<custom-filter ref="validateCodeFilter" before="FORM_LOGIN_FILTER" />
+		<custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER" />
+
+		<!-- 增加一个自定义的filter，放在FILTER_SECURITY_INTERCEPTOR之前， 实现用户、角色、权限、资源的数据库管理。 -->
+		<custom-filter ref="vixFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+
+		<custom-filter ref="logoutFilter" position="LOGOUT_FILTER" />
+
+	</http>
+
+	<beans:bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+		<beans:property name="sessionRegistry" ref="sessionRegistry" />
+		<beans:property name="expiredUrl" value="/common/vixAction!goLogin.action?error=expired" />
+	</beans:bean>
+
+	<beans:bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy">
+		<beans:constructor-arg name="sessionRegistry" ref="sessionRegistry" />
+		<beans:property name="maximumSessions" value="2" />
+	</beans:bean>
+
+	<beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+
+	<!-- 一个自定义的filter，必须包含authenticationManager, accessDecisionManager,securityMetadataSource三个属性。 -->
+	<beans:bean id="vixFilter" class="com.vix.common.security.util.VixSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="vixAccessDecisionManager" />
+		<beans:property name="securityMetadataSource" ref="vixSecurityMetadataSource" />
+	</beans:bean>
+
+
+	<!-- UsernamePasswordAuthenticationFilter -->
+
+	<!-- 验证码过滤器 -->
+	<beans:bean id="validateCodeFilter" class="com.vix.common.security.util.ValidateCodeFilter">
+		<beans:property name="authenticationSuccessHandler" ref="authSuccessHandler" />
+		<beans:property name="authenticationFailureHandler" ref="authFailureHandler" /> <!-- simpleUrlAuthenticationFailureHandler -->
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="sessionAuthenticationStrategy" ref="sas" />
+	</beans:bean>
+
+	<!-- 注意能够为authentication-manager 设置alias别名 -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider ref="loginAuthenticationProvider" /> <!-- user-service-ref="userAccountService" -->
+	</authentication-manager>
+
+	<!-- 自定义验证器 -->
+	<beans:bean id="loginAuthenticationProvider" class="com.vix.common.security.util.extprovider.VixLoginAuthenticationProvider">
+		<beans:property name="userDetailsService" ref="userAccountService"></beans:property>
+		<beans:property name="passwordEncoder" ref="passwordEncoder"></beans:property>
+		<!-- loginUserDetailService -->
+	</beans:bean>
+
+
+	<beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.PlaintextPasswordEncoder" />
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。isAuthenticated() -->
+	<beans:bean id="vixAccessDecisionManager" class="com.vix.common.security.util.VixAccessDecisionManager" />
+
+	<!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
+	<beans:bean id="vixSecurityMetadataSource" class="com.vix.common.security.util.VixSecurityMetadataSource">
+		<beans:property name="resourceService" ref="resourceService"></beans:property>
+		<beans:property name="authorityService" ref="authorityService"></beans:property>
+		<beans:property name="dataResRowMethodConfigService" ref="dataResRowMethodConfigService"></beans:property>
+	</beans:bean>
+
+	<!-- 登录成功 -->
+	<beans:bean id="authSuccessHandler" class="com.vix.common.security.util.handler.VixAuthSuccessHandler">
+		<beans:property name="defaultTargetUrl" value="/front/fabricIndexAction!goIndex.action" />
+		<!-- <beans:property name="defaultTargetUrl" value="/common/vixAction!goIndex.action" /> -->
+		<beans:property name="dataResRowPolicyObjService" ref="dataResRowPolicyObjService"></beans:property>
+		<beans:property name="logService" ref="logService"></beans:property>
+		<beans:property name="resourceService" ref="resourceService"></beans:property>
+		<beans:property name="authorityService" ref="authorityService"></beans:property>
+		<beans:property name="dataColSecService" ref="dataColSecService"></beans:property>
+		<beans:property name="roleService" ref="roleService"></beans:property>
+	</beans:bean>
+
+
+	<!-- 登录失败 -->
+	<beans:bean id="authFailureHandler" class="com.vix.common.security.util.handler.VixAuthFailureHandler">
+		<beans:property name="defaultFailureUrl" value="/common/vixAction!goLogin.action?error=true" />
+		<beans:property name="logService" ref="logService"></beans:property>
+	</beans:bean>
+
+	<!-- 退出清空 SecurityContext -->
+	<beans:bean id="logoutHandler" class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+
+	<!-- 自定义退出 -->
+	<beans:bean id="logoutFilter" class="com.vix.common.security.util.logout.VixLogoutFilter">
+		<beans:constructor-arg value="/common/vixAction!goLogin.action" />
+		<beans:constructor-arg>
+			<beans:list>
+				<beans:ref local="logoutHandler" />
+			</beans:list>
+		</beans:constructor-arg>
+		<beans:property name="filterProcessesUrl" value="/logout" />
+	</beans:bean>
+</beans:beans>

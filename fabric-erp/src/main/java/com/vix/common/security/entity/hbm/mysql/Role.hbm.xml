@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.security.entity.Role" table="CMN_SEC_ROLE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+		 
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		<property name="createTime" type="java.util.Date" column="CreateTime" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UpdateTime"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		
+		 
+		<property name="name" type="java.lang.String" column="Name" length="100"/>
+		<property name="roleType" type="java.lang.String" column="roleType" length="100"/>
+		<property name="roleCode" type="java.lang.String" column="RoleCode" length="100"/>
+		<property name="memo" type="java.lang.String" column="Memo" length="200"/>
+		
+		<many-to-one name="parentRole" >
+			<column name="Parent_id">
+				<comment>父角色ID</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="homeTemplate" class="com.vix.nvix.common.base.entity.HomeTemplate" lazy="false" fetch="join">
+			<column name="homeTemplate_id">
+				<comment>工作台模板ID</comment>
+			</column>
+		</many-to-one>
+		<set name="subRoles" inverse="true">
+			<key column="Parent_id"/>
+			<one-to-many class="com.vix.common.security.entity.Role"/>
+		</set>
+		
+		<set name="userAccounts" table="CMN_SEC_USERACCOUNT_ROLE" inverse="true">
+            <key>
+                <column name="Role_ID" not-null="true">
+                	<comment>角色id</comment>
+               	</column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.UserAccount">
+              	<column name="UserAccount_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+        
+        <set name="userGroups" table="CMN_SEC_USERGROUP_ROLE">
+            <key>
+                <column name="UserGroup_ID" not-null="true" >
+                	<comment>用户组id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Role">
+                <column name="Role_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        
+        <set name="roleBizConfigs" inverse="true">
+			<key column="Role_ID"/>
+			<one-to-many class="com.vix.common.security.entity.RoleBizConfig"/>
+		</set>
+		
+		<set name="roleTypes" inverse="true">
+			<key column="Role_ID"/>
+			<one-to-many class="com.vix.common.security.entity.RoleType"/>
+		</set>
+		
+		<set name="authoritys" table="CMN_SEC_ROLE_AUTHORITY" fetch="join">
+            <key>
+                <column name="Role_ID" not-null="true">
+                	<comment>角色id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.Authority">
+                <column name="Authority_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        
+         <set name="dataResRowSystemParams" table="CMN_SEC_DATARESROWSYSTEMPARAMS_ROLE" inverse="true">
+            <key>
+                <column name="Role_ID" not-null="true">
+                	<comment>角色id</comment>
+               	</column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.DataResRowSystemParams">
+              	<column name="DATARESPARAMS_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+        
+        <set name="dataResColConfigs" table="CMN_SEC_DATARESCOLCONFIG_ROLE">
+            <key>
+                <column name="Role_ID" not-null="true">
+                	<comment>角色id</comment>
+               	</column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.DataResColConfig">
+              	<column name="DATARESCOLCONFIG_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+        
+        <set name="indexPageDataConfigs" table="CMN_SEC_ROLE_IPD_CONFIG" fetch="join">
+            <key>
+                <column name="Role_ID" not-null="true">
+                	<comment>角色id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.security.entity.IndexPageDataConfig">
+                <column name="IPD_CONFIG_ID" not-null="true" />
+            </many-to-many>
+        </set>
+        
+        <!-- 
+        <many-to-one name="industryManagement" class="com.vix.system.industrymanagement.entity.IndustryManagement" lazy="false" not-null="false">
+			<column name="IndustryManagement_ID">
+				 <comment>行业id</comment>
+			</column>
+		</many-to-one>
+         -->
+	</class>
+</hibernate-mapping>

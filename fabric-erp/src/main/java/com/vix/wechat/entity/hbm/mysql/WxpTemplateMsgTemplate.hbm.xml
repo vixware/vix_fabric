@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.wechat.entity.WxpTemplateMsgTemplate" table="WECHAT_WXPTEMPLATEMSGTEMPLATE">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="templateId" type="java.lang.String" column="template_id" />
+		<property name="templateIdShort" type="java.lang.String" column="template_id_short" />
+		<property name="title" type="java.lang.String" column="title" />
+		<property name="content" type="java.lang.String" column="content" />
+		<property name="example" type="java.lang.String" column="example" />
+		<property name="count" type="java.lang.Integer" column="count" />
+		<property name="hostIndustry" type="java.lang.String" column="host_industry" />
+		<property name="deputyIndustry" type="java.lang.String" column="deputy_industry" />
+		<property name="contentData1" type="java.lang.String" column="content_data1" />
+		<property name="contentData2" type="java.lang.String" column="content_data2" />
+		<property name="contentData3" type="java.lang.String" column="content_data3" />
+		<property name="contentData4" type="java.lang.String" column="content_data4" />
+		<property name="contentData5" type="java.lang.String" column="content_data5" />
+		<property name="contentData6" type="java.lang.String" column="content_data6" />
+		<property name="contentData7" type="java.lang.String" column="content_data7" />
+		<property name="contentData8" type="java.lang.String" column="content_data8" />
+		<property name="contentData9" type="java.lang.String" column="content_data9" />
+		<property name="contentData10" type="java.lang.String" column="content_data10" />
+		<property name="contentData11" type="java.lang.String" column="content_data11" />
+		<property name="contentData12" type="java.lang.String" column="content_data12" />
+		<property name="contentData13" type="java.lang.String" column="content_data13" />
+		<property name="contentData14" type="java.lang.String" column="content_data14" />
+		<property name="contentData15" type="java.lang.String" column="content_data15" />
+
+		<property name="contentDataName1" type="java.lang.String" column="content_data_name1" />
+		<property name="contentDataName2" type="java.lang.String" column="content_data_name2" />
+		<property name="contentDataName3" type="java.lang.String" column="content_data_name3" />
+		<property name="contentDataName4" type="java.lang.String" column="content_data_name4" />
+		<property name="contentDataName5" type="java.lang.String" column="content_data_name5" />
+		<property name="contentDataName6" type="java.lang.String" column="content_data_name6" />
+		<property name="contentDataName7" type="java.lang.String" column="content_data_name7" />
+		<property name="contentDataName8" type="java.lang.String" column="content_data_name8" />
+		<property name="contentDataName9" type="java.lang.String" column="content_data_name9" />
+		<property name="contentDataName10" type="java.lang.String" column="content_data_name10" />
+		<property name="contentDataName11" type="java.lang.String" column="content_data_name11" />
+		<property name="contentDataName12" type="java.lang.String" column="content_data_name12" />
+		<property name="contentDataName13" type="java.lang.String" column="content_data_name13" />
+		<property name="contentDataName14" type="java.lang.String" column="content_data_name14" />
+		<property name="contentDataName15" type="java.lang.String" column="content_data_name15" />
+	</class>
+</hibernate-mapping>

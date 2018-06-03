@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="../jquery/jquery-1.8.2.js"></script>
+<script src="../jquery/jquery-ui-1.9.1.custom.min.js"></script>
+<link href="../jquery/css/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+<link href="../vreport/css/vreport.css" rel="stylesheet">
+<script src="../raphael/raphael-min.js"></script>
+<script src="../vreport/js/vprint.js"></script>
+</head>
+<body>
+
+	<script>	
+ 	
+	var vPrint = new VPrint({
+		isEdit:true,
+		expressJson:{
+			"顺丰快递-215-140":'sf-215-140.jpg'
+		},
+		saveFun:function(data){
+			alert(data);
+		}
+	});
+	
+	vPrint.loadData({"viewType":"h","width":"1111","height":"1111","link":[{"id":"link1","from":"node1","to":["node2","node3"],"length":19}],"node":[{"x":210,"y":37,"title":"标题","titleRemark":"副标题","content":"","id":"node1","w":190,"h":120,"th":40,"url":"http://localhost:8080/resources/vreport/data.html"},{"x":61,"y":199,"title":"标题","titleRemark":"副标题","content":"","id":"node2","w":190,"h":120,"th":40,"url":"http://localhost:8080/resources/vreport/data.html"},{"x":371,"y":208,"title":"标题","titleRemark":"副标题","content":"","id":"node3","w":190,"h":120,"th":40,"url":"http://localhost:8080/resources/vreport/data.html"}]});
+ </script>
+
+</body>
+</html>

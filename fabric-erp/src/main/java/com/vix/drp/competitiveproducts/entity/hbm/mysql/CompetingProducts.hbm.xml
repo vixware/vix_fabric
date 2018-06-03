@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.drp.competitiveproducts.entity.CompetingProducts" table="DRP_COMPETINGPRODUCTS">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!--自身属性 -->
+		<property name="eanupc" type="java.lang.String" column="EANUPC" length="50" />
+		<property name="batchCode" type="java.lang.String" column="BATCHCODE" length="50" />
+		<property name="serialCode" type="java.lang.String" column="SERIALCODE" length="50" />
+		<property name="itemGroup" type="java.lang.String" column="ITEMGROUP" length="50" />
+		<property name="scode" type="java.lang.String" column="SCODE" length="50" />
+		<property name="xcode" type="java.lang.String" column="XCODE" length="50" />
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="50" />
+		<property name="industry" type="java.lang.String" column="INDUSTRY" length="50" />
+		<property name="specification" type="java.lang.String" column="SPECIFICATION" length="50" />
+		<property name="specDescription" type="java.lang.String" column="SPECDESCRIPTION" length="50" />
+		<property name="size" type="java.lang.String" column="SIZE" length="50" />
+		<property name="color" type="java.lang.String" column="COLOR" length="50" />
+		<property name="material" type="java.lang.String" column="MATERIAL" length="50" />
+		<property name="gernalName" type="java.lang.String" column="GERNALNAME" length="50" />
+		<property name="engishName" type="java.lang.String" column="ENGISHNAME" length="50" />
+		<property name="catalog" type="java.lang.String" column="CATALOG" length="50" />
+		<property name="masterUnit" type="java.lang.String" column="MASTERUNIT" length="50" />
+		<property name="purchaseUnit" type="java.lang.String" column="PURCHASEUNIT" length="50" />
+		<property name="saleUnit" type="java.lang.String" column="SALEUNIT" length="50" />
+		<property name="produceUnit" type="java.lang.String" column="PRODUCEUNIT" length="50" />
+		<property name="saleDefaultUnit" type="java.lang.String" column="SALEDEFAULTUNIT" length="50" />
+		<property name="stockDefaultUnit" type="java.lang.String" column="STOCKDEFAULTUNIT" length="50" />
+		<property name="costDefaultUnit" type="java.lang.String" column="COSTDEFAULTUNIT" length="50" />
+		<property name="retailUnit" type="java.lang.String" column="RETAILUNIT" length="50" />
+		<property name="saleTax" type="java.lang.String" column="SALETAX" length="50" />
+		<property name="productCountry" type="java.lang.String" column="PRODUCTCOUNTRY" length="50" />
+		<property name="productEnterprise" type="java.lang.String" column="PRODUCTENTERPRISE" length="50" />
+		<property name="productLine" type="java.lang.String" column="PRODUCTLINE" length="50" />
+		<property name="viceProductLine" type="java.lang.String" column="VICEPRODUCTLINE" length="50" />
+		<property name="productLocation" type="java.lang.String" column="PRODUCTLOCATION" length="50" />
+		<property name="brand" type="java.lang.String" column="BRAND" length="50" />
+		<property name="origin" type="java.lang.String" column="ORIGIN" length="50" />
+		<property name="operator" type="java.lang.String" column="OPERATOR" length="50" />
+		<property name="productGroup" type="java.lang.String" column="PRODUCTGROUP" length="50" />
+		<property name="price" type="java.lang.Double" column="PRICE" length="50" />
+		<property name="operateTime" type="java.util.Date" column="OPERATETIME" length="50" />
+		<property name="isStatics" type="java.lang.String" column="ISSTATICS" length="50" />
+		<property name="isValid" type="java.lang.String" column="ISVALID" length="50" />
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+	</class>
+</hibernate-mapping>

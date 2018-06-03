@@ -1,0 +1,1 @@
+sjBaseDataMgr_eqTechParam.jsp

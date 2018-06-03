@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.orginialMeta.entity.OrginialBaseMetaDataCategory" table="CMN_MET_ORGINIAL_METADATACATEGORY">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/>
+		<property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/>
+		 -->
+	 	<!-- <property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="128"/> -->
+	
+		<property name="categoryName" type="java.lang.String" column="CategoryName" length="128"/>
+		<property name="code" type="java.lang.String" column="Code" length="100"/>
+		
+		<set name="baseMetaDatas" inverse="true">
+			 <key>
+                <column name="BaseMetaDataCategory_ID"  not-null="true" ></column>
+            </key>
+			<one-to-many class="com.vix.common.orginialMeta.entity.OrginialBaseMetaData"/>
+		</set>
+		
+  </class>
+</hibernate-mapping>

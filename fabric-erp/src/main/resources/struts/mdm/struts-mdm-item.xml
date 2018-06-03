@@ -1,0 +1,177 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="mdm.item.config" namespace="/mdm/item" extends="crud-default">
+		<!-- 物料 -->
+		<action name="itemAction!*" method="{1}" class="itemAction">
+			<result name="goList">/WEB-INF/content/mdm/item/item_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/item_list_content.jsp</result>
+			<result name="goChooseListContent">/WEB-INF/content/mdm/item/itemChoose_list_content.jsp</result>
+			<result name="dynamicItem">/WEB-INF/content/mdm/item/updateDynamicItem.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/updateItem.jsp</result>
+			<result name="goSearch">/WEB-INF/content/mdm/item/item_search.jsp</result> 
+			<!-- 基本信息 -->
+			<result name="goSaveOrUpdateItemTabOne">/WEB-INF/content/mdm/item/updateItemTabOne.jsp</result>
+			<!-- 采购、销售、库存 -->
+			<result name="goSaveOrUpdateItemTabTwo">/WEB-INF/content/mdm/item/updateItemTabTwo.jsp</result>
+			<!-- 财务 -->
+			<result name="goSaveOrUpdateItemTabThree">/WEB-INF/content/mdm/item/updateItemTabThree.jsp</result>
+			<!-- MRP, 计划、质量 -->
+			<result name="goSaveOrUpdateItemTabFour">/WEB-INF/content/mdm/item/updateItemTabFour.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseItem">/WEB-INF/content/mdm/item/chooseItem.jsp</result>
+			<result name="chooseSpecification">/WEB-INF/content/mdm/item/itemSpecification.jsp</result>
+			<result name="goSaveOrUpdateItemReplace">/WEB-INF/content/mdm/item/updateItemReplace.jsp</result>
+			<result name="loadSpecification">/WEB-INF/content/mdm/item/loadSpecification.jsp</result>
+			<result name="itemMeasureUnit">/WEB-INF/content/mdm/item/loadItemMeasureUnit.jsp</result>
+			<result name="itemAssitMeasureUnit">/WEB-INF/content/mdm/item/loadItemAssitMeasureUnit.jsp</result>
+			<result name="purBaseUnit">/WEB-INF/content/mdm/item/loadPurcaseBaseUnit.jsp</result>
+			<result name="purAssitUnit">/WEB-INF/content/mdm/item/loadPurcaseAssitUnit.jsp</result>
+			<result name="poUnit">/WEB-INF/content/mdm/item/loadPoUnit.jsp</result>
+			<result name="chooseItemFile">/WEB-INF/content/mdm/item/chooseItemFile.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="itemAttachFileAction!*" method="{1}" class="itemAttachFileAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/updateItemAttachFile.jsp</result>
+			<result name="downloadAttachedFile" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${salesAttachFile.fileName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 物料价格 -->
+		<action name="itemPriceAction!*" method="{1}" class="itemPriceAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/warning/updateItemPrice.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 物料品牌 -->
+		<action name="itemBrandAction!*" method="{1}" class="itemBrandAction">
+			<result name="goList">/WEB-INF/content/mdm/item/brand/itemBrand_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/brand/itemBrand_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/brand/updateItemBrand.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 快速新增物料 -->
+		<action name="fastAddItemAction!*" method="{1}" class="fastAddItemAction">
+			<result name="goList">/WEB-INF/content/mdm/item/industry/circulationIndustryItem_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/industry/circulationIndustryItem_list_content.jsp</result>
+			<result name="goSaveOrUpdateCirculationIndustryItem">/WEB-INF/content/mdm/item/industry/updateCirculationIndustryItem.jsp</result>
+			<result name="dynamicItem">/WEB-INF/content/mdm/item/updateDynamicItem.jsp</result>
+			<result name="generateSpecificationTable">/WEB-INF/content/mdm/item/industry/generateSpecificationTable.jsp</result>
+			<result name="loadSpecificationDetail">/WEB-INF/content/mdm/item/industry/loadSpecificationDetail.jsp</result>
+			<result name="specJson" type="json">specJson</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 物料分类 -->
+		<action name="itemCatalogAction!*" method="{1}" class="itemCatalogAction">
+			<result name="goList">/WEB-INF/content/mdm/item/itemCatalog_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/itemCatalog_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/updateItemCatalog.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goChooseItemCatalogFile">/WEB-INF/content/mdm/item/chooseItemCatalogFile.jsp</result>
+			<result name="goChooseMultiItemCatalog">/WEB-INF/content/mdm/item/chooseMultiItemCatalog.jsp</result>
+		</action>
+		<!-- 物料组 -->
+		<action name="itemGroupAction!*" method="{1}" class="itemGroupAction">
+			<result name="goList">/WEB-INF/content/mdm/item/itemGroup_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/itemGroup_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/updateItemGroup.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 物料选择 -->
+		<action name="itemChooseAction!*" method="{1}" class="itemChooseAction">
+			<result name="goChooseItemForItemGroup">/WEB-INF/content/mdm/item/choose/chooseItemForItemGroup_list.jsp</result>
+			<result name="goListContentForItemGroup">/WEB-INF/content/mdm/item/choose/itemChooseForItemGroup_list_content.jsp</result>
+		</action>
+		<!-- 物料库存属性 -->
+		<action name="itemInventoryPropertiesAction!*" method="{1}" class="itemInventoryPropertiesAction">
+			<result name="loadInvShelf">/WEB-INF/content/mdm/item/loadInventoryInvShelf.jsp</result>
+		</action>
+		<!-- 物料采购属性 -->
+		<action name="itemPurchasePropertiesAction!*" method="{1}" class="itemPurchasePropertiesAction">
+			<result name="loadInvShelf">/WEB-INF/content/mdm/item/loadPurchaseInvShelf.jsp</result>
+		</action>
+		
+		<!-- 采购物料定价列表 -->
+		<action name="purchaseItemPriceAction!*" method="{1}" class="purchaseItemPriceAction">
+			<result name="goList">/WEB-INF/content/mdm/item/price/purchase/purchaseItemChoose_list.jsp</result>
+			<result name="goListContentChoose">/WEB-INF/content/mdm/item/price/purchase/purchaseItemChoose_list_content.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchaseItemPrice_list_content.jsp</result>
+			<result name="fixedPrice">/WEB-INF/content/mdm/item/price/purchase/purchaseFixedPrice.jsp</result>
+			<result name="fixedPrice_content">/WEB-INF/content/mdm/item/price/purchase/purchaseFixedPrice_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购物料定价 -->
+		<action name="purchasePriceConditionAction!*" method="{1}" class="purchasePriceConditionAction">
+			<result name="goList">/WEB-INF/content/mdm/item/price/purchase/purchasePriceCondition_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceCondition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceCondition.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购价格区间 -->
+		<action name="purchasePriceConditionPriceAreaAction!*" method="{1}" class="purchasePriceConditionPriceAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceConditionPriceArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceConditionPriceArea.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购数量区间 -->
+		<action name="purchasePriceConditionCountAreaAction!*" method="{1}" class="purchasePriceConditionCountAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceConditionCountArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceConditionCountArea.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 采购赠品管理 -->
+		<action name="purchasePriceConditionGiftAction!*" method="{1}" class="purchasePriceConditionGiftAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/purchase/purchasePriceConditionGift_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/purchase/updatePurchasePriceConditionGift.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		
+		<!-- 销售物料定价列表 -->
+		<action name="saleItemPriceAction!*" method="{1}" class="saleItemPriceAction">
+			<result name="goList">/WEB-INF/content/mdm/item/price/sale/saleItemChoose_list.jsp</result>
+			<result name="goListContentChoose">/WEB-INF/content/mdm/item/price/sale/saleItemChoose_list_content.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/saleItemPrice_list_content.jsp</result>
+			<result name="fixedPrice">/WEB-INF/content/mdm/item/price/sale/saleFixedPrice.jsp</result>
+			<result name="fixedPrice_content">/WEB-INF/content/mdm/item/price/sale/saleFixedPrice_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售物料定价 -->
+		<action name="salePriceConditionAction!*" method="{1}" class="salePriceConditionAction">
+			<result name="goList">/WEB-INF/content/mdm/item/price/sale/salePriceCondition_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceCondition_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceCondition.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售价格区间 -->
+		<action name="salePriceConditionPriceAreaAction!*" method="{1}" class="salePriceConditionPriceAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceConditionPriceArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceConditionPriceArea.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售数量区间 -->
+		<action name="salePriceConditionCountAreaAction!*" method="{1}" class="salePriceConditionCountAreaAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceConditionCountArea_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceConditionCountArea.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 销售赠品管理 -->
+		<action name="salePriceConditionGiftAction!*" method="{1}" class="salePriceConditionGiftAction">
+			<result name="goListContent">/WEB-INF/content/mdm/item/price/sale/salePriceConditionGift_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/mdm/item/price/sale/updateSalePriceConditionGift.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="itemImageAction!*" method="{1}" class="itemImageAction">
+			<result name="downloadItemImage" type="stream">  
+                <param name="contentType">application/octet-stream</param>  
+                <param name="contentDisposition">attachment;filename="${itemImage.persisName}"</param>  
+                <param name="inputName">inputStream</param>   
+                <param name="buffserSize">4096</param>        
+            </result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

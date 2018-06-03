@@ -1,0 +1,1058 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--协同办公 -->
+	<package name="oa.config" namespace="/oa" extends="crud-default">
+		<global-results>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</global-results>
+		<!-- 富文本编辑器 -->
+		<action name="kindEditorAction!*" method="{1}" class="kindEditorAction">
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 快速新增 -->
+		<action name="oaMainAction!*" method="{1}" class="oaMainAction">
+			<result name="goMenuContent">/WEB-INF/content/oa/main/menuContent.jsp</result>
+		</action>
+
+		<!-- 初始设置——任务来源 -->
+		<action name="taskSourceTypeAction!*" method="{1}" class="taskSourceTypeAction">
+			<result name="goList">/WEB-INF/content/oa/task/typeSettings/taskSourceType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/typeSettings/taskSourceType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/typeSettings/taskSourceType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 初始设置——任务类型 -->
+		<action name="taskTypeAction!*" method="{1}" class="taskTypeAction">
+			<result name="goList">/WEB-INF/content/oa/task/typeSettings/taskType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/typeSettings/taskType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/typeSettings/taskType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 初始设置——难度系数 -->
+		<action name="difficultyCoefficientAction!*" method="{1}" class="difficultyCoefficientAction">
+			<result name="goList">/WEB-INF/content/oa/task/typeSettings/difficultyCoefficient_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/typeSettings/difficultyCoefficient_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/typeSettings/difficultyCoefficient_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 初始设置——进度情况-暂时保留后期如不需要再删除 -->
+		<action name="progressSituationAction!*" method="{1}" class="progressSituationAction">
+			<result name="goList">/WEB-INF/content/oa/task/typeSettings/progressSituation_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/typeSettings/progressSituation_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/typeSettings/progressSituation_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 初始设置——任务层级 -->
+		<action name="taskLevelAction!*" method="{1}" class="taskLevelAction">
+			<result name="goList">/WEB-INF/content/oa/task/typeSettings/taskLevel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/typeSettings/taskLevel_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/typeSettings/taskLevel_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 初始设置——完成标志 -->
+		<action name="completionMarkAction!*" method="{1}" class="completionMarkAction">
+			<result name="goList">/WEB-INF/content/oa/task/typeSettings/completionMark_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/typeSettings/completionMark_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/typeSettings/completionMark_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 任务管理——任务定义任务列表 -->
+		<action name="taskDefineAction!*" method="{1}" class="taskDefineAction">
+			<result name="goList">/WEB-INF/content/oa/task/taskDefinition/taskDefine_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/taskDefinition/taskDefine_list_content.jsp</result>
+			<!-- 新增任务 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/taskDefinition/taskDefine_update.jsp</result>
+			<!-- 查看任务 -->
+			<result name="goSaveOrUpdate1">/WEB-INF/content/oa/task/taskDefinition/taskDefine_update1.jsp</result>
+			<!-- 上传附件 -->
+			<result name="eqSbwdEdit">/WEB-INF/content/oa/task/taskDefinition/taskDefine_edit.jsp</result>
+			<!-- 任务过程查看 -->
+			<result name="goTaskView">/WEB-INF/content/oa/task/viewProcedures/viewProcedures_list.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/task/taskDefinition/taskDefineSeniorSearch_list.jsp</result>
+
+			<result name="goChooseCategory">/WEB-INF/content/oa/task/taskDefinition/chooseContractCatalog.jsp</result>
+			<result name="downloadEqDocument" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+
+		<!-- 任务管理——任务定义 ——我的任务 -->
+		<action name="myTasksAction!*" method="{1}" class="myTasksAction">
+			<result name="goList">/WEB-INF/content/oa/task/taskDefinition/myTasks_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/taskDefinition/myTasks_list_content.jsp</result>
+			<result name="goSaveOrUpdate1">/WEB-INF/content/oa/task/taskDefinition/myTasks_update1.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/task/taskDefinition/myTasksSeniorSearch_list.jsp</result>
+		</action>
+
+		<!-- 任务管理——任务定义 ——我的任务——执行反馈 -->
+		<action name="feedbackAction!*" method="{1}" class="feedbackAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/taskDefinition/myTasks_update.jsp</result>
+			<!-- 上传附件 -->
+			<result name="eqSbwdEdit">/WEB-INF/content/oa/task/taskDefinition/myTasks_edit.jsp</result>
+			<result name="downloadEqDocument" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+
+		<!-- 任务管理——任务定义 ——我的任务——评论/评估 -->
+		<action name="evaluationReviewAction!*" method="{1}" class="evaluationReviewAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/taskDefinition/evaluationReview_update.jsp</result>
+			<result name="goSaveOrUpdate1">/WEB-INF/content/oa/task/taskDefinition/evaluationReview_update1.jsp</result>
+		</action>
+
+		<!-- 任务管理——任务总览 -->
+		<action name="taskPandectAction!*" method="{1}" class="taskPandectAction">
+			<result name="goList">/WEB-INF/content/oa/task/taskPandect/taskPandect_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/taskPandect/taskPandect_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/task/taskPandect/taskPandectSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 任务管理——任务监控 -->
+		<action name="taskMonitorAction!*" method="{1}" class="taskMonitorAction">
+			<result name="goList">/WEB-INF/content/oa/task/taskMonitor/taskMonitor_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/taskMonitor/taskMonitor_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 任务管理——日清管理 -->
+		<action name="nissinManagementAction!*" method="{1}" class="nissinManagementAction">
+			<result name="goList">/WEB-INF/content/oa/task/oec/nissinManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/task/oec/nissinManagement_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/task/oec/nissinManagementSeniorSearch_list.jsp</result>
+			<!-- 暂时没用，后面需要删除 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/task/oec/nissinManagement_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 公文拟稿 -->
+		<action name="odDispatchAction!*" method="{1}" class="odDispatchAction">
+			<result name="goList">/WEB-INF/content/oa/od/dispatch/odDispatch_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/dispatch/odDispatch_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/dispatch/odDispatch_update.jsp</result>
+		</action>
+
+		<!-- 公文核搞 -->
+		<action name="odDispatchCheckAction!*" method="{1}" class="odDispatchCheckAction">
+			<result name="goList">/WEB-INF/content/oa/od/dispatchCheck/odDispatchCheck_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/dispatchCheck/odDispatchCheck_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/dispatchCheck/odDispatchCheck_update.jsp</result>
+		</action>
+
+		<!-- 套红盖章 -->
+		<action name="odDispatchSealAction!*" method="{1}" class="odDispatchSealAction">
+			<result name="goList">/WEB-INF/content/oa/od/dispatchSeal/odDispatchSeal_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/dispatchSeal/odDispatchSeal_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/dispatchSeal/odDispatchSeal_update.jsp</result>
+		</action>
+
+		<!-- 公文发布 -->
+		<action name="odDispatchPubAction!*" method="{1}" class="odDispatchPubAction">
+			<result name="goList">/WEB-INF/content/oa/od/dispatchPub/odDispatchPub_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/dispatchPub/odDispatchPub_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/dispatchPub/odDispatchPub_update.jsp</result>
+		</action>
+
+		<!-- 收文登记 -->
+		<action name="odReceiveAction!*" method="{1}" class="odReceiveAction">
+			<result name="goList">/WEB-INF/content/oa/od/receive/odReceive_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/receive/odReceive_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/receive/odReceive_update.jsp</result>
+		</action>
+
+		<!-- 领导批阅 -->
+		<action name="odReceiveAuditAction!*" method="{1}" class="odReceiveAuditAction">
+			<result name="goList">/WEB-INF/content/oa/od/receiveAudit/odReceiveAudit_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/receiveAudit/odReceiveAudit_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/receiveAudit/odReceiveAudit_update.jsp</result>
+		</action>
+
+		<!-- 收文分发 -->
+		<action name="odReceiveDistributeAction!*" method="{1}" class="odReceiveDistributeAction">
+			<result name="goList">/WEB-INF/content/oa/od/receiveDistribute/odReceiveDistribute_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/receiveDistribute/odReceiveDistribute_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/receiveDistribute/odReceiveDistribute_update.jsp</result>
+		</action>
+
+		<!-- 收文阅读 -->
+		<action name="odReceiveReadAction!*" method="{1}" class="odReceiveReadAction">
+			<result name="goList">/WEB-INF/content/oa/od/receiveRead/odReceiveRead_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/receiveRead/odReceiveRead_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/receiveRead/odReceiveRead_update.jsp</result>
+		</action>
+
+		<!-- 参数设定 -->
+		<!-- 收文类型设定 -->
+		<action name="odParamTypeAction!*" method="{1}" class="odParamTypeAction">
+			<result name="goList">/WEB-INF/content/oa/od/odParamType/odParamType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/od/odParamType/odParamType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/od/odParamType/odParamType_update.jsp</result>
+		</action>
+
+		<!-- 新建工作 -->
+		<action name="oaFlowWorkAction!*" method="{1}" class="oaFlowWorkAction">
+			<result name="goList">/WEB-INF/content/oa/flow/work/flowWork_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/work/flowWork_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/work/flowWork_update.jsp</result>
+		</action>
+
+		<!-- 我的工作 -->
+		<action name="oaFlowMyWorkAction!*" method="{1}" class="oaFlowMyWorkAction">
+			<result name="goList">/WEB-INF/content/oa/flow/myWork/flowMyWork_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/myWork/flowMyWork_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/myWork/flowMyWork_update.jsp</result>
+		</action>
+
+		<!-- 工作查询 -->
+		<action name="oaFlowSearchWorkAction!*" method="{1}" class="oaFlowSearchWorkAction">
+			<result name="goList">/WEB-INF/content/oa/flow/searchWork/searchWork_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/searchWork/searchWork_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/searchWork/searchWork_update.jsp</result>
+		</action>
+
+		<!-- 工作监控 -->
+		<action name="oaFlowMonitorWorkAction!*" method="{1}" class="oaFlowMonitorWorkAction">
+			<result name="goList">/WEB-INF/content/oa/flow/monitor/monitorWork_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/monitor/monitorWork_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/monitor/monitorWork_update.jsp</result>
+		</action>
+
+		<!-- 工作委托 -->
+		<action name="oaFlowEntrustWorkAction!*" method="{1}" class="oaFlowEntrustWorkAction">
+			<result name="goList">/WEB-INF/content/oa/flow/entrust/entrustWork_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/entrust/entrustWork_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/entrust/entrustWork_update.jsp</result>
+		</action>
+
+		<!-- 工作销毁 -->
+		<action name="oaFlowDestroyWorkAction!*" method="{1}" class="oaFlowDestroyWorkAction">
+			<result name="goList">/WEB-INF/content/oa/flow/destroy/destroyWork_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/destroy/destroyWork_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/destroy/destroyWork_update.jsp</result>
+		</action>
+
+		<!-- 流程日志查询 -->
+		<action name="oaFlowLogSearchAction!*" method="{1}" class="oaFlowLogSearchAction">
+			<result name="goList">/WEB-INF/content/oa/flow/logSearch/logSearch_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/flow/logSearch/logSearch_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/flow/logSearch/logSearch_update.jsp</result>
+		</action>
+
+		<!-- 邮件 -->
+		<action name="emailAction!*" method="{1}" class="emailAction">
+			<result name="goList">/WEB-INF/content/oa/mail/mailList.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/mail/mailEdit.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/mail/mailDetail.jsp</result>
+		</action>
+
+		<!-- 消息管理 -->
+		<action name="messageManagementAction!*" method="{1}" class="messageManagementAction">
+			<result name="goList">/WEB-INF/content/oa/infoCenter/messageManagement_list.jsp</result>
+			<!-- 消息列表 -->
+			<result name="goSingleList">/WEB-INF/content/oa/infoCenter/messaging_content.jsp</result>
+			<!-- 评论消息 -->
+			<result name="goCommentMessage">/WEB-INF/content/oa/infoCenter/commentMessage.jsp</result>
+			<!-- 查看消息与评论 -->
+			<result name="goLooknewsComment">/WEB-INF/content/oa/infoCenter/looknewsComment.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/infoCenter/messagingSeniorSearch_list.jsp</result>
+			<!-- 发送消息列表 -->
+			<result name="goSingleList1">/WEB-INF/content/oa/infoCenter/messaging_content1.jsp</result>
+			<!-- 事物提醒列表 -->
+			<result name="goSingleList2">/WEB-INF/content/oa/infoCenter/messaging_content2.jsp</result>
+			<!-- 发送消息 -->
+			<result name="goMessagingList">/WEB-INF/content/oa/infoCenter/messaging_list_content.jsp</result>
+			<!-- 查看发生已发送消息 -->
+			<result name="goSendMessages">/WEB-INF/content/oa/infoCenter/sendMessages_content.jsp</result>
+			<!-- 查看发生未发送消息 -->
+			<result name="goUnsentMessages">/WEB-INF/content/oa/infoCenter/unsentMessages_content.jsp</result>
+			<!-- 编辑未发送消息 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/infoCenter/saveOrUpdate.jsp</result>
+			<!-- 查看附件 -->
+			<result name="goUploader">/WEB-INF/content/oa/infoCenter/uploader_content.jsp</result>
+			<!-- 上传附件 -->
+			<result name="eqSbwdEdit">/WEB-INF/content/oa/infoCenter/messaging_edit.jsp</result>
+			<!-- 下载附件 -->
+			<result name="downloadEqDocument" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 手机短信 -->
+		<action name="phoneSmsAction!*" method="{1}" class="phoneSmsAction">
+			<result name="goList">/WEB-INF/content/oa/personaloffice/phoneSms/sms_list.jsp</result>
+			<!-- 短信列表 -->
+			<result name="goSingleList">/WEB-INF/content/oa/personaloffice/phoneSms/phoneSms_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/personaloffice/phoneSms/smsSeniorSearch_list.jsp</result>
+			<!-- 发送消息列表 -->
+			<result name="goSingleList1">/WEB-INF/content/oa/personaloffice/phoneSms/phoneSms_content1.jsp</result>
+			<!-- 事物提醒列表 -->
+			<result name="goSingleList2">/WEB-INF/content/oa/personaloffice/phoneSms/phoneSms_content2.jsp</result>
+			<!-- 发送消息 -->
+			<result name="goMessagingList">/WEB-INF/content/oa/personaloffice/phoneSms/phoneSms_list_content.jsp</result>
+			<!-- 查看发生已发送消息 -->
+			<result name="goSendMessages">/WEB-INF/content/oa/personaloffice/phoneSms/sendPhone_content.jsp</result>
+			<!-- 查看发生未发送消息 -->
+			<result name="goUnsentMessages">/WEB-INF/content/oa/personaloffice/phoneSms/unsentPhone_content.jsp</result>
+			<!-- 编辑未发送消息 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/personaloffice/phoneSms/saveOrUpdate.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 公告通知 -->
+		<action name="announcementAction!*" method="{1}" class="announcementAction">
+			<result name="goList">/WEB-INF/content/oa/personaloffice/announcement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/personaloffice/announcement_list_content.jsp</result>
+			<!-- 查看公告通知 -->
+			<result name="goSeenoticenotice">/WEB-INF/content/oa/personaloffice/announcement_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/personaloffice/announcementSeniorSearch_list.jsp</result>
+		</action>
+
+		<!-- 新闻 -->
+		<action name="newsManagementAction!*" method="{1}" class="newsManagementAction">
+			<result name="goList">/WEB-INF/content/oa/news/newsManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/news/newsManagement_list_content.jsp</result>
+			<!-- 发表评论 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/news/comments_update.jsp</result>
+			<!-- 新闻查看 -->
+			<result name="goSeenoticenotice">/WEB-INF/content/oa/news/newsManagement_update.jsp</result>
+			<result name="goSaveOrUpdate2">/WEB-INF/content/oa/news/newsManagement_update2.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/news/newsManagementSeniorSearch_list.jsp</result>
+		</action>
+
+		<!-- 投票 -->
+		<action name="voTeAction!*" method="{1}" class="voTeAction">
+			<result name="goList">/WEB-INF/content/oa/personaloffice/individualVote/voTe_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/personaloffice/individualVote/voTe_list_content.jsp</result>
+			<!-- 查看投票信息 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/personaloffice/individualVote/voTe_update.jsp</result>
+			<!-- 进行投票 -->
+			<result name="goSaveOrUpdate1">/WEB-INF/content/oa/personaloffice/individualVote/voTe1_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/personaloffice/individualVote/voTeSeniorSearch_list.jsp</result>
+		</action>
+
+		<!-- 个人考勤 -->
+		<action name="personalAttendanceAction!*" method="{1}" class="personalAttendanceAction">
+			<result name="goList">/WEB-INF/content/oa/personaloffice/attendance/attendance_list.jsp</result>
+			<!-- 外出记录 -->
+			<result name="goSingleList">/WEB-INF/content/oa/personaloffice/attendance/attendance_list_content.jsp</result>
+			<!-- 外出记录搜索功能 -->
+			<result name="goSearchPager">/WEB-INF/content/oa/personaloffice/attendance/search_list_content.jsp</result>
+			<!-- 请假记录 -->
+			<result name="goTleaveRecordsList">/WEB-INF/content/oa/personaloffice/attendance/tleaveRecords_list_content.jsp</result>
+			<!-- 请假记录搜索功能 -->
+			<result name="goTleaveList">/WEB-INF/content/oa/personaloffice/attendance/tleave_list_content.jsp</result>
+			<!-- 出差记录 -->
+			<result name="goTripRecordList">/WEB-INF/content/oa/personaloffice/attendance/tripRecord_list_content.jsp</result>
+			<!-- 出差记录搜索功能 -->
+			<result name="goTripList">/WEB-INF/content/oa/personaloffice/attendance/trip_list_content.jsp</result>
+			<!-- 加班登记 -->
+			<result name="goOvertimeRecordsList">/WEB-INF/content/oa/personaloffice/attendance/overtimeRecords_list_content.jsp</result>
+			<!-- 加班登记搜索功能 -->
+			<result name="goOvertimeList">/WEB-INF/content/oa/personaloffice/attendance/overtime_list_content.jsp</result>
+			<!-- 考勤记录 -->
+			<result name="goAttendanceList">/WEB-INF/content/oa/personaloffice/attendance/attendance1_list_content.jsp</result>
+			<!-- 考勤记录搜索功能 -->
+			<result name="goAttendancePager">/WEB-INF/content/oa/personaloffice/attendance/attendancePager_list_content.jsp</result>
+			<!-- 我的值班 -->
+			<result name="goSingleList5">/WEB-INF/content/oa/personaloffice/attendance/attendance5_list_content.jsp</result>
+			<!-- 此页面为空页面但不能删除 -->
+			<result name="goSingle">/WEB-INF/content/oa/personaloffice/attendance/attendance5Pager_list.jsp</result>
+			<!-- 新增外出登记 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/personaloffice/outRegistration_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 新增请假记录 -->
+		<action name="tleaveRecordsAction!*" method="{1}" class="tleaveRecordsAction">
+			<result name="goSaveOrTleaveRecords">/WEB-INF/content/oa/personaloffice/tleaveRecords_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 新增出差记录 -->
+		<action name="tripRecordAction!*" method="{1}" class="tripRecordAction">
+			<result name="goSaveOrTripRecord">/WEB-INF/content/oa/personaloffice/tripRecord_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 新增加班记录 -->
+		<action name="overtimeRecordsAction!*" method="{1}" class="overtimeRecordsAction">
+			<result name="goSaveOrOvertimeRecords">/WEB-INF/content/oa/personaloffice/overtimeRegistration_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 新增个人考勤 -->
+		<action name="attendanceAction!*" method="{1}" class="attendanceAction">
+			<result name="goSaveOrAttendance">/WEB-INF/content/oa/personaloffice/attendance_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 日程安排 -->
+		<action name="scHeduleAction!*" method="{1}" class="scHeduleAction">
+			<result name="goCanlendar">/WEB-INF/content/oa/personaloffice/scHedule/oaScHedule_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/personaloffice/scHedule/oaScHedule_update.jsp</result>
+			<result name="showCanlendar">/WEB-INF/content/oa/personaloffice/scHedule/oaScHedule_show.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 工作日志 -->
+		<action name="workLogAction!*" method="{1}" class="workLogAction">
+			<result name="goList">/WEB-INF/content/oa/personaloffice/workLog_list.jsp</result>
+			<!-- 日志列表 -->
+			<result name="goSingleList">/WEB-INF/content/oa/personaloffice/workLog_content.jsp</result>
+			<!-- 新建日志 -->
+			<result name="goSingleList1">/WEB-INF/content/oa/personaloffice/workLog1_content.jsp</result>
+			<!-- 评论工作日志 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/personaloffice/workLong_update.jsp</result>
+			<!-- 查看工作日志 -->
+			<result name="goSeenoticenotice">/WEB-INF/content/oa/personaloffice/workLong1_update.jsp</result>
+			<!-- 编辑工作日志 -->
+			<result name="goSaveOrWorkLong">/WEB-INF/content/oa/personaloffice/workLongModify_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/personaloffice/workSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!--个人办公——通讯薄 -->
+		<action name="wabAction!*" method="{1}" class="wabAction">
+			<result name="goList">/WEB-INF/content/oa/personaloffice/wab/wab_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/personaloffice/wab/wab_list_content.jsp</result>
+			<!--新增个人通讯薄 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/personaloffice/wab/wab_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/oa/personaloffice/wab/chooseContractCatalog.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/personaloffice/wab/wabSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 公告通知管理 -->
+		<action name="announcementNotificationAction!*" method="{1}" class="announcementNotificationAction">
+			<result name="goList">/WEB-INF/content/oa/bulletin/announcementNotification_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/bulletin/announcementNotification_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/bulletin/announcementNotification_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/bulletin/publicNoticeSeniorSearch_list.jsp</result>
+			<!-- 查看人员 -->
+			<result name="goViewers">/WEB-INF/content/oa/bulletin/viewers_update.jsp</result>
+			<!-- 上传附件 -->
+			<result name="eqSbwdEdit">/WEB-INF/content/oa/bulletin/announcement_edit.jsp</result>
+			<!-- 下载附件 -->
+			<result name="downloadEqDocument" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 新闻管理 -->
+		<action name="trendsAction!*" method="{1}" class="trendsAction">
+			<result name="goList">/WEB-INF/content/oa/news/trends_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/news/trends_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/news/trends_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/news/trendsSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 投票管理 -->
+		<action name="votingManagementAction!*" method="{1}" class="votingManagementAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/vote/votingManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/vote/votingManagement_list_content.jsp</result>
+			<!-- 新建投票 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/vote/votingManagement_update.jsp</result>
+			<!-- 投票结果 -->
+			<result name="goVotingOrResult">/WEB-INF/content/oa/adminMg/workPlan/votingOrResult.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/vote/votesManagementSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 投票管理-子投票 -->
+		<action name="votesDetailsAction!*" method="{1}" class="votesDetailsAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/vote/votesDetails_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/vote/votesDetails_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/vote/votesDetails_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/vote/votesDetailsSeniorSearch_list.jsp</result>
+			<!-- 投票管理-子投票-项目投票 -->
+			<result name="goProjectVote">/WEB-INF/content/oa/adminMg/vote/projectVote_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 日程安排管理 -->
+		<action name="schedulesAction!*" method="{1}" class="schedulesAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/schedule/schedules_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/schedule/schedules_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/schedule/schedulesSeniorSearch_list.jsp</result>
+		</action>
+
+		<!-- 工作日志管理 -->
+		<action name="workLogqueryAction!*" method="{1}" class="workLogqueryAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/userLog/workLogquery_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/userLog/workLogquery_list_content.jsp</result>
+			<!-- 查看工作日志 -->
+			<result name="goLookworkLog">/WEB-INF/content/oa/adminMg/workPlan/lookworkLog.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/workPlan/workLogquerySeniorSearch_list.jsp</result>
+		</action>
+		<!-- 工作计划查询 -->
+		<action name="workPlanAction!*" method="{1}" class="workPlanAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/workPlan/workPlan_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/workPlan/workPlan_list_content.jsp</result>
+			<!-- 查看计划与批注 -->
+			<result name="goLookPostilOrPlan">/WEB-INF/content/oa/adminMg/workPlan/lookPostilOrPlan.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/workPlan/workPlanSeniorSearch_list.jsp</result>
+			<!-- 目前还没有做预留 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/workPlan/workPlan_update.jsp</result>
+			<!-- 目前暂时还没有用到，预留，后期完善功能时可能会用到 -->
+			<!-- <result name="goSaveOrUpdate1">/WEB-INF/content/oa/adminMg/workPlan/workPlan_update1.jsp</result> -->
+			<!-- 进度日志,目前暂时还没有用到，预留 -->
+			<!-- <result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/workPlan_update.jsp</result> -->
+		</action>
+
+		<!-- 工作计划管理 -->
+		<action name="projectManagementAction!*" method="{1}" class="projectManagementAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/workPlan/projectManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/workPlan/projectManagement_list_content.jsp</result>
+			<!-- 新建工作计划 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/workPlan/projectManagement_update.jsp</result>
+			<!-- 计划批注 -->
+			<result name="goPostilOrPlan">/WEB-INF/content/oa/adminMg/workPlan/postilOrPlan.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/workPlan/projectManagementSeniorSearch_list.jsp</result>
+			<!-- 工作计划反馈暂时没做 -->
+			<result name="goSaveOrUpdate2">/WEB-INF/content/oa/adminMg/workPlan/projectManagement_update2.jsp</result>
+		</action>
+
+		<!-- 工作计划类型设置-后面可能删除 -->
+		<action name="projectSettingsAction!*" method="{1}" class="projectSettingsAction">
+			<result name="goListType">/WEB-INF/content/oa/adminMg/projectSettings_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/projectSettings_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 办公用品管理——办公用品台帐 -->
+		<action name="officeSuppliesAction!*" method="{1}" class="officeSuppliesAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/officeSupplies/officeSupplies_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/officeSupplies/officeSupplies_list_content.jsp</result>
+			<result name="goListContent">/WEB-INF/content/oa/adminMg/officeSupplies/officeSupplies_content.jsp</result>
+			<!-- 保存办公用品 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/officeSupplies/officeSupplies_update.jsp</result>
+			<!-- 新增办公用品分类 -->
+			<result name="goSaveOrUpdateCategory">/WEB-INF/content/oa/adminMg/officeSupplies/officeCategory_update.jsp</result>
+			<!-- 选择父分类 -->
+			<result name="goBookCategory">/WEB-INF/content/oa/adminMg/officeSupplies/officeCategory_choose.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/officeSupplies/officeSuppliesSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 公用品业务管理 ——办公用品领用借用归还 -->
+		<action name="officeSuppliesRegisterAction!*" method="{1}" class="officeSuppliesRegisterAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/officeSupplies/register/office_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/officeSupplies/register/office_list_content.jsp</result>
+			<!-- 借还办公用品查看 -->
+			<result name="goSeenoticenotice">/WEB-INF/content/oa/adminMg/officeSupplies/register/officeLibrarian_update.jsp</result>
+			<!-- 跳转办公领用 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/officeSupplies/register/addOffice.jsp</result>
+			<!-- 跳转办公用品领用明细 -->
+			<result name="goAddOSItem">/WEB-INF/content/oa/adminMg/officeSupplies/register/officeSuppliesList.jsp</result>
+
+			<!-- 跳转办公借用 -->
+			<result name="goSaveOrUpdateBorrow">/WEB-INF/content/oa/adminMg/officeSupplies/register/borrow.jsp</result>
+			<!-- 跳转办公用品借用明细 -->
+			<result name="goAddOSBorrow">/WEB-INF/content/oa/adminMg/officeSupplies/register/officeSuppliesBorrowList.jsp</result>
+
+			<!-- 跳转办公归还 -->
+			<result name="goSaveOrUpdateBorrowList">/WEB-INF/content/oa/adminMg/officeSupplies/register/return.jsp</result>
+			<!-- 跳转办公用品借用明细 -->
+			<result name="goBorrowList">/WEB-INF/content/oa/adminMg/officeSupplies/register/officeSuppliesReturnList.jsp</result>
+			<!-- 弹框根据明细选择归还数量 -->
+			<result name="goSuppliesReturnList">/WEB-INF/content/oa/adminMg/officeSupplies/register/borrowList_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/officeSupplies/register/officeSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 图书管理——图书录入 -->
+		<action name="bookEntryAction!*" method="{1}" class="bookEntryAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookEntry_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookEntry_list_content.jsp</result>
+			<result name="goListContent">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookEntry_content.jsp</result>
+			<!-- 保存图书 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookEntry_update.jsp</result>
+			<!-- 新增图书分类 -->
+			<result name="goSaveOrUpdateCategory">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookCategory_update.jsp</result>
+			<!-- 选择父分类 -->
+			<result name="goBookCategory">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookCategory_choose.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 图书管理——借还书管理 -->
+		<action name="bookLibrarianAction!*" method="{1}" class="bookLibrarianAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookLibrarian_list.jsp</result>
+			<result name="goBookRegister">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookLibrarian_list_content.jsp</result>
+			<!-- 借还书查看 -->
+			<result name="goSeenoticenotice">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookLibrarian_update.jsp</result>
+
+			<!-- 跳转图书借阅 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookBorrowing.jsp</result>
+			<!-- 跳转办图书借阅明细 -->
+			<result name="goAddbookBorrowing">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookLibrarianList.jsp</result>
+
+			<!-- 跳转图书归还 -->
+			<result name="goSaveOrUpdateBook">/WEB-INF/content/oa/adminMg/officeSupplies/book/returnBooks.jsp</result>
+			<!-- 加载归还明细 -->
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/officeSupplies/book/returnDetails_content.jsp</result>
+			<!-- 弹框根据明细选择归还数量 -->
+			<result name="goSaveOrUpdateReturn">/WEB-INF/content/oa/adminMg/officeSupplies/book/returnDetails_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/officeSupplies/book/bookLibrarianSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!--行政办公——公共通讯薄 -->
+		<action name="commonWabAction!*" method="{1}" class="commonWabAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/officeSupplies/commonWab/commonWab_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/officeSupplies/commonWab/commonWab_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/officeSupplies/commonWab/commonWab_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/oa/adminMg/officeSupplies/commonWab/chooseContractCatalog.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/officeSupplies/commonWab/commonWabSeniorSearch_list.jsp</result>
+		</action>
+
+		<!-- 资源申请管理 -->
+		<action name="resourceRequestAction!*" method="{1}" class="resourceRequestAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/resourceRequest_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/resourceRequest_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 车辆类型 -->
+		<action name="vehicleTypeAction!*" method="{1}" class="vehicleTypeAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 车辆颜色 -->
+		<action name="vehicleColorAction!*" method="{1}" class="vehicleColorAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleColor_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleColor_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleColor_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 变速器类型 -->
+		<action name="transmissionTypeAction!*" method="{1}" class="transmissionTypeAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/transmissionType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/transmissionType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/transmissionType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 引擎类型 -->
+		<action name="engineTypeAction!*" method="{1}" class="engineTypeAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/engineType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/engineType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/engineType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 排量类型 -->
+		<action name="displacementTypeAction!*" method="{1}" class="displacementTypeAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/displacementType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/displacementType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/displacementType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 维护类型 -->
+		<action name="maintenanceTypeAction!*" method="{1}" class="maintenanceTypeAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/maintenanceType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/maintenanceType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/maintenanceType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 车辆申请管理 -->
+		<action name="vehicleApplicationsAction!*" method="{1}" class="vehicleApplicationsAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleApplications_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleApplications_list_content.jsp</result>
+			<!-- 申请使用车辆 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/carUse_update.jsp</result>
+			<!-- 查看车辆 -->
+			<result name="goChooseCar">/WEB-INF/content/oa/adminMg/requisitionCar/chooseCar.jsp</result>
+			<!-- 车辆列表 -->
+			<result name="goCarList">/WEB-INF/content/oa/adminMg/requisitionCar/car_list.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/requisitionCar/carUseSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 车辆使用管理 -->
+		<action name="vehicleUseAction!*" method="{1}" class="vehicleUseAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleUse_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleUse_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleUseSeniorSearch_list.jsp</result>
+		</action>
+		
+		<!-- 车辆查询管理 -->
+		<action name="vehicleApplicationQueryAction!*" method="{1}" class="vehicleApplicationQueryAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleApplicationQuery_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/vehicleApplicationQuery_list_content.jsp</result>
+		</action>
+		
+		<!-- 车辆维护管理 -->
+		<action name="carMaintenanceAction!*" method="{1}" class="carMaintenanceAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/carMaintenance_list.jsp</result>
+			<result name="goCarMaintenance">/WEB-INF/content/oa/adminMg/requisitionCar/carMaintenance_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/carMaintenance_update.jsp</result>
+			<!-- 维修车辆归还 -->
+			<result name="goSaveOrUpdateReturn">/WEB-INF/content/oa/adminMg/requisitionCar/maintenance_vehicle_return.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/requisitionCar/maintenanceSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 车辆信息管理 -->
+		<action name="requisitionCarAction!*" method="{1}" class="requisitionCarAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/requisitionCar_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/requisitionCar/requisitionCar_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/requisitionCar_update.jsp</result>
+			<!-- 选择分类 -->
+			<result name="goChooseCategory">/WEB-INF/content/oa/adminMg/requisitionCar/requisitionCarCatalog.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/requisitionCar/requisitionCarSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 油耗统计 -->
+		<action name="tpkAction!*" method="{1}" class="tpkAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/requisitionCar/tpk_list.jsp</result>
+			<result name="goTpkList">/WEB-INF/content/oa/adminMg/requisitionCar/tpk_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/requisitionCar/tpk_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/requisitionCar/tpkSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 会议申请 -->
+		<action name="applicationMeetingAction!*" method="{1}" class="applicationMeetingAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/conference/applicationMeeting_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/conference/applicationMeeting_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/conference/applicationMeeting_update.jsp</result>
+			<!-- 暂时屏蔽业务更改暂时不需要 -->
+			<!-- <result name="goMeetingRequest">/WEB-INF/content/oa/adminMg/conference/applicationMeeting_update.jsp</result> -->
+			<!-- 新增申请设备明细 -->
+			<result name="goAddEquipmentDetails">/WEB-INF/content/oa/adminMg/conference/addEquipmentDetail.jsp</result>
+			<!-- 选择设备 -->
+			<result name="goChooseEquipment">/WEB-INF/content/oa/adminMg/conference/chooseEquipment.jsp</result>
+			<!-- 设备列表 -->
+			<result name="goEquipmentList">/WEB-INF/content/oa/adminMg/conference/equipment_list.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/conference/applicationMeetingSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 会议申请管理 -->
+		<action name="meetingRManagementAction!*" method="{1}" class="meetingRManagementAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/conference/meetingRManagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/conference/meetingRManagement_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/conference/meetingRManagementSeniorSearch_list.jsp</result>
+		</action>
+		
+		<!-- 会议室基础数据 -->
+		<action name="meetingRequestAction!*" method="{1}" class="meetingRequestAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/conference/meetingRequest_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/conference/meetingRequest_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/conference/meetingRequest_update.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/conference/meetingRequestSeniorSearch_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 会议室总览 -->
+		<action name="meetingQueryAction!*" method="{1}" class="meetingQueryAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/conference/meetingQuery_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/conference/meetingQuery_list_content.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/adminMg/conference/meetingQuerySeniorSearch_list.jsp</result>
+		</action>
+		
+		<!-- 会议室设备管理 -->
+		<action name="meetingDeviceAction!*" method="{1}" class="meetingDeviceAction">
+			<result name="goList">/WEB-INF/content/oa/adminMg/conference/meetingDevice_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/adminMg/conference/meetingDevice_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/conference/meetingDevice_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/oa/adminMg/conference/chooseContractCatalog.jsp</result>
+		</action>
+
+		<!-- 会议室申请暂时不用 -->
+		<action name="meetingRoomAction!*" method="{1}" class="meetingRoomAction">
+			<result name="goMeetingRoom">/WEB-INF/content/oa/adminMg/conference/application/meetingRoom_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/adminMg/conference/application/meetingRoom_update.jsp</result>
+			<result name="showCanlendar">/WEB-INF/content/oa/adminMg/conference/application/meetingRoom_show.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 个人文件柜 -->
+		<action name="privateCabinetAction!*" method="{1}" class="privateCabinetAction">
+			<result name="goList">/WEB-INF/content/oa/knowledgeManagement/private/privateCabinet_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/knowledgeManagement/private/privateCabinet_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/knowledgeManagement/private/privateCabinet_update.jsp</result>
+			<result name="goSaveOrUpdateKnowledgeBaseCategory">/WEB-INF/content/oa/knowledgeManagement/private/privateCabinetCategory_update.jsp</result>
+			<result name="goPrivateCabinetCategory">/WEB-INF/content/oa/knowledgeManagement/private/privateCabinetCategory_choose.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/knowledgeManagement/private/privateCabinetSeniorSearch_list.jsp</result>
+			<result name="downloadAttachment" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 公共文件柜 -->
+		<action name="publicCabinetAction!*" method="{1}" class="publicCabinetAction">
+			<result name="goList">/WEB-INF/content/oa/knowledgeManagement/public/publicCabinet_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/knowledgeManagement/public/publicCabinet_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/knowledgeManagement/public/publicCabinet_update.jsp</result>
+			<result name="goSaveOrUpdateKnowledgeBaseCategory">/WEB-INF/content/oa/knowledgeManagement/public/publicCabinetCategory_update.jsp</result>
+			<result name="goPrivateCabinetCategory">/WEB-INF/content/oa/knowledgeManagement/public/publicCabinetCategory_choose.jsp</result>
+			<!-- 高级搜索 -->
+			<result name="goSearch">/WEB-INF/content/oa/knowledgeManagement/public/publicCabinetSeniorSearch_list.jsp</result>
+			<result name="downloadAttachment" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 日常费用报销 -->
+		<action name="currentexpenseAction!*" method="{1}" class="currentexpenseAction">
+			<result name="goList">/WEB-INF/content/oa/currentexpense/currentexpense_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/currentexpense/currentexpense_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/currentexpense/currentexpense_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 日常费用报销明细 -->
+		<action name="currentExpenseDetailAction!*" method="{1}" class="currentExpenseDetailAction">
+			<result name="goListContent">/WEB-INF/content/oa/currentexpense/currentexpensedetail_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/currentexpense/currentexpensedetail_update.jsp</result>
+			<result name="goChooseExpenseAccount">/WEB-INF/content/oa/currentexpense/expenseaccount_choose_list.jsp</result>
+			<result name="goExpenseAccountList">/WEB-INF/content/oa/currentexpense/expenseaccount_choose_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 报销管理 -->
+		<action name="travelClaimsAction!*" method="{1}" class="travelClaimsAction">
+			<result name="goList">/WEB-INF/content/oa/travelclaims/travelclaims_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/travelclaims/travelclaims_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/travelclaims/travelclaims_update.jsp</result>
+			<result name="goAudit">/WEB-INF/content/oa/travelclaims/travelclaims_audit.jsp</result>
+			<result name="goSearch">/WEB-INF/content/oa/travelclaims/travelclaims_search.jsp</result>
+		</action>
+		<!-- 交通费用明细 -->
+		<action name="transportCostsAction!*" method="{1}" class="transportCostsAction">
+			<result name="goListContent">/WEB-INF/content/oa/travelclaims/transportcosts_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/travelclaims/transportcosts_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 住宿费用明细 -->
+		<action name="accommodationFeeAction!*" method="{1}" class="accommodationFeeAction">
+			<result name="goListContent">/WEB-INF/content/oa/travelclaims/accommodationfee_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/travelclaims/accommodationfee_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 科目维护 -->
+		<action name="accountMaintenanceAction!*" method="{1}" class="accountMaintenanceAction">
+			<result name="goList">/WEB-INF/content/oa/accountMaintenance/accountMaintenance_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/accountMaintenance/accountMaintenance_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/accountMaintenance/accountMaintenance_update.jsp</result>
+		</action>
+		<!-- 交通报销标准 -->
+		<action name="areaExpensesStandardsAction!*" method="{1}" class="areaExpensesStandardsAction">
+			<result name="goList">/WEB-INF/content/oa/areaExpensesStandards/areaExpensesStandards_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/areaExpensesStandards/areaExpensesStandards_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/areaExpensesStandards/areaExpensesStandards_update.jsp</result>
+			<result name="goChoosePosition">/WEB-INF/content/oa/areaExpensesStandards/orgPosition_choose.jsp</result>
+		</action>
+		<!-- 日常报销标准 -->
+		<action name="dailyExpensesStandardsAction!*" method="{1}" class="dailyExpensesStandardsAction">
+			<result name="goList">/WEB-INF/content/oa/dailyExpensesStandards/dailyExpensesStandards_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/dailyExpensesStandards/dailyExpensesStandards_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/dailyExpensesStandards/dailyExpensesStandards_update.jsp</result>
+		</action>
+		<!-- 住宿报销标准 -->
+		<action name="accomodationsExpensesStandardsAction!*" method="{1}" class="accomodationsExpensesStandardsAction">
+			<result name="goList">/WEB-INF/content/oa/accomodationsExpensesStandards/accomodationsExpensesStandards_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/accomodationsExpensesStandards/accomodationsExpensesStandards_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/accomodationsExpensesStandards/accomodationsExpensesStandards_update.jsp</result>
+		</action>
+		<!-- 地区设置 -->
+		<action name="areaLevelAction!*" method="{1}" class="areaLevelAction">
+			<result name="goList">/WEB-INF/content/oa/arealevel/arealevel_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/arealevel/arealevel_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/arealevel/arealevel_update.jsp</result>
+		</action>
+		<!-- 交通工具 -->
+		<action name="vehicleAction!*" method="{1}" class="vehicleAction">
+			<result name="goList">/WEB-INF/content/oa/vehicle/vehicle_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/vehicle/vehicle_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/vehicle/vehicle_update.jsp</result>
+		</action>
+
+		<!-- 报销汇总 (按人汇总) -->
+		<action name="expensesSummaryPersonAction!*" method="{1}" class="expensesSummaryPersonAction">
+			<result name="goList">/WEB-INF/content/oa/currentexpense/expensesSummaryPerson_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/currentexpense/expensesSummaryPerson_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 报销汇总 (按部门汇总) -->
+		<action name="expensesSummaryDepartmentAction!*" method="{1}" class="expensesSummaryDepartmentAction">
+			<result name="goList">/WEB-INF/content/oa/currentexpense/expensesSummaryDepartment_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/currentexpense/expensesSummaryDepartment_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 图片浏览 -->
+		<action name="pictureBrowseAction!*" method="{1}" class="pictureBrowseAction">
+			<result name="goList">/WEB-INF/content/oa/picture/pictureBrowse_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/oa/picture/pictureBrowse_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/picture/pictureBrowse_update.jsp</result>
+			<result name="goSaveOrUpdateKnowledgeBaseCategory">/WEB-INF/content/oa/picture/pictureBrowseCategory_update.jsp</result>
+			<result name="goPrivateCabinetCategory">/WEB-INF/content/oa/picture/pictureBrowseCategory_choose.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 图片浏览 -->
+		<action name="pictureAction!*" method="{1}" class="pictureAction">
+			<result name="goList">/WEB-INF/content/oa/picture/picture_list.jsp</result>
+		</action>
+
+		<!-- 项目监控视图 -->
+		<action name="projectMonitoringViewAction!*" method="{1}" class="projectMonitoringViewAction">
+			<result name="goList">/WEB-INF/content/oa/picture/projectMonitoringView_list.jsp</result>
+		</action>
+
+		<!-- 行政办公中心 -->
+		<action name="administrativeAction!*" method="{1}" class="administrativeAction">
+			<result name="goList">/WEB-INF/content/oa/administrativeOfficeCenter/administrativeOfficeCenter.jsp</result>
+			<!-- 电脑手机采购申请表单 -->
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/administrativeOfficeCenter/computerPhoneSourcing_update.jsp</result>
+			<result name="goBusinessFormTemplate">/form/businessFormTemplate.jsp</result>
+			<result name="goListBusinessFormData">/form/businessFormdata_list.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 行政办公中心——发货申请表单 -->
+		<action name="applicantInvoicingAction!*" method="{1}" class="applicantInvoicingAction">
+			<result name="goApplicantInvoicing">/WEB-INF/content/oa/administrativeOfficeCenter/applicantInvoicing_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 行政办公中心——物资采购申请表单 -->
+		<action name="purchaseAction!*" method="{1}" class="purchaseAction">
+			<result name="goPurchase">/WEB-INF/content/oa/administrativeOfficeCenter/purchase_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 行政办公中心——发票开具申请表单 -->
+		<!-- 还未做完，后面再做 -->
+		<action name="invoiceIssuedAction!*" method="{1}" class="invoiceIssuedAction">
+			<result name="goPurchase">/WEB-INF/content/oa/administrativeOfficeCenter/invoiceIssued_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 其他 -->
+		<action name="treegridEuTreegridAction!*" method="{1}" class="treegridEuTreegridAction">
+			<result name="goList">/WEB-INF/content/template/pm/treegrid_eu_treegrid.jsp</result>
+		</action>
+
+		<!-- 文档检索中心 -->
+		<action name="fileRetrievalCenterAction!*" method="{1}" class="fileRetrievalCenterAction">
+			<result name="goList">/WEB-INF/content/oa/fileRetrievalCenter/fileRetrievalCenter_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/oa/fileRetrievalCenter/fileRetrievalCenter_update.jsp</result>
+		</action>
+
+		<!-- 系统设置——系统配置 -->
+		<action name="systemConfigurationAction!*" method="{1}" class="systemConfigurationAction">
+			<result name="goList">/WEB-INF/content/template/pm/systemConfiguration_list_content.jsp</result>
+		</action>
+	</package>
+</struts>

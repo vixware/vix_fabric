@@ -1,0 +1,452 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--配送中心管理 -->
+	<package name="dtbcenter.config" namespace="/dtbcenter" extends="crud-default">
+		<action name="dtbcenterMainAction!*" method="{1}" class="dtbcenterMainAction">
+			<result name="goMenuContent">/WEB-INF/content/dtbcenter/main/menuContent.jsp</result>
+		</action>
+		<!-- 设置 -->
+		<action name="dtbcenterConfigAction!*" method="{1}" class="dtbcenterConfigAction">
+			<result name="goConfig">/WEB-INF/content/dtbcenter/config/config.jsp
+			</result>
+		</action>
+		<!-- 仓库规划管理 -->
+		<action name="warehouseDesignManagementAction!*" method="{1}" class="warehouseDesignManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/dtpplan/warehouseDesignManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/dtpplan/warehouseDesignManagement_list_content.jsp
+			</result>
+		</action>
+		<!-- 车场管理 -->
+		<action name="yardManagementAction!*" method="{1}" class="yardManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/yardManagement/yardManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/yardManagement/yardManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/yardManagement/yardManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/yardManagement/yardManagement_search.jsp</result>
+		</action>
+		<!-- 证件管理 -->
+		<action name="documentManagementAction!*" method="{1}" class="documentManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/documentManagement/documentManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/documentManagement/documentManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/documentManagement/documentManagement_update.jsp
+			</result>
+		</action>
+		<!-- 人员管理 -->
+		<action name="driverAction!*" method="{1}" class="driverAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/driver/personalManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/driver/personalManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/driver/personalManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/driver/personalManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 车辆管理 -->
+		<action name="vehicleManagementAction!*" method="{1}" class="vehicleManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/vehiclemanagement/vehiclemanagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/vehiclemanagement/vehiclemanagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/vehiclemanagement/vehiclemanagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/vehiclemanagement/vehiclemanagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 外车管理 -->
+		<action name="outercarManagementAction!*" method="{1}" class="outercarManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/outercarManagement/outercarManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/outercarManagement/outercarManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/outercarManagement/outercarManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/outercarManagement/outercarManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户投诉 -->
+		<action name="cargoTrackingAction!*" method="{1}" class="cargoTrackingAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/cargotracking/cargoTracking_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/cargotracking/cargoTracking_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/cargotracking/cargoTracking_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 派车单管理 -->
+		<action name="sentCarSingleManagementAction!*" method="{1}" class="sentCarSingleManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/sentcarsingle/sentcarsingleManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/sentcarsingle/sentcarsingleManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/sentcarsingle/sentcarsingleManagement_update.jsp
+			</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/dtbcenter/sentcarsingle/choosesalesorder.jsp</result>
+			<result name="goSalesOrderList">/WEB-INF/content/dtbcenter/sentcarsingle/salesorderlist_content.jsp</result>
+			<result name="goChooseDispatchRoute">/WEB-INF/content/dtbcenter/sentcarsingle/chooseDispatchRoute.jsp</result>
+			<result name="goDispatchRouteList">/WEB-INF/content/dtbcenter/sentcarsingle/dispatchRoute_list_content.jsp</result>
+			<result name="goChooseVehicle">/WEB-INF/content/dtbcenter/sentcarsingle/chooseVehicle.jsp</result>
+			<result name="goVehicleList">/WEB-INF/content/dtbcenter/sentcarsingle/vehicle_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/sentcarsingle/sentcarsingleManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 装车管理 -->
+		<action name="loadingManagementAction!*" method="{1}" class="loadingManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/transpotmgr/loadingManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/transpotmgr/loadingManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/transpotmgr/loadingManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/transpotmgr/loadingManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 配送计划 -->
+		<action name="distributionManagementAction!*" method="{1}" class="distributionManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/deliveryplan/distributionManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/deliveryplan/distributionManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/deliveryplan/distributionManagement_update.jsp
+			</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/dtbcenter/deliveryplan/choosesalesorder.jsp</result>
+			<result name="goSalesOrderList">/WEB-INF/content/dtbcenter/deliveryplan/salesorderlist_content.jsp</result>
+			<result name="goChooseDispatchRoute">/WEB-INF/content/dtbcenter/deliveryplan/chooseDispatchRoute.jsp</result>
+			<result name="goDispatchRouteList">/WEB-INF/content/dtbcenter/deliveryplan/dispatchRoute_list_content.jsp</result>
+			<result name="goChooseVehicle">/WEB-INF/content/dtbcenter/deliveryplan/chooseVehicle.jsp</result>
+			<result name="goVehicleList">/WEB-INF/content/dtbcenter/deliveryplan/vehicle_list_content.jsp</result>
+			<result name="goChooseDeliveryPerson">/WEB-INF/content/dtbcenter/deliveryplan/choosedeliveryPerson.jsp</result>
+			<result name="goDeliveryPersonList">/WEB-INF/content/dtbcenter/deliveryplan/deliveryPerson_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/deliveryplan/distributionManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 提货调度管理 -->
+		<action name="pickupManagementAction!*" method="{1}" class="pickupManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/pickmgr/pickupManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/pickmgr/pickupManagement_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--提货业务受理 -->
+		<action name="pickupBusinessHandlingAction!*" method="{1}" class="pickupBusinessHandlingAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/pickupbh/pickupbusinesshandling_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/pickupbh/pickupbusinesshandling_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/pickupbh/pickupbusinesshandling_update.jsp
+			</result>
+			<result name="goUpdateLoadBillItem">/WEB-INF/content/dtbcenter/pickupbh/loadBillItem_update.jsp</result>
+			<result name="goChooseItem">/WEB-INF/content/dtbcenter/pickupbh/chooseItem.jsp</result>
+			<result name="goChooseListContent">/WEB-INF/content/dtbcenter/pickupbh/itemChoose_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/pickupbh/pickupbusinesshandling_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--提货业务分拆 -->
+		<action name="pickupBusinessAnalysisAction!*" method="{1}" class="pickupBusinessAnalysisAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/pickupba/pickupbusinessanalysis_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/pickupba/pickupbusinessanalysis_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/pickupba/pickupbusinessanalysis_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/pickupba/pickupbusinessanalysis_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--提货调度派车 -->
+		<action name="pickupDispatchSendAction!*" method="{1}" class="pickupDispatchSendAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/pickupds/pickupdispatchsend_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/pickupds/pickupdispatchsend_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/pickupds/pickupdispatchsend_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/pickupds/pickupdispatchsend_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 调度路线 -->
+		<action name="deliveryRouteAction!*" method="{1}" class="deliveryRouteAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/deliveryroute/deliveryRoute_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/deliveryroute/deliveryRoute_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/deliveryroute/deliveryRoute_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/deliveryroute/deliveryRoute_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 装载规划 -->
+		<action name="vehiclePlanAction!*" method="{1}" class="vehiclePlanAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/vehicleplan/vehiclePlan_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/vehicleplan/vehiclePlan_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/vehicleplan/vehiclePlan_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/vehicleplan/vehiclePlan_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 配送回执 -->
+		<action name="dispatchingReceiptAction!*" method="{1}" class="dispatchingReceiptAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/dispatchingreceipt/dispatchingReceipt_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/dispatchingreceipt/dispatchingReceipt_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/dispatchingreceipt/dispatchingReceipt_update.jsp
+			</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/dtbcenter/dispatchingreceipt/choosesalesorder.jsp
+			</result>
+			<result name="goSalesOrderList">/WEB-INF/content/dtbcenter/dispatchingreceipt/salesorderlist_content.jsp
+			</result>
+			<result name="goChooseTruckingOrder">/WEB-INF/content/dtbcenter/dispatchingreceipt/choosesentcarsingle.jsp
+			</result>
+			<result name="goTruckingOrderList">/WEB-INF/content/dtbcenter/dispatchingreceipt/sentcarsingle_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/dispatchingreceipt/dispatchingReceipt_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 托运管理 -->
+		<action name="shippingManagementAction!*" method="{1}" class="shippingManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/opertaion/shippingManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/opertaion/shippingManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/opertaion/shippingManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/opertaion/shippingManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 结算管理 -->
+		<action name="settlementManagementAction!*" method="{1}" class="settlementManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/settlementManagement/settlementManagement_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/settlementManagement/settlementManagement_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/settlementManagement/settlementManagement_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/settlementManagement/settlementManagement_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 自动报价 -->
+		<action name="automatedQuotationAction!*" method="{1}" class="automatedQuotationAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/automatedquotation/automatedQuotation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/automatedquotation/automatedQuotation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/automatedquotation/automatedQuotation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单处理 -->
+		<action name="orderProcessingAction!*" method="{1}" class="orderProcessingAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/orderprocessing/orderprocessing_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/orderprocessing/orderprocessing_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/orderprocessing/orderprocessing_update.jsp
+			</result>
+			<result name="goSaveOrUpdateSaleOrderItem">/WEB-INF/content/dtbcenter/orderprocessing/orderprocessing_item_list.jsp</result>
+			<result name="goChooseItemListContent">/WEB-INF/content/dtbcenter/orderprocessing/orderprocessing_item_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/orderprocessing/orderprocessing_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 托运单处理 -->
+		<action name="wayBillProcessAction!*" method="{1}" class="wayBillProcessAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/waybill/wayBillProcess_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/waybill/wayBillProcess_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/waybill/wayBillProcess_update.jsp
+			</result>
+			<result name="goChooseItem">/WEB-INF/content/dtbcenter/waybill/chooseitem.jsp</result>
+			<result name="goAddSaleOrderItem">/WEB-INF/content/dtbcenter/waybill/chooseItemForSaleOrderItem.jsp</result>
+			<result name="goItemList">/WEB-INF/content/dtbcenter/waybill/chooseitemlist_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/waybill/wayBillProcess_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 快递单管理 -->
+		<action name="expressSingleAction!*" method="{1}" class="expressSingleAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/expresssingle/expressSingle_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/expresssingle/expressSingle_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/expresssingle/expressSingle_update.jsp
+			</result>
+			<result name="goChooseItem">/WEB-INF/content/dtbcenter/expresssingle/chooseitem.jsp</result>
+			<result name="goAddSaleOrderItem">/WEB-INF/content/dtbcenter/expresssingle/chooseItemForSaleOrderItem.jsp</result>
+			<result name="goItemList">/WEB-INF/content/dtbcenter/expresssingle/chooseitemlist_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/expresssingle/expressSingle_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 退单处理 -->
+		<action name="singleStepprocessingAction!*" method="{1}" class="singleStepprocessingAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/transreource/singleStepprocessing_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/transreource/singleStepprocessing_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/transreource/singleStepprocessing_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 车辆设备租用 -->
+		<action name="rentVehicleAction!*" method="{1}" class="rentVehicleAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/transreource/rentVehicle_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/transreource/rentVehicle_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 运费制定 -->
+		<action name="transferFeesetupAction!*" method="{1}" class="transferFeesetupAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/transferFeesetup/transferFeesetup_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/transferFeesetup/transferFeesetup_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/transferFeesetup/transferFeesetup_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 拣货规划 -->
+		<action name="pickingPlanManagementAction!*" method="{1}" class="pickingPlanManagementAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/pickingPlan/pickingPlan_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/pickingPlan/pickingPlan_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/pickingPlan/pickingPlan_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 车辆跟踪 -->
+		<action name="vehicleTrackingAction!*" method="{1}" class="vehicleTrackingAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/vehicletracking/vehicletracking_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/vehicletracking/vehicletracking_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/vehicletracking/vehicletracking_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/vehicletracking/vehicletracking_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单成本估算 -->
+		<action name="costEstimatingAction!*" method="{1}" class="costEstimatingAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/costestimating/costestimating_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/costestimating/costestimating_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/costestimating/costestimating_update.jsp
+			</result>
+			<result name="goChooseCostItem">/WEB-INF/content/dtbcenter/costestimating/choosecostsset.jsp</result>
+			<result name="goCostItemList">/WEB-INF/content/dtbcenter/costestimating/costsset_list_content.jsp</result>
+			<result name="goSearch">WEB-INF/content/dtbcenter/costestimating/costestimating_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 配送成本分析 -->
+		<action name="distributionCostAction!*" method="{1}" class="distributionCostAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/distributioncost/distributioncost_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/distributioncost/distributioncost_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/distributioncost/distributioncost_update.jsp
+			</result>
+			<result name="goChooseCostItem">/WEB-INF/content/dtbcenter/distributioncost/choosecostsset.jsp</result>
+			<result name="goCostItemList">/WEB-INF/content/dtbcenter/distributioncost/costsset_list_content.jsp</result>
+			<result name="goChooseSalesOrder">/WEB-INF/content/dtbcenter/distributioncost/choosesalesorder.jsp</result>
+			<result name="goSalesOrderList">/WEB-INF/content/dtbcenter/distributioncost/salesorderlist_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 费用设定 -->
+		<action name="costsSetAction!*" method="{1}" class="costsSetAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/costsset/costsset_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/costsset/costsset_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/costsset/costsset_update.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/dtbcenter/costsset/costsset_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 安检项目管理 -->
+		<action name="securityProjectAction!*" method="{1}" class="securityProjectAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/securityProject/securityProject_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/securityProject/securityProject_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/securityProject/securityProject_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 安检类型管理 -->
+		<action name="securityTypeAction!*" method="{1}" class="securityTypeAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/securityType/securityType_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/securityType/securityType_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/securityType/securityType_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 安检登记管理 -->
+		<action name="securityRegistrationAction!*" method="{1}" class="securityRegistrationAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/securityRegistration/securityRegistration_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/securityRegistration/securityRegistration_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/securityRegistration/securityRegistration_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 保险等级管理 -->
+		<action name="insuranceLevelAction!*" method="{1}" class="insuranceLevelAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/insuranceLevel/insuranceLevel_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/insuranceLevel/insuranceLevel_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/insuranceLevel/insuranceLevel_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 事故管理 -->
+		<action name="accidentAction!*" method="{1}" class="accidentAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/accident/accident_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/accident/accident_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/accident/accident_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 理赔信息管理 -->
+		<action name="claimInformationAction!*" method="{1}" class="claimInformationAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/claimInformation/claimInformation_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/claimInformation/claimInformation_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/claimInformation/claimInformation_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 维修保养记录管理 -->
+		<action name="maintenanceRecordsAction!*" method="{1}" class="maintenanceRecordsAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/maintenanceRecords/maintenanceRecords_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/dtbcenter/maintenanceRecords/maintenanceRecords_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/dtbcenter/maintenanceRecords/maintenanceRecords_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+
+		<!-- 配送中心二级页面 -->
+		<action name="dtbcenterAction!*" method="{1}" class="dtbcenterAction">
+			<result name="goList">/WEB-INF/content/dtbcenter/dtbcenter/dtbcenter_list.jsp
+			</result>
+		</action>
+	</package>
+</struts>

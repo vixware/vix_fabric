@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.invoice.config" namespace="/sales/invoice" extends="crud-default">
+		<!-- 销售发票-->
+		<action name="salesInvoiceAction!*" method="{1}" class="salesInvoiceAction">
+			<result name="goList">/WEB-INF/content/sales/invoice/salesInvoice_list.jsp</result>
+			<result name="goSalesInvoiceList">/WEB-INF/content/sales/invoice/salesInvoice_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/invoice/updateSalesInvoice.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/sales/invoice/salesInvoice_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/sales/invoice/updateSalesInvoiceForCustomerAccount.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action> 
+		<action name="salesInvoiceItemAction!*" method="{1}" class="salesInvoiceItemAction">
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/invoice/updateSalesInvoiceItem.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

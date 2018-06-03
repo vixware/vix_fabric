@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.common.org.entity.BusinessOrgDetail" table="MDM_ORG_BUSINESSORG_DETAIL">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128"/>
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false"/>
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false"/>
+		
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128"/>
+		 
+		<property name="createTime" type="java.util.Date" column="CreateTime" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UpdateTime"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		
+		
+		<property name="bizOrgType" type="java.lang.String" column="BizOrgType" length="2"/>
+		
+		<!-- 业务组织 -->
+		<many-to-one name="businessOrg" class="com.vix.common.org.entity.BusinessOrg">
+			<column name="BusinessOrg_ID">
+				 <comment>业务组织id</comment>
+			</column>
+		</many-to-one>
+		<!-- 业务视图 -->
+        <many-to-one name="businessView" class="com.vix.common.org.entity.BusinessView">
+			<column name="BusinessView_ID">
+				 <comment>业务视图id</comment>
+			</column>
+		</many-to-one>
+		
+		
+		<many-to-one name="organizationUnit" class="com.vix.common.org.entity.OrganizationUnit">
+			<column name="OrganizationUnit_ID">
+				 <comment>部门id</comment>
+			</column>
+		</many-to-one>
+		
+		<many-to-one name="role" class="com.vix.common.security.entity.Role">
+			<column name="Role_ID">
+				 <comment>角色id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="employee" class="com.vix.hr.organization.entity.Employee">
+			<column name="Employee_ID">
+				 <comment>职员id</comment>
+			</column>
+		</many-to-one>
+		
+		
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+/*-- CSS Document by Silence QQ:82568873 --*/
+
+/*-- mial --*/
+.mail {clear:both;height:650px;margin:0 0 30px;}
+
+	#m_left,#m_right {width:207px;border:1px solid #C3C3C3;height:100%;background:#fff;position:relative;z-index:8;}
+	#m_left.switch,#m_right.switch {width:7px;overflow:hidden;}			
+	#m_left {float:left;margin-right:1px;}
+	#m_right {float:right;margin-left:1px;}
+	
+	#switch_left.switch_btn {_right:-1px;}
+	#switch_right.switch_btn {left:0;}
+	
+	/*-- 左右块 --*/		
+	.m_box dt {clear:both;line-height:21px;height:21px;background:url(../img/mail_bg_01.gif);padding:0 10px;font-weight:700;color:#666;border-bottom:1px solid #c3c3c3;}
+	
+	.m_menu {clear:both;border-bottom:2px solid #C2C3C3;height:25px;position:relative;margin-top:3px;}
+	.m_menu img {vertical-align:middle;}
+	.m_menu ul {position:absolute;top:2px;left:0;}
+	.m_menu li {float:left;margin-right:2px;line-height:25px;}
+	.m_menu li a {background:url(../img/mail_bg_02.gif) 0 -25px;display:block;color:#444;padding-left:5px;}
+	.m_menu li.m_current a {background:url(../img/mail_bg_02.gif);}
+	.m_menu li span {display:block;margin-left:2px;background:url(../img/mail_bg_02.gif) right -25px;padding-right:5px;overflow:hidden;}
+	.m_menu li.m_current span {background:url(../img/mail_bg_02.gif) right 0;}
+	.m_menu li a:hover {text-decoration:none;background:url(../img/mail_bg_02.gif) 0 0;}
+	.m_menu li a:hover span {background:url(../img/mail_bg_02.gif) right 0;}
+	
+	.m_txt {clear:both;padding:5px;}
+		
+	/*-- m_content --*/
+	#m_content {_margin:0 209px;_margin:0;border:1px solid #C3C3C3;height:100%;background:#fff;overflow:hidden;}
+	#m_content.switch_left {margin-left:10px;}
+	#m_content.switch_right {margin-right:10px;}
+	
+	#mail_box {width:100%;height:100%;}
+	
+	/*-- mail_title --*/	
+	#mail_title h2 {clear:both;line-height:30px;border-bottom:2px solid #c3c3c3;font-size:12px;background:#F7F7F7;color:#333;padding:0 10px;}
+	
+	/*-- mail_list --*/
+	#mail_list {height:160px;width:100%;border-bottom:2px solid #333;overflow:auto;}
+	
+		.list {width:100%;}
+		.list th,.list td {line-height:20px;}
+		.list th {background:#EBEBED;border-top:1px solid #7F7F7Fio;font-weight:700;color:#666;text-align:left;padding:0 2px;}
+		.list th a {margin:0 3px;}
+		.list td {background:#fff;border:1px solid #EDEDED;padding:0 1px;}
+		.list td b,.list td em {color:#1F63B6;}
+		.list tr.alt td {background:#F6F6F6;}
+		.list tr.over td {background:#C4DDF4;}
+				
+			
+	/*-- mail_txt --*/
+	.mail_txt {}
+	
+	.mail_txt_menu {clear:both;background:#eee;padding:2px;_height:22px;overflow:hidden;}
+	.mail_txt_menu li {float:left;margin-right:2px;}
+	.mail_txt_menu a {display:inline-block;line-height:22px;height:22px;background:url(../img/btn_03.gif);padding-left:10px;}
+	.mail_txt_menu a span {display:block;padding-right:10px;background:url(../img/btn_03.gif) right;color:#666;}
+	.mail_txt_menu a:hover {background:url(../img/btn_02.gif);text-decoration:none;}
+	.mail_txt_menu a:hover span {background:url(../img/btn_02.gif) right;color:#fff;}
+	
+	.title {clear:both;background:#eee;padding:5px 0;}
+	.title li {line-height:20px;font-size:11px;}
+	.title li span {float:left;display:block;width:140px;text-align:right;color:#999;}
+	
+	.txt {padding:10px;}
+	.txt p {line-height:20px;}

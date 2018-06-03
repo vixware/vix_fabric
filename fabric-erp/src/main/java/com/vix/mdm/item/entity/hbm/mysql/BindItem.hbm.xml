@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.mdm.item.entity.BindItem" table="MDM_BINDITEM">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+        
+        <property name="createTime" type="java.util.Date" column="createTime" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="updateTime"/> 
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="100" update="false"/>
+		<many-to-one name="dataCreater" column="dataCreater_id" foreign-key="none" update="false"/>
+		
+		<property name="code" type="java.lang.String" column="CODE" length="100" unique="true"/>
+ 		<property name="name" type="java.lang.String" column="NAME" length="100"/>
+ 		<property name="sku" type="java.lang.String" column="SKU" length="50"/>
+ 		<property name="status" type="java.lang.String" column="STATUS" length="10"/>
+ 		<property name="price" type="java.lang.Double" column="PRICE" />
+ 		<property name="marketPrice" type="java.lang.Double" column="MARKETPRICE" />
+ 		<property name="description" column="DESCRIPTION" type="text"/>
+ 		<property name="isAllowCashOnDelivery" type="java.lang.String" column="ISALLOWCASHONDELIVERY" length="10"/>
+		<set name="subBindItemDetails" inverse="true" cascade="all">
+			<key column="BINDITEM_ID"/>
+			<one-to-many class="com.vix.mdm.item.entity.BindItemDetail"/>
+		</set>
+  </class>
+</hibernate-mapping>

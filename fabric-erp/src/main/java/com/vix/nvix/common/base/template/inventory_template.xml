@@ -1,0 +1,7 @@
+<xls>
+	<area ref="inventoryCurrentStock!A1:N2">
+		<each items="inventoryCurrentStockList" var="inventoryCurrentStock" ref="inventoryCurrentStock!A2:N2">
+			<area ref="inventoryCurrentStock!A2:N2" />
+		</each>
+	</area>
+</xls>

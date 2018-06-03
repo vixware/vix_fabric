@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title></title>
+  <script src="../../jquery/jquery-1.8.2.js"></script>
+  <script src="../../jquery/jquery-ui-1.9.1.custom.min.js"></script>
+  <link href="../../jquery/css/jquery-ui-1.9.1.custom.css" rel="stylesheet">
+  <link href="../../vreport/css/vreport.css" rel="stylesheet">
+  <script src="../../raphael/raphael-min.js"></script>
+  <script src="../../vreport/js/vreport.js"></script>
+ </head>
+ <body>
+ <div id="div1"></div>
+ <script>	
+	var report = new Rreport({
+		renderTo:'div1'
+	});
+	report.loadData({"link":[{"id":"link1","from":"node1","to":["node2","node3"],"length":19}],"node":[{"x":104,"y":44,"title":"标题","titleRemark":"副标题","content":"内容","id":"node1","w":190,"h":60,"th":40},{"x":4,"y":138,"title":"标题","titleRemark":"副标题","content":"","id":"node2","w":190,"h":120,"th":40,"url":"http://localhost:8080/resources/vreport/data.html"},{"x":221,"y":138,"title":"标题","titleRemark":"副标题","content":"内容","id":"node3","w":190,"h":60,"th":40}],"viewType":"h","width":500,"height":500});
+ </script>
+  
+ </body>
+</html>

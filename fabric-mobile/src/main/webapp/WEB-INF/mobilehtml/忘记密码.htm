@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>农本记</title>
+	<meta name="keywords" content="农本记"/>
+	<meta name="description" content="农本记"/>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/layout.css">
+</head>
+<body style="background: #fff;">
+<header>
+    <a href="登录.html" class="b-header-code b-header-return"></a>手机验证
+</header>
+<section class="forGetPas mt_50">
+    <div class="log-box">
+        <!-- 表单 -->
+        <div class="input-item mb10">
+            <input type="text" class="input-common" name="cellphone" id="cellphone" placeholder="手机号" maxlength="11" onkeyup="BNJ.enterNum(this)">
+        </div>
+        <div class="input-item mb25">
+            <div style="width:70%; float:left; margin-right:10px;">
+                <input type="text" class="input-common red_errow" name="valiCode" id="valiCode" placeholder="验证码">
+            </div>
+            <div style="width:25%; float:right;">
+                <input type="button" class="btn2_gray" id="getValdateBtn" value="发送">
+            </div>
+        </div>
+        <a href="javascript:;" class="btn" id="next">下一步</a>
+    </div>
+</section>
+</body>
+</html>
+<script src="js/jquery-2.1.4.js"></script>

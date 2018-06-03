@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.activity.entity.Activity" table="CRM_ACTIVITY">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+		<property name="uuid" type="java.lang.String" column="UUID" length="50"/>
+		<property name="code" type="java.lang.String" column="CODE"/>
+		<property name="name" type="java.lang.String" column="NAME" length="150"/>
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150"/>
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150"/>
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150"/>
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150"/>
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150"/>
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150"/>
+		<property name="status" type="java.lang.String" column="STATUS" length="50"/>
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150"/>
+		<property name="startTime" type="java.util.Date" column="STARTTIME"/>
+		<property name="endTime" type="java.util.Date" column="ENDTIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false"/>
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150"/>
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150"/>
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150"/>
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150"/>
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150"/>
+		<property name="version" type="java.lang.String" column="VERSION" length="150"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150"/>
+		<property name="searchText1" type="java.lang.String" column="SEARCHTEXT1" length="100"/>
+		<property name="searchText2" type="java.lang.String" column="SEARCHTEXT2" length="100"/>
+		
+		<!-- 基础业务对象 -->
+		<property name="barCode" type="java.lang.String" column="BARCODE" length="150"/>
+		<property name="approver" type="java.lang.String" column="APPROVER" length="150"/>
+		<!-- <property name="approalStatus" type="java.lang.String" column="APPROALSTATUS" length="50"/> -->
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100"/>
+		<property name="barCodeTwoDimen" type="java.lang.String" column="BARCODETWODIMEN" length="150"/>
+		<property name="selfExtendStringField1" type="java.lang.String" column="SELFEXTENDSTRINGFIELD1" length="150"/>
+		<property name="selfExtendStringField2" type="java.lang.String" column="SELFEXTENDSTRINGFIELD2" length="150"/>
+		<property name="selfExtendStringField3" type="java.lang.String" column="SELFEXTENDSTRINGFIELD3" length="150"/>
+		<property name="selfExtendStringField4" type="java.lang.String" column="SELFEXTENDSTRINGFIELD4" length="150"/>
+		<property name="selfExtendStringField5" type="java.lang.String" column="SELFEXTENDSTRINGFIELD5" length="150"/>
+		<property name="selfExtendStringField6" type="java.lang.String" column="SELFEXTENDSTRINGFIELD6" length="150"/>
+ 		<property name="selfExtendStringField7" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD7" length="150"/>
+		<property name="selfExtendStringField8" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD8" length="150"/>
+		<property name="selfExtendStringField9" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD9" length="150"/>
+		<property name="selfExtendStringField10" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD10" length="150"/>
+		<property name="selfExtendStringField11" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD11" length="150"/>
+		<property name="selfExtendStringField12" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD12" length="150"/>
+ 		<property name="selfExtendXMLField1" type="java.lang.String" column="SELFEXTENDXMLFIELD1" length="1000"/>
+		<property name="selfExtendXMLField2" type="java.lang.String" column="SELFEXTENDXMLFIELD2" length="1000"/>
+ 		<property name="ipAddress" type="java.lang.String" column="IPADDRESS" length="150"/>
+		<property name="bizflowPhase" type="java.lang.String" column="BIZFLOWPHASE" length="150"/>
+ 		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="150" />
+		
+		<property name="title" type="java.lang.String" column="TITLE" length="500"/>
+		<property name="activity" type="java.lang.String" column="ACTIVITY" length="500"/>
+		<property name="type" type="java.lang.String" column="TYPE" length="50"/>
+		<property name="date" type="java.util.Date" column="DATE" />
+		<property name="content" type="java.lang.String" column="CONTENT" length="500"/>
+		<property name="estimatedCost" type="java.lang.Double" column="ESTIMATEDCOST" />
+		<property name="costsIncurred" type="java.lang.Double" column="COSTSINCURRED" />
+		<property name="approvalOfFees" type="java.lang.Double" column="APPROVALOFFEES" />
+		<property name="projectedSales" type="java.lang.Double" column="PROJECTEDSALES" />
+		<property name="salesOpportunities" type="java.lang.Double" column="SALESOPPORTUNITIES" />
+		<property name="actualSales" type="java.lang.Double" column="ACTUALSALES" />
+		<property name="expectedSales" type="java.lang.Double" column="EXPECTEDSALES" />
+		<property name="actualNumberOfOpportunities" type="java.lang.Double" column="ACTUALNUMBEROFOPPORTUNITIES" />
+	 	<property name="startDate" type="java.util.Date" column="STARTDATE" />
+	 	<property name="startTimeStr" type="java.lang.String" column="STARTTIMESTR" length="100"/>
+		<property name="endDate" type="java.util.Date" column="ENDDATE" />
+		<property name="endTimeStr" type="java.lang.String" column="ENDTIMESTR" length="100"/>
+		<property name="acturalCost" type="java.lang.Double" column="ACTURALCOST" />
+		<property name="dateEntered" type="java.util.Date" column="DATEENTERED" />
+		<property name="dateModified" type="java.util.Date" column="DATEMODIFIED" />
+		<property name="address" type="java.lang.String" column="ADDRESS" length="300"/>
+		<property name="assignedUserId" type="java.lang.Double" column="ASSIGNEDUSERID" />
+		<property name="modifiedUserId" type="java.lang.Double" column="MODIFIEDUSERID" />
+		<many-to-one name="created_by" column="created_by_id" update="false"/>
+		<many-to-one name="currencyType" column="currencyType_id"/>
+		<many-to-one name="personInCharge" column="personInCharge_id"/>
+		<many-to-one name="customerAccount" column="projectStage_id"/>
+		<many-to-one name="saleActivity" column="saleActivity_id"/>
+		<many-to-one name="crmProject" column="crmProject_id"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemCostProperties" table="MDM_ITEMCOSTPROPERTIES">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="itemCode" type="java.lang.String" column="ITEMCODE" length="150" />
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="150" />
+		<property name="priceStyle" type="java.lang.String" column="PRICESTYLE" length="150" />
+		<property name="feeRate" type="java.lang.Double" column="FEERATE" />
+		<property name="planPrice" type="java.lang.Double" column="PLANPRICE" />
+		<property name="salePrice" type="java.lang.Double" column="SALEPRICE" />
+		<property name="maxCost" type="java.lang.Double" column="MAXCOST" />
+		<property name="costPrice" type="java.lang.Double" column="COSTPRICE" />
+		<property name="refereceCost" type="java.lang.Double" column="REFERECECOST" />
+		<property name="newCost" type="java.lang.Double" column="NEWCOST" />
+		<property name="refereceSalePrice" type="java.lang.Double" column="REFERECESALEPRICE" />
+		<property name="minSalePrice" type="java.lang.Double" column="MINSALEPRICE" />
+		<property name="defaultWarehouse" type="java.lang.String" column="DEFAULTWAREHOUSE" length="150" />
+		<property name="defaultShelf" type="java.lang.String" column="DEFAULTSHELF" length="150" />
+		<property name="purchasePerson" type="java.lang.String" column="PURCHASEPERSON" length="150" />
+		<property name="rebateRate" type="java.lang.Double" column="REBATERATE" />
+		<property name="saleAddRate" type="java.lang.Double" column="SALEADDRATE" />
+		<property name="retailPrice" type="java.lang.Double" column="RETAILPRICE" />
+		<property name="prepareManPower" type="java.lang.Double" column="PREPAREMANPOWER" />
+		<property name="processManPower" type="java.lang.Double" column="PROCESSMANPOWER" />
+		<property name="variableManufacturingCost" type="java.lang.Double" column="VARIABLEMANUFACTURINGCOST" />
+		<property name="fixedManufacturingCost" type="java.lang.Double" column="FIXEDMANUFACTURINGCOST" />
+		<property name="outSoucingFee" type="java.lang.Double" column="OUTSOUCINGFEE" />
+		<property name="perMaterialCost" type="java.lang.Double" column="PERMATERIALCOST" />
+		<property name="materialCost" type="java.lang.Double" column="MATERIALCOST" />
+		<many-to-one name="item" class="com.vix.mdm.item.entity.Item">
+			<column name="item_id" unique="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

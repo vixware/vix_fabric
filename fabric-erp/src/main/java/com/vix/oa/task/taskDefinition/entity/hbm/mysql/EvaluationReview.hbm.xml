@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.task.taskDefinition.entity.EvaluationReview" table="OA_EVALUATIONREVIEW">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="name" type="java.lang.String" column="NAME" length="100" />
+		<property name="code" type="java.lang.String" column="CODE" length="50" />
+		<property name="evaluationContent" type="text" column="EVALUATIONCONTENT" length="1024" />
+		<property name="evaluationTime" type="java.util.Date">
+			<column name="evaluationTime" length="100" />
+		</property>
+		<property name="complete" type="java.lang.Integer" column="COMPLETE" />
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+
+		<many-to-one name="executionFeedback" column="executionFeedback_id" />
+		<many-to-one name="vixTask" column="vixTask_id" />
+		<many-to-one name="employee" column="Employee_id" />
+		<many-to-one name="project" column="project_id" />
+		<many-to-one name="crmProject" column="crmProject_id" />
+		<many-to-one name="tripRecord" column="tripRecord_id" />
+		<many-to-one name="applicationMg" column="applicationMg_id" />
+		<many-to-one name="workLog" column="workLog_id" />
+		<many-to-one name="projectManagement" column="projectManagement_id" />
+		<many-to-one name="trends" column="Trends_ID" />
+		<many-to-one name="announcementNotification" column="announcementNotification_id" />
+
+		<many-to-one name="parentEvaluationReview" column="parentEvaluationReview_id" />
+		<set name="subEvaluationReviews" inverse="true">
+			<key>
+				<column name="parentEvaluationReview_id" />
+			</key>
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.EvaluationReview" />
+		</set>
+	</class>
+</hibernate-mapping>

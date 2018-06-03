@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.pm.org.entity.PmOrg" table="PM_ORG">
+        <id name="id" type="java.lang.Long" column="ID">
+			<generator class="native"/>
+        </id>
+<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+        <property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64"/>
+		<property name="createTime" type="java.util.Date" column="CreateTime" update="false"/>
+		<property name="updateTime" type="java.util.Date" column="UpdateTime"/>
+		<property name="businessOrgCode" type="java.lang.String" column="BusinessOrgCode" length="128"/>
+		<property name="businessOrgName" type="java.lang.String" column="BusinessOrgName" length="512"/>
+		<property name="isVirtualUnitNode" type="java.lang.String" column="IsVirtualUnitNode" length="2"/>
+		
+		<property name="orgUnitName" type="java.lang.String" column="orgUnitName" length="128"/>
+		<property name="orgUnitCode" type="java.lang.String" column="orgUnitCode" length="128"/>
+		
+		
+		<property name="bizOrgType" type="java.lang.String" column="BizOrgType" length="2"/>
+		
+		<many-to-one name="parentBusinessOrg" >
+			<column name="Parent_id">
+				<comment>父ID</comment>
+			</column>
+		</many-to-one>
+		<set name="subBusinessOrgs" inverse="true">
+			<key column="Parent_id"/>
+			<one-to-many class="com.vix.pm.org.entity.PmOrg"/>
+		</set>
+		
+		
+		<!-- <set name="organizationUnits" table="MDM_ORG_ORGANIZATIONUNIT_BUSORG" inverse="true">
+            <key>
+                <column name="BusinessOrg_ID" precision="30" scale="0" not-null="true">
+                	<comment>业务组织id</comment>
+                </column>
+            </key>
+            <many-to-many class="com.vix.common.org.entity.OrganizationUnit">
+                <column name="OrganizationUnit_ID" precision="30" scale="0" not-null="true" />
+            </many-to-many>
+        </set> -->
+        
+        <!-- 业务视图 -->
+        <many-to-one name="pmView" class="com.vix.pm.org.entity.PmView">
+			<column name="PmView_ID">
+				 <comment>业务视图id</comment>
+			</column>
+		</many-to-one>
+        
+       <!-- 关联为部门 
+       <join table="MDM_ORG_ORGANIZATIONUNIT_BUSORG"  optional="true">
+			<key>
+				  <column name="BusinessOrg_ID" precision="30" scale="0" not-null="true">
+	               	<comment>业务组织id</comment>
+	              </column>
+			</key>
+			<many-to-one name="organizationUnit" column="OrganizationUnit_ID" not-null="true"></many-to-one>
+		</join>
+		-->
+		<many-to-one name="organizationUnit" class="com.vix.common.org.entity.OrganizationUnit">
+			<column name="OrganizationUnit_ID">
+				 <comment>部门id</comment>
+			</column>
+		</many-to-one>
+		
+		<many-to-one name="role" class="com.vix.common.security.entity.Role">
+			<column name="Role_ID">
+				 <comment>角色id</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="employee" class="com.vix.hr.organization.entity.Employee">
+			<column name="Employee_ID">
+				 <comment>职员id</comment>
+			</column>
+		</many-to-one>
+  </class>
+</hibernate-mapping>

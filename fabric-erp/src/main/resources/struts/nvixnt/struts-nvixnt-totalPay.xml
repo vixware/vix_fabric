@@ -1,0 +1,53 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.totalPay" namespace="/nvixnt/totalPay" extends="crud-default">
+		<!-- 凭证-->
+		<action name="nvixProofAction!*" method="{1}" class="nvixProofAction">
+		    <result name="writeProof">/WEB-INF/vixnt/totalPay/proof/writeProof.jsp</result>
+		    <result name="proofList">/WEB-INF/vixnt/totalPay/proof/proofList.jsp</result>
+		    <result name="testProof">/WEB-INF/vixnt/totalPay/proof/testProof.jsp</result>
+		    <result name="queryProof">/WEB-INF/vixnt/totalPay/proof/queryProof.jsp</result>
+		    <result name="sumSubject">/WEB-INF/vixnt/totalPay/proof/sumSubject.jsp</result>
+		    <result name="sumArticle">/WEB-INF/vixnt/totalPay/proof/sumArticle.jsp</result>
+		    <result name="queryCash">/WEB-INF/vixnt/totalPay/proof/queryCash.jsp</result>
+		    <result name="chargeList">/WEB-INF/vixnt/totalPay/proof/chargeList.jsp</result>
+		    <result name="commonProof">/WEB-INF/vixnt/totalPay/proof/commonProof.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 出纳-->
+		<action name="nvixCashierAction!*" method="{1}" class="nvixCashierAction">
+		    <result name="goCashDiary">/WEB-INF/vixnt/totalPay/cashier/cashDiary.jsp</result>
+		    <result name="goBankDiary">/WEB-INF/vixnt/totalPay/cashier/bankDiary.jsp</result>
+		    <result name="goFundDiary">/WEB-INF/vixnt/totalPay/cashier/fundDiary.jsp</result>
+		    <result name="goPrintBook">/WEB-INF/vixnt/totalPay/cashier/printBook.jsp</result>
+		    <result name="goCheckBook">/WEB-INF/vixnt/totalPay/cashier/checkBook.jsp</result>
+		    <result name="writeProof">/WEB-INF/vixnt/totalPay/cashier/writeProof.jsp</result>
+		    <result name="goLostCheck">/WEB-INF/vixnt/totalPay/cashier/lostCheck.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 账表-->
+		<action name="nvixBillAction!*" method="{1}" class="nvixBillAction">
+		    <result name="goMyForm">/WEB-INF/vixnt/totalPay/form/myForm.jsp</result>
+		    <result name="goBalanceBill">/WEB-INF/vixnt/totalPay/form/balanceBill.jsp</result>
+		    <result name="goDetailBill">/WEB-INF/vixnt/totalPay/form/detailBill.jsp</result>
+		    
+		    <result name="goAssistBill">/WEB-INF/vixnt/totalPay/form/assistBill.jsp</result>
+		    <result name="goApplyBill">/WEB-INF/vixnt/totalPay/form/applyBill.jsp</result>
+		    <result name="goPersonalBill">/WEB-INF/vixnt/totalPay/form/personalBill.jsp</result>
+		    <result name="goDepartmentBill">/WEB-INF/vixnt/totalPay/form/departmentBill.jsp</result>
+		    <result name="goProjectBill">/WEB-INF/vixnt/totalPay/form/projectBill.jsp</result>
+		    <result name="goCashBill">/WEB-INF/vixnt/totalPay/form/cashBill.jsp</result>
+		    <result name="goPrintBill">/WEB-INF/vixnt/totalPay/form/printBill.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 综合辅助账-->
+		<action name="nvixSynthesizeAction!*" method="{1}" class="nvixSynthesizeAction">
+		    <result name="goAssistDetail">/WEB-INF/vixnt/totalPay/assist/assistDetail.jsp</result>
+		    <result name="goAssistSum">/WEB-INF/vixnt/totalPay/assist/assistSum.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+	</package>
+</struts>

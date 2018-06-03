@@ -1,0 +1,60 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 客服管理 -->
+	<package name="crm.service" namespace="/crm/service" extends="crud-default">
+		<!-- 客户关怀管理 -->
+		<action name="customerCareAction!*" method="{1}" class="customerCareAction">
+			<result name="goList">/WEB-INF/content/crm/service/customerCare_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/service/customerCare_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/service/updateCustomerCare.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/service/customerCare_project_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCrmProject">/WEB-INF/content/crm/service/updateCustomerCareForCrmProject.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/service/customerCare_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/service/updateCustomerCareForCustomerAccount.jsp</result>
+			<result name="loadCustomerContactPerson">/WEB-INF/content/crm/service/loadContactPersonForCustomerCare.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户投诉管理 -->
+		<action name="customerComplaintAction!*" method="{1}" class="customerComplaintAction">
+			<result name="goList">/WEB-INF/content/crm/service/customerComplaint_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/service/customerComplaint_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/service/updateCustomerComplaint.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/service/customerComplaint_project_list_content.jsp</result>
+			<result name="goSaveOrUpdateForProject">/WEB-INF/content/crm/service/updateCustomerComplaintForProject.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/service/customerComplaint_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/service/updateCustomerComplaintForCustomerAccount.jsp</result>
+			<result name="loadCustomerContactPerson">/WEB-INF/content/crm/service/loadContactPerson.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客户服务管理 -->
+		<action name="customerServiceAction!*" method="{1}" class="customerServiceAction">
+			<result name="goList">/WEB-INF/content/crm/service/customerService_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/service/customerService_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/service/updateCustomerService.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/service/customerService_project_list_content.jsp</result>
+			<result name="goSaveOrUpdateForProject">/WEB-INF/content/crm/service/updateCustomerServiceForProject.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/service/customerService_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/service/updateCustomerServiceForCustomerAccount.jsp</result>
+			<result name="loadCustomerContactPerson">/WEB-INF/content/crm/service/loadContactPersonForCustomerService.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 客服记事 -->
+		<action name="customerServiceNotepadAction!*" method="{1}" class="customerServiceNotepadAction">
+			<result name="goSingleList">/WEB-INF/content/crm/service/customerServiceNotepad_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/service/updateCustomerServiceNotepad.jsp</result>
+			<result name="goSingleListForCustomerAccount">/WEB-INF/content/crm/service/customerServiceNotepad_customerAccount_list_content.jsp</result>
+			<result name="goSaveOrUpdateForCustomerAccount">/WEB-INF/content/crm/service/updateCustomerServiceNotepadForCustomerAccount.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 质量保证 -->
+		<action name="qualityAssuranceAction!*" method="{1}" class="qualityAssuranceAction">
+			<result name="goList">/WEB-INF/content/crm/service/qualityAssurance_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/service/qualityAssurance_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/service/updateQualityAssurance.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

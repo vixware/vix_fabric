@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 销售线索 -->
+	<package name="crm.lead" namespace="/crm/lead" extends="crud-default">
+		<!-- 销售线索 -->
+		<action name="saleLeadAction!*" method="{1}" class="saleLeadAction">
+			<result name="goList">/WEB-INF/content/crm/lead/saleLead_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/lead/saleLead_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/lead/updateSaleLead.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/lead/saleLead_Search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="loadCustomerContactPerson">/WEB-INF/content/crm/lead/loadContactPerson.jsp</result>
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/crm/lead/dynamicMenuContent.jsp</result>
+		</action>
+	</package>
+</struts>

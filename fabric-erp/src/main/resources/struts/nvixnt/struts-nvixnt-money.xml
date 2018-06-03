@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.money" namespace="/nvixnt/money" extends="crud-default">
+		<!--应收款管理-->
+		<action name="nvixCollectionMoneyAction!*" method="{1}" class="nvixCollectionMoneyAction">
+		    <result name="collectionList">/WEB-INF/vixnt/money/collect/collectionList.jsp</result>
+		    <result name="goSaveOrUpdate">/WEB-INF/vixnt/money/collect/collect_update.jsp</result>
+		    
+		    <result name="collectionBillList">/WEB-INF/vixnt/money/collect/collectionBillList.jsp</result>
+		    <result name="saveOrUpdateCollection">/WEB-INF/vixnt/money/collect/collect_bill_update.jsp</result>
+		    
+		    <result name="NoteList">/WEB-INF/vixnt/money/collect/noteList.jsp</result>
+		    <result name="saveOrUpdateNote">/WEB-INF/vixnt/money/collect/note_update.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!--应付款管理-->
+		<action name="nvixPayMoneyAction!*" method="{1}" class="nvixPayMoneyAction">
+		    <result name="payList">/WEB-INF/vixnt/money/pay/payList.jsp</result>
+		    <result name="goSaveOrUpdate">/WEB-INF/vixnt/money/pay/pay_update.jsp</result>
+		    
+		    <result name="payBillList">/WEB-INF/vixnt/money/pay/payBillList.jsp</result>
+		    <result name="saveOrUpdatePay">/WEB-INF/vixnt/money/pay/pay_bill_update.jsp</result>
+		    
+		    <result name="NoteList">/WEB-INF/vixnt/money/pay/noteList.jsp</result>
+		    <result name="saveOrUpdateNote">/WEB-INF/vixnt/money/pay/note_update.jsp</result>
+		    <result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!--设置-会计-->
+		<action name="nvixSetUpAction!*" method="{1}" class="nvixSetUpAction">
+			<result name="goList">/WEB-INF/vixnt/money/setup/setup_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/money/setup/setup_update.jsp</result>
+			
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+	</package>
+</struts>

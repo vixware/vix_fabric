@@ -1,0 +1,6 @@
+
+INSERT INTO `cmn_sec_role` (`ID`, `PrimaryKey`, `Name`, `RoleCode`, `Memo`, `Parent_id`, `COMPANYCODE`, `TENANTID`, `LANGCODE`, `COUNTRYCODE`, `CompanyInnerCode`) VALUES('1',NULL,'超级管理员','ROLE_SUPER_ADMIN',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
+INSERT INTO `cmn_sec_useraccount` (`ID`, `PrimaryKey`, `Account`, `Password`, `Enable`, `Employee_ID`, `CreateTime`, `UpdateTime`, `AccountBizType`, `UserResourceReadType`, `loginPage`, `UUID`, `CODE`, `NAME`, `LANGUAGE`, `COMPANYINNERCODE`, `COMPANYCODE`, `ACCOUNTSET`, `STARTTIME`, `ENDTIME`, `TENANTID`, `LANGCODE`, `COUNTRYCODE`, `createUserAccountId`,isSet) VALUES('1',NULL,'superadmin','202cb962ac59075b964b07152d234b70','1',NULL,NULL,NULL,NULL,'C',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'N');
+
+INSERT INTO `cmn_sec_useraccount_role` (`Role_ID`, `UserAccount_ID`) VALUES('1','1');

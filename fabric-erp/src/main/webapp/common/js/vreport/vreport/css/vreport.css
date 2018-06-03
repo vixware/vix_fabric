@@ -1,0 +1,48 @@
+#node-win span{
+	display:inline-block;
+	width:60px;
+}
+#node-win input{
+	margin-top:5px;
+	height:24px;
+	width:180px;
+}
+#node-win select{
+	margin-top:5px;
+	height:24px;
+	width:185px;
+}
+#node-win-text span{
+	display:inline-block;
+	width:60px;
+}
+#node-win-text input{
+	margin-top:5px;
+	height:24px;
+	width:180px;
+}
+#node-win-text select{
+	margin-top:5px;
+	height:24px;
+	width:185px;
+}
+#node-win-text textarea{
+	margin-top:5px;
+	width:180px;
+	height:150px;
+}
+#report_view_type{
+	width:162px;
+}
+#node-win textarea{
+	margin-top:5px;
+	width:180px;
+	height:150px;
+}
+#vreporttoolbar {
+  padding: 4px;
+}
+/* support: IE7 */
+*+html #vreporttoolbar {
+  display: inline;
+}

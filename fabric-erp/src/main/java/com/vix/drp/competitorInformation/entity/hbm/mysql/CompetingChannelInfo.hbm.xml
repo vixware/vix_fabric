@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD//EN"
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.drp.competitorInformation.entity.CompetingChannelInfo" table="DRP_COMPETINGCHANNELINFO">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<!-- 自身属性 -->
+		<property name="saleOrg" type="java.lang.String" column="saleOrg" length="254" />
+		<property name="saleOrgCode" type="java.lang.String" column="saleOrgCode" length="254" />
+		<property name="indetity" type="java.lang.String" column="indetity" length="254" />
+		<property name="shortName" type="java.lang.String" column="shortName" length="254" />
+		<property name="pinYin" type="java.lang.String" column="pinYin" length="254" />
+		<property name="englishName" type="java.lang.String" column="englishName" length="254" />
+		<property name="parentChannelDistributorCode" type="java.lang.String" column="parentChannelDistributorCode" length="254" />
+		<property name="parentChannelDistributorName" type="java.lang.String" column="parentChannelDistributorName" length="254" />
+		<property name="catalog" type="java.lang.String" column="catalog" length="254" />
+		<property name="type" type="java.lang.String" column="type" length="254" />
+		<property name="region" type="java.lang.String" column="region" length="254" />
+		<property name="employeeCounts" type="java.lang.Long" column="employeeCounts" length="254" />
+		<property name="parentCompanyCode" type="java.lang.String" column="parentCompanyCode" length="254" />
+		<property name="parentCompanyName" type="java.lang.String" column="parentCompanyName" length="254" />
+		<property name="industry" type="java.lang.String" column="industry" length="254" />
+		<property name="currency" type="java.lang.String" column="currency" length="254" />
+		<property name="catalogs" type="java.lang.String" column="catalogs" length="254" />
+		<property name="registeredCapital" type="java.lang.String" column="registeredCapital" length="254" />
+		<property name="openingBank" type="java.lang.String" column="openingBank" length="254" />
+		<property name="bankAccount" type="java.lang.String" column="bankAccount" length="254" />
+		<property name="taxCode" type="java.lang.String" column="taxCode" length="254" />
+		<property name="artificialPerson" type="java.lang.String" column="artificialPerson" length="254" />
+		<property name="classes" type="java.lang.String" column="classes" length="254" />
+		<property name="telephone" type="java.lang.String" column="telephone" length="254" />
+		<property name="telefax" type="java.lang.String" column="telefax" length="254" />
+		<property name="email" type="java.lang.String" column="email" length="254" />
+		<property name="url" type="java.lang.String" column="url" length="254" />
+
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+	</class>
+</hibernate-mapping>

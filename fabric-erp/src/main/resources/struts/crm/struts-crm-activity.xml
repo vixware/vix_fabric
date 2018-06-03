@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 销售活动 -->
+	<package name="crm.activity" namespace="/crm/activity" extends="crud-default">
+		<!-- 销售活动 -->
+		<action name="activityAction!*" method="{1}" class="activityAction">
+			<result name="goList">/WEB-INF/content/crm/activity/activity_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/activity/activity_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/activity/updateActivity.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

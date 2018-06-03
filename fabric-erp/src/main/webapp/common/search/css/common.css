@@ -1,0 +1,26 @@
+.mainNavs{margin:10px auto;width:670px;text-align:left;}
+.mainNavs a{font-size:14px;margin-left:16px;color:#fff;}
+
+.searchIpt{width:515px;font-family:"微软雅黑";border: 0 none;box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow:1px 1px 3px rgba(0, 0, 0, 0.25);height: 20px; line-height: 20px; padding: 10px 9px 10px 7px;margin-right:3px;}
+/* 自定义样式 */
+.f14{font-size:14px;}
+.cp{cursor:pointer;}
+	
+.btn1 {
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #ffffff, #dddddd) repeat scroll 0 0;
+    border: 0 none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
+    font-family: "微软雅黑";
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    width: 105px;
+}
+
+
+#onresizeBox a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="sale.payment.config" namespace="/sales/payment" extends="crud-default">
+		<!-- 费用垫付 -->
+		<action name="disbursementCostAction!*" method="{1}" class="disbursementCostAction">
+			<result name="goList">/WEB-INF/content/sales/payment/disbursementCost_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/payment/disbursementCost_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/payment/updateDisbursementCost.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="disbursementCostDetailAction!*" method="{1}" class="disbursementCostDetailAction">
+			<result name="goList">/WEB-INF/content/sales/payment/disbursementCostDetail_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/payment/disbursementCostDetail_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/payment/updateDisbursementCostDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 费用支出 -->
+		<action name="expensesAction!*" method="{1}" class="expensesAction">
+			<result name="goList">/WEB-INF/content/sales/payment/expenses_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/payment/expenses_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/payment/updateExpenses.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="expensesDetailAction!*" method="{1}" class="expensesDetailAction">
+			<result name="goList">/WEB-INF/content/sales/payment/expensesDetail_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/sales/payment/expensesDetail_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/sales/payment/updateExpensesDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

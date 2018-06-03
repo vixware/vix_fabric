@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+.search-media .search-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 20%;
+    min-width: 100px;
+    max-width: 150px;
+    padding: 25px 9px;
+}
+.media-body {
+    width: 10000px;
+}
+.search-media {
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    padding: 12px;
+    -webkit-transition: border 0.1s ease-in-out 0s;
+    -o-transition: border 0.1s ease-in-out 0s;
+    transition: border 0.1s ease-in-out 0s;
+    position: relative;
+    padding-right: 150px;
+}
+.search-media .search-actions::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 16px;
+    width: 1px;
+    background-image: -webkit-linear-gradient(top, #FFF 0%, #DDD 100%);
+    background-image: -o-linear-gradient(top, #FFF 0%, #DDD 100%);
+    background-image: linear-gradient(to bottom, #FFF 0%, #DDD 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdddddd', GradientType=0);
+}
+.tab_menu{margin-top:15px;}
+.tab_menu ul {
+    overflow: hidden;
+    height: 44px;
+    line-height: 44px;
+    padding-left: 0;
+    background-image: linear-gradient(to bottom, #FFFFFF 0%, #EEEEEE 100%);
+}
+.tab_menu ul li.selected {
+    color: #478fca;
+    border-bottom: 3px solid #307ecc;
+}
+.tab_menu ul li {
+    font-family: Microsoft Yahei;
+    font-size: 16px;
+    float: left;
+    width: 100px;
+    height: 44px;
+    list-style-type: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

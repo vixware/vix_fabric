@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.nvix.wx.entity.WxpMsgSendApply" table="wxp_msg_send_apply">
+		<id name="id" type="java.lang.String" column="id">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="appId" type="java.lang.String" column="app_id" update="false" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" update="false" />
+		<property name="tenantId" type="java.lang.String" column="tenant_id" update="false" />
+
+		<property name="title" type="java.lang.String" column="title" />
+		<property name="sendTime" type="java.lang.String" column="send_time" />
+		<property name="isApprove" type="java.lang.Integer" column="is_approve" />
+		<property name="contentType" type="java.lang.String" column="content_type" />
+		<property name="textContent" type="java.lang.String" column="text_content" />
+		<property name="contentJson" type="java.lang.String" column="content_json" />
+		<property name="approveTime" type="java.util.Date" column="approve_time" />
+
+		<many-to-one name="msgSend" column="msg_send_id" insert="true" update="true" />
+		<many-to-one name="approveUser" column="approve_user_id" insert="true" update="true" />
+
+	</class>
+</hibernate-mapping>

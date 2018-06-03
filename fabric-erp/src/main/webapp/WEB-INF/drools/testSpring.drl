@@ -1,0 +1,11 @@
+package  org.drools.springframework
+
+import com.vix.system.entity.Employee
+
+rule "rule 1"
+when
+    $p : Employee();
+then
+	$p.setName('aaaaa');
+    System.out.println( $p.getName());
+end

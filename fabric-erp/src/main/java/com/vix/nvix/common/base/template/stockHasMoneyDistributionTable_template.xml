@@ -1,0 +1,7 @@
+<xls>
+	<area ref="stockHasMoneyDistributionVo!A1:F2">
+		<each items="stockHasMoneyDistributionVoList" var="stockHasMoneyDistributionVo" ref="stockHasMoneyDistributionVo!A2:F2">
+			<area ref="stockHasMoneyDistributionVo!A2:F2" />
+		</each>
+	</area>
+</xls>

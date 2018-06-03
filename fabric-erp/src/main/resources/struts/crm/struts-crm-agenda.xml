@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="crm.agenda.config" namespace="/crm/agenda" extends="crud-default">
+		<action name="calendarsAction!*" method="{1}" class="calendarsAction">
+			<result name="goCalendars">/WEB-INF/content/crm/agenda/calendars.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/agenda/calendar_update.jsp</result>
+			<result name="showCanlendar">/WEB-INF/content/crm/agenda/calendar_show.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<action name="dailyAction!*" method="{1}" class="dailyAction">
+			<result name="goList">/WEB-INF/content/crm/agenda/daily_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/agenda/daily_list_content.jsp</result>
+			<result name="showDaily">/WEB-INF/content/crm/agenda/showDaily.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/agenda/updateDaily.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goDailyTotal">/WEB-INF/content/crm/agenda/dailyTotal.jsp</result>
+		</action>
+		<action name="weeklyAction!*" method="{1}" class="weeklyAction">
+			<result name="goList">/WEB-INF/content/crm/agenda/weekly_list.jsp</result>
+			<result name="goSingleListTab1">/WEB-INF/content/crm/agenda/weekly_list_tab1_content.jsp</result>
+			<result name="goSingleListTab2">/WEB-INF/content/crm/agenda/weekly_list_tab2_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/agenda/updateWeekly.jsp</result>
+			<result name="showWeekly">/WEB-INF/content/crm/agenda/showWeekly.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goWeeklyTotal">/WEB-INF/content/crm/agenda/weeklyTotal.jsp</result>
+		</action>
+		<action name="monthlyAction!*" method="{1}" class="monthlyAction">
+			<result name="goList">/WEB-INF/content/crm/agenda/monthly_list.jsp</result>
+			<result name="goSingleListTab1">/WEB-INF/content/crm/agenda/monthly_list_tab1_content.jsp</result>
+			<result name="goSingleListTab2">/WEB-INF/content/crm/agenda/monthly_list_tab2_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/agenda/updateMonthly.jsp</result>
+			<result name="showMonthly">/WEB-INF/content/crm/agenda/showMonthly.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="goMonthlyTotal">/WEB-INF/content/crm/agenda/monthlyTotal.jsp</result>
+		</action>
+	</package>
+</struts>

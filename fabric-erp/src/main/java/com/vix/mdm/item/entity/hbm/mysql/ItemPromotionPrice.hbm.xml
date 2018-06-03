@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemPromotionPrice" table="MDM_ITEM_PROMOTIONPRICE">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="createTime" type="java.util.Date" column="createTime" update="false" />
+		<property name="updateTime" type="java.util.Date" column="updateTime" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="100" update="false" />
+		<many-to-one name="dataCreater" column="dataCreater_id" foreign-key="none" update="false" />
+
+		<many-to-one name="item" column="item_id" foreign-key="none" update="false" />
+		<many-to-one name="promotionRule" column="promotionRule_id" foreign-key="none" update="false" />
+		<property name="promotionPrice" type="java.lang.Double" column="PROMOTIONPRICE" update="false" />
+		<property name="promotionType" type="java.lang.String" column="PROMOTIONTYPE" length="100" update="false" />
+		<property name="clientType" type="java.lang.String" column="CLIENTTYPE" length="50" update="false" />
+		<property name="startDate" type="java.util.Date" column="STARTDATE" update="false" />
+		<property name="endDate" type="java.util.Date" column="ENDDATE" update="false" />
+		<property name="promotionRuleDetailId" type="java.lang.String" column="PROMOTIONRULEDETAILID" length="100" update="false" />
+	</class>
+</hibernate-mapping>

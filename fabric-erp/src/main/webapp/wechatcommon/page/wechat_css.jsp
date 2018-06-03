@@ -1,0 +1,1 @@
+<link href="${vix}/wechatcommon/css/result.css" rel="stylesheet" type="text/css">

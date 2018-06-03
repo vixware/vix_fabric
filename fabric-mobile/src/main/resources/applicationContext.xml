@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring" xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd">
+
+	<description>Spring公共配置 </description>
+
+
+	<!-- 定义受环境影响易变的变量 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:/application.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.vix" />
+
+	<!-- 数据源配置,使用应用内的DBCP数据库连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<!-- Connection Info -->
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- Connection Pooling Info -->
+		<property name="initialSize" value="50" />
+		<property name="maxActive" value="50" />
+		<property name="maxIdle" value="30" />
+		<property name="maxWait" value="10000" />
+		<property name="poolPreparedStatements" value="false" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+
+	<!-- Hibernate配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl}</prop>
+				<prop key="hibernate.max_fetch_depth">${hibernate.max_fetch_depth}</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<!-- 基础模块 -->
+				<value>classpath*:com/vix/common/log/entity/hbm/${dbType}/*.xml</value>
+				<value>classpath*:com/vix/common/share/entity/hbm/${dbType}/*.xml</value>
+				<!-- 销售模块 -->
+				<value>classpath*:com/vix/common/meta/entity/hbm/${dbType}/*.xml</value>
+				<!-- 人力资源管理模块 -->
+				<value>classpath*:com/vix/hr/*/entity/hbm/${dbType}/*.xml</value>
+				<!-- 组织机构 -->
+				<value>classpath*:com/vix/common/org/entity/hbm/${dbType}/*.xml</value>
+				<!-- 权限管理模块 -->
+				<value>classpath*:com/vix/common/security/entity/hbm/${dbType}/*.xml</value>
+				<!--合同模块 -->
+				<value>classpath*:com/vix/nvix/contract/entity/hbm/${dbType}/*.xml</value>
+				<!-- 系统管理模块 -->
+				<value>classpath*:com/vix/system/entity/hbm/${dbType}/*.xml</value>
+				<!-- 供应商模块-->
+				<value>classpath*:com/vix/mdm/srm/share/entity/hbm/${dbType}/*.xml</value>
+				<!-- 采购模块 -->
+				<value>classpath*:com/vix/mdm/purchase/*/entity/hbm/${dbType}/*.xml</value>
+				<!-- 库存模块 -->
+				<value>classpath*:com/vix/inventory/*/entity/hbm/${dbType}/*.xml</value>
+				<value>classpath*:com/vix/mdm/*/entity/hbm/${dbType}/*.xml</value>
+				<value>classpath*:com/vix/mdm/hr/*/entity/hbm/${dbType}/*.xml</value>
+				<!-- 分销管理 -->
+				<value>classpath*:com/vix/drp/*/entity/hbm/${dbType}/*.xml</value>
+				<!-- 配送中心管理 -->
+				<value>classpath*:com/vix/dtbcenter/*/entity/hbm/${dbType}/*.xml</value>
+				<value>classpath*:com/vix/crm/*/entity/hbm/${dbType}/*.xml</value>
+				<value>classpath*:com/vix/system/*/entity/hbm/${dbType}/*.xml</value>
+				<!-- 网店管理 -->
+				<value>classpath*:com/vix/ebusiness/**/entity/hbm/${dbType}/*.xml</value>
+				<!-- 连锁管理 -->
+				<value>classpath*:com/vix/common/orginialMeta/entity/hbm/${dbType}/*.xml</value>
+				<!-- 微信 -->
+				<value>classpath*:com/vix/wechat/base/entity/hbm/${dbType}/*.xml</value>
+				<value>classpath*:com/vix/nvix/warehouse/entity/hbm/${dbType}/*.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- SPRING 拦截器 -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Service</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<!-- 全局异常拦截器 -->
+				<value>runtimeExceptionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 事务管理器配置,单数据源事务 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+	<!-- 定时任务 -->
+	<task:annotation-driven executor="myExecutor" scheduler="myScheduler" />
+	<task:executor id="myExecutor" pool-size="5" />
+	<task:scheduler id="myScheduler" pool-size="10" />
+
+	<!-- 定义上下文返回的消息的国际化。 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:org/springframework/security/messages_zh_CN" />
+	</bean>
+
+	<!-- 事件监听:实现了 ApplicationListener监听接口，包括AuthenticationCredentialsNotFoundEvent 事件， AuthorizationFailureEvent事件，AuthorizedEvent事件， PublicInvocationEvent事件 -->
+	<bean class="org.springframework.security.authentication.event.LoggerListener" />
+
+	<!-- 用户的密码加密或解密 -->
+	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+
+	<!-- 用户详细信息管理 : 数据源、用户缓存、启用用户组功能。 -->
+	<bean id="userDetailsManager" class="org.springframework.security.provisioning.JdbcUserDetailsManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="userCache" class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+		<property name="cache" ref="userEhCache" />
+	</bean>
+
+
+	<bean id="userEhCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheName" value="userCache" />
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+
+	<!-- 缓存用户管理 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+	</bean>
+	<ehcache:annotation-driven />
+
+	<!-- spring security自带的与权限有关的数据读写Jdbc模板 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 服务器配置 -->
+	<!-- <bean id="vixServerConfig" class="com.vix.core.config.server.VixServerConfig">
+		<property name="isMasterServer" value="${server.config.isMasterServer}"></property>
+		<property name="masterServerURL" value="${server.config.masterServerURL}"></property>
+		<property name="isSyn" value="${server.config.isSyn}"></property>
+	</bean> -->
+
+	<bean class="com.vix.core.utils.SpringUtil" lazy-init="false"></bean>
+
+
+	<!-- REST SERVICE begin -->
+	<!-- VixClientHttpRequestFactory -->
+	<bean id="httpClientFactory" class="com.rest.core.auth.basic.VixClientHttpRequestFactory">
+		<property name="connectTimeout" value="60000" />
+		<property name="readTimeout" value="60000" />
+	</bean>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<constructor-arg ref="httpClientFactory" />
+	</bean>
+</beans>

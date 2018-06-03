@@ -1,0 +1,212 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!--电商管理 -->
+	<package name="business.config" namespace="/business" extends="crud-default">
+		<!-- 电商二级页面 -->
+		<action name="businessAction!*" method="{1}" class="businessAction">
+			<result name="goList">/WEB-INF/content/E_business/businessmain/businessmain_list.jsp
+			</result>
+		</action>
+		<!-- 选项 -->
+		<action name="shopOptionAction!*" method="{1}" class="shopOptionAction">
+			<result name="goList">/WEB-INF/content/E_business/shopOption/shopOption_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 设置 -->
+		<action name="onlineStoreSetAction!*" method="{1}" class="onlineStoreSetAction">
+			<result name="goList">/WEB-INF/content/E_business/option/business_list.jsp</result>
+			<result name="goLogistics">/WEB-INF/content/E_business/option/logistics_list_content.jsp</result>
+			<result name="goStoreType">/WEB-INF/content/E_business/option/storetype_list_content.jsp</result>
+			<result name="goStore">/WEB-INF/content/E_business/option/store_list_content.jsp</result>
+			<result name="goChooseStoreType">/WEB-INF/content/E_business/option/storetype_choose.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 商品同步 -->
+		<action name="itemDownLoadAction!*" method="{1}" class="itemDownLoadAction">
+			<result name="goList">/WEB-INF/content/E_business/item/itemdownload/itemdownload_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/item/itemdownload/itemdownload_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/item/itemdownload/itemdownload_update.jsp
+			</result>
+			<result name="goUpLoadItem">/WEB-INF/content/E_business/item/itemdownload/uploaditem.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/E_business/item/itemdownload/itemdownload_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 类目管理 -->
+		<action name="itemcatsDownloadAction!*" method="{1}" class="itemcatsDownloadAction">
+			<result name="goList">/WEB-INF/content/E_business/itemcats/itemcats_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/itemcats/itemcats_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单同步管理 -->
+		<action name="orderProcessAction!*" method="{1}" class="orderProcessAction">
+			<result name="goList">/WEB-INF/content/E_business/order/orderProcess/orderProcess_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/orderProcess/orderProcess_list_content.jsp
+			</result>
+			<result name="goSalesOrder1List">/WEB-INF/content/E_business/order/orderProcess/salesOrder1_list_content.jsp
+			</result>
+			<result name="goSalesOrder2List">/WEB-INF/content/E_business/order/orderProcess/salesOrder2_list_content.jsp
+			</result>
+			<result name="goSalesOrder3List">/WEB-INF/content/E_business/order/orderProcess/salesOrder3_list_content.jsp
+			</result>
+			<result name="goSalesOrder4List">/WEB-INF/content/E_business/order/orderProcess/salesOrder4_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/order/orderProcess/orderProcess_update.jsp
+			</result>
+			<result name="goOrderPicking">/WEB-INF/content/E_business/order/orderProcess/orderpicking_list.jsp
+			</result>
+			<result name="goOrderPickingList">/WEB-INF/content/E_business/order/orderProcess/orderpicking_list_content.jsp
+			</result>
+			<result name="goTwoSorting">/WEB-INF/content/E_business/order/orderProcess/twosorting.jsp
+			</result>
+			<result name="goThreeSorting">/WEB-INF/content/E_business/order/orderProcess/threesorting.jsp
+			</result>
+			<result name="goSearchOrder">/WEB-INF/content/E_business/order/orderProcess/searchCondition.jsp
+			</result>
+			<result name="goCheckList">/WEB-INF/content/E_business/order/orderProcess/checkList_update.jsp
+			</result>
+			<result name="goSaveOrUpdateOrderDetail">/WEB-INF/content/E_business/order/orderProcess/order_list.jsp</result>
+			<result name="goOrderDetailList">/WEB-INF/content/E_business/order/orderProcess/order_list_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/E_business/order/orderProcess/orderProcess_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单出库管理 -->
+		<action name="outBoundProcessAction!*" method="{1}" class="outBoundProcessAction">
+			<result name="goList">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_list.jsp
+			</result>
+			<result name="goSingleList1">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_list_content1.jsp
+			</result>
+			<result name="goSingleList2">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_list_content2.jsp
+			</result>
+			<result name="goSingleList3">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_list_content3.jsp
+			</result>
+			<result name="goSingleList4">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_list_content4.jsp
+			</result>
+			<result name="goSingleList5">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_list_content5.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_update.jsp
+			</result>
+			<result name="goOrderBatch">/WEB-INF/content/E_business/order/outBoundProcess/orderbatch_update.jsp
+			</result>
+			<result name="goListOrderBatchContent">/WEB-INF/content/E_business/order/outBoundProcess/orderbatch_list_content.jsp</result>
+			<result name="goSearchOrder">/WEB-INF/content/E_business/order/outBoundProcess/searchCondition.jsp
+			</result>
+			<result name="goPrint">/WEB-INF/content/E_business/order/outBoundProcess/deliverylist_list_print.jsp
+			</result>
+			<result name="goPrintSinglePickingList">/WEB-INF/content/E_business/order/outBoundProcess/singledeliverylist_list_print.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/E_business/order/outBoundProcess/outBoundProcess_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 打印拣货单 -->
+		<action name="printPickingListAction!*" method="{1}" class="printPickingListAction">
+			<result name="goList">/WEB-INF/content/E_business/order/printpickinglist/printPickingList_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/printpickinglist/printPickingList_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/order/printpickinglist/printPickingList_update.jsp
+			</result>
+			<result name="goPrint">/WEB-INF/content/E_business/order/printpickinglist/pickinglist_print.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 打印发货单 -->
+		<action name="printDeliveryListAction!*" method="{1}" class="printDeliveryListAction">
+			<result name="goList">/WEB-INF/content/E_business/order/printdeliverylist/printdeliverylist_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/printdeliverylist/printdeliverylist_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/order/printdeliverylist/printdeliverylist_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 打印快递单 -->
+		<action name="printExpressListAction!*" method="{1}" class="printExpressListAction">
+			<result name="goList">/WEB-INF/content/E_business/order/printexpresslist/printexpresslist_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/printexpresslist/printexpresslist_list_content.jsp
+			</result>
+			<result name="goUpdateLogisticsNumbers">/WEB-INF/content/E_business/order/printexpresslist/logisticsnumbers_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 配货出库 -->
+		<action name="pickingOutAction!*" method="{1}" class="pickingOutAction">
+			<result name="goList">/WEB-INF/content/E_business/order/pickingOut/pickingOut_list.jsp
+			</result>
+			<result name="goWeighingList">/WEB-INF/content/E_business/order/pickingOut/weighing_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/pickingOut/pickingOut_list_content.jsp
+			</result>
+			<result name="goWeighingListContent">/WEB-INF/content/E_business/order/pickingOut/weighing_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!--发货 -->
+		<action name="sendOutAction!*" method="{1}" class="sendOutAction">
+			<result name="goList">/WEB-INF/content/E_business/order/sendOut/sendOut_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/sendOut/sendOut_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 会员管理 -->
+		<action name="customerAction!*" method="{1}" class="customerAction">
+			<result name="goList">/WEB-INF/content/E_business/customer/customer_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/customer/customer_list_content.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 订单下载日志 -->
+		<action name="orderDownLoadLogAction!*" method="{1}" class="orderDownLoadLogAction">
+			<result name="goList">/WEB-INF/content/E_business/order/orderdownloadlog/orderdownloadlog_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/order/orderdownloadlog/orderdownloadlog_list_content.jsp
+			</result>
+		</action>
+		<!-- 快递计费规则设定 -->
+		<action name="expressFeeRulesAction!*" method="{1}" class="expressFeeRulesAction">
+			<result name="goList">/WEB-INF/content/E_business/expressFeeRules/expressFeeRules_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/expressFeeRules/expressFeeRules_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/expressFeeRules/expressFeeRules_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 区域设置 -->
+		<action name="deliveryAreaAction!*" method="{1}" class="deliveryAreaAction">
+			<result name="goList">/WEB-INF/content/E_business/deliveryArea/deliveryArea_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/deliveryArea/deliveryArea_list_content.jsp
+			</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/E_business/deliveryArea/deliveryArea_update.jsp
+			</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 邮费记录 -->
+		<action name="postageRecordsAction!*" method="{1}" class="postageRecordsAction">
+			<result name="goList">/WEB-INF/content/E_business/postageRecords/postageRecords_list.jsp
+			</result>
+			<result name="goSingleList">/WEB-INF/content/E_business/postageRecords/postageRecords_list_content.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/E_business/postageRecords/postageRecords_search.jsp</result>
+		</action>
+		<!-- 统计分析 -->
+		<action name="statisticalAnalysisAction!*" method="{1}" class="statisticalAnalysisAction">
+			<result name="goList">/WEB-INF/content/E_business/statisticalAnalysis/statisticalAnalysis_list.jsp
+			</result>
+			<result name="goSearch">/WEB-INF/content/E_business/statisticalAnalysis/statisticalAnalysis_search.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

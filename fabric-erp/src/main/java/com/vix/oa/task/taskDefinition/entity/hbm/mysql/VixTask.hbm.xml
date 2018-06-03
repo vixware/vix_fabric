@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.oa.task.taskDefinition.entity.VixTask" table="OA_VIXTASK">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<!-- 基础类 -->
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+		<property name="flag" type="java.lang.String" column="flag" length="150" />
+		<property name="type" type="java.lang.Integer" column="type" length="150" />
+
+
+		<property name="questName" type="java.lang.String" column="QUESTNAME" length="150" />
+		<property name="validity" type="java.lang.String" column="VALIDITY" length="150" />
+		<property name="searchText1" type="java.lang.String" column="SEARCHTEXT1" length="150" />
+		<property name="searchText2" type="java.lang.String" column="SEARCHTEXT2" length="150" />
+		<property name="isTemp" type="java.lang.String" column="ISTEMP" length="150" />
+		<property name="taskStartTime" type="java.util.Date" column="TASKSTARTTIME" />
+		<property name="taskEndTime" type="java.util.Date" column="TASKENDTIME" />
+		<property name="taskWeights" type="java.lang.String" column="TASKWEIGHTS" length="150" />
+		<property name="taskDescription" type="text" column="TASKDESCRIPTION" length="150" />
+		<property name="executiveAgency" type="java.lang.String" column="EXECUTIVEAGENCY" length="2048" />
+		<property name="assessDepartment" type="java.lang.String" column="ASSESSDEPARTMENT" length="2048" />
+		<property name="reviewDivision" type="java.lang.String" column="REVIEWDIVISION" length="2048" />
+		<property name="transactor" type="java.lang.String" column="TRANSACTOR" length="150" />
+		<property name="appraisalPeople" type="java.lang.String" column="APPRAISALPEOPLE" length="150" />
+		<property name="reviewer" type="java.lang.String" column="REVIEWER" length="150" />
+		<property name="info" type="java.lang.String" column="INFO" length="150" />
+		<property name="isPublish" type="java.lang.Integer" column="IS_PUBLISH" />
+		<property name="complete" type="java.lang.Integer" column="COMPLETE" />
+		<property name="taskSchedule" type="java.lang.Integer" column="taskSchedule" />
+		<property name="uploadTime" type="java.util.Date" column="uploadTime" />
+		<property name="realityStartTime" type="java.util.Date" column="realityStartTime" />
+		<property name="realityEndTime" type="java.util.Date" column="realityEndTime" />
+		<property name="uploadPerson" type="java.lang.String" column="uploadPerson" length="100"></property>
+		<property name="uploadPersonId" type="java.lang.String" column="uploadPersonId"></property>
+		<property name="uploadPersonName" type="java.lang.String" column="uploadPersonName" length="100"></property>
+		<property name="chineseFirstLetter" type="java.lang.String" column="chineseFirstLetter" length="100"></property>
+		<property name="isNew" type="java.lang.String" column="isNew" length="100"></property>
+		<property name="pictureUrl" type="java.lang.String" column="pictureUrl" length="100"></property>
+		<property name="isDeleted" type="java.lang.String" column="isDeleted" length="100"></property>
+
+
+
+		<property name="pubType" type="java.lang.String" column="PUBTYPE" length="150" />
+		<property name="pubType1" type="java.lang.String" column="PUBTYPE1" length="150" />
+		<property name="pubType2" type="java.lang.String" column="PUBTYPE2" length="150" />
+
+		<property name="pubIds" type="java.lang.String" column="PUBIDS" length="150" />
+		<property name="pubIds1" type="java.lang.String" column="PUBIDS1" length="150" />
+		<property name="pubIds2" type="java.lang.String" column="PUBIDS2" length="150" />
+		<property name="schedule" type="java.lang.String" column="schedule" length="50" />
+		<property name="priority" type="java.lang.Integer" column="priority" length="50" />
+
+		<property name="isFeedback" type="java.lang.String" column="isFeedback" length="150" />
+		<property name="startFeedbackTime" type="java.lang.String" column="startFeedbackTime" length="150" />
+		<property name="endFeedbackTime" type="java.lang.String" column="endFeedbackTime" length="150" />
+
+		<many-to-one name="taskSourceType" column="taskSourceType_id" />
+		<many-to-one name="taskType" column="taskType_id" />
+		<many-to-one name="difficultyCoefficient" column="difficultyCoefficient_id" />
+		<many-to-one name="taskLevel" column="taskLevel_id" />
+		<many-to-one name="completionMark" column="completionMark_id" />
+		<set name="executionFeedbacks" inverse="true">
+			<key>
+				<column name="vixTask_id" />
+			</key>
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.ExecutionFeedback" />
+		</set>
+		<set name="subWxpQyPictures" inverse="true">
+			<key>
+				<column name="vixTask_id" />
+			</key>
+			<one-to-many class="com.vix.wechat.base.entity.WxpQyPicture" />
+		</set>
+
+		<set name="uploader" inverse="true">
+			<key>
+				<column name="vixTask_id" />
+			</key>
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.Uploader" />
+		</set>
+		<set name="subEvaluationReviews" inverse="true">
+			<key>
+				<column name="vixTask_id" />
+			</key>
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.EvaluationReview" />
+		</set>
+
+		<set name="organizationUnits" table="OA_TASK_DEFINITION_ORGUNIT" fetch="join">
+			<key>
+				<column name="vixTask_id" precision="30" scale="0" not-null="true">
+					<comment>公告id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.common.org.entity.OrganizationUnit">
+				<column name="ORGUNIT_ID" precision="30" scale="0" not-null="true">
+					<comment>部门id</comment>
+				</column>
+			</many-to-many>
+		</set>
+
+
+		<many-to-one name="parentVixTask" column="parentVixTask_id" />
+		<many-to-one name="project" column="project_id" />
+		<many-to-one name="customerAccount" column="customerAccount_id" />
+		<many-to-one name="employee" column="employee_id" />
+		<many-to-one name="dataCreater" column="dataCreater_id" />
+		<set name="subVixTasks" inverse="true">
+			<key column="parentVixTask_id" />
+			<one-to-many class="com.vix.oa.task.taskDefinition.entity.VixTask" />
+		</set>
+
+		<set name="employees" table="HR_ORG_EMPLOYEE_TASK" fetch="join">
+			<key>
+				<column name="vixTask_id" not-null="true">
+					<comment>任务id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.hr.organization.entity.Employee">
+				<column name="Employee_ID" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

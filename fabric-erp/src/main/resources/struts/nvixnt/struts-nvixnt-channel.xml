@@ -1,0 +1,47 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.channel" namespace="/nvixnt/channel" extends="crud-default">
+		<!-- 渠道管理 -->
+		<action name="vixntChannelAction!*" method="{1}" class="vixntChannelAction">
+			<result name="goList">/WEB-INF/vixnt/channel/channel/vixnt_channel_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/channel/channel/vixnt_channel_update.jsp</result>
+			<result name="goChooseArea">/WEB-INF/vixnt/channel/channel/vixnt_chooseArea_update.jsp</result>
+			<result name="goSaveOrUpdateEmployee">/WEB-INF/vixnt/channel/channel/vixnt_channel_employee_update.jsp</result>
+			<result name="goChooseChannelDistributor">/WEB-INF/vixnt/channel/channel/channel_choose.jsp</result>
+		</action>
+		<!-- 渠道商品管理 -->
+		<action name="vixntChannelItemAction!*" method="{1}" class="vixntChannelItemAction">
+			<result name="goList">/WEB-INF/vixnt/channel/item/vixnt_allocationItem_list.jsp</result>
+			<result name="goStoreItemList">/WEB-INF/vixnt/channel/item/vixnt_storeallocationItem_list.jsp</result>
+			<result name="goSupplierItemList">/WEB-INF/vixnt/channel/item/vixnt_supplierItem_list.jsp</result>
+			<result name="goUpdatePrice">/WEB-INF/vixnt/channel/item/vixnt_price_update.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/channel/item/vixnt_storeItem_update.jsp</result>
+			<result name="goChooseItem">/WEB-INF/vixnt/channel/item/vixnt_item_choose.jsp</result>
+		</action>
+		<!-- 渠道订单管理 -->
+		<action name="vixntChannelOrderAction!*" method="{1}" class="vixntChannelOrderAction">
+			<result name="goList">/WEB-INF/vixnt/channel/order/vixnt_channelorder_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/channel/order/vixnt_channelorder_update.jsp</result>
+			<result name="show">/WEB-INF/vixnt/channel/order/vixnt_channelorder_show.jsp</result>
+			<result name="goConfirmReceipt">/WEB-INF/vixnt/channel/order/vixnt_confirmreceipt_update.jsp</result>
+			<result name="goUpdatePriceAndAmount">/WEB-INF/vixnt/channel/order/vixnt_priceandamount_update.jsp</result>
+			<result name="goSaveOrUpdateInbond">/WEB-INF/vixnt/channel/order/vixnt_iteminbond_update.jsp</result>
+			<result name="goSaveOrUpdatePurchaseOrder">/WEB-INF/vixnt/channel/order/vixnt_purchaseorder_update.jsp</result>
+			<result name="goSaveOrUpdateSaleOrderItem">/WEB-INF/vixnt/channel/order/vixnt_storesaleorderitem_update.jsp</result>
+			<result name="goChooseChannelDistributor">/WEB-INF/vixnt/channel/order/vixnt_channeldistributor_choose.jsp</result>
+		</action>
+		<!-- 渠道订单定价 -->
+		<action name="vixntChannelOrderItemPriceAction!*" method="{1}" class="vixntChannelOrderItemPriceAction">
+			<result name="fixedPrice">/WEB-INF/vixnt/channel/order/vixnt_fixedPrice_choose.jsp</result>
+		</action>
+		<!-- 渠道项目报备 -->
+		<action name="vixntChannelCrmProjectAction!*" method="{1}" class="vixntChannelCrmProjectAction">
+			<result name="goList">/WEB-INF/vixnt/channel/crmProject/crmProject.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/channel/crmProject/crmProject_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+	</package>
+</struts>

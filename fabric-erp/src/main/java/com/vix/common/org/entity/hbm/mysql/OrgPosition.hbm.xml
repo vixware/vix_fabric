@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.org.entity.OrgPosition" table="MDM_ORG_ORGPOSITION">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="primaryKey" type="java.lang.String" column="PrimaryKey" length="64" />
+
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="128" />
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" />
+		<property name="companyInnerCode" type="java.lang.String" column="CompanyInnerCode" length="128" update="false" />
+		<property name="departmentCode" type="java.lang.String" column="DepartmentCode" length="128" update="false" />
+
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="128" />
+
+
+		<!-- <property name="createDate" type="java.util.Date" column="CreateDate" update="false"/> <property name="lastModifyDate" type="java.util.Date" column="LastModifyDate"/> -->
+		<property name="code" type="java.lang.String" column="code" length="32" />
+
+		<property name="posName" type="java.lang.String" column="PosName" length="64" />
+		<property name="level" type="java.lang.Integer" column="Level" />
+
+
+		<property name="personAmount" type="java.lang.Integer" column="personAmount" />
+		<property name="job" type="java.lang.String" column="job" length="64" />
+		<property name="jobLevel" type="java.lang.String" column="jobLevel" />
+		<property name="jobType" type="java.lang.String" column="jobType" />
+		<property name="postNumber" type="java.lang.Integer" column="postNumber" />
+		<property name="groupSystemPostNumber" type="java.lang.String" column="groupSystemPostNumber" />
+		<property name="jobNature" type="java.lang.String" column="jobNature" />
+		<property name="positionLevel" type="java.lang.String" column="positionLevel" />
+		<property name="jobClassification1" type="java.lang.String" column="jobClassification1" />
+		<property name="jobClassification2" type="java.lang.String" column="jobClassification2" />
+		<property name="jobClassification3" type="java.lang.String" column="jobClassification3" />
+		<property name="postTheOccupationTypeCategory" type="java.lang.String" column="postTheOccupationTypeCategory" />
+		<property name="postTheOccupationTypeTwoLevelClassification" type="java.lang.String" column="postTheOccupationTypeTwoLevelClassification" />
+		<property name="whetherParticularTypesOfWorkStatus" type="java.lang.String" column="whetherParticularTypesOfWorkStatus" />
+		<property name="postPayScale" type="java.lang.String" column="postPayScale" />
+		<property name="postSalaryScale" type="java.lang.String" column="postSalaryScale" />
+		<property name="standardPayPoint" type="java.lang.String" column="standardPayPoint" />
+		<property name="standardPointValue" type="java.lang.String" column="standardPointValue" />
+		<property name="arePoisonedJobs" type="java.lang.String" column="arePoisonedJobs" />
+		<property name="toxicAndHarmfulToDamageType" type="java.lang.String" column="toxicAndHarmfulToDamageType" />
+		<property name="ranksOfCadres" type="java.lang.String" column="ranksOfCadres" />
+		<property name="toxicAndHazardousTypes" type="java.lang.String" column="toxicAndHazardousTypes" />
+		<property name="paymentStandards" type="java.lang.String" column="paymentStandards" />
+		<property name="whetherPointInspectionPosts" type="java.lang.String" column="whetherPointInspectionPosts" />
+		<property name="whetherFictitiousJobs" type="java.lang.String" column="whetherFictitiousJobs" />
+		<property name="whetherToRunTheJob" type="java.lang.String" column="whetherToRunTheJob" />
+		<property name="whetherCapacityPosts" type="java.lang.String" column="whetherCapacityPosts" />
+		<property name="whetherMaintenanceJobs" type="java.lang.String" column="whetherMaintenanceJobs" />
+		<property name="whetherTheTeamLeader" type="java.lang.String" column="whetherTheTeamLeader" />
+		<property name="capacityCoding" type="java.lang.String" column="capacityCoding" />
+
+		<property name="isChargeDep" type="java.lang.String" column="IsChargeDep" />
+		<property name="memo" type="java.lang.String" column="memo" length="32" />
+
+
+		<many-to-one name="parentOrgPosition">
+			<column name="Parent_id">
+				<comment>父ID</comment>
+			</column>
+		</many-to-one>
+		<set name="subOrgPositions" inverse="true">
+			<key column="Parent_id" />
+			<one-to-many class="com.vix.common.org.entity.OrgPosition" />
+		</set>
+
+
+
+		<many-to-one name="orgJob" class="com.vix.common.org.entity.OrgJob" lazy="false" fetch="join">
+			<column name="OrgJob_ID">
+				<comment>职位id</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="organizationUnit" class="com.vix.common.org.entity.OrganizationUnit">
+			<column name="OrganizationUnit_ID">
+				<comment>部门id</comment>
+			</column>
+		</many-to-one>
+
+		<many-to-one name="organization" class="com.vix.common.org.entity.Organization">
+			<column name="Organization_ID">
+				<comment>公司id</comment>
+			</column>
+		</many-to-one>
+
+
+		<!-- kpi指标 -->
+		<!-- <set name="kpiIndexs" inverse="true">
+			<key column="orgposition_id" />
+			<one-to-many class="com.vix.hr.position.entity.KpiIndexs" />
+		</set> -->
+
+		<!-- 绩效指标 -->
+		<!-- <set name="performanceAppraisals" inverse="true">
+			<key column="orgposition_id" />
+			<one-to-many class="com.vix.hr.position.entity.PerformanceAppraisal" />
+		</set> -->
+
+		<!-- 岗位和 职员岗位 关系 table="MDM_ORG_ORGPOSITION_EMP" -->
+		<set name="employees" table="HR_ORG_EMPLOYEE_POSITION" fetch="join" inverse="true">
+			<key>
+				<column name="OrgPosition_ID" not-null="true">
+					<comment>岗位id</comment>
+				</column>
+			</key>
+			<many-to-many class="com.vix.hr.organization.entity.Employee">
+				<column name="Employee_ID" not-null="true" />
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

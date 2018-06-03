@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.chain.suppliersView.entity.SuppliersView" table="V_INV_SUPPLIERSVIEW">
+		<id name="id" type="java.lang.String" column="ID">
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+
+		<property name="channelDistributorCode" type="java.lang.String" column="channelDistributorCode" length="128" />
+		<property name="channelDistributorName" type="java.lang.String" column="channelDistributorName" length="128" />
+		<property name="netTotal" type="java.lang.Double" column="netTotal" />
+	</class>
+</hibernate-mapping>

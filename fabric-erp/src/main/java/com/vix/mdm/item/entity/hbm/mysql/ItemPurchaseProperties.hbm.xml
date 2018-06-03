@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemPurchaseProperties" table="MDM_ITEMPURCHASEPROPERTIES">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="supplierItemCode" type="java.lang.String" column="SUPPLIERITEMCODE" length="150" />
+		<property name="supplierItemBarCode" type="java.lang.String" column="SUPPLIERITEMBARCODE" length="150" />
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="150" />
+
+		<many-to-one name="measureUnitGroup" column="measureUnitGroup_id" />
+		<many-to-one name="purBaseUnit" column="purBaseUnit_id" />
+		<many-to-one name="purAssitUnit" column="purAssitUnit_id" />
+		<many-to-one name="poUnit" column="poUnit_id" />
+
+		<property name="purchaseGroup" type="java.lang.String" column="PURCHASEGROUP" length="150" />
+		<property name="purchasePersonCode" type="java.lang.String" column="PURCHASEPERSONCODE" length="150" />
+		<many-to-one name="purchasePerson" column="purchasePerson_id" />
+		<property name="lessDeliveryAllowance" type="java.lang.Double" column="LESSDELIVERYALLOWANCE" />
+		<property name="exceedDelieryAllowance" type="java.lang.Double" column="EXCEEDDELIERYALLOWANCE" />
+		<property name="minDelieryPercent" type="java.lang.Double" column="MINDELIERYPERCENT" />
+		<property name="minDelieryAmount" type="java.lang.Double" column="MINDELIERYAMOUNT" />
+		<property name="remindDay1" type="java.lang.Double" column="REMINDDAY1" />
+		<property name="remindDay2" type="java.lang.Double" column="REMINDDAY2" />
+		<property name="remindDay3" type="java.lang.Double" column="REMINDDAY3" />
+		<property name="remindDay4" type="java.lang.Double" column="REMINDDAY4" />
+		<property name="remindDay5" type="java.lang.Double" column="REMINDDAY5" />
+		<property name="standardDelieryDeviation" type="java.lang.Double" column="STANDARDDELIERYDEVIATION" />
+		<property name="takeDelieryDays" type="java.lang.Double" column="TAKEDELIERYDAYS" />
+		<property name="quota" type="java.lang.Double" column="QUOTA" />
+		<property name="isNeedBatch" type="java.lang.String" column="ISNEEDBATCH" length="150" />
+		<property name="isKeyComponent" type="java.lang.Integer" column="ISKEYCOMPONENT" />
+		<property name="isJIT" type="java.lang.Integer" column="ISJIT" />
+		<property name="producerSharepartCode" type="java.lang.String" column="PRODUCERSHAREPARTCODE" length="150" />
+		<property name="produceSharepartDesc" type="java.lang.String" column="PRODUCESHAREPARTDESC" length="150" />
+		<property name="specialPurchaseType" type="java.lang.String" column="SPECIALPURCHASETYPE" length="150" />
+		<property name="permitAheadDays" type="java.lang.Double" column="PERMITAHEADDAYS" />
+		<property name="permitDelayDays" type="java.lang.Double" column="PERMITDELAYDAYS" />
+		<property name="isPermitReplaceItem" type="java.lang.Integer" column="ISPERMITREPLACEITEM" />
+		<property name="isPermitNoOrderTake" type="java.lang.Integer" column="ISPERMITNOORDERTAKE" />
+		<property name="recieveLocation" type="java.lang.String" column="RECIEVELOCATION" length="150" />
+		<many-to-one name="recieveWarehouse" column="recieveWarehouse_id" />
+		<many-to-one name="invShelf" column="invShelf_id" />
+		<many-to-one name="supplier" column="supplier_id" />
+		<many-to-one name="orderType" column="orderType_id" />
+		<many-to-one name="item" class="com.vix.mdm.item.entity.Item">
+			<column name="item_id" unique="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

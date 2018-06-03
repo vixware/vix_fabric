@@ -1,0 +1,185 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="nvixnt.inventory" namespace="/nvixnt" extends="crud-default">
+		<!-- 期初录入 -->
+		<action name="vixntInitInventoryAction!*" method="{1}" class="vixntInitInventoryAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/init/vixnt_init_inbound_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/init/vixnt_init_inbound_update.jsp</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/vixnt/inventory/init/vixnt_init_stockrecordlines_update.jsp</result>
+			<result name="goUpdateShelf">/WEB-INF/vixnt/inventory/init/vixnt_init_shelf_update.jsp</result>
+			<result name="downloadTemplate" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+		<!-- 调拨管理 -->
+		<action name="vixntAllocateTransferAction!*" method="{1}" class="vixntAllocateTransferAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/transfer/vixnt_transfer_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/transfer/vixnt_transfer_update.jsp</result>
+			<result name="goSaveOrUpdateTransferItem">/WEB-INF/vixnt/inventory/transfer/vixnt_transfer_item_list.jsp</result>
+		</action>
+		<!-- 入库管理 -->
+		<action name="vixntInboundWarehouseAction!*" method="{1}" class="vixntInboundWarehouseAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/inbound/vixnt_inboundwarehouse_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/inbound/vixnt_inboundwarehouse_update.jsp</result>
+			<result name="goShowInboundWarehouse">/WEB-INF/vixnt/inventory/inbound/vixnt_inboundwarehouse_show.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/inventory/inbound/vixnt_inboundwarehouse_audit.jsp</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/vixnt/inventory/inbound/vixnt_stockrecordlines_update.jsp</result>
+			<result name="goUpdateShelf">/WEB-INF/vixnt/inventory/inbound/vixnt_shelf_update.jsp</result>
+			<result name="goChoosePurchaseOrder">/WEB-INF/vixnt/inventory/inbound/vixnt_purchaseorder_choose.jsp</result>
+			<result name="goChooseWarehouse">/WEB-INF/vixnt/inventory/inbound/vixnt_warehouse_choose.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/inventory/inbound/vixnt_inv_source_list.jsp</result>
+			<result name="downloadTemplate" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+		<!-- 出库管理 -->
+		<action name="vixntOutBoundAction!*" method="{1}" class="vixntOutBoundAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/outbound/vixnt_outbound_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/outbound/vixnt_outbound_update.jsp</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/vixnt/inventory/outbound/vixnt_outbound_stockrecordlines_update.jsp</result>
+			<result name="goSourceList">/WEB-INF/vixnt/inventory/outbound/vixnt_inv_outbound_list.jsp</result>
+			<result name="goPrintStockRecords">/WEB-INF/vixnt/inventory/outbound/vixnt_ounBound_print.jsp</result>
+			<result name="goShowOutBound">/WEB-INF/vixnt/inventory/outbound/vixnt_outbound_show.jsp</result>
+			<result name="goAudit">/WEB-INF/vixnt/inventory/outbound/vixnt_outbound_audit.jsp</result>
+		</action>
+		<!-- 台账管理 -->
+		<action name="vixntStandingBookAction!*" method="{1}" class="vixntStandingBookAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/standingbook/vixnt_standingbook_list.jsp</result>
+			<result name="loadInvShelfList">/WEB-INF/vixnt/inventory/standingbook/loadInvShelfList.jsp</result>
+		</action>
+		<!-- 盘点管理 -->
+		<action name="vixntTakeStockAction!*" method="{1}" class="vixntTakeStockAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/vixnttakestock/vixnt_vixnttakestock_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/vixnttakestock/vixnt_vixnttakestock_update.jsp</result>
+			<result name="goChooseWarehouseAndShelf">/WEB-INF/vixnt/inventory/vixnttakestock/vixnt_choosecondition_update.jsp</result>
+			<result name="goChooseWarehouse">/WEB-INF/vixnt/inventory/vixnttakestock/vixnt_warehouse_choose.jsp</result>
+			<result name="goChooseShelf">/WEB-INF/vixnt/inventory/vixnttakestock/vixnt_invshelf_choose.jsp</result>
+		</action>
+		<!-- 库存管理-仓库管理 -->
+		<action name="vixntWarehouseAction!*" method="{1}" class="vixntWarehouseAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/warehouse/vixnt_warehouse_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/warehouse/vixnt_warehouse_update.jsp</result>
+			<result name="goEmployeeChoose">/WEB-INF/vixnt/inventory/warehouse/vixnt_invemployee_choose.jsp</result>
+			<result name="goInvShelfList">/WEB-INF/vixnt/inventory/warehouse/vixnt_invshelf_list.jsp</result>
+			<result name="goSaveOrUpdateShelf">/WEB-INF/vixnt/inventory/warehouse/vixnt_invshelf_update.jsp</result>
+			<result name="goChooseWarehouse">/WEB-INF/content/inventory/warehouse/choose_warehouse.jsp</result>
+		</action>
+		<!-- 库存统计 -->
+		<action name="nvixntInventoryStatisticsAction!*" method="{1}" class="nvixntInventoryStatisticsAction">
+			<result name="sendingAndReceivingDeposit">/WEB-INF/vixnt/inventory/statistics/sendingAndReceivingDeposit.jsp</result>
+			<result name="inventoryDistribution">/WEB-INF/vixnt/inventory/statistics/inventoryDistribution.jsp</result>
+			<result name="businessType">/WEB-INF/vixnt/inventory/statistics/businessType.jsp</result>
+			<result name="pickingTheLimit">/WEB-INF/vixnt/inventory/statistics/pickingTheLimit.jsp</result>
+		</action>
+		<!-- 库存管理设置 -->
+		<action name="vixntInventorySetAction!*" method="{1}" class="vixntInventorySetAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/vixntInventoryset/vixnt_vixntInventoryset_list.jsp</result>
+		</action>
+		<!-- 门店入库管理 -->
+		<action name="vixntStoreInboundWarehouseAction!*" method="{1}" class="vixntStoreInboundWarehouseAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/storeInboundwarehouse/vixnt_storeinboundwarehouse_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/storeInboundwarehouse/vixnt_storeinboundwarehouse_update.jsp</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/vixnt/inventory/storeInboundwarehouse/vixnt_storestockrecordlines_update.jsp</result>
+			<result name="goUpdateShelf">/WEB-INF/vixnt/inventory/storeInboundwarehouse/vixnt_storeshelf_update.jsp</result>
+			<result name="goChoosePurchaseOrder">/WEB-INF/vixnt/inventory/storeInboundwarehouse/vixnt_storepurchaseorder_choose.jsp</result>
+			<result name="goChooseWarehouse">/WEB-INF/vixnt/inventory/storeInboundwarehouse/vixnt_storewarehouse_choose.jsp</result>
+			<result name="downloadTemplate" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${oriFileName}"</param>
+				<param name="inputName">inputStream</param>
+				<param name="buffserSize">4096</param>
+			</result>
+		</action>
+		<!-- 门店出库管理 -->
+		<action name="vixntShopOutBoundAction!*" method="{1}" class="vixntShopOutBoundAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/shopoutbound/vixnt_shopoutbound_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/shopoutbound/vixnt_shopoutbound_update.jsp</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/vixnt/inventory/shopoutbound/vixnt_shopoutbound_stockrecordlines_update.jsp</result>
+			<result name="update">/WEB-INF/vixnt/common/message.jsp</result>
+		</action>
+		<!-- 门店盘点管理 -->
+		<action name="vixntShopTakeStockAction!*" method="{1}" class="vixntShopTakeStockAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/vixntshoptakestock/vixnt_shopvixnttakestock_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/vixntshoptakestock/vixnt_shopvixnttakestock_update.jsp</result>
+			<result name="goChooseWarehouseAndShelf">/WEB-INF/vixnt/inventory/vixntshoptakestock/vixnt_shopchoosecondition_update.jsp</result>
+			<result name="goChooseWarehouse">/WEB-INF/vixnt/inventory/vixntshoptakestock/vixnt_shopwarehouse_choose.jsp</result>
+			<result name="goChooseShelf">/WEB-INF/vixnt/inventory/vixntshoptakestock/vixnt_shopinvshelf_choose.jsp</result>
+		</action>
+		<!-- 库存统计 -->
+		<action name="vixntInventoryStatisticsAction!*" method="{1}" class="vixntInventoryStatisticsAction">
+			<result name="goList">/WEB-INF/vixnt/task/statistics/vixnt_templete_list.jsp</result>
+		</action>
+		<!-- 出入库流水 -->
+		<action name="vixntStockRecordLinesStatisticsAction!*" method="{1}" class="vixntStockRecordLinesStatisticsAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/statistics/vixnt_stockrecordlinesstatistics_list.jsp</result>
+			<result name="goAllShopList">/WEB-INF/vixnt/inventory/statistics/vixnt_allshopstockrecordlines_list.jsp</result>
+		</action>
+		<!-- 门店库存台账管理 -->
+		<action name="vixntStoreGoodsAction!*" method="{1}" class="vixntStoreGoodsAction">
+			<result name="goList">/WEB-INF/vixnt/chain/storegoods/vixnt_storegoods_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/chain/storegoods/vixnt_storegoods_update.jsp</result>
+		</action>
+		<!-- 门店仓库管理 -->
+		<action name="vixntDrpWarehouseAction!*" method="{1}" class="vixntDrpWarehouseAction">
+			<result name="goList">/WEB-INF/vixnt/chain/drpwarehouse/vixnt_drpwarehouse_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/chain/drpwarehouse/vixnt_drpwarehouse_update.jsp</result>
+			<result name="goSaveOrUpdateShelf">/WEB-INF/vixnt/chain/drpwarehouse/vixnt_drpinvshelf_update.jsp</result>
+			<result name="goInvShelfList">/WEB-INF/vixnt/chain/drpwarehouse/vixnt_drpinvshelf_list.jsp</result>
+			<result name="goEmployeeChoose">/WEB-INF/vixnt/chain/drpwarehouse/vixnt_drpemployee_choose.jsp</result>
+		</action>
+		<!-- 库存报表，门店销售统计 -->
+		<action name="vixntStockViewDataAction!*" method="{1}" class="vixntStockViewDataAction">
+			<result name="goStockView">/WEB-INF/vixnt/member/analysisView/goStockView.jsp</result>
+			<result name="goSaleView">/WEB-INF/vixnt/member/analysisView/goSaleView.jsp</result>
+		</action>
+		<!-- 供应商管理库存 -->
+		<action name="vixntSupplierStandingBookAction!*" method="{1}" class="vixntSupplierStandingBookAction">
+			<result name="goList">/WEB-INF/vixnt/srm/inventory/vixnt_supplierstandingbook_list.jsp</result>
+		</action>
+		<!-- 门店出入库 -->
+		<action name="vixntInAndOutStatisticsAction!*" method="{1}" class="vixntInAndOutStatisticsAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/inandoutstatistics/vixnt_inandoutstatistics_list.jsp</result>
+		</action>
+		 <!-- 库存管理:库存报表 -->
+		<action name="vixntStockQueryStatisticsAction!*" method="{1}" class="vixntStockQueryStatisticsAction">
+			<result name="goStockInOutWaterAccount">/WEB-INF/vixnt/inventory/inventoryForm/goStockInOutWaterAccount.jsp</result>
+			<result name="goStockInOutDepositSummary">/WEB-INF/vixnt/inventory/inventoryForm/goStockInOutDepositSummary.jsp</result>
+			<result name="goStockHasDistribution">/WEB-INF/vixnt/inventory/inventoryForm/goStockHasDistribution.jsp</result>
+			<result name="goStockQuotaReceiveSummary">/WEB-INF/vixnt/inventory/inventoryForm/goStockQuotaReceiveSummary.jsp</result>
+			<result name="playBoxSearchItems">/WEB-INF/vixnt/inventory/inventoryForm/playBoxSearchItems.jsp</result>
+			<result name="goStockHasMoneyDistribution">/WEB-INF/vixnt/inventory/inventoryForm/goStockHasMoneyDistribution.jsp</result>
+		</action>
+		<!-- 库存管理:库存报表:库存仪表盘 -->
+		<action name="vixntStockQueryHomePageAction!*" method="{1}" class="vixntStockQueryHomePageAction">
+			<result name="goStockAnalysisPage">/WEB-INF/vixnt/inventory/inventoryForm/goStockAnalysisPage.jsp</result>   
+			<result name="goStockQueryHomePage">/WEB-INF/vixnt/inventory/inventoryForm/goStockQueryHomePage.jsp</result>
+			<!-- 慢加载 -->
+			<result name="slowLoadStockHomePageInView">/WEB-INF/vixnt/inventory/inventoryForm/slowLoad/slowLoadStockHomePageInView.jsp</result>
+			<result name="slowLoadStockHomePageOutView">/WEB-INF/vixnt/inventory/inventoryForm/slowLoad/slowLoadStockHomePageOutView.jsp</result>
+		</action>
+		<!-- 库存管理:库存报表:促销推荐 -->
+		<action name="vixntStockSerachDataAction!*" method="{1}" class="vixntStockSerachDataAction">
+			<result name="goinOutStoreOverviewPage">/WEB-INF/vixnt/inventory/inventoryForm/goinOutStoreOverviewPage.jsp</result>
+			<result name="goRecommendPage">/WEB-INF/vixnt/inventory/inventoryForm/goRecommendPage.jsp</result>
+		</action>
+		<!-- 库存冻结-->
+		<action name="vixntInventoryFreezeAction!*" method="{1}" class="vixntInventoryFreezeAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/inventoryFreeze/vixnt_inventoryFreeze_list.jsp</result>
+		</action>
+		<!-- 限额领料 -->
+		<action name="vixntLimitsTakeAction!*" method="{1}" class="vixntLimitsTakeAction">
+			<result name="goList">/WEB-INF/vixnt/inventory/limitsTake/vixnt_limitsTake_list.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/vixnt/inventory/limitsTake/vixnt_limitsTake_update.jsp</result>
+			<result name="goSaveOrUpdateStockRecordLines">/WEB-INF/vixnt/inventory/limitsTake/vixnt_limitsTake_item_update.jsp</result>
+		</action>
+	</package>
+</struts>

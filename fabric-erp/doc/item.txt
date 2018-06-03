@@ -1,0 +1,28 @@
+/** 流通商品 */
+	// public static String GOODS = "goods";
+	/** 固定资产 */
+	// public static String FIXEDASSETS = "fixedassets";
+	/** 原材料 */
+	// public static String MATERIAL = "material";
+	/** 外购零件 */
+	// public static String PURCHASEPART = "purchasepart";
+	/** 外购备件 */
+	// public static String PURCHASEBACKUPPART = "purchasebackuppart";
+	/** 加工部件 */
+	// public static String MACHININGPART = "machiningpart";
+	/** 半成品 */
+	// public static String SEMIFINISHED = "semifinished";
+	/** 组装件 */
+	// public static String ASSEMBLYPART = "assemblypart";
+	/** 产成品 */
+	// public static String FINISHEDGOODS = "finishedgoods";
+	/** 设备 */
+	// public static String EQUIPMENT = "equipment";
+	/** 办公用品 */
+	// public static String OFFICESUPPLY = "officesupply";
+	/** 售后服务 */
+	// public static String AFTERSERVICE = "afterservice";
+	/** 维修服务 */
+	// public static String MAINTENANCESERVICE = "maintenanceservice";
+	/** 外协服务 */
+	// public static String OUTSIDESERVICE = "outsideservice";

@@ -1,0 +1,36 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 工作台 -->
+	<package name="crm.workbench" namespace="/crm/workbench" extends="crud-default">
+		<!-- 内部公告分类 -->
+		<action name="innerBulletinCategoryAction!*" method="{1}" class="innerBulletinCategoryAction">
+			<result name="goList">/WEB-INF/content/crm/workbench/innerBulletinCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/workbench/innerBulletinCategory_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 内部公告 -->
+		<action name="innerBulletinAction!*" method="{1}" class="innerBulletinAction">
+			<result name="goList">/WEB-INF/content/crm/workbench/innerBulletin_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/workbench/innerBulletin_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/workbench/updateInnerBulletin.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action> 
+		<!-- 知识库分类 -->
+		<action name="knowledgeCategoryAction!*" method="{1}" class="knowledgeCategoryAction">
+			<result name="goList">/WEB-INF/content/crm/workbench/knowledgeCategory_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/workbench/knowledgeCategory_list_content.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 知识库 -->
+		<action name="knowledgeAction!*" method="{1}" class="knowledgeAction">
+			<result name="goList">/WEB-INF/content/crm/workbench/knowledge_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/workbench/knowledge_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/workbench/updateKnowledge.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/workbench/knowledge_search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,88 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- 项目管理 -->
+	<package name="crm.project" namespace="/crm/project" extends="crud-default">
+		<!-- 项目管理 -->
+		<action name="crmProjectAction!*" method="{1}" class="crmProjectAction">
+			<result name="goList">/WEB-INF/content/crm/project/crmProject_list.jsp</result>
+			<result name="goMenuContent">/WEB-INF/content/crm/menuContent.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/project/crmProject_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateCrmProject.jsp</result>
+			<result name="goView">/WEB-INF/content/crm/project/crmProjectView.jsp</result>
+			<result name="goSaleFunnel">/WEB-INF/content/crm/project/saleFunnel.jsp</result>
+			<result name="goContactPersonListContent">/WEB-INF/content/crm/project/contactPersonListContent.jsp</result>
+			<result name="goChooseCrmProject">/WEB-INF/content/crm/project/chooseCrmProject.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/crm/project/crmProject_list_sub_content.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/project/crmProjectAdvancedSearch.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目协作方-->
+		<action name="projectCollaboratorAction!*" method="{1}" class="projectCollaboratorAction">
+			<result name="goSingleList">/WEB-INF/content/crm/project/projectCollaborator_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateProjectCollaborator.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 代办任务-->
+		<action name="projectTaskAction!*" method="{1}" class="projectTaskAction">
+			<result name="goSingleList">/WEB-INF/content/crm/project/projectTask_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateProjectTask.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 行动历史-->
+		<action name="actionHistoryAction!*" method="{1}" class="actionHistoryAction">
+			<result name="goSingleList">/WEB-INF/content/crm/project/actionHistory_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateActionHistory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目需求-->
+		<action name="projectRequirementAction!*" method="{1}" class="projectRequirementAction">
+			<result name="goList">/WEB-INF/content/crm/project/projectRequirement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/project/projectRequirement_list_content.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/project/projectRequirement_project_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateProjectRequirement.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/project/projectRequirement_search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 日程-->
+		<action name="scheduleAction!*" method="{1}" class="crmScheduleAction">
+			<result name="goSingleList">/WEB-INF/content/crm/project/schedule_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateSchedule.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 解决方案-->
+		<action name="projectSolutionAction!*" method="{1}" class="projectSolutionAction">
+			<result name="goList">/WEB-INF/content/crm/project/projectSolution_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/project/projectSolution_list_content.jsp</result>
+			<result name="goSingleListForCrmProject">/WEB-INF/content/crm/project/projectSolution_project_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateProjectSolution.jsp</result>
+			<result name="goSearch">/WEB-INF/content/crm/project/projectSolution_search.jsp</result> 
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 竞争对手-->
+		<action name="competitorAction!*" method="{1}" class="competitorAction">
+			<result name="goList">/WEB-INF/content/crm/project/competitor_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/project/competitor_list_content.jsp</result>
+			<result name="goChooseCompetitor">/WEB-INF/content/crm/project/chooseCompetitor.jsp</result>
+			<result name="goSubSingleList">/WEB-INF/content/crm/project/competitor_list_sub_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateCompetitor.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 竞争产品-->
+		<action name="competitorProductAction!*" method="{1}" class="competitorProductAction">
+			<result name="goList">/WEB-INF/content/crm/project/competitorProduct_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/project/competitorProduct_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateCompetitorProduct.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 项目费用-->
+		<action name="projectCostAction!*" method="{1}" class="projectCostAction">
+			<result name="goList">/WEB-INF/content/crm/project/projectCost_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/crm/project/projectCost_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/crm/project/updateProjectCost.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

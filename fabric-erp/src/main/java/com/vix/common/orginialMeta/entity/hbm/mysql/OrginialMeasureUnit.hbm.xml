@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.common.orginialMeta.entity.OrginialMeasureUnit" table="CMN_MET_ORGINIAL_MEASUREUNIT">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+
+
+		<property name="isMeasurementUnit" type="java.lang.String" column="ISMEASUREMENTUNIT" length="150" />
+		<property name="englishCode" type="java.lang.String" column="englishCode" length="150" />
+		<property name="barCode" type="java.lang.String" column="barCode" length="150" />
+		<property name="rate" type="java.lang.Double" column="RATE" length="150" />
+
+
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="code" type="java.lang.String" column="CODE" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+
+
+		<many-to-one name="orginialMeasureUnitGroup" column="ORGINIAL_MEASUREUNITGROUP_ID" />
+	</class>
+</hibernate-mapping>

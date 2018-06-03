@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.inventory.standingbook.entity.InventoryCurrentStockView" table="V_INV_INVENTORYCURRENTSTOCKVIEW">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128" update="false" />
+		<property name="companyCode" type="java.lang.String" column="CompanyCode" length="128" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="128" />
+		<property name="itemcode" type="java.lang.String" column="itemcode" length="128" />
+		<property name="skuCode" type="java.lang.String" column="skuCode" length="128" />
+		<property name="itemname" type="java.lang.String" column="itemname" length="128" />
+		<property name="specification" type="java.lang.String" column="specification" length="128" />
+		<property name="unit" type="java.lang.String" column="unit" length="128" />
+		<property name="quantity" type="java.lang.Double" column="quantity" length="128" />
+		<property name="avaquantity" type="java.lang.Double" column="avaquantity" length="128" />
+		<property name="warehouse" type="java.lang.String" column="warehouse" length="128" />
+		<property name="invShelfName" type="java.lang.String" column="invShelfName" length="128" />
+		<property name="batchcode" type="java.lang.String" column="batchcode" length="128" />
+		<property name="massunitEndTime" type="java.util.Date" column="massunitEndTime" />
+		<property name="parentId" type="java.lang.String" column="parentId" length="128" />
+	</class>
+</hibernate-mapping>

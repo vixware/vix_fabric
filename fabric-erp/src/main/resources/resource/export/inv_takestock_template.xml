@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excelFile>
+	<sheet id="sh1" value="盘点单">
+		<square id="sh1_sq1">
+			<col id="sh1_line1" start="1,2" listFunc="user.dataList" listParam="" joinKey="key">
+				<square id="sh1_line1_data">
+					<cell id="sh1_line1_data_cvposition" start="-1,0" alignment="center" dataset="parent:sh1_line1" value="cvposition" />
+					<cell id="sh1_line1_data_itemcode" start="0,0" alignment="center" dataset="parent:sh1_line1" value="itemcode" />
+					<cell id="sh1_line1_data_itemname" start="1,0" alignment="center" dataset="parent:sh1_line1" value="itemname" />
+					<cell id="sh1_line1_data_cvquantity" start="2,0" alignment="center" type="number" dataset="parent:sh1_line1" value="cvquantity" />
+					<cell id="sh1_line1_data_cvcquantity" start="3,0" alignment="center" type="number" dataset="parent:sh1_line1" value="" />
+				</square>
+			</col>
+		</square>
+	</sheet>
+</excelFile>

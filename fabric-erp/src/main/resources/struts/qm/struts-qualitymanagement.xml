@@ -1,0 +1,288 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--质量管理-->
+	<package name="qm.config" namespace="/qm" extends="crud-default">
+		<!-- 快速新增 -->
+		<action name="pmMainAction!*" method="{1}" class="pmMainAction">
+			<result name="goMenuContent">/WEB-INF/content/qm/main/menuContent.jsp</result>
+		</action>
+		<!-- 检验类型 -->
+		<action name="inspectionTypeAction!*" method="{1}" class="inspectionTypeAction">
+			<result name="goList">/WEB-INF/content/qm/config/inspectionType_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/inspectionType_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/inspectionType_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 检验特性 -->
+		<action name="inspectionCharacteristicsAction!*" method="{1}" class="inspectionCharacteristicsAction">
+			<result name="goList">/WEB-INF/content/qm/config/inspectionCharacteristics_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/inspectionCharacteristics_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/inspectionCharacteristics_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 检验方法 -->
+		<action name="testMethodsAction!*" method="{1}" class="testMethodsAction">
+			<result name="goList">/WEB-INF/content/qm/config/testMethods_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/testMethods_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/testMethods_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 检验状态 -->
+		<action name="inspectionStatusAction!*" method="{1}" class="inspectionStatusAction">
+			<result name="goList">/WEB-INF/content/qm/config/inspectionStatus_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/inspectionStatus_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/inspectionStatus_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 缺陷等级设置 -->
+		<action name="defectLevelsAction!*" method="{1}" class="defectLevelsAction">
+			<result name="goList">/WEB-INF/content/qm/config/defectLevels_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/defectLevels_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/defectLevels_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 检验单管理 -->
+		<action name="checkListmanagementAction!*" method="{1}" class="checkListmanagementAction">
+			<result name="goList">/WEB-INF/content/qm/config/checkListmanagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/checkListmanagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/checkListmanagement_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 检验单模板 -->
+		<action name="checkListtemplateAction!*" method="{1}" class="checkListtemplateAction">
+			<result name="goList">/WEB-INF/content/qm/config/checkListtemplate_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/config/checkListtemplate_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/config/checkListtemplate_update.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		
+		<!-- 样品登记-->
+		<action name="sampleRegisterAction!*" method="{1}" class="sampleRegisterAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/sampleRegister_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/sampleRegister_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/sampleRegister_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 样品分类 -->
+		<action name="afterClassifyingAction!*" method="{1}" class="afterClassifyingAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/afterClassifying_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/afterClassifying_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/afterClassifying_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/qm/inspect/afterClassifyingCatalog.jsp</result>
+			<!-- 加载顶部工具栏 -->
+			<result name="goTopDynamicMenuContent">/WEB-INF/content/contract/top/dynamicMenuContent.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 来料报检单 -->
+		<action name="incomingInspectionsingleAction!*" method="{1}" class="incomingInspectionsingleAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/incomingInspectionsingle_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/incomingInspectionsingle_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/incomingInspectionsingle_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 来料检验单 -->
+		<action name="incomingChecklistAction!*" method="{1}" class="incomingChecklistAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/incomingChecklist_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/incomingChecklist_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/incomingChecklist_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 来料不良品处理单  -->
+		<action name="defectiveProductsAction!*" method="{1}" class="defectiveProductsAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/defectiveProducts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/defectiveProducts_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/defectiveProducts_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 产品报检单 -->
+		<action name="productInspectionformAction!*" method="{1}" class="productInspectionformAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/productInspectionform_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/productInspectionform_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/productInspectionform_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 产品检验单 -->
+		<action name="productTestingsingleAction!*" method="{1}" class="productTestingsingleAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/productTestingsingle_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/productTestingsingle_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/productTestingsingle_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 产品不良品处理单 -->
+		<action name="nonconformingProductAction!*" method="{1}" class="nonconformingProductAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/nonconformingProduct_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/nonconformingProduct_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/nonconformingProduct_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 工序报检单  -->
+		<action name="processInspectionAction!*" method="{1}" class="processInspectionAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/processInspection_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/processInspection_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/processInspection_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 工序检验单 -->
+		<action name="stepCheckListAction!*" method="{1}" class="stepCheckListAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/stepCheckList_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/stepCheckList_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/stepCheckList_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 工序不良品处理单 -->
+		<action name="processDefectiveProductsAction!*" method="{1}" class="processDefectiveProductsAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/processDefectiveProducts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/processDefectiveProducts_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/processDefectiveProducts_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 在库报检单 -->
+		<action name="inStorehouseinspectionformAction!*" method="{1}" class="inStorehouseinspectionformAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/inStorehouseinspectionform_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/inStorehouseinspectionform_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/inStorehouseinspectionform_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 在库检验单 -->
+		<action name="inLibrarytestAction!*" method="{1}" class="inLibrarytestAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/inLibrarytest_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/inLibrarytest_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/inLibrarytest_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!--在库不良品处理单 -->
+		<action name="inStorehousedefectiveproductsAction!*" method="{1}" class="inStorehousedefectiveproductsAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/inStorehousedefectiveproducts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/inStorehousedefectiveproducts_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/inStorehousedefectiveproducts_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!--发退货报检单 -->
+		<action name="hairReturnclearancesingleAction!*" method="{1}" class="hairReturnclearancesingleAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/hairReturnclearancesingle_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/hairReturnclearancesingle_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/hairReturnclearancesingle_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!--发退货检验单 -->
+		<action name="hairReturnchecklistAction!*" method="{1}" class="hairReturnchecklistAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/hairReturnchecklist_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/hairReturnchecklist_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/hairReturnchecklist_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!--发退货不良品处理单 -->
+		<action name="hairReturncdefectiveproductsAction!*" method="{1}" class="hairReturncdefectiveproductsAction">
+			<result name="goList">/WEB-INF/content/qm/inspect/hairReturncdefectiveproducts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/inspect/hairReturncdefectiveproducts_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/inspect/hairReturncdefectiveproducts_update.jsp</result>
+			<!-- 上传附件 -->
+		    <result name="addAttachFile">/WEB-INF/content/qm/inspect/addAttachFile.jsp</result>
+		    <result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 质量文档管理-->
+		<action name="qualityDocumentmanagementAction!*" method="{1}" class="qualityDocumentmanagementAction">
+			<result name="goList">/WEB-INF/content/qm/manage/qualityDocumentmanagement_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/manage/qualityDocumentmanagement_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/manage/qualityDocumentmanagement_update.jsp</result>
+			<result name="goChooseCategory">/WEB-INF/content/qm/manage/chooseContractCatalog.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+
+		<!-- 来料检验 -->
+		<action name="incomingInspectionAction!*" method="{1}" class="incomingInspectionAction">
+			<result name="goList">/WEB-INF/content/qm/incomingInspection_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/qm/incomingInspection_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/incomingInspection_update.jsp</result>
+		</action>
+		<!-- 产品检验 -->
+		<action name="productTestingAction!*" method="{1}" class="productTestingAction">
+			<result name="goList">/WEB-INF/content/qm/productTesting_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/qm/productTesting_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/productTesting_update.jsp</result>
+		</action>
+		
+		<!-- 在库检验 -->
+		<action name="inThelibrarytestAction!*" method="{1}" class="inThelibrarytestAction">
+			<result name="goList">/WEB-INF/content/qm/inThelibrarytest_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/qm/inThelibrarytest_list_content.jsp</result>
+			<!-- <result name="goSaveOrUpdate">/WEB-INF/content/qm/inThelibrarytest_update.jsp</result> -->
+		</action>
+		<!-- 发退货检验 -->
+		<action name="hairReturninspectionAction!*" method="{1}" class="hairReturninspectionAction">
+			<result name="goList">/WEB-INF/content/qm/hairReturninspection_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/qm/hairReturninspection_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/hairReturninspection_update.jsp</result>
+		</action>
+		<!-- 留样单列表 -->
+		<action name="retentionSamplessingleListAction!*" method="{1}" class="retentionSamplessingleListAction">
+			<result name="goList">/WEB-INF/content/qm/retentionSamplessingleList_list.jsp</result>
+			<result name="goListContent">/WEB-INF/content/qm/retentionSamplessingleList_list_content.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/qm/retentionSamplessingleList_update.jsp</result>
+		</action>
+		<!-- 其他检验 -->
+		<action name="otherInspectionAction!*" method="{1}" class="otherInspectionAction">
+			<result name="goList">/WEB-INF/content/qm/otherInspection_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/qm/otherInspection_list_content.jsp</result>
+			<!-- <result name="goSaveOrUpdate">/WEB-INF/content/qm/otherInspection_update.jsp</result> -->
+		</action>
+	</package>
+</struts>

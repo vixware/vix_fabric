@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.process.vreport.model.NodeMonitor">
+
+	<resultMap type="com.process.vreport.model.NodeMonitor" id="NodeMonitormodel">
+
+		<result column="ID" property="id" />
+		<result column="routeId" property="routeId" />
+		<result column="exchangeId" property="exchangeId" />
+		<result column="time" property="time" />
+		<result column="formNodeId" property="formNodeId" />
+		<result column="nodeId" property="nodeId" />
+		<result column="linkId" property="linkId" />
+		<result column="status" property="status" />
+	</resultMap>
+
+	<sql id="selectAllColumn">
+
+		ID,
+		routeId,
+		exchangeId,
+		time,
+		formNodeId,
+		nodeId,
+		linkId,
+		status
+	</sql>
+
+	<sql id="selectByColumn">
+
+		<if test="id_column != null">ID,</if>
+		<if test="routeId_column != null">routeId,</if>
+		<if test="exchangeId_column != null">exchangeId,</if>
+		<if test="time_column != null">time,</if>
+		<if test="formNodeId_column != null">formNodeId,</if>
+		<if test="nodeId_column != null">nodeId,</if>
+		<if test="linkId_column != null">linkId,</if>
+		<if test="status_column != null">status,</if>
+	</sql>
+
+
+	<sql id="whereCondition">
+
+		<if test="id != null">AND ID=#{id}</if>
+		<if test="routeId != null">AND routeId=#{routeId}</if>
+		<if test="exchangeId != null">AND exchangeId=#{exchangeId}</if>
+		<if test="time != null">AND time=#{time}</if>
+		<if test="formNodeId != null">AND formNodeId=#{formNodeId}</if>
+		<if test="nodeId != null">AND nodeId=#{nodeId}</if>
+		<if test="linkId != null">AND linkId=#{linkId}</if>
+		<if test="status != null">AND status=#{status}</if>
+	</sql>
+
+
+	<select id="getById" resultMap="NodeMonitormodel">
+		SELECT
+		<include refid="selectAllColumn" />
+		FROM CRM_NODEMONITOR
+		where ID = #{id}
+	</select>
+
+	<insert id="insert">
+
+		INSERT INTO CRM_NODEMONITOR (
+		<include refid="selectAllColumn" />
+		) VALUES (
+
+		#{id ,jdbcType=VARCHAR },
+		#{routeId ,jdbcType=VARCHAR },
+		#{exchangeId ,jdbcType=VARCHAR },
+		#{time ,jdbcType=TIMESTAMP },
+		#{formNodeId ,jdbcType=VARCHAR },
+		#{nodeId ,jdbcType=VARCHAR },
+		#{linkId ,jdbcType=VARCHAR },
+		#{status ,jdbcType=NUMERIC }
+		)
+	</insert>
+
+	<update id="update">
+    <![CDATA[
+        UPDATE CRM_NODEMONITOR SET
+        	  
+       		ID = #{id},    
+       		routeId = #{routeId},    
+       		exchangeId = #{exchangeId},    
+       		time = #{time},    
+       		formNodeId = #{formNodeId},    
+       		nodeId = #{nodeId},    
+       		linkId = #{linkId},    
+       		status = #{status}   
+        WHERE 
+	        ID = #{id} 
+    ]]>
+	</update>
+
+	<update id="updateNotNull">
+		UPDATE CRM_NODEMONITOR
+		<set>
+
+			<if test="id != null">ID=#{id},</if>
+			<if test="routeId != null">routeId=#{routeId},</if>
+			<if test="exchangeId != null">exchangeId=#{exchangeId},</if>
+			<if test="time != null">time=#{time},</if>
+			<if test="formNodeId != null">formNodeId=#{formNodeId},</if>
+			<if test="nodeId != null">nodeId=#{nodeId},</if>
+			<if test="linkId != null">linkId=#{linkId},</if>
+			<if test="status != null">status=#{status},</if>
+
+		</set>
+		WHERE
+		ID = #{id}
+	</update>
+
+	<delete id="delete">
+    <![CDATA[
+        DELETE FROM CRM_NODEMONITOR  WHERE
+        ID = #{id}
+    ]]>
+	</delete>
+
+	<delete id="deleteByColumn">
+    <![CDATA[
+        DELETE FROM CRM_NODEMONITOR  WHERE 1=1 
+    ]]>
+		<include refid="whereCondition" />
+	</delete>
+
+	<delete id="deleteIds">
+	<![CDATA[
+		DELETE FROM CRM_NODEMONITOR  WHERE
+        ID IN 
+	]]>
+		<foreach collection="array" item="ids" open="(" separator="," close=")">#{ids}</foreach>
+	</delete>
+
+	<select id="listColumn" resultType="Object">
+		SELECT
+		<trim prefix="" suffixOverrides=",">
+			<include refid="selectByColumn" />
+		</trim>
+		FROM CRM_NODEMONITOR
+		WHERE 1=1
+		<include refid="whereCondition" />
+		<if test="appendCondition != null">${appendCondition}</if>
+		<if test="sortColumns != null"> ORDER BY ${sortColumns}</if>
+	</select>
+
+	<select id="list" resultMap="NodeMonitormodel">
+		SELECT
+		<trim prefix="" suffixOverrides=",">
+			<choose>
+				<when test="LIST_BYCOLUMN == null">
+					<include refid="selectAllColumn" />
+				</when>
+				<otherwise>
+					<include refid="selectByColumn" />
+				</otherwise>
+			</choose>
+		</trim>
+		FROM CRM_NODEMONITOR
+		WHERE 1=1
+		<include refid="whereCondition" />
+		<if test="appendCondition != null">${appendCondition}</if>
+		<if test="sortColumns != null"> ORDER BY ${sortColumns}</if>
+	</select>
+</mapper>

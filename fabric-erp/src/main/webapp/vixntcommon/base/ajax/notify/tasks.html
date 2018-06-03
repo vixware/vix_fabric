@@ -1,0 +1,17 @@
+<ul class="notification-body">
+	<s:if test="projectList.size > 0">
+		<s:iterator value="projectList" var="entity" status="s">
+			<li><span>
+					<div class="bar-holder no-padding">
+						<p class="margin-bottom-5">
+							<i class="fa fa-warning text-warning"></i> <strong>PRIMARY:</strong> <i>Upgrade Infestructure</i> <span class="pull-right semi-bold text-muted">85%</span>
+						</p>
+						<div class="progress progress-md progress-striped">
+							<div class="progress-bar bg-color-teal" style="width: 85%;"></div>
+						</div>
+						<em class="note no-margin">last updated on 12/12/2013</em>
+					</div>
+			</span></li>
+		</s:iterator>
+	</s:if>
+</ul>

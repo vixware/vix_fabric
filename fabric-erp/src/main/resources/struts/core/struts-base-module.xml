@@ -1,0 +1,93 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="common.module" namespace="/common" extends="crud-default">
+
+		<!-- 首页面数据加载 -->
+		<action name="vixIndexDataAction!*" method="{1}" class="vixIndexDataAction">
+			<!-- 通知公告 -->
+			<result name="goIndexBulletin">/WEB-INF/content/common/indexDataPage/indexBulletinList.jsp</result>
+			<result name="goIndexBulletinContent">/WEB-INF/content/common/indexDataPage/indexBulletinList_content.jsp</result>
+			<result name="goAnnouncementNotification">/WEB-INF/content/common/indexDataPage/announcementNotification_update.jsp</result>
+			<!-- 待办任务 -->
+			<result name="goIndexJobtodo">/WEB-INF/content/common/indexDataPage/indexJobtodoList.jsp</result>
+			<result name="goIndexJobtodoContent">/WEB-INF/content/common/indexDataPage/indexJobtodoList_content.jsp</result>
+			<result name="goApprovalPendingList">/WEB-INF/content/common/indexDataPage/approvalPendingList_content.jsp</result>
+			<result name="goTaskList">/WEB-INF/content/common/indexDataPage/taskList_content.jsp</result>
+			<!-- 首页提醒数据 -->
+			<result name="goRemindList">/WEB-INF/content/common/indexDataPage/remindList_content.jsp</result>
+
+			<!-- 统计数据 -->
+			<result name="goIndexNews">/WEB-INF/content/common/indexDataPage/indexNewsList.jsp</result>
+			<result name="goIndexNewsContent">/WEB-INF/content/common/indexDataPage/indexNewsList_content.jsp</result>
+			<!-- 操作历史 -->
+			<result name="goIndexOperHis">/WEB-INF/content/common/indexDataPage/indexOperhistoryList.jsp</result>
+			<result name="goIndexOperHisContent">/WEB-INF/content/common/indexDataPage/indexOperhistoryList_content.jsp</result>
+			<!-- 首页日程安排 -->
+			<result name="goIndexSchedul">/WEB-INF/content/common/indexDataPage/indexSchedulList.jsp</result>
+			<result name="goIndexSchedulContent">/WEB-INF/content/common/indexDataPage/indexSchedulList_content.jsp</result>
+			<!-- 获取首页新闻列表 -->
+			<result name="goIndexTrends">/WEB-INF/content/common/indexDataPage/indexTrendsList.jsp</result>
+			<result name="goIndexTrendsContent">/WEB-INF/content/common/indexDataPage/indexTrendsList_content.jsp</result>
+			<!-- 新闻 -->
+			<result name="goIndexNews1">/WEB-INF/content/common/indexDataPage/indexNewsPager.jsp</result>
+			<result name="goIndexTrendsPage">/WEB-INF/content/common/indexDataPage/indexNewsPager_content.jsp</result>
+			<!--待审批数据 -->
+			<!-- <result name="goDoLists">/WEB-INF/content/common/indexDataPage/indexDoList.jsp</result> -->
+			<!-- 首页-待办提醒 -->
+			<result name="goIndexDoList">/WEB-INF/content/common/indexDataPage/indexDoList_content.jsp</result>
+			<!-- 新闻 -->
+			<result name="goNews">/WEB-INF/content/common/indexDataPage/main_news.jsp</result>
+			<!-- <result name="goNotice">/WEB-INF/content/common/indexDataPage/notice.jsp</result> -->
+			<!-- 跳转到入库业务处理页面 -->
+			<result name="goInvInbound">/WEB-INF/content/inventory/inbound/inboundWarehouse_list.jsp</result>
+			<!-- 跳转到采购订单处理页面 -->
+			<result name="goPurOrder">/WEB-INF/content/purchase/order/purchaseorder_list.jsp</result>
+			<!-- 工作台-待办事宜 -->
+			<result name="todo">/WEB-INF/content/common/indexDataPage/toDo.jsp</result>
+			<result name="goIndexJobtodoContent">/WEB-INF/content/common/indexDataPage/toDoList_content.jsp</result>
+			<!-- 工作台-日清管理 -->
+			<result name="gooecc">/WEB-INF/content/common/indexDataPage/oecc.jsp</result>
+			<!-- 工作台-通知公告 -->
+			<result name="gobulletinboardnotices">/WEB-INF/content/common/indexDataPage/bulletinboardnotices.jsp</result>
+			<!-- 首页仪表盘 -->
+			<result name="goHighcharts">/WEB-INF/content/common/indexDataPage/highcharts.jsp</result>
+			<!-- 首页日程安排 -->
+			<result name="goCalendar">/WEB-INF/content/common/indexDataPage/calendar.jsp</result>
+			<!-- 工作台-任务中心 -->
+			<result name="goTaskCenterList">/WEB-INF/content/common/taskCenter/taskCenter_list.jsp</result>
+		</action>
+		<!-- 工作台通讯录 -->
+		<action name="contactsAction!*" method="{1}" class="contactsAction">
+			<result name="goList">/WEB-INF/content/desktop/contacts_list.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/desktop/contacts_list_content.jsp</result>
+			<result name="goAddContacts">/WEB-INF/content/desktop/addContacts.jsp</result>
+			<result name="goChooseContactsCategory">/WEB-INF/content/desktop/chooseContactsCategory.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>
+		<!-- 日程安排 -->
+		<action name="canlendarAction!*" method="{1}" class="canlendarAction">
+			<result name="goCanlendar">/WEB-INF/content/common/indexDataPage/canlendar.jsp</result>
+			<result name="goSaveOrUpdate">/WEB-INF/content/common/indexDataPage/canlendar_update.jsp</result>
+			<result name="showCanlendar">/WEB-INF/content/common/indexDataPage/canlendar_show.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+		<!-- 邮件管理 -->
+		<action name="mailAction!*" method="{1}" class="mailAction">
+			<result name="goMailList">/WEB-INF/content/common/mail/mailList.jsp</result>
+			<result name="goSingleList">/WEB-INF/content/common/mail/mail_List_content.jsp</result>
+			<result name="goDirectoryList">/WEB-INF/content/common/mail/directory_List_content.jsp</result>
+			<result name="goAsteriskMailList">/WEB-INF/content/common/mail/asteriskmail_List_content.jsp</result>
+			<result name="goHasBeenSent">/WEB-INF/content/common/mail/hasbeensent_List.jsp</result>
+			<result name="goHasBeenSentList">/WEB-INF/content/common/mail/hasbeensent_List_content.jsp</result>
+			<result name="goHasDeleteList">/WEB-INF/content/common/mail/hasdelete_List_content.jsp</result>
+			<result name="goDustbinList">/WEB-INF/content/common/mail/dustbin_List_content.jsp</result>
+			<result name="goRoughCopyList">/WEB-INF/content/common/mail/roughcopy_List_content.jsp</result>
+			<result name="goMailEdit">/WEB-INF/content/common/mail/mailEdit.jsp</result>
+			<result name="goMailDetail">/WEB-INF/content/common/mail/mailDetail.jsp</result>
+			<result name="update">/WEB-INF/content/message.jsp</result>
+		</action>
+	</package>
+</struts>

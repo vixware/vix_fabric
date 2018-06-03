@@ -1,0 +1,57 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="beiken" namespace="/beiken" extends="crud-default">
+		<!-- 首页 -->
+		<action name="beikenIndexAction!*" method="{1}" class="beikenIndexAction">
+			<result name="goIndex">/WEB-INF/mobile/index.jsp</result>
+			<result name="goLogin">/WEB-INF/mobile/login.jsp</result>
+			<result name="goForgetPassword">/WEB-INF/mobile/forgetPassword.jsp</result>
+			<result name="goRegister">/WEB-INF/mobile/register.jsp</result>
+			<result name="goSearch">/WEB-INF/mobile/search.jsp</result>
+			<result name="searchProduct">/WEB-INF/mobile/productList.jsp</result>
+		</action>
+		<!-- 分类页 -->
+		<action name="beikenCategoryAction!*" method="{1}" class="beikenCategoryAction">
+			<result name="goIndex">/WEB-INF/mobile/category.jsp</result>
+			<result name="goProductList">/WEB-INF/mobile/productList.jsp</result>
+			<result name="loadItemCatalog">/WEB-INF/mobile/loadItemCatalog.jsp</result>
+		</action>
+		<!-- 购物车 -->
+		<action name="beikenShoppingCartAction!*" method="{1}" class="beikenShoppingCartAction">
+			<result name="goIndex">/WEB-INF/mobile/shoppingCart.jsp</result>
+			<result name="loadShoppingCart">/WEB-INF/mobile/loadShoppingCart.jsp</result>
+			<result name="loadShoppingCartCount">/WEB-INF/mobile/loadShoppingCartCount.jsp</result>
+		</action>
+		<!-- 个人中心 -->
+		<action name="beikenUserCenterAction!*" method="{1}" class="beikenUserCenterAction">
+			<result name="goIndex">/WEB-INF/mobile/userCenter.jsp</result>
+			<result name="goSet">/WEB-INF/mobile/set.jsp</result>
+			<result name="goConsignee">/WEB-INF/mobile/consignee.jsp</result>
+			<result name="goSearchStock">/WEB-INF/mobile/searchStock.jsp</result>
+			<result name="searchStock">/WEB-INF/mobile/searchStockList.jsp</result>
+			<result name="loadSearchStock">/WEB-INF/mobile/loadSearchStockList.jsp</result>
+			<result name="searchStockByItemCode">/WEB-INF/mobile/searchStockItemCodeList.jsp</result>
+			<result name="goSaveOrUpdateConsignee">/WEB-INF/mobile/saveOrUpdateConsignee.jsp</result>
+			<result name="loadCity">/WEB-INF/mobile/loadCity.jsp</result>
+			<result name="loadRegion">/WEB-INF/mobile/loadRegion.jsp</result>
+			<result name="goOrderList">/WEB-INF/mobile/orderList.jsp</result>
+		</action>
+		<!-- 商品页 -->
+		<action name="beikenProductAction!*" method="{1}" class="beikenProductAction">
+			<result name="goProductDetail">/WEB-INF/mobile/productDetail.jsp</result>
+			<result name="goProductComment">/WEB-INF/mobile/productComment.jsp</result>
+		</action>
+		<!-- 订单页 -->
+		<action name="beikenOrderAction!*" method="{1}" class="beikenOrderAction">
+			<result name="goIndex">/WEB-INF/mobile/order.jsp</result>
+			<result name="goConfirmOrder">/WEB-INF/mobile/confirmOrder.jsp</result>
+			<result name="goOrderPayment">/WEB-INF/mobile/ecOrderPayment.jsp</result>
+			<result name="goOrderPaymentSuccess">/WEB-INF/mobile/ecOrderPaymentSuccess.jsp</result>
+		</action>
+		<action name="beikenPaymentAction!*" method="{1}" class="beikenPaymentAction">
+		</action>
+	</package>
+</struts>

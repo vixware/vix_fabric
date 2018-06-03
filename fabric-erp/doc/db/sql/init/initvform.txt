@@ -1,0 +1,1229 @@
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `act_ge_bytearray`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ge_bytearray`;
+CREATE TABLE `act_ge_bytearray` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DEPLOYMENT_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `BYTES_` longblob,
+  `GENERATED_` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_FK_BYTEARR_DEPL` (`DEPLOYMENT_ID_`),
+  CONSTRAINT `ACT_FK_BYTEARR_DEPL` FOREIGN KEY (`DEPLOYMENT_ID_`) REFERENCES `act_re_deployment` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ge_bytearray
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ge_property`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ge_property`;
+CREATE TABLE `act_ge_property` (
+  `NAME_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `VALUE_` varchar(300) COLLATE utf8_bin DEFAULT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  PRIMARY KEY (`NAME_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ge_property
+-- ----------------------------
+INSERT INTO `act_ge_property` VALUES ('next.dbid', '17901', '180');
+INSERT INTO `act_ge_property` VALUES ('schema.history', 'create(5.14)', '1');
+INSERT INTO `act_ge_property` VALUES ('schema.version', '5.14', '1');
+
+-- ----------------------------
+-- Table structure for `act_hi_actinst`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_actinst`;
+CREATE TABLE `act_hi_actinst` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `ACT_ID_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `CALL_PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `ACT_NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ACT_TYPE_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `ASSIGNEE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `START_TIME_` datetime NOT NULL,
+  `END_TIME_` datetime DEFAULT NULL,
+  `DURATION_` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_HI_ACT_INST_START` (`START_TIME_`),
+  KEY `ACT_IDX_HI_ACT_INST_END` (`END_TIME_`),
+  KEY `ACT_IDX_HI_ACT_INST_PROCINST` (`PROC_INST_ID_`,`ACT_ID_`),
+  KEY `ACT_IDX_HI_ACT_INST_EXEC` (`EXECUTION_ID_`,`ACT_ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Table structure for `act_hi_attachment`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_attachment`;
+CREATE TABLE `act_hi_attachment` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `USER_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `URL_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `CONTENT_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_attachment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_hi_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_comment`;
+CREATE TABLE `act_hi_comment` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TIME_` datetime NOT NULL,
+  `USER_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `ACTION_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `MESSAGE_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `FULL_MSG_` longblob,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_hi_detail`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_detail`;
+CREATE TABLE `act_hi_detail` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `ACT_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VAR_TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `TIME_` datetime NOT NULL,
+  `BYTEARRAY_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `DOUBLE_` double DEFAULT NULL,
+  `LONG_` bigint(20) DEFAULT NULL,
+  `TEXT_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `TEXT2_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_HI_DETAIL_PROC_INST` (`PROC_INST_ID_`),
+  KEY `ACT_IDX_HI_DETAIL_ACT_INST` (`ACT_INST_ID_`),
+  KEY `ACT_IDX_HI_DETAIL_TIME` (`TIME_`),
+  KEY `ACT_IDX_HI_DETAIL_NAME` (`NAME_`),
+  KEY `ACT_IDX_HI_DETAIL_TASK_ID` (`TASK_ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_detail
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_hi_identitylink`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_identitylink`;
+CREATE TABLE `act_hi_identitylink` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `GROUP_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_HI_IDENT_LNK_USER` (`USER_ID_`),
+  KEY `ACT_IDX_HI_IDENT_LNK_TASK` (`TASK_ID_`),
+  KEY `ACT_IDX_HI_IDENT_LNK_PROCINST` (`PROC_INST_ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_identitylink
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_hi_procinst`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_procinst`;
+CREATE TABLE `act_hi_procinst` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `BUSINESS_KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `START_TIME_` datetime NOT NULL,
+  `END_TIME_` datetime DEFAULT NULL,
+  `DURATION_` bigint(20) DEFAULT NULL,
+  `START_USER_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `START_ACT_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `END_ACT_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `SUPER_PROCESS_INSTANCE_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `DELETE_REASON_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  UNIQUE KEY `PROC_INST_ID_` (`PROC_INST_ID_`),
+  UNIQUE KEY `ACT_UNIQ_HI_BUS_KEY` (`PROC_DEF_ID_`,`BUSINESS_KEY_`),
+  KEY `ACT_IDX_HI_PRO_INST_END` (`END_TIME_`),
+  KEY `ACT_IDX_HI_PRO_I_BUSKEY` (`BUSINESS_KEY_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_procinst
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_hi_taskinst`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_taskinst`;
+CREATE TABLE `act_hi_taskinst` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_DEF_KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PARENT_TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `OWNER_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ASSIGNEE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `START_TIME_` datetime NOT NULL,
+  `CLAIM_TIME_` datetime DEFAULT NULL,
+  `END_TIME_` datetime DEFAULT NULL,
+  `DURATION_` bigint(20) DEFAULT NULL,
+  `DELETE_REASON_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `PRIORITY_` int(11) DEFAULT NULL,
+  `DUE_DATE_` datetime DEFAULT NULL,
+  `FORM_KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_taskinst
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_hi_varinst`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_hi_varinst`;
+CREATE TABLE `act_hi_varinst` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VAR_TYPE_` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `BYTEARRAY_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `DOUBLE_` double DEFAULT NULL,
+  `LONG_` bigint(20) DEFAULT NULL,
+  `TEXT_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `TEXT2_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_HI_PROCVAR_PROC_INST` (`PROC_INST_ID_`),
+  KEY `ACT_IDX_HI_PROCVAR_NAME_TYPE` (`NAME_`,`VAR_TYPE_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_hi_varinst
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_id_group`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_id_group`;
+CREATE TABLE `act_id_group` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_id_group
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_id_info`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_id_info`;
+CREATE TABLE `act_id_info` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `USER_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `TYPE_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `VALUE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PASSWORD_` longblob,
+  `PARENT_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_id_info
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_id_membership`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_id_membership`;
+CREATE TABLE `act_id_membership` (
+  `USER_ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `GROUP_ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`USER_ID_`,`GROUP_ID_`),
+  KEY `ACT_FK_MEMB_GROUP` (`GROUP_ID_`),
+  CONSTRAINT `ACT_FK_MEMB_GROUP` FOREIGN KEY (`GROUP_ID_`) REFERENCES `act_id_group` (`ID_`),
+  CONSTRAINT `ACT_FK_MEMB_USER` FOREIGN KEY (`USER_ID_`) REFERENCES `act_id_user` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_id_membership
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_id_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_id_user`;
+CREATE TABLE `act_id_user` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `FIRST_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `LAST_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EMAIL_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PWD_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PICTURE_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_id_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_re_deployment`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_re_deployment`;
+CREATE TABLE `act_re_deployment` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CATEGORY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DEPLOY_TIME_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_re_deployment
+-- ----------------------------
+INSERT INTO `act_re_deployment` VALUES ('10408', '测试入库单', null, '2015-08-17 16:52:56');
+INSERT INTO `act_re_deployment` VALUES ('10504', '报销单', null, '2015-08-18 09:54:42');
+INSERT INTO `act_re_deployment` VALUES ('12004', '测试入库单', null, '2015-09-14 14:19:26');
+INSERT INTO `act_re_deployment` VALUES ('12304', '测试入库单', null, '2015-11-23 16:20:01');
+INSERT INTO `act_re_deployment` VALUES ('12408', '入库单', null, '2015-12-01 15:32:10');
+INSERT INTO `act_re_deployment` VALUES ('1404', '调拨流程', null, '2015-07-01 16:17:25');
+INSERT INTO `act_re_deployment` VALUES ('14101', '入库单', null, '2015-12-02 12:09:42');
+INSERT INTO `act_re_deployment` VALUES ('15708', '自定义表单出库流程', null, '2015-12-07 16:17:04');
+INSERT INTO `act_re_deployment` VALUES ('15908', '入库单审批', null, '2016-01-05 17:54:09');
+INSERT INTO `act_re_deployment` VALUES ('16009', '报销单审批', null, '2016-01-06 14:01:53');
+INSERT INTO `act_re_deployment` VALUES ('17204', '采购计划流程', null, '2016-01-25 17:35:23');
+INSERT INTO `act_re_deployment` VALUES ('17609', '采购计划流程', null, '2016-01-25 18:51:23');
+INSERT INTO `act_re_deployment` VALUES ('2441', '调拨流程', null, '2015-07-13 16:54:31');
+INSERT INTO `act_re_deployment` VALUES ('3865', '入库流程', null, '2015-07-16 17:43:59');
+INSERT INTO `act_re_deployment` VALUES ('3895', '采购入库流程', null, '2015-07-16 17:58:55');
+INSERT INTO `act_re_deployment` VALUES ('4', '请假流程', null, '2014-04-14 17:40:27');
+INSERT INTO `act_re_deployment` VALUES ('427', '会签测试', null, '2014-04-25 14:07:33');
+INSERT INTO `act_re_deployment` VALUES ('4601', '采购计划', null, '2015-07-22 16:56:55');
+INSERT INTO `act_re_deployment` VALUES ('4716', '入库流程', null, '2015-07-23 16:40:52');
+INSERT INTO `act_re_deployment` VALUES ('4912', '测试采购入库单', null, '2015-07-24 13:48:07');
+INSERT INTO `act_re_deployment` VALUES ('504', 'fenzhitest', null, '2014-06-04 14:19:30');
+INSERT INTO `act_re_deployment` VALUES ('5405', '测试盘点单', null, '2015-07-24 17:54:16');
+INSERT INTO `act_re_deployment` VALUES ('6825', '测试销售订单', null, '2015-08-14 11:14:42');
+INSERT INTO `act_re_deployment` VALUES ('8001', '测试销售订单', null, '2015-08-14 15:22:45');
+INSERT INTO `act_re_deployment` VALUES ('804', '销售订单', null, '2015-01-21 17:11:03');
+INSERT INTO `act_re_deployment` VALUES ('8304', '测试销售订单', null, '2015-08-14 15:56:46');
+INSERT INTO `act_re_deployment` VALUES ('8324', '测试销售订单', null, '2015-08-14 16:05:01');
+INSERT INTO `act_re_deployment` VALUES ('8616', '测试盘点单', null, '2015-08-14 17:01:04');
+INSERT INTO `act_re_deployment` VALUES ('8679', '销售订单', null, '2015-08-14 17:35:27');
+INSERT INTO `act_re_deployment` VALUES ('9008', '其他入库单', null, '2015-08-17 11:23:46');
+INSERT INTO `act_re_deployment` VALUES ('9141', '其他入库单', null, '2015-08-17 14:35:36');
+
+-- ----------------------------
+-- Table structure for `act_re_model`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_re_model`;
+CREATE TABLE `act_re_model` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CATEGORY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATE_TIME_` timestamp NULL DEFAULT NULL,
+  `LAST_UPDATE_TIME_` timestamp NULL DEFAULT NULL,
+  `VERSION_` int(11) DEFAULT NULL,
+  `META_INFO_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `DEPLOYMENT_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `EDITOR_SOURCE_VALUE_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `EDITOR_SOURCE_EXTRA_VALUE_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `TENANTID` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_FK_MODEL_SOURCE` (`EDITOR_SOURCE_VALUE_ID_`),
+  KEY `ACT_FK_MODEL_SOURCE_EXTRA` (`EDITOR_SOURCE_EXTRA_VALUE_ID_`),
+  KEY `ACT_FK_MODEL_DEPLOYMENT` (`DEPLOYMENT_ID_`),
+  CONSTRAINT `ACT_FK_MODEL_DEPLOYMENT` FOREIGN KEY (`DEPLOYMENT_ID_`) REFERENCES `act_re_deployment` (`ID_`),
+  CONSTRAINT `ACT_FK_MODEL_SOURCE` FOREIGN KEY (`EDITOR_SOURCE_VALUE_ID_`) REFERENCES `act_ge_bytearray` (`ID_`),
+  CONSTRAINT `ACT_FK_MODEL_SOURCE_EXTRA` FOREIGN KEY (`EDITOR_SOURCE_EXTRA_VALUE_ID_`) REFERENCES `act_ge_bytearray` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_re_model
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_re_procdef`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_re_procdef`;
+CREATE TABLE `act_re_procdef` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `CATEGORY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `KEY_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `VERSION_` int(11) NOT NULL,
+  `DEPLOYMENT_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `RESOURCE_NAME_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `DGRM_RESOURCE_NAME_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `HAS_START_FORM_KEY_` tinyint(4) DEFAULT NULL,
+  `SUSPENSION_STATE_` int(11) DEFAULT NULL,
+  `FORM_ID` varchar(32) COLLATE utf8_bin DEFAULT NULL,
+  `START_TIME` datetime DEFAULT NULL,
+  `END_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  UNIQUE KEY `ACT_UNIQ_PROCDEF` (`KEY_`,`VERSION_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_re_procdef
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ru_event_subscr`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ru_event_subscr`;
+CREATE TABLE `act_ru_event_subscr` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `EVENT_TYPE_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `EVENT_NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `ACTIVITY_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `CONFIGURATION_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `CREATED_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_EVENT_SUBSCR_CONFIG_` (`CONFIGURATION_`),
+  KEY `ACT_FK_EVENT_EXEC` (`EXECUTION_ID_`),
+  CONSTRAINT `ACT_FK_EVENT_EXEC` FOREIGN KEY (`EXECUTION_ID_`) REFERENCES `act_ru_execution` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ru_event_subscr
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ru_execution`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ru_execution`;
+CREATE TABLE `act_ru_execution` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `BUSINESS_KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PARENT_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `SUPER_EXEC_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `ACT_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `IS_ACTIVE_` tinyint(4) DEFAULT NULL,
+  `IS_CONCURRENT_` tinyint(4) DEFAULT NULL,
+  `IS_SCOPE_` tinyint(4) DEFAULT NULL,
+  `IS_EVENT_SCOPE_` tinyint(4) DEFAULT NULL,
+  `SUSPENSION_STATE_` int(11) DEFAULT NULL,
+  `CACHED_ENT_STATE_` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  UNIQUE KEY `ACT_UNIQ_RU_BUS_KEY` (`PROC_DEF_ID_`,`BUSINESS_KEY_`),
+  KEY `ACT_IDX_EXEC_BUSKEY` (`BUSINESS_KEY_`),
+  KEY `ACT_FK_EXE_PROCINST` (`PROC_INST_ID_`),
+  KEY `ACT_FK_EXE_PARENT` (`PARENT_ID_`),
+  KEY `ACT_FK_EXE_SUPER` (`SUPER_EXEC_`),
+  CONSTRAINT `ACT_FK_EXE_PARENT` FOREIGN KEY (`PARENT_ID_`) REFERENCES `act_ru_execution` (`ID_`),
+  CONSTRAINT `ACT_FK_EXE_PROCDEF` FOREIGN KEY (`PROC_DEF_ID_`) REFERENCES `act_re_procdef` (`ID_`),
+  CONSTRAINT `ACT_FK_EXE_PROCINST` FOREIGN KEY (`PROC_INST_ID_`) REFERENCES `act_ru_execution` (`ID_`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ACT_FK_EXE_SUPER` FOREIGN KEY (`SUPER_EXEC_`) REFERENCES `act_ru_execution` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ru_execution
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ru_identitylink`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ru_identitylink`;
+CREATE TABLE `act_ru_identitylink` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `GROUP_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `USER_ID_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_IDENT_LNK_USER` (`USER_ID_`),
+  KEY `ACT_IDX_IDENT_LNK_GROUP` (`GROUP_ID_`),
+  KEY `ACT_IDX_ATHRZ_PROCEDEF` (`PROC_DEF_ID_`),
+  KEY `ACT_FK_TSKASS_TASK` (`TASK_ID_`),
+  KEY `ACT_FK_IDL_PROCINST` (`PROC_INST_ID_`),
+  CONSTRAINT `ACT_FK_ATHRZ_PROCEDEF` FOREIGN KEY (`PROC_DEF_ID_`) REFERENCES `act_re_procdef` (`ID_`),
+  CONSTRAINT `ACT_FK_IDL_PROCINST` FOREIGN KEY (`PROC_INST_ID_`) REFERENCES `act_ru_execution` (`ID_`),
+  CONSTRAINT `ACT_FK_TSKASS_TASK` FOREIGN KEY (`TASK_ID_`) REFERENCES `act_ru_task` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ru_identitylink
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ru_job`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ru_job`;
+CREATE TABLE `act_ru_job` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `LOCK_EXP_TIME_` timestamp NULL DEFAULT NULL,
+  `LOCK_OWNER_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `EXCLUSIVE_` tinyint(1) DEFAULT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROCESS_INSTANCE_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `RETRIES_` int(11) DEFAULT NULL,
+  `EXCEPTION_STACK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `EXCEPTION_MSG_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `DUEDATE_` timestamp NULL DEFAULT NULL,
+  `REPEAT_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `HANDLER_TYPE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `HANDLER_CFG_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_FK_JOB_EXCEPTION` (`EXCEPTION_STACK_ID_`),
+  CONSTRAINT `ACT_FK_JOB_EXCEPTION` FOREIGN KEY (`EXCEPTION_STACK_ID_`) REFERENCES `act_ge_bytearray` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ru_job
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ru_task`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ru_task`;
+CREATE TABLE `act_ru_task` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `REV_` int(11) DEFAULT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_DEF_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `PARENT_TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `DESCRIPTION_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_DEF_KEY_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `OWNER_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ASSIGNEE_` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DELEGATION_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PRIORITY_` int(11) DEFAULT NULL,
+  `CREATE_TIME_` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `DUE_DATE_` datetime DEFAULT NULL,
+  `SUSPENSION_STATE_` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_TASK_CREATE` (`CREATE_TIME_`),
+  KEY `ACT_FK_TASK_EXE` (`EXECUTION_ID_`),
+  KEY `ACT_FK_TASK_PROCINST` (`PROC_INST_ID_`),
+  KEY `ACT_FK_TASK_PROCDEF` (`PROC_DEF_ID_`),
+  CONSTRAINT `ACT_FK_TASK_EXE` FOREIGN KEY (`EXECUTION_ID_`) REFERENCES `act_ru_execution` (`ID_`),
+  CONSTRAINT `ACT_FK_TASK_PROCDEF` FOREIGN KEY (`PROC_DEF_ID_`) REFERENCES `act_re_procdef` (`ID_`),
+  CONSTRAINT `ACT_FK_TASK_PROCINST` FOREIGN KEY (`PROC_INST_ID_`) REFERENCES `act_ru_execution` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ru_task
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `act_ru_variable`
+-- ----------------------------
+DROP TABLE IF EXISTS `act_ru_variable`;
+CREATE TABLE `act_ru_variable` (
+  `ID_` varchar(64) COLLATE utf8_bin NOT NULL,
+  `REV_` int(11) DEFAULT NULL,
+  `TYPE_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `NAME_` varchar(255) COLLATE utf8_bin NOT NULL,
+  `EXECUTION_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `PROC_INST_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `TASK_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `BYTEARRAY_ID_` varchar(64) COLLATE utf8_bin DEFAULT NULL,
+  `DOUBLE_` double DEFAULT NULL,
+  `LONG_` bigint(20) DEFAULT NULL,
+  `TEXT_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  `TEXT2_` varchar(4000) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`ID_`),
+  KEY `ACT_IDX_VARIABLE_TASK_ID` (`TASK_ID_`),
+  KEY `ACT_FK_VAR_EXE` (`EXECUTION_ID_`),
+  KEY `ACT_FK_VAR_PROCINST` (`PROC_INST_ID_`),
+  KEY `ACT_FK_VAR_BYTEARRAY` (`BYTEARRAY_ID_`),
+  CONSTRAINT `ACT_FK_VAR_BYTEARRAY` FOREIGN KEY (`BYTEARRAY_ID_`) REFERENCES `act_ge_bytearray` (`ID_`),
+  CONSTRAINT `ACT_FK_VAR_EXE` FOREIGN KEY (`EXECUTION_ID_`) REFERENCES `act_ru_execution` (`ID_`),
+  CONSTRAINT `ACT_FK_VAR_PROCINST` FOREIGN KEY (`PROC_INST_ID_`) REFERENCES `act_ru_execution` (`ID_`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of act_ru_variable
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_act_node_operator`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_act_node_operator`;
+CREATE TABLE `e_act_node_operator` (
+  `ID` varchar(32) NOT NULL,
+  `DEPLOYMENT_ID` varchar(64) DEFAULT NULL,
+  `NODE_KEY` varchar(128) DEFAULT NULL,
+  `TARGET_TYPE` decimal(2,0) DEFAULT NULL,
+  `TARGET_TEXT` varchar(1024) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_act_node_operator
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_act_node_template`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_act_node_template`;
+CREATE TABLE `e_act_node_template` (
+  `ID` varchar(32) NOT NULL,
+  `NODE_KEY` varchar(128) DEFAULT NULL,
+  `TEMPLATE_ID` varchar(32) DEFAULT NULL,
+  `FORM_ID` varchar(32) DEFAULT NULL,
+  `DEPLOYMENT_ID` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_act_node_template
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_act_operator_val`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_act_operator_val`;
+CREATE TABLE `e_act_operator_val` (
+  `ID` varchar(32) NOT NULL,
+  `OPERATOR_ID` varchar(32) DEFAULT NULL,
+  `VALUE_ID` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_ACT_OP_VALUE_NODE_OP` (`OPERATOR_ID`) USING BTREE,
+  CONSTRAINT `FK_ACT_OP_VALUE_NODE_OP` FOREIGN KEY (`OPERATOR_ID`) REFERENCES `e_act_node_operator` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_act_operator_val
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_act_process_form`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_act_process_form`;
+CREATE TABLE `e_act_process_form` (
+  `ID` varchar(32) NOT NULL,
+  `DEPLOYMENT_ID` varchar(64) DEFAULT NULL,
+  `FORM_ID` varchar(32) DEFAULT NULL,
+  `REQUEST_NAME` varchar(128) DEFAULT NULL,
+  `REQUEST_CODE` varchar(128) DEFAULT NULL,
+  `IS_DEFAULT` decimal(1,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_act_process_form
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_base_form`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_base_form`;
+CREATE TABLE `e_form_base_form` (
+  `ID` varchar(32) NOT NULL,
+  `BASE_FORM_NAME` varchar(128) DEFAULT NULL,
+  `BASE_FORM_NUM` decimal(4,0) DEFAULT NULL,
+  `BASE_FORM_CODE` varchar(128) DEFAULT NULL,
+  `STATUS` decimal(1,0) DEFAULT NULL,
+  `TYPE_ID` varchar(32) DEFAULT NULL,
+  `TABLE_CODE` varchar(256) DEFAULT NULL,
+  `TENANTID` varchar(32) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_BASE_FORM_REF_FORM_TYPE` (`TYPE_ID`),
+  CONSTRAINT `FK_BASE_FORM_REF_FORM_TYPE` FOREIGN KEY (`TYPE_ID`) REFERENCES `e_form_base_form_type` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_base_form
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_base_form_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_base_form_type`;
+CREATE TABLE `e_form_base_form_type` (
+  `ID` varchar(32) NOT NULL COMMENT 'ID',
+  `TYPE_NAME` varchar(128) DEFAULT NULL,
+  `SHOW_ORDER` decimal(4,0) DEFAULT NULL,
+  `REMARK` varchar(4000) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_base_form_type
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_business_base`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_business_base`;
+CREATE TABLE `e_form_business_base` (
+  `ID` varchar(32) NOT NULL,
+  `BASE_FORM_ID` varchar(32) DEFAULT NULL,
+  `BUSINESS_FORM_ID` varchar(32) DEFAULT NULL,
+  `IS_DETAIL` decimal(1,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_BUSINESS_FORM_REF_BASE_FORM` (`BASE_FORM_ID`),
+  KEY `FK_BASE_FORM_REF_BUSINESS_FORM` (`BUSINESS_FORM_ID`),
+  CONSTRAINT `FK_BASE_FORM_REF_BUSINESS_FORM` FOREIGN KEY (`BUSINESS_FORM_ID`) REFERENCES `e_form_business_form` (`ID`),
+  CONSTRAINT `FK_BUSINESS_FORM_REF_BASE_FORM` FOREIGN KEY (`BASE_FORM_ID`) REFERENCES `e_form_base_form` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_business_base
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_business_base_template`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_business_base_template`;
+CREATE TABLE `e_form_business_base_template` (
+  `ID` varchar(32) NOT NULL,
+  `MAX_VALUE` decimal(5,0) DEFAULT NULL,
+  `TEMPLATE_ID` varchar(32) DEFAULT NULL,
+  `LABEL_NAME` varchar(128) DEFAULT NULL,
+  `BUSINESS_BASE_ID` varchar(32) DEFAULT NULL,
+  `BUSINESS_BASE_TEMPLATE` varchar(512) DEFAULT NULL,
+  `SHOW_ORDER` decimal(5,0) DEFAULT NULL,
+  `CAN_ADD` decimal(1,0) DEFAULT NULL,
+  `CAN_DELETE` decimal(1,0) DEFAULT NULL,
+  `EXT_CONFIG` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_BASE_FORM_REF_FORM_TEM` (`TEMPLATE_ID`),
+  KEY `FK_BASEFORM_T_REF_BUS_BASE` (`BUSINESS_BASE_ID`),
+  CONSTRAINT `FK_BASEFORM_T_REF_BUS_BASE` FOREIGN KEY (`BUSINESS_BASE_ID`) REFERENCES `e_form_business_base` (`ID`),
+  CONSTRAINT `FK_BASE_FORM_REF_FORM_TEM` FOREIGN KEY (`TEMPLATE_ID`) REFERENCES `e_form_business_form_template` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_business_base_template
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_business_form`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_business_form`;
+CREATE TABLE `e_form_business_form` (
+  `ID` varchar(32) NOT NULL,
+  `BUSINESS_FORM_NAME` varchar(128) DEFAULT NULL,
+  `TYPE_ID` varchar(32) NOT NULL,
+  `BUSINESS_FORM_CODE` varchar(128) DEFAULT NULL,
+  `TENANTID` varchar(32) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(32) DEFAULT NULL,
+  `STATUS` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_BUSINESS_FORM_REF_FORM_TYPE` (`TYPE_ID`),
+  CONSTRAINT `FK_BUSINESS_FORM_REF_FORM_TYPE` FOREIGN KEY (`TYPE_ID`) REFERENCES `e_form_business_form_type` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_business_form
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_business_form_template`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_business_form_template`;
+CREATE TABLE `e_form_business_form_template` (
+  `ID` varchar(32) NOT NULL,
+  `TEMPLATE_NAME` varchar(128) DEFAULT NULL,
+  `BUSINESS_FORM_ID` varchar(32) DEFAULT NULL,
+  `HTML_CODE` text,
+  `TEMPATE_PATH` varchar(1204) DEFAULT NULL,
+  `HTML_ELEMENT_PATH` varchar(1204) DEFAULT NULL,
+  `TEMPLATE_CODE` varchar(128) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(255) DEFAULT NULL,
+  `tenantId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_FORM_TEM_REF_BUSINESS_FORM` (`BUSINESS_FORM_ID`),
+  CONSTRAINT `FK_FORM_TEM_REF_BUSINESS_FORM` FOREIGN KEY (`BUSINESS_FORM_ID`) REFERENCES `e_form_business_form` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_business_form_template
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_business_form_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_business_form_type`;
+CREATE TABLE `e_form_business_form_type` (
+  `ID` varchar(32) NOT NULL,
+  `TYPE_NAME` varchar(128) DEFAULT NULL,
+  `TENANTID` varchar(32) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(32) DEFAULT NULL,
+  `CREATOR` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_business_form_type
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_businessform_data`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_businessform_data`;
+CREATE TABLE `e_form_businessform_data` (
+  `ID` varchar(32) NOT NULL,
+  `DATA_ID` varchar(32) DEFAULT NULL,
+  `PROCDEFID` varchar(32) DEFAULT NULL,
+  `BUSINESS_FORM_ID` varchar(32) DEFAULT NULL,
+  `DATA_TYPE` decimal(3,0) DEFAULT NULL,
+  `DATA_NAME` varchar(512) DEFAULT NULL,
+  `DATA_EXT` varchar(4000) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `TENANTID` varchar(32) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(32) DEFAULT NULL,
+  `CREATOR` varchar(32) DEFAULT NULL,
+  `STATUS` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_FORM_DATA_REF_BUS_FORM` (`BUSINESS_FORM_ID`),
+  CONSTRAINT `FK_FORM_DATA_REF_BUS_FORM` FOREIGN KEY (`BUSINESS_FORM_ID`) REFERENCES `e_form_business_form` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_businessform_data
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_datasource_model`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_datasource_model`;
+CREATE TABLE `e_form_datasource_model` (
+  `ID` varchar(32) NOT NULL,
+  `NAME` varchar(128) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_datasource_model
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_ds_field_show_rule`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_ds_field_show_rule`;
+CREATE TABLE `e_form_ds_field_show_rule` (
+  `ID` varchar(32) NOT NULL,
+  `TEMPLATE_FIELD_ID` varchar(32) DEFAULT NULL,
+  `VALUE` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_IELD_SHOW_REF_TEMFIELD` (`TEMPLATE_FIELD_ID`),
+  CONSTRAINT `FK_IELD_SHOW_REF_TEMFIELD` FOREIGN KEY (`TEMPLATE_FIELD_ID`) REFERENCES `e_form_template_field` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_ds_field_show_rule
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_form_field`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_form_field`;
+CREATE TABLE `e_form_form_field` (
+  `ID` varchar(32) NOT NULL,
+  `FIELD_NAME` varchar(128) DEFAULT NULL,
+  `FIELD_CODE` varchar(128) DEFAULT NULL,
+  `DATA_LENGTH` decimal(5,0) DEFAULT NULL,
+  `DATA_DECIMAL` decimal(2,0) DEFAULT NULL,
+  `VIEW_TYPE` decimal(2,0) DEFAULT NULL,
+  `DATASOURCE_ID` varchar(32) DEFAULT NULL,
+  `DATASOURCE_TYPE` decimal(2,0) DEFAULT NULL,
+  `BASE_FORM_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_FORM_FIELD_REF_BASE_FORM` (`BASE_FORM_ID`),
+  CONSTRAINT `FK_FORM_FIELD_REF_BASE_FORM` FOREIGN KEY (`BASE_FORM_ID`) REFERENCES `e_form_base_form` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- Table structure for `e_form_form_file`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_form_file`;
+CREATE TABLE `e_form_form_file` (
+  `ID` varchar(32) NOT NULL,
+  `FILE_NAME` varchar(256) DEFAULT NULL,
+  `FILE_TYPE` varchar(128) DEFAULT NULL,
+  `ATTACH_ID` varchar(32) DEFAULT NULL,
+  `STATUS` decimal(2,0) DEFAULT NULL,
+  `FILE_PATH` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_form_file
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_metadata`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_metadata`;
+CREATE TABLE `e_form_metadata` (
+  `ID` varchar(32) NOT NULL,
+  `METADATA_NAME` varchar(128) DEFAULT NULL,
+  `METADATA_CODE` varchar(128) DEFAULT NULL,
+  `SHOW_ORDER` decimal(3,0) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  `TYPE_ID` varchar(32) DEFAULT NULL,
+  `TENANTID` varchar(32) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(32) DEFAULT NULL,
+  `CREATOR` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_META_DATA_REF_META_TYPE` (`TYPE_ID`),
+  CONSTRAINT `FK_META_DATA_REF_META_TYPE` FOREIGN KEY (`TYPE_ID`) REFERENCES `e_form_metadata_type` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_metadata
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_metadata_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_metadata_type`;
+CREATE TABLE `e_form_metadata_type` (
+  `ID` varchar(32) NOT NULL,
+  `TYPE_NAME` varchar(128) DEFAULT NULL,
+  `IS_SYSTEM` decimal(1,0) DEFAULT NULL,
+  `SHOW_ORDER` decimal(3,0) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_metadata_type
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_metadata_value`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_metadata_value`;
+CREATE TABLE `e_form_metadata_value` (
+  `ID` varchar(32) NOT NULL,
+  `VALUE` decimal(10,0) DEFAULT NULL,
+  `LABEL_NAME` varchar(128) DEFAULT NULL,
+  `METADATA_ID` varchar(32) DEFAULT NULL,
+  `SHOW_ORDER` decimal(5,0) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  `VALUE_CODE` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_META_VALUE_REF_META_DATA` (`METADATA_ID`),
+  CONSTRAINT `FK_META_VALUE_REF_META_DATA` FOREIGN KEY (`METADATA_ID`) REFERENCES `e_form_metadata` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_metadata_value
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_select_datasouce`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_select_datasouce`;
+CREATE TABLE `e_form_select_datasouce` (
+  `ID` varchar(32) NOT NULL,
+  `VALUE` decimal(2,0) DEFAULT NULL,
+  `LABEL_NAME` varchar(128) DEFAULT NULL,
+  `SHOW_ORDER` decimal(2,0) DEFAULT NULL,
+  `FIELD_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_SELECTDATA_REF_FORMFIELD` (`FIELD_ID`),
+  CONSTRAINT `FK_SELECTDATA_REF_FORMFIELD` FOREIGN KEY (`FIELD_ID`) REFERENCES `e_form_form_field` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_select_datasouce
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_form_sql_datasource`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_sql_datasource`;
+CREATE TABLE `e_form_sql_datasource` (
+  `ID` varchar(32) NOT NULL,
+  `SQL_VALUE` varchar(1024) DEFAULT NULL,
+  `SOURCE_NAME` varchar(256) DEFAULT NULL,
+  `SOURCE_TYPE` decimal(1,0) DEFAULT NULL,
+  `VIEW_TYPE` decimal(1,0) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  `MODEL_ID` varchar(32) DEFAULT NULL,
+  `SOURCE_CODE` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_SORUCE_REF_SOURCE_MODEL` (`MODEL_ID`),
+  CONSTRAINT `FK_SORUCE_REF_SOURCE_MODEL` FOREIGN KEY (`MODEL_ID`) REFERENCES `e_form_datasource_model` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_sql_datasource
+-- ----------------------------
+INSERT INTO `e_form_sql_datasource` VALUES ('2bb5d8f4144c4231bf238e7e53dd8b4e', 'SELECT ua.ID \"value\",ua.Account \"text\" FROM CMN_SEC_USERACCOUNT ua WHERE 1=1 AND ua.TENANTID = #{tenantId} AND ua.Enable = \'1\' AND ua.Account like  #{name}', '用户-多选（name查询）【系统】', '1', '1', '流程审批人配置-用户选择-名字查询', '5191d7faecfe43728781fd69e53b9f13', 'userright_user_mul_list_by_name');
+INSERT INTO `e_form_sql_datasource` VALUES ('5003331aaf2048eda5445ed602991c7a', 'select id \"value\",name \"text\" from e_form_datasource_model', '数据源类型', '1', '3', '', '4231a004d70e4bfc864bfd0c9a9351c1', 'form_datasource_model');
+INSERT INTO `e_form_sql_datasource` VALUES ('5bf8b7a373f543c480de063ab3cc27bc', 'SELECT ov.Id id, ov.realId realId, ov.orgname \"text\",IF(ov.parent_id IS NULL,\'1\',\'\') \"leaf\", IF(ov.parent_id IS NULL,\'-1\',ov.parent_id) parent_id FROM V_MDM_ORG_ORGVIEW ov WHERE 1=1 AND \r\r\nov.orgType = \"C\" AND ov.CompanyInnerCode = #{companyInnerCode}', '组织机构-公司树【系统】', '1', '2', '流程审批人配置-选择分公司', '5191d7faecfe43728781fd69e53b9f13', 'userright_org_sub_tree');
+INSERT INTO `e_form_sql_datasource` VALUES ('86cde26276254567a1431ca5d7ab4c1b', 'SELECT ov.Id id, ov.realId realId, ov.orgname \"text\",IF(ov.parent_id IS NULL,\'1\',\'\') \"leaf\", IF(ov.parent_id IS NULL,\'-1\',ov.parent_id) parent_id FROM V_MDM_ORG_ORGVIEW ov WHERE 1=1   AND \r\r\nov.CompanyInnerCode = #{companyInnerCode}', '组织机构-部门树【系统】', '1', '2', '流程审批人配置-选择部门', '5191d7faecfe43728781fd69e53b9f13', 'userright_org_dep_tree');
+INSERT INTO `e_form_sql_datasource` VALUES ('8770ce258eae431cb2a5197d1591cd2c', 'SELECT role.ID \"value\", role.Name \"text\" FROM cmn_sec_role role WHERE 1=1 AND role.TENANTID = #{tenantId} AND role.CompanyInnerCode LIKE #{companyInnerCode}', '角色列表-多选【系统】', '1', '1', '流程审批人配置-选择角色', '5191d7faecfe43728781fd69e53b9f13', 'userright_role_mul_grid');
+INSERT INTO `e_form_sql_datasource` VALUES ('d6c662e1364f49d280f6db6dab7e44a7', 'SELECT ID \"id\",ROLE_NAME 名称,ROLE_CODE 代码,\'操作\' 操作 FROM  E_UR_ROLES where role_name like #{searchName}', '角色列表【系统】', '1', '1', '流程列表页-配置监控需要的角色列表', '5191d7faecfe43728781fd69e53b9f13', 'userright_role_grid');
+INSERT INTO `e_form_sql_datasource` VALUES ('de9dbd1738e54177a1f4b59f2fb0d620', 'SELECT distinct ua.ID \"value\",emp.`Name` \"text\" FROM CMN_SEC_USERACCOUNT ua INNER JOIN HR_ORG_EMPLOYEE emp ON ua.Employee_ID = emp.ID INNER JOIN MDM_ORG_ORGANIZATIONUNIT orgUnit ON emp.OrganizationUnit_ID = orgUnit.ID WHERE 1=1 AND ua.TENANTID = #{tenantId} AND ua.Enable = \'1\' ', '用户-多选（组织机构查询）【系统】', '1', '1', '流程审批人配置-用户选择', '5191d7faecfe43728781fd69e53b9f13', 'userright_user_mul_list');
+INSERT INTO `e_form_sql_datasource` VALUES ('f4c9419a7abd4063aaf604c63d9f8dc4', 'select id \"id\",name \"text\",show_order \"showOrder\",if(IS_LEAF=1,1,0) \"leaf\" ,type \"type\",parent_id \r\n    from e_ur_org  order by show_order', '组织结构树【系统】', '1', '2', '流程审批人配置-用于赛选人员的组织机构树', '5191d7faecfe43728781fd69e53b9f13', 'userright_org_tree');
+
+-- ----------------------------
+-- Table structure for `e_form_template_field`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_template_field`;
+CREATE TABLE `e_form_template_field` (
+  `ID` varchar(32) NOT NULL,
+  `FIELD_ID` varchar(32) DEFAULT NULL,
+  `TEMPLATE_FORM_ID` varchar(32) DEFAULT NULL,
+  `LABEL_NAME` varchar(128) DEFAULT NULL,
+  `IS_SHOW` decimal(1,0) DEFAULT NULL,
+  `IS_EDIT` decimal(1,0) DEFAULT NULL,
+  `IS_REQUIRE` decimal(1,0) DEFAULT NULL,
+  `DEFAULT_VALUE` varchar(1024) DEFAULT NULL,
+  `VALID_STRING` varchar(4000) DEFAULT NULL,
+  `ERROR_TIP` varchar(1024) DEFAULT NULL,
+  `SHOW_ORDER` decimal(5,0) DEFAULT NULL,
+  `WRITE_TIP` varchar(1024) DEFAULT NULL,
+  `HTML_ATTR` varchar(1024) DEFAULT NULL,
+  `EXT_ATTR` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_TEM_FIELD_REF_TEM_FORM` (`TEMPLATE_FORM_ID`),
+  KEY `FK_TEM_FIELD_REF_FORM_FIELD` (`FIELD_ID`),
+  CONSTRAINT `FK_TEM_FIELD_REF_FORM_FIELD` FOREIGN KEY (`FIELD_ID`) REFERENCES `e_form_form_field` (`ID`),
+  CONSTRAINT `FK_TEM_FIELD_REF_TEM_FORM` FOREIGN KEY (`TEMPLATE_FORM_ID`) REFERENCES `e_form_business_base_template` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- ----------------------------
+-- Table structure for `e_form_templateandorganizationunit`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_form_templateandorganizationunit`;
+CREATE TABLE `e_form_templateandorganizationunit` (
+  `ID` varchar(255) NOT NULL,
+  `UUID` varchar(50) DEFAULT NULL,
+  `CODE` varchar(255) DEFAULT NULL,
+  `NAME` varchar(150) DEFAULT NULL,
+  `PRIMARYKEY` varchar(150) DEFAULT NULL,
+  `LANGUAGE` varchar(150) DEFAULT NULL,
+  `COMPANYINNERCODE` varchar(150) DEFAULT NULL,
+  `COMPANYCODE` varchar(150) DEFAULT NULL,
+  `ACCOUNTSET` varchar(150) DEFAULT NULL,
+  `CREATETIME` datetime DEFAULT NULL,
+  `UPDATETIME` datetime DEFAULT NULL,
+  `ENTERPRISECODE` varchar(150) DEFAULT NULL,
+  `DEPARTMENTCODE` varchar(150) DEFAULT NULL,
+  `DEPARTMENT` varchar(150) DEFAULT NULL,
+  `CREATOR` varchar(150) DEFAULT NULL,
+  `STATUS` varchar(50) DEFAULT NULL,
+  `SECRETLEVEL` varchar(150) DEFAULT NULL,
+  `STARTTIME` datetime DEFAULT NULL,
+  `ENDTIME` datetime DEFAULT NULL,
+  `TENANTID` varchar(150) DEFAULT NULL,
+  `LANGCODE` varchar(150) DEFAULT NULL,
+  `COUNTRYCODE` varchar(150) DEFAULT NULL,
+  `INTERESTEDPARTYPERSON` varchar(150) DEFAULT NULL,
+  `INTERESTEDPARTYROLECODE` varchar(150) DEFAULT NULL,
+  `INTERESTEDPARTYROLE` varchar(150) DEFAULT NULL,
+  `VERSION` varchar(150) DEFAULT NULL,
+  `MEMO` varchar(150) DEFAULT NULL,
+  `DESCRIPTION` varchar(150) DEFAULT NULL,
+  `type` varchar(150) DEFAULT NULL,
+  `businessFormId` varchar(150) DEFAULT NULL,
+  `roleId` varchar(150) DEFAULT NULL,
+  `empId` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of e_form_templateandorganizationunit
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_ur_org`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_ur_org`;
+CREATE TABLE `e_ur_org` (
+  `ID` varchar(32) NOT NULL COMMENT 'ID',
+  `NAME` varchar(128) DEFAULT NULL COMMENT '组织结构名称',
+  `TYPE` decimal(2,0) DEFAULT NULL COMMENT '类型1分部，2部门',
+  `PARENT_ID` varchar(32) DEFAULT NULL COMMENT '上级组织机构ID',
+  `SUB_ID` varchar(32) DEFAULT NULL COMMENT '所属分部的ID,对于分部值为0，部门就是所属分部ID',
+  `STATUS` decimal(2,0) DEFAULT NULL COMMENT '是否封存停用',
+  `IS_LEAF` decimal(2,0) DEFAULT NULL COMMENT '是否是子节点1：是，2：否',
+  `SHOW_ORDER` decimal(5,0) DEFAULT NULL COMMENT '排序',
+  `REGION_ID` varchar(32) DEFAULT NULL,
+  `ADDRESS` varchar(1024) DEFAULT NULL,
+  `LOGO` varchar(1024) DEFAULT NULL,
+  `POSTAL_CODE` varchar(32) DEFAULT NULL,
+  `TELEPHONE` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_ur_org
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_ur_roles`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_ur_roles`;
+CREATE TABLE `e_ur_roles` (
+  `ID` varchar(32) NOT NULL COMMENT '主键',
+  `ROLE_NAME` varchar(128) DEFAULT NULL COMMENT '角色名称',
+  `COMMENTS` varchar(200) DEFAULT NULL COMMENT '备注',
+  `ROLE_CODE` varchar(128) DEFAULT NULL COMMENT '角色代码',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_ur_roles
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_ur_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_ur_user`;
+CREATE TABLE `e_ur_user` (
+  `ID` varchar(32) NOT NULL COMMENT '主键',
+  `USER_NAME` varchar(64) DEFAULT NULL COMMENT '名字',
+  `TOU_XIANG` varchar(512) DEFAULT NULL COMMENT '头像',
+  `PASSWORD` varchar(64) DEFAULT NULL COMMENT '密码',
+  `LOGIN` varchar(64) DEFAULT NULL COMMENT '登录名',
+  `EMAIL` varchar(256) DEFAULT NULL COMMENT '邮箱',
+  `STATUS` decimal(1,0) DEFAULT NULL COMMENT '状态(1：有效，0：无效)',
+  `LAST_PAS_DATE` datetime DEFAULT NULL COMMENT '最后一次修改密码时间',
+  `DEP_ID` varchar(32) DEFAULT NULL COMMENT '组织结构部门ID',
+  `SUB_ID` varchar(32) DEFAULT NULL COMMENT '组织结构分部ID',
+  `BIRTH_DATE` datetime DEFAULT NULL COMMENT '出生日期',
+  `MANAGER_ID` varchar(32) DEFAULT NULL COMMENT '直接上级ID',
+  PRIMARY KEY (`ID`),
+  KEY `FK_USER_REF_ORGSUB` (`SUB_ID`) USING BTREE,
+  KEY `FK_USER_REF_ORGDEP` (`DEP_ID`) USING BTREE,
+  CONSTRAINT `FK_USER_REF_ORGDEP` FOREIGN KEY (`DEP_ID`) REFERENCES `e_ur_org` (`ID`),
+  CONSTRAINT `FK_USER_REF_ORGSUB` FOREIGN KEY (`SUB_ID`) REFERENCES `e_ur_org` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_ur_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_ur_user_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_ur_user_role`;
+CREATE TABLE `e_ur_user_role` (
+  `ID` varchar(32) NOT NULL,
+  `ROLE_ID` varchar(32) DEFAULT NULL,
+  `USER_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_USERROLE_REF_ROLES` (`ROLE_ID`) USING BTREE,
+  KEY `FK_USERROLE_REF_USERS` (`USER_ID`) USING BTREE,
+  CONSTRAINT `FK_USERROLE_REF_ROLES` FOREIGN KEY (`ROLE_ID`) REFERENCES `e_ur_roles` (`ID`),
+  CONSTRAINT `FK_USERROLE_REF_USERS` FOREIGN KEY (`USER_ID`) REFERENCES `e_ur_user` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_ur_user_role
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_vform_dynamic_list`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_vform_dynamic_list`;
+CREATE TABLE `e_vform_dynamic_list` (
+  `ID` varchar(32) NOT NULL,
+  `NAME` varchar(256) DEFAULT NULL,
+  `REMARK` varchar(1024) DEFAULT NULL,
+  `COL_VALUE` decimal(3,0) DEFAULT NULL,
+  `RAW_VALUE` decimal(3,0) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_vform_dynamic_list
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `e_vform_variable`
+-- ----------------------------
+DROP TABLE IF EXISTS `e_vform_variable`;
+CREATE TABLE `e_vform_variable` (
+  `ID` varchar(32) NOT NULL,
+  `VAR_NAME` varchar(256) DEFAULT NULL,
+  `VAR_CODE` varchar(256) DEFAULT NULL,
+  `VAR_VALUE` varchar(2000) DEFAULT NULL,
+  `VAR_TYPE` decimal(1,0) DEFAULT NULL COMMENT '1：SQL，2：表达式',
+  `REMARK` varchar(1024) DEFAULT NULL,
+  `ROW_VALUE` decimal(2,0) DEFAULT NULL,
+  `COL_VALUE` decimal(2,0) DEFAULT NULL,
+  `LIST_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_VF_VAR_REF_VF_LIST` (`LIST_ID`) USING BTREE,
+  CONSTRAINT `FK_VF_VAR_REF_VF_LIST` FOREIGN KEY (`LIST_ID`) REFERENCES `e_vform_dynamic_list` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of e_vform_variable
+-- ----------------------------
+

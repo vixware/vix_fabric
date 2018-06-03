@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.vix.mdm.item.entity.ItemInventoryProperties" table="MDM_ITEMINVENTORYPROPERTIES">
+		<id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+
+		<property name="uuid" type="java.lang.String" column="UUID" length="50" />
+		<property name="code" type="java.lang.String" column="CODE" />
+		<property name="name" type="java.lang.String" column="NAME" length="150" />
+		<property name="primaryKey" type="java.lang.String" column="PRIMARYKEY" length="150" />
+		<property name="language" type="java.lang.String" column="LANGUAGE" length="150" />
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150" />
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150" />
+		<property name="accountSet" type="java.lang.String" column="ACCOUNTSET" length="150" />
+		<property name="createTime" type="java.util.Date" column="CREATETIME" />
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME" />
+		<property name="enterpriseCode" type="java.lang.String" column="ENTERPRISECODE" length="150" />
+		<property name="departmentCode" type="java.lang.String" column="DEPARTMENTCODE" length="150" />
+		<property name="department" type="java.lang.String" column="DEPARTMENT" length="150" />
+		<property name="creator" type="java.lang.String" column="CREATOR" length="150" />
+		<property name="status" type="java.lang.String" column="STATUS" length="50" />
+		<property name="secretLevel" type="java.lang.String" column="SECRETLEVEL" length="150" />
+		<property name="startTime" type="java.util.Date" column="STARTTIME" />
+		<property name="endTime" type="java.util.Date" column="ENDTIME" />
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="150" update="false" />
+		<property name="langCode" type="java.lang.String" column="LANGCODE" length="150" />
+		<property name="countryCode" type="java.lang.String" column="COUNTRYCODE" length="150" />
+		<property name="interestedPartyPerson" type="java.lang.String" column="INTERESTEDPARTYPERSON" length="150" />
+		<property name="interestedPartyRoleCode" type="java.lang.String" column="INTERESTEDPARTYROLECODE" length="150" />
+		<property name="interestedPartyRole" type="java.lang.String" column="INTERESTEDPARTYROLE" length="150" />
+		<property name="version" type="java.lang.String" column="VERSION" length="150" />
+		<property name="memo" type="java.lang.String" column="MEMO" length="150" />
+		<property name="description" type="java.lang.String" column="DESCRIPTION" length="150" />
+
+		<property name="itemCode" type="java.lang.String" column="ITEMCODE" length="150" />
+		<property name="itemType" type="java.lang.String" column="ITEMTYPE" length="150" />
+		<property name="maxStockAmount" type="java.lang.Double" column="MAXSTOCKAMOUNT" length="150" />
+		<property name="minStockAmount" type="java.lang.Double" column="MINSTOCKAMOUNT" />
+		<property name="safeStockAmount" type="java.lang.Double" column="SAFESTOCKAMOUNT" />
+		<many-to-one name="defaultWarehouse" column="defaultWarehouse_id" />
+		<many-to-one name="defaultInvShelf" column="defaultInvShelf_id" />
+		<property name="replaceItem" type="java.lang.String" column="REPLACEITEM" length="150" />
+		<property name="requireMaxAmount" type="java.lang.Double" column="REQUIREMAXAMOUNT" />
+		<property name="inStockExceedAmount" type="java.lang.Double" column="INSTOCKEXCEEDAMOUNT" />
+		<property name="outStockExceedAmount" type="java.lang.Double" column="OUTSTOCKEXCEEDAMOUNT" />
+		<property name="bookingExceedAmount" type="java.lang.Double" column="BOOKINGEXCEEDAMOUNT" />
+		<property name="unitExchangeRate" type="java.lang.Double" column="UNITEXCHANGERATE" />
+		<property name="coefficientOfLosses" type="java.lang.Double" column="COEFFICIENTOFLOSSES" />
+
+		<property name="economicBatchAmount" type="java.lang.Double" column="ECONOMICBATCHAMOUNT" />
+		<property name="abcCatalog" type="java.lang.String" column="ABCCATALOG" length="150" />
+		<property name="catalogCode" type="java.lang.String" column="CATALOGCODE" length="150" />
+		<property name="customerCatalog" type="java.lang.String" column="CUSTOMERCATALOG" length="150" />
+		<property name="receiveMateriaBatchAmount" type="java.lang.Double" column="RECEIVEMATERIABATCHAMOUNT" />
+		<property name="minSperateGroup" type="java.lang.String" column="MINSPERATEGROUP" length="150" />
+		<property name="countingCycle" type="java.lang.Double" column="COUNTINGCYCLE" />
+		<property name="countingCycleUnit" type="java.lang.String" column="COUNTINGCYCLEUNIT" length="150" />
+		<property name="lastCountingTime" type="java.util.Date" column="LASTCOUNTINGTIME" />
+		<property name="isStockAlone" type="java.lang.String" column="ISSTOCKALONE" length="150" />
+		<property name="isOutTraceIn" type="java.lang.String" column="ISOUTTRACEIN" length="150" />
+		<property name="isNeedSerialNumber" type="java.lang.String" column="ISNEEDSERIALNUMBER" length="150" />
+		<property name="isNeedBarCode" type="java.lang.String" column="ISNEEDBARCODE" length="150" />
+		<property name="overStock" type="java.lang.Integer" column="OVERSTOCK" length="150" />
+		<property name="isNeedQuality" type="java.lang.String" column="ISNEEDQUALITY" length="150" />
+		<property name="isNeedStock" type="java.lang.String" column="ISNEEDSTOCK" length="150" />
+		<property name="isNeedBatchNumber" type="java.lang.String" column="ISNEEDBATCHNUMBER" length="150" />
+		<property name="shelfLife" type="java.lang.Double" column="SHELFLIFE" />
+		<property name="isBackflush" type="java.lang.String" column="ISBACKFLUSH" length="150" />
+		<many-to-one name="item" class="com.vix.mdm.item.entity.Item">
+			<column name="item_id" unique="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

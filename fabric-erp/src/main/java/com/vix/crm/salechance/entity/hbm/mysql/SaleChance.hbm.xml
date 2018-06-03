@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.vix.crm.salechance.entity.SaleChance" table="CRM_SALECHANCE">
+        <id name="id" type="java.lang.String" column="ID">
+			<generator class="uuid2">
+				<param name="uuid_gen_strategy_class">org.hibernate.id.uuid.CustomVersionOneStrategy</param>
+			</generator>
+		</id>
+		
+		<property name="createTime" type="java.util.Date" column="CREATETIME"/>
+		<property name="updateTime" type="java.util.Date" column="UPDATETIME"/>
+		<property name="tenantId" type="java.lang.String" column="TENANTID" length="128"  update="false"/>
+		<property name="companyInnerCode" type="java.lang.String" column="COMPANYINNERCODE" length="150"/>
+		<property name="companyCode" type="java.lang.String" column="COMPANYCODE" length="150"/>
+		 	
+		<!-- 基础业务对象 -->
+		<property name="barCode" type="java.lang.String" column="BARCODE" length="150"/>
+		<property name="approver" type="java.lang.String" column="APPROVER" length="150"/>
+		<!-- <property name="approalStatus" type="java.lang.String" column="APPROALSTATUS" length="50"/> -->
+		<property name="chineseFirstLetter" type="java.lang.String" column="CHINESEFIRSTLETTER" length="100"/>
+		<property name="barCodeTwoDimen" type="java.lang.String" column="BARCODETWODIMEN" length="150"/>
+		<property name="selfExtendStringField1" type="java.lang.String" column="SELFEXTENDSTRINGFIELD1" length="150"/>
+		<property name="selfExtendStringField2" type="java.lang.String" column="SELFEXTENDSTRINGFIELD2" length="150"/>
+		<property name="selfExtendStringField3" type="java.lang.String" column="SELFEXTENDSTRINGFIELD3" length="150"/>
+		<property name="selfExtendStringField4" type="java.lang.String" column="SELFEXTENDSTRINGFIELD4" length="150"/>
+		<property name="selfExtendStringField5" type="java.lang.String" column="SELFEXTENDSTRINGFIELD5" length="150"/>
+		<property name="selfExtendStringField6" type="java.lang.String" column="SELFEXTENDSTRINGFIELD6" length="150"/>
+ 		<property name="selfExtendStringField7" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD7" length="150"/>
+		<property name="selfExtendStringField8" type="java.lang.Double" column="SELFEXTENDSTRINGFIELD8" length="150"/>
+		<property name="selfExtendStringField9" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD9" length="150"/>
+		<property name="selfExtendStringField10" type="java.lang.Integer" column="SELFEXTENDSTRINGFIELD10" length="150"/>
+		<property name="selfExtendStringField11" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD11" length="150"/>
+		<property name="selfExtendStringField12" type="java.lang.Long" column="SELFEXTENDSTRINGFIELD12" length="150"/>
+ 		<property name="selfExtendXMLField1" type="java.lang.String" column="SELFEXTENDXMLFIELD1" length="1000"/>
+		<property name="selfExtendXMLField2" type="java.lang.String" column="SELFEXTENDXMLFIELD2" length="1000"/>
+ 		<property name="ipAddress" type="java.lang.String" column="IPADDRESS" length="150"/>
+		<property name="bizflowPhase" type="java.lang.String" column="BIZFLOWPHASE" length="150"/>
+ 		<property name="isDeleted" type="java.lang.String" column="ISDELETED" length="150" />
+		 		
+		<property name="subject" type="java.lang.String" column="SUBJECT" length="150"/>
+		<property name="type" type="java.lang.String" column="TYPE" length="150"/>
+		<property name="findDate" type="java.util.Date" column="FINDDATE" />
+		<property name="source" type="java.lang.String" column="SOURCE" length="150"/>
+		<property name="sourcePerson" type="java.lang.String" column="SOURCEPERSON" length="150"/>
+		<property name="requirement" type="java.lang.String" column="REQUIREMENT" length="150"/>
+		<property name="preOrderDate" type="java.util.Date" column="PREORDERDATE" />
+		<property name="charger" type="java.lang.String" column="CHARGER" length="150"/>
+		<property name="expectedValue" type="java.lang.Double" column="EXPECTEDVALUE" length="150"/>
+		<property name="possibility" type="java.lang.Float" column="POSSIBILITY" length="150"/>
+		<property name="compaignProbability" type="java.lang.Float" column="COMPAIGNPROBABILITY" length="150"/>
+		<property name="phaseStay" type="java.lang.String" column="PHASESTAY" length="150"/>
+		<property name="phase" type="java.lang.String" column="PHASE" length="150"/>
+		<property name="cleanDate" type="java.util.Date" column="CLEANDATE" />
+		<property name="dateEntered" type="java.util.Date" column="DATAENTERED" />
+		<property name="dateModified" type="java.util.Date" column="DATEMODIFIED" />
+		<property name="modifiedUserId" type="java.lang.String" column="MODIFIEDUSERID" />
+   		<property name="createdBy" type="java.lang.String" column="CREATEBY" length="150"/>
+	 	<property name="assignedUserId" type="java.lang.String" column="ASSIGNEDUSERID" />
+   		<property name="chanceType" type="java.lang.String" column="CHANCETYPE" length="150"/>
+   		<property name="leadSource" type="java.lang.String" column="LEADSOURCE" length="150"/>
+	 	<property name="amount" type="java.lang.Double" column="AMOUNT" length="150" />
+   		<property name="count" type="java.lang.Double" column="COUNT" length="150"/>
+	 	<property name="dateClosed" type="java.util.Date" column="DATECLOSED" />
+   		<property name="nextStepPlan" type="java.lang.String" column="NEXTSTEPPLAN"/>
+ 		<property name="probability" type="java.lang.Double" column="PROBABILITY" />
+   		<property name="precastCleanDate" type="java.util.Date" column="PRECASTCLEANDATE" />
+	 	<property name="precastCloseDate" type="java.util.Date" column="PRECASTCLOSEDATE" />
+   		<property name="estimatedCost" type="java.lang.Double" column="ESTIMATEDCOST" />
+	 	<property name="acturalCost" type="java.lang.Double" column="ACTURALCOST" />
+   		<property name="potentialAmount" type="java.lang.Double" column="POTENTIALAMOUNT" />
+	 	<property name="weightedAmount" type="java.lang.Double" column="WEIGHTEDAMOUNT" />
+		<property name="grossMargin" type="java.lang.Double" column="GROSSMARGIN" length="150"/>
+		<property name="grossTotalMargin" type="java.lang.Double" column="GROSSTOTALMARGIN" length="150"/>
+		<property name="memo" type="java.lang.String" column="MEMO" length="150"/>
+		
+		
+		<many-to-one name="customerAccount" column="customerAccount_id"/>
+   		<many-to-one name="currencyType" column="currencyType_id"/>
+ 		<many-to-one name="saleStage" column="saleStage_id"/>
+		<many-to-one name="saleChanceStatus" column="saleChanceStatus_id"/>
+		<many-to-one name="crmProject" column="crmProject_id"/>
+		<many-to-one name="contactPerson" column="contactPerson_id"/>
+		<many-to-one name="saleType" column="saleType_id"/>
+		<many-to-one name="saleSource" column="saleSource_id"/>
+		<many-to-one name="employee" column="employee_id"/>
+  </class>
+</hibernate-mapping>
